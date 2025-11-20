@@ -1,0 +1,70 @@
+{
+  "Otoño": {
+    "nombre": "Música de Otoño",
+    "descripcion": "Cartones con canciones temáticas de otoño perfectos para celebraciones de la temporada.",
+    "archivos": []
+  },
+  "Navidad": {
+    "nombre": "Especial Navidad",
+    "descripcion": "Villancicos y canciones navideñas clásicas para tus fiestas decembrinas.",
+    "archivos": []
+  },
+  "Cumpleaños": {
+    "nombre": "Fiesta de Cumpleaños",
+    "descripcion": "Canciones festivas y animadas ideales para celebraciones de cumpleaños.",
+    "archivos": []
+  },
+  "Clásicos Pop": {
+    "nombre": "Clásicos del Pop",
+    "descripcion": "Los mejores éxitos pop de todos los tiempos en cartones listos para jugar.",
+    "archivos": []
+  },
+  "Infantil": {
+    "nombre": "Música Infantil",
+    "descripcion": "Canciones de películas Disney, villancicos infantiles y más para los más pequeños.",
+    "subcategorias": {
+      "Películas": {
+        "nombre": "Películas Disney y Animadas",
+        "descripcion": "Canciones de películas infantiles favoritas.",
+        "archivos": []
+      },
+      "Villancicos": {
+        "nombre": "Villancicos Infantiles",
+        "descripcion": "Villancicos especiales para niños.",
+        "archivos": []
+      }
+    }
+  },
+  "Mix": {
+    "nombre": "Mix Musical",
+    "descripcion": "Colecciones variadas con mezclas de diferentes géneros y épocas. 150 cartones únicos por colección.",
+    "subcategorias": {
+      "Mix 1": {
+        "nombre": "Mix 1 - Pop Latino y Español",
+        "descripcion": "49 canciones · 150 cartones únicos · 12 canciones por cartón · 3 cartones por hoja · Formato PDF y PowerPoint.",
+        "archivos": [
+          {
+            "nombre": "Listado Completo (49 canciones)",
+            "ruta": "cartones/varios/1/listado-canciones-varios-1.md",
+            "canciones": 49
+          },
+          {
+            "nombre": "Todos los Cartones Markdown (150 cartones)",
+            "ruta": "cartones/varios/1/cartones-bingo-musical-varios-1.md",
+            "canciones": 12
+          },
+          {
+            "nombre": "Cartones PDF (50 hojas × 3 cartones)",
+            "ruta": "cartones/varios/1/Cartones-Corregidos-varios-1.pdf",
+            "canciones": 12
+          },
+          {
+            "nombre": "Cartones PowerPoint (Editable)",
+            "ruta": "cartones/varios/1/Cartones-Corregidos-varios-1.pptx",
+            "canciones": 12
+          }
+        ]
+      }
+    }
+  }
+}

@@ -68,6 +68,20 @@ body{
 
 .offline-banner{ position:fixed; left:50%; transform:translateX(-50%); top:0; background:#ffda77; color:#2b1212; padding:.6rem 1rem; border-bottom-left-radius:8px; border-bottom-right-radius:8px; box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
 
+/* Downloadable cards section */
+.downloadable-category{ margin-bottom:2rem; }
+.category-header{ margin-bottom:1rem; }
+.category-header h3{ margin:0 0 .3rem; color:var(--accent); font-size:1.4rem; }
+.category-desc{ color:var(--muted); font-size:0.95rem; margin:.3rem 0; }
+.subcategory-title{ margin:1.5rem 0 .5rem; color:var(--accent-2); font-size:1.1rem; }
+.files-grid{ display:grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap:1rem; margin-top:1rem; }
+.download-card{ text-align:center; padding:1rem; transition: transform .2s, box-shadow .2s; }
+.download-card:hover{ transform: translateY(-4px); box-shadow: 0 12px 24px rgba(33,33,33,0.1); }
+.download-card h4{ margin:0 0 .4rem; font-size:1rem; }
+.card-info{ color:var(--muted); font-size:0.85rem; margin:.4rem 0 .8rem; }
+.card-actions{ display:flex; justify-content:center; gap:.5rem; flex-wrap:wrap; }
+.card-actions .btn{ font-size:0.9rem; padding:.5rem .8rem; }
+
 /* small screens */
 @media (max-width:900px){
   .hero-left{ max-width:100%; }

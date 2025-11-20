@@ -7,7 +7,9 @@ const ASSETS = [
   '/assets/css/styles.css',
   '/assets/js/app.js',
   '/manifest.json',
-  '/offline.html'
+  '/offline.html',
+  '/data/playlists.json',
+  '/data/downloadable-cards.json'
 ];
 
 // Install - cache files

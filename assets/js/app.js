@@ -1,6 +1,6 @@
 
 /* app.js - Bingo Musical (Cartoon style) */
-/* Basic client logic: load playlists, render UI, generate bingo cards, cookie consent, offline banner */
+/* Basic client logic: load playlists, render UI, generate bingo cards, cookie consent, offline banner, downloadable cards */
 const sanitize = s => (typeof s === 'string') ? s.replaceAll('<','&lt;').replaceAll('>','&gt;') : '';
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   renderSections(playlists);
   populateSelect(playlists);
+  await renderDownloadableCards();
 
   document.getElementById('generateBtn').addEventListener('click', () => generateBingo(playlists));
 });
@@ -159,3 +160,111 @@ function downloadCard(lines, index){
   a.remove();
   URL.revokeObjectURL(url);
 }
+
+async function renderDownloadableCards(){
+  const container = document.getElementById('downloadable-cards');
+  if(!container) return;
+  
+  container.innerHTML = '<p style="text-align:center;color:var(--muted);">Cargando cartones...</p>';
+
+  try {
+    const resp = await fetch('/data/downloadable-cards.json');
+    const data = await resp.json();
+    container.innerHTML = '';
+
+    Object.entries(data).forEach(([key, category]) => {
+      // Skip if no files and no subcategories
+      if((!category.archivos || category.archivos.length === 0) && !category.subcategorias){
+        return;
+      }
+
+      const section = document.createElement('div');
+      section.className = 'downloadable-category';
+
+      const header = document.createElement('div');
+      header.className = 'category-header';
+      const h3 = document.createElement('h3');
+      h3.textContent = category.nombre;
+      const desc = document.createElement('p');
+      desc.textContent = category.descripcion;
+      desc.className = 'category-desc';
+      header.appendChild(h3);
+      header.appendChild(desc);
+      section.appendChild(header);
+
+      // Render main category files
+      if(category.archivos && category.archivos.length > 0){
+        const filesGrid = document.createElement('div');
+        filesGrid.className = 'files-grid';
+        category.archivos.forEach(file => {
+          filesGrid.appendChild(createDownloadCard(file));
+        });
+        section.appendChild(filesGrid);
+      }
+
+      // Render subcategories
+      if(category.subcategorias){
+        Object.entries(category.subcategorias).forEach(([subKey, subCat]) => {
+          if(!subCat.archivos || subCat.archivos.length === 0) return;
+
+          const subHeader = document.createElement('h4');
+          subHeader.textContent = subCat.nombre;
+          subHeader.className = 'subcategory-title';
+          section.appendChild(subHeader);
+
+          const subDesc = document.createElement('p');
+          subDesc.textContent = subCat.descripcion;
+          subDesc.className = 'category-desc';
+          section.appendChild(subDesc);
+
+          const filesGrid = document.createElement('div');
+          filesGrid.className = 'files-grid';
+          subCat.archivos.forEach(file => {
+            filesGrid.appendChild(createDownloadCard(file));
+          });
+          section.appendChild(filesGrid);
+        });
+      }
+
+      container.appendChild(section);
+    });
+
+    if(container.children.length === 0){
+      container.innerHTML = '<p style="text-align:center;color:var(--muted);">No hay cartones disponibles aún. ¡Vuelve pronto!</p>';
+    }
+
+  } catch (e) {
+    console.error('Error cargando cartones descargables:', e);
+    container.innerHTML = '<p style="text-align:center;color:var(--muted);">Error al cargar los cartones. Por favor, intenta más tarde.</p>';
+  }
+}
+
+function createDownloadCard(file){
+  const card = document.createElement('div');
+  card.className = 'download-card card';
+
+  const title = document.createElement('h4');
+  title.textContent = sanitize(file.nombre);
+  
+  const info = document.createElement('p');
+  info.className = 'card-info';
+  info.textContent = `${file.canciones} canciones`;
+
+  const btnContainer = document.createElement('div');
+  btnContainer.className = 'card-actions';
+
+  const downloadBtn = document.createElement('a');
+  downloadBtn.href = `/${file.ruta}`;
+  downloadBtn.download = file.ruta.split('/').pop();
+  downloadBtn.className = 'btn primary';
+  downloadBtn.textContent = 'Descargar';
+  downloadBtn.setAttribute('aria-label', `Descargar ${file.nombre}`);
+
+  btnContainer.appendChild(downloadBtn);
+  card.appendChild(title);
+  card.appendChild(info);
+  card.appendChild(btnContainer);
+
+  return card;
+}
+

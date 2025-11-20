@@ -1,23 +1,33 @@
 # Bingo Musical - Copilot Instructions
 
 ## Project Overview
-Progressive Web App (PWA) for generating musical bingo cards with themed playlists. Vanilla JavaScript frontend with no build process - all files are served directly from GitHub Pages.
+Progressive Web App (PWA) for generating musical bingo cards with themed playlists. **Hybrid monetization strategy**: dynamic card generator + pre-generated downloadable cards with AdSense integration. Vanilla JavaScript frontend with no build process - all files are served directly from GitHub Pages.
 
 ## Architecture & Key Files
 
 ### Core Application Structure
-- **`index.html`**: Single-page application with inline navigation (hash routing: `#otoño`, `#cumple`, `#navidad`, `#bingo`, `#about`)
-- **`assets/js/app.js`**: Main client logic (playlist rendering, card generation, cookie consent, offline detection)
+- **`index.html`**: Single-page application with inline navigation (hash routing: `#otoño`, `#cumple`, `#navidad`, `#bingo`, `#mix`, `#about`)
+- **`assets/js/app.js`**: Main client logic (playlist rendering, card generation, cookie consent, offline detection, downloadable cards UI)
 - **`assets/css/styles.css`**: Cartoon-style design with CSS custom properties, responsive grid layouts
 - **`data/playlists.json`**: Themed song collections (UTF-8 encoded with Spanish characters)
+- **`data/downloadable-cards.json`**: Metadata for pre-generated bingo cards (category, description, file paths)
+- **`cartones/`**: Pre-generated bingo cards organized by theme (otoño/, navidad/, cumpleaños/, varios/, etc.)
 - **`service-worker.js`**: PWA offline support with network-first strategy, cache version `bingo-musical-v1`
 - **`manifest.json`**: PWA configuration for standalone app experience
 
 ### Data Flow
+
+#### Dynamic Generation (Main Feature)
 1. On load, `app.js` fetches `/data/playlists.json` (fallback to hardcoded data if fetch fails)
 2. Playlists render as cards in `#secciones` with "Usar en Bingo" buttons
 3. Users select playlist → configure grid size → generate unique random cards
 4. Cards can be downloaded as `.txt` files via blob URLs
+
+#### Pre-Generated Downloads (Monetization)
+1. Fetch `/data/downloadable-cards.json` with card metadata
+2. Render cards in `#varios` section with preview and download buttons
+3. Direct downloads from `/cartones/{category}/{filename}.txt`
+4. AdSense ads displayed between navigation and download actions
 
 ## Critical Conventions
 
@@ -79,6 +89,52 @@ Edit `data/playlists.json`:
 }
 ```
 Format: `"Title - Artist"` (sanitized on render)
+
+### New Pre-Generated Card Category
+1. Create folder in `/cartones/{category-name}/` or subfolder for collections
+2. Add card files in multiple formats: `.md`, `.txt`, `.pdf`, `.pptx`
+3. Include song list file (e.g., `listado-canciones-{name}.md`)
+4. Update `data/downloadable-cards.json`:
+```json
+{
+  "Category Name": {
+    "nombre": "Display Name",
+    "descripcion": "Short description",
+    "archivos": [
+      {
+        "nombre": "Cartón 1",
+        "ruta": "cartones/category-name/carton-1.txt",
+        "canciones": 12
+      }
+    ]
+  }
+}
+```
+
+**File naming convention**: 
+- Categories: `lowercase-with-hyphens` (e.g., `clasicos-pop`, `varios`)
+- Collections: Numbered subfolders for sets (e.g., `varios/1/`, `varios/2/`)
+- Files: Multiple formats supported:
+  - `carton-{number}.txt` - Plain text (UTF-8)
+  - `cartones-bingo-musical-{name}.md` - Markdown with all cards
+  - `Cartones-Corregidos-{name}.pdf` - PDF presentation
+  - `Cartones-Corregidos-{name}.pptx` - PowerPoint presentation
+  - `listado-canciones-{name}.md` - Master song list
+- Keep files under 10KB for fast downloads (except PDF/PPTX)
+
+**Example structure** (existing):
+```
+cartones/varios/1/  (Mix 1 collection)
+  ├── listado-canciones-varios-1.md (49 songs total)
+  ├── cartones-bingo-musical-varios-1.md (150 cards, 12 songs each)
+  ├── Cartones-Corregidos-varios-1.pdf (50 sheets × 3 cards per sheet)
+  └── Cartones-Corregidos-varios-1.pptx (editable presentation)
+```
+
+**Card specifications**:
+- 12 songs per card (randomly selected from pool)
+- 3 cards per sheet/slide
+- 150 unique cards total per collection
 
 ### New UI Section
 1. Add section to `index.html` with unique `id`
