@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderSections(playlists);
   populateSelect(playlists);
   await renderDownloadableCards();
+  await renderFeaturedCards();
 
   document.getElementById('generateBtn').addEventListener('click', () => generateBingo(playlists));
 });
@@ -259,20 +260,30 @@ function createDownloadCard(file, categoryKey){
   
   const info = document.createElement('p');
   info.className = 'card-info';
-  info.textContent = `${file.canciones} canciones`;
+  if(file.canciones > 0){
+    info.textContent = `${file.canciones} canciones`;
+  } else {
+    info.textContent = 'En preparación';
+    info.style.color = 'var(--muted)';
+    info.style.fontStyle = 'italic';
+  }
 
   const btnContainer = document.createElement('div');
   btnContainer.className = 'card-actions';
 
-  const downloadBtn = document.createElement('a');
-  downloadBtn.href = `/${file.ruta}`;
-  downloadBtn.download = file.ruta.split('/').pop();
-  downloadBtn.className = 'btn primary';
-  downloadBtn.textContent = 'Descargar';
-  downloadBtn.setAttribute('aria-label', `Descargar ${file.nombre}`);
+  // Only show download button if file has valid path
+  if(file.ruta && file.ruta !== '#'){
+    const downloadBtn = document.createElement('a');
+    downloadBtn.href = `/${file.ruta}`;
+    downloadBtn.download = file.ruta.split('/').pop();
+    downloadBtn.className = 'btn primary';
+    downloadBtn.textContent = 'Descargar';
+    downloadBtn.setAttribute('aria-label', `Descargar ${file.nombre}`);
+    btnContainer.appendChild(downloadBtn);
+  }
 
-  // Add Spotify button if playlists available
-  if(categoryKey && spotifyData[categoryKey]){
+  // Add Spotify button only if explicitly enabled in file config
+  if(file.spotify === true && categoryKey && spotifyData[categoryKey]){
     const spotifyBtn = document.createElement('button');
     spotifyBtn.className = 'btn ghost spotify-btn';
     spotifyBtn.innerHTML = '🎵 Playlist';
@@ -281,7 +292,17 @@ function createDownloadCard(file, categoryKey){
     btnContainer.appendChild(spotifyBtn);
   }
 
-  btnContainer.appendChild(downloadBtn);
+  // Add request button if explicitly enabled in file config
+  if(file.solicitar === true){
+    const requestBtn = document.createElement('a');
+    requestBtn.href = '#about';
+    requestBtn.className = 'btn ghost';
+    requestBtn.innerHTML = '📧 Solicitar cartones';
+    requestBtn.setAttribute('aria-label', 'Solicitar estos cartones al administrador');
+    requestBtn.title = 'Estos cartones están en preparación. Contáctanos para recibirlos.';
+    btnContainer.appendChild(requestBtn);
+  }
+
   card.appendChild(title);
   card.appendChild(info);
   card.appendChild(btnContainer);
@@ -387,5 +408,44 @@ function openSpotifyModal(categoryKey){
   // Show modal
   modal.hidden = false;
   console.log('Modal mostrado correctamente');
+}
+
+async function renderFeaturedCards(){
+  const container = document.getElementById('featured-cards');
+  if(!container) return;
+
+  try {
+    const resp = await fetch('/data/downloadable-cards.json');
+    const data = await resp.json();
+
+    // Featured items (manually selected most downloaded)
+    const featured = [
+      { category: 'Mix', subcategory: 'Mix 1', fileIndex: 2 }, // PDF Mix 1
+    ];
+
+    featured.forEach(({ category, subcategory, fileIndex }) => {
+      const cat = data[category];
+      if(!cat) return;
+
+      let file;
+      if(subcategory && cat.subcategorias && cat.subcategorias[subcategory]){
+        file = cat.subcategorias[subcategory].archivos[fileIndex];
+      } else if(cat.archivos) {
+        file = cat.archivos[fileIndex];
+      }
+
+      if(file){
+        container.appendChild(createDownloadCard(file, category));
+      }
+    });
+
+    if(container.children.length === 0){
+      container.innerHTML = '<p style="text-align:center;color:var(--muted);">Próximamente cartones destacados.</p>';
+    }
+
+  } catch (e) {
+    console.error('Error cargando cartones destacados:', e);
+    container.innerHTML = '<p style="text-align:center;color:var(--muted);">Error al cargar cartones destacados.</p>';
+  }
 }
 

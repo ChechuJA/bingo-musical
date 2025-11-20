@@ -2,22 +2,50 @@
   "Otoño": {
     "nombre": "Música de Otoño",
     "descripcion": "Cartones con canciones temáticas de otoño perfectos para celebraciones de la temporada.",
-    "archivos": []
+    "archivos": [
+      {
+        "nombre": "Cartones de Otoño (Próximamente)",
+        "ruta": "#",
+        "canciones": 0,
+        "solicitar": true
+      }
+    ]
   },
   "Navidad": {
     "nombre": "Especial Navidad",
     "descripcion": "Villancicos y canciones navideñas clásicas para tus fiestas decembrinas.",
-    "archivos": []
+    "archivos": [
+      {
+        "nombre": "Cartones de Navidad (Próximamente)",
+        "ruta": "#",
+        "canciones": 0,
+        "solicitar": true
+      }
+    ]
   },
   "Cumpleaños": {
     "nombre": "Fiesta de Cumpleaños",
     "descripcion": "Canciones festivas y animadas ideales para celebraciones de cumpleaños.",
-    "archivos": []
+    "archivos": [
+      {
+        "nombre": "Cartones de Cumpleaños (Próximamente)",
+        "ruta": "#",
+        "canciones": 0,
+        "solicitar": true
+      }
+    ]
   },
   "Clásicos Pop": {
     "nombre": "Clásicos del Pop",
     "descripcion": "Los mejores éxitos pop de todos los tiempos en cartones listos para jugar.",
-    "archivos": []
+    "archivos": [
+      {
+        "nombre": "Cartones Clásicos Pop (Próximamente)",
+        "ruta": "#",
+        "canciones": 0,
+        "solicitar": true
+      }
+    ]
   },
   "Infantil": {
     "nombre": "Música Infantil",
@@ -46,22 +74,26 @@
           {
             "nombre": "Listado Completo (49 canciones)",
             "ruta": "cartones/varios/1/listado-canciones-varios-1.md",
-            "canciones": 49
+            "canciones": 49,
+            "spotify": true
           },
           {
             "nombre": "Todos los Cartones Markdown (150 cartones)",
             "ruta": "cartones/varios/1/cartones-bingo-musical-varios-1.md",
-            "canciones": 12
+            "canciones": 12,
+            "spotify": true
           },
           {
             "nombre": "Cartones PDF (50 hojas × 3 cartones)",
             "ruta": "cartones/varios/1/Cartones-Corregidos-varios-1.pdf",
-            "canciones": 12
+            "canciones": 12,
+            "spotify": true
           },
           {
             "nombre": "Cartones PowerPoint (Editable)",
             "ruta": "cartones/varios/1/Cartones-Corregidos-varios-1.pptx",
-            "canciones": 12
+            "canciones": 12,
+            "spotify": true
           }
         ]
       }
