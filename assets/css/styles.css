@@ -87,10 +87,11 @@ body{
 
 /* Spotify Modal */
 .modal-overlay{ position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:1000; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(4px); }
+.modal-overlay[hidden]{ display:none !important; }
 .modal-content{ background:var(--card); border-radius:var(--radius); max-width:600px; width:90%; max-height:90vh; overflow-y:auto; padding:2rem; position:relative; box-shadow: 0 20px 60px rgba(0,0,0,0.3); animation: modalSlideIn 0.3s ease-out; }
 @keyframes modalSlideIn{ from{ opacity:0; transform:translateY(-30px); } to{ opacity:1; transform:translateY(0); } }
-.modal-close{ position:absolute; top:1rem; right:1rem; background:transparent; border:none; font-size:2rem; line-height:1; cursor:pointer; color:var(--muted); padding:.25rem .5rem; border-radius:8px; }
-.modal-close:hover{ background:var(--glass); color:#000; }
+.modal-close{ position:absolute; top:1rem; right:1rem; background:transparent; border:none; font-size:2rem; line-height:1; cursor:pointer; color:var(--muted); padding:.25rem .5rem; border-radius:8px; z-index:10; transition: all 0.2s; }
+.modal-close:hover{ background:var(--glass); color:#000; transform: scale(1.1); }
 .modal-title{ margin:0 0 .5rem; color:var(--accent); font-size:1.5rem; }
 .modal-desc{ color:var(--muted); margin:0 0 1.5rem; }
 .modal-ad{ background:var(--glass); border-radius:8px; padding:1rem; margin-bottom:1.5rem; min-height:250px; display:flex; align-items:center; justify-content:center; border:2px dashed rgba(0,0,0,0.1); }

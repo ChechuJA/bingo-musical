@@ -291,39 +291,70 @@ function createDownloadCard(file, categoryKey){
 
 function setupSpotifyModal(){
   const modal = document.getElementById('spotify-modal');
+  if(!modal){
+    console.error('Modal de Spotify no encontrado en el DOM');
+    return;
+  }
+
   const closeBtn = modal.querySelector('.modal-close');
+  if(!closeBtn){
+    console.error('Botón de cierre no encontrado en el modal');
+    return;
+  }
   
-  closeBtn.addEventListener('click', () => {
+  // Close button click
+  closeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     modal.hidden = true;
+    console.log('Modal cerrado por botón X');
   });
 
-  // Close on overlay click
+  // Close on overlay click (clicking outside the modal content)
   modal.addEventListener('click', (e) => {
-    if(e.target === modal) modal.hidden = true;
+    if(e.target === modal){
+      modal.hidden = true;
+      console.log('Modal cerrado por click en overlay');
+    }
   });
 
   // Close on Esc key
   document.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape' && !modal.hidden) modal.hidden = true;
+    if(e.key === 'Escape' && !modal.hidden){
+      modal.hidden = true;
+      console.log('Modal cerrado por tecla Escape');
+    }
   });
 }
 
 function openSpotifyModal(categoryKey){
+  console.log('Abriendo modal para categoría:', categoryKey);
+  console.log('Datos disponibles:', Object.keys(spotifyData));
+  
   const modal = document.getElementById('spotify-modal');
+  if(!modal){
+    console.error('Modal no encontrado');
+    return;
+  }
+
   const data = spotifyData[categoryKey];
   
   if(!data || !data.playlists || data.playlists.length === 0){
+    console.warn('No hay playlists para:', categoryKey);
     alert('No hay playlists disponibles para esta categoría.');
     return;
   }
 
   // Update modal content
-  document.getElementById('modal-title').textContent = data.nombre;
-  document.getElementById('modal-desc').textContent = data.descripcion;
-
+  const modalTitle = document.getElementById('modal-title');
+  const modalDesc = document.getElementById('modal-desc');
   const playlistsContainer = document.getElementById('modal-playlists');
-  playlistsContainer.innerHTML = '';
 
+  if(modalTitle) modalTitle.textContent = data.nombre || 'Playlists en Spotify';
+  if(modalDesc) modalDesc.textContent = data.descripcion || '';
+  if(playlistsContainer) playlistsContainer.innerHTML = '';
+
+  // Render playlists
   data.playlists.forEach(playlist => {
     const item = document.createElement('a');
     item.href = playlist.url;
@@ -350,9 +381,11 @@ function openSpotifyModal(categoryKey){
     item.appendChild(icon);
     item.appendChild(content);
 
-    playlistsContainer.appendChild(item);
+    if(playlistsContainer) playlistsContainer.appendChild(item);
   });
 
+  // Show modal
   modal.hidden = false;
+  console.log('Modal mostrado correctamente');
 }
 
