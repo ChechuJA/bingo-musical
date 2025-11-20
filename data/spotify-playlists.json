@@ -1,0 +1,86 @@
+{
+  "Clásicos Pop": {
+    "nombre": "Clásicos del Pop",
+    "descripcion": "Las mejores canciones pop de todos los tiempos",
+    "playlists": [
+      {
+        "nombre": "Classic Pop Picks",
+        "url": "https://open.spotify.com/playlist/37i9dQZF1DX4v0Y84QklHD",
+        "descripcion": "Selección curada de Spotify"
+      },
+      {
+        "nombre": "Classic Pop Mix",
+        "url": "https://open.spotify.com/playlist/37i9dQZF1EIctsc1CJao2L",
+        "descripcion": "Mix automático de clásicos"
+      },
+      {
+        "nombre": "Clásicos (70s, 80s, 90s)",
+        "url": "https://open.spotify.com/playlist/1YEOKYswHtvmkrONsvowA7",
+        "descripcion": "Lo mejor de tres décadas"
+      }
+    ]
+  },
+  "Navidad": {
+    "nombre": "Especial Navidad",
+    "descripcion": "Villancicos y canciones navideñas para tus fiestas",
+    "playlists": [
+      {
+        "nombre": "Christmas Classics",
+        "url": "https://open.spotify.com/playlist/37i9dQZF1DX6R7QUWePReA",
+        "descripcion": "Clásicos navideños internacionales"
+      },
+      {
+        "nombre": "100 Greatest Christmas Songs Ever",
+        "url": "https://open.spotify.com/playlist/5OP7itTh52BMfZS1DJrdlv",
+        "descripcion": "Las 100 mejores canciones navideñas"
+      },
+      {
+        "nombre": "Clásicos de Navidad (español)",
+        "url": "https://open.spotify.com/playlist/4oajArpwyNxG6CyCGY3khy",
+        "descripcion": "Villancicos tradicionales en español"
+      }
+    ]
+  },
+  "Otoño": {
+    "nombre": "Música de Otoño",
+    "descripcion": "Canciones perfectas para la temporada otoñal",
+    "playlists": [
+      {
+        "nombre": "Autumn Songs",
+        "url": "https://open.spotify.com/playlist/4TEQery8oIbqe7ajJdpPNE",
+        "descripcion": "Canciones llenas de otoño"
+      },
+      {
+        "nombre": "Autumn 2025 Chill Vibes",
+        "url": "https://open.spotify.com/playlist/6S8SExFZzwd9FvJx5vzkli",
+        "descripcion": "Vibras relajadas de otoño 2025"
+      },
+      {
+        "nombre": "Otoño clásico / indie",
+        "url": "https://open.spotify.com/playlist/5KcQ659DxfQLSCCsmRf3Ho",
+        "descripcion": "Mezcla indie y clásica"
+      }
+    ]
+  },
+  "Mix": {
+    "nombre": "Mix Musical",
+    "descripcion": "Mezclas variadas con éxitos de varios géneros",
+    "playlists": [
+      {
+        "nombre": "Pop Latino Mix",
+        "url": "https://open.spotify.com/playlist/37i9dQZF1DWY7IeIP1cdjF",
+        "descripcion": "Lo mejor del pop latino"
+      },
+      {
+        "nombre": "Pop Español Hits",
+        "url": "https://open.spotify.com/playlist/37i9dQZF1DXaxEKcoCdWHD",
+        "descripcion": "Éxitos del pop español"
+      },
+      {
+        "nombre": "Fiesta Latina",
+        "url": "https://open.spotify.com/playlist/37i9dQZF1DX10zKzsJ2jva",
+        "descripcion": "Para bailar sin parar"
+      }
+    ]
+  }
+}

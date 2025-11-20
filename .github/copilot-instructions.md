@@ -7,10 +7,11 @@ Progressive Web App (PWA) for generating musical bingo cards with themed playlis
 
 ### Core Application Structure
 - **`index.html`**: Single-page application with inline navigation (hash routing: `#otoño`, `#cumple`, `#navidad`, `#bingo`, `#mix`, `#about`)
-- **`assets/js/app.js`**: Main client logic (playlist rendering, card generation, cookie consent, offline detection, downloadable cards UI)
-- **`assets/css/styles.css`**: Cartoon-style design with CSS custom properties, responsive grid layouts
+- **`assets/js/app.js`**: Main client logic (playlist rendering, card generation, cookie consent, offline detection, downloadable cards UI, Spotify modal)
+- **`assets/css/styles.css`**: Cartoon-style design with CSS custom properties, responsive grid layouts, modal styles
 - **`data/playlists.json`**: Themed song collections (UTF-8 encoded with Spanish characters)
 - **`data/downloadable-cards.json`**: Metadata for pre-generated bingo cards (category, description, file paths)
+- **`data/spotify-playlists.json`**: Spotify playlist URLs organized by category for user reference
 - **`cartones/`**: Pre-generated bingo cards organized by theme (otoño/, navidad/, cumpleaños/, varios/, etc.)
 - **`service-worker.js`**: PWA offline support with network-first strategy, cache version `bingo-musical-v1`
 - **`manifest.json`**: PWA configuration for standalone app experience
@@ -25,9 +26,19 @@ Progressive Web App (PWA) for generating musical bingo cards with themed playlis
 
 #### Pre-Generated Downloads (Monetization)
 1. Fetch `/data/downloadable-cards.json` with card metadata
-2. Render cards in `#varios` section with preview and download buttons
-3. Direct downloads from `/cartones/{category}/{filename}.txt`
-4. AdSense ads displayed between navigation and download actions
+2. Render cards in `#mix` section with preview and download buttons
+3. Each card shows "🎵 Playlist" button if Spotify playlists available
+4. Button opens modal with AdSense ad space + Spotify playlist links
+5. Direct downloads from `/cartones/{category}/{filename}`
+
+#### Spotify Integration (User Value + Ad Revenue)
+1. Fetch `/data/spotify-playlists.json` with curated playlists per category
+2. "🎵 Playlist" button appears on downloadable cards when category matches
+3. Modal displays:
+   - AdSense ad (300x250 or 336x280) - primary monetization
+   - 3 curated Spotify playlists with direct links
+   - Clean, accessible UI with keyboard navigation (Esc to close)
+4. External links open in new tab, modal stays open (more ad impressions)
 
 ## Critical Conventions
 
@@ -135,6 +146,41 @@ cartones/varios/1/  (Mix 1 collection)
 - 12 songs per card (randomly selected from pool)
 - 3 cards per sheet/slide
 - 150 unique cards total per collection
+
+### New Spotify Playlist Set
+Edit `data/spotify-playlists.json`:
+```json
+{
+  "Category Name": {
+    "nombre": "Display Name",
+    "descripcion": "Short description for modal",
+    "playlists": [
+      {
+        "nombre": "Playlist Name",
+        "url": "https://open.spotify.com/playlist/...",
+        "descripcion": "Brief playlist description"
+      }
+    ]
+  }
+}
+```
+**Important**: Category key must match `downloadable-cards.json` keys for button to appear.
+
+### Legal Pages
+The project includes required legal pages for AdSense compliance:
+- **`legal.html`**: Aviso Legal (Terms of Service)
+- **`privacy.html`**: Política de Privacidad (Privacy Policy) 
+- **`cookies.html`**: Política de Cookies (Cookie Policy)
+- **`faq.html`**: Preguntas Frecuentes (FAQ)
+
+All pages use the same design system and are linked from footer. Update contact email (`contacto@bingomusical.com`) before going live.
+        "descripcion": "Brief playlist description"
+      }
+    ]
+  }
+}
+```
+**Important**: Category key must match `downloadable-cards.json` keys for button to appear.
 
 ### New UI Section
 1. Add section to `index.html` with unique `id`

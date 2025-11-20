@@ -9,7 +9,8 @@ const ASSETS = [
   '/manifest.json',
   '/offline.html',
   '/data/playlists.json',
-  '/data/downloadable-cards.json'
+  '/data/downloadable-cards.json',
+  '/data/spotify-playlists.json'
 ];
 
 // Install - cache files

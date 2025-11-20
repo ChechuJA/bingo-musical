@@ -1,13 +1,16 @@
 
 /* app.js - Bingo Musical (Cartoon style) */
-/* Basic client logic: load playlists, render UI, generate bingo cards, cookie consent, offline banner, downloadable cards */
+/* Basic client logic: load playlists, render UI, generate bingo cards, cookie consent, offline banner, downloadable cards, Spotify integration */
 const sanitize = s => (typeof s === 'string') ? s.replaceAll('<','&lt;').replaceAll('>','&gt;') : '';
+
+let spotifyData = {};
 
 document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('year').textContent = new Date().getFullYear();
   setupMenu();
   setupCookie();
   setupOfflineBanner();
+  setupSpotifyModal();
 
   let playlists = {};
   try {
@@ -20,6 +23,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       "Cumpleaños": ["Happy - Pharrell Williams","Birthday - The Beatles","Celebration - Kool & The Gang"],
       "Navidad": ["All I Want For Christmas Is You - Mariah Carey","Last Christmas - Wham!","Feliz Navidad - José Feliciano"]
     };
+  }
+
+  // Load Spotify playlists data
+  try {
+    const spotifyResp = await fetch('/data/spotify-playlists.json');
+    spotifyData = await spotifyResp.json();
+  } catch (e) {
+    console.warn('No se cargó spotify-playlists.json', e);
   }
 
   renderSections(playlists);
@@ -197,7 +208,7 @@ async function renderDownloadableCards(){
         const filesGrid = document.createElement('div');
         filesGrid.className = 'files-grid';
         category.archivos.forEach(file => {
-          filesGrid.appendChild(createDownloadCard(file));
+          filesGrid.appendChild(createDownloadCard(file, key));
         });
         section.appendChild(filesGrid);
       }
@@ -220,7 +231,7 @@ async function renderDownloadableCards(){
           const filesGrid = document.createElement('div');
           filesGrid.className = 'files-grid';
           subCat.archivos.forEach(file => {
-            filesGrid.appendChild(createDownloadCard(file));
+            filesGrid.appendChild(createDownloadCard(file, key));
           });
           section.appendChild(filesGrid);
         });
@@ -239,7 +250,7 @@ async function renderDownloadableCards(){
   }
 }
 
-function createDownloadCard(file){
+function createDownloadCard(file, categoryKey){
   const card = document.createElement('div');
   card.className = 'download-card card';
 
@@ -260,11 +271,88 @@ function createDownloadCard(file){
   downloadBtn.textContent = 'Descargar';
   downloadBtn.setAttribute('aria-label', `Descargar ${file.nombre}`);
 
+  // Add Spotify button if playlists available
+  if(categoryKey && spotifyData[categoryKey]){
+    const spotifyBtn = document.createElement('button');
+    spotifyBtn.className = 'btn ghost spotify-btn';
+    spotifyBtn.innerHTML = '🎵 Playlist';
+    spotifyBtn.setAttribute('aria-label', 'Ver playlist en Spotify');
+    spotifyBtn.addEventListener('click', () => openSpotifyModal(categoryKey));
+    btnContainer.appendChild(spotifyBtn);
+  }
+
   btnContainer.appendChild(downloadBtn);
   card.appendChild(title);
   card.appendChild(info);
   card.appendChild(btnContainer);
 
   return card;
+}
+
+function setupSpotifyModal(){
+  const modal = document.getElementById('spotify-modal');
+  const closeBtn = modal.querySelector('.modal-close');
+  
+  closeBtn.addEventListener('click', () => {
+    modal.hidden = true;
+  });
+
+  // Close on overlay click
+  modal.addEventListener('click', (e) => {
+    if(e.target === modal) modal.hidden = true;
+  });
+
+  // Close on Esc key
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && !modal.hidden) modal.hidden = true;
+  });
+}
+
+function openSpotifyModal(categoryKey){
+  const modal = document.getElementById('spotify-modal');
+  const data = spotifyData[categoryKey];
+  
+  if(!data || !data.playlists || data.playlists.length === 0){
+    alert('No hay playlists disponibles para esta categoría.');
+    return;
+  }
+
+  // Update modal content
+  document.getElementById('modal-title').textContent = data.nombre;
+  document.getElementById('modal-desc').textContent = data.descripcion;
+
+  const playlistsContainer = document.getElementById('modal-playlists');
+  playlistsContainer.innerHTML = '';
+
+  data.playlists.forEach(playlist => {
+    const item = document.createElement('a');
+    item.href = playlist.url;
+    item.target = '_blank';
+    item.rel = 'noopener noreferrer';
+    item.className = 'playlist-item';
+
+    const icon = document.createElement('span');
+    icon.className = 'playlist-icon';
+    icon.textContent = '🎵';
+
+    const content = document.createElement('div');
+    content.className = 'playlist-content';
+
+    const name = document.createElement('strong');
+    name.textContent = sanitize(playlist.nombre);
+
+    const desc = document.createElement('small');
+    desc.textContent = sanitize(playlist.descripcion);
+
+    content.appendChild(name);
+    content.appendChild(desc);
+
+    item.appendChild(icon);
+    item.appendChild(content);
+
+    playlistsContainer.appendChild(item);
+  });
+
+  modal.hidden = false;
 }
 

@@ -108,7 +108,10 @@
         <div class="footer-inner">
           <div>© <span id="year"></span> Bingo Musical</div>
           <div class="links">
-            <a href="#privacy">Privacidad</a> · <a href="#cookies">Cookies</a> · <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+            <a href="/legal.html">Aviso Legal</a> · 
+            <a href="/privacy.html">Privacidad</a> · 
+            <a href="/cookies.html">Cookies</a> · 
+            <a href="/faq.html">FAQ</a>
           </div>
         </div>
       </div>
@@ -128,6 +131,27 @@
     <!-- Offline fallback -->
     <div id="offline-banner" class="offline-banner" hidden>
       Estás desconectado — estás viendo la versión offline.
+    </div>
+
+    <!-- Spotify Playlist Modal -->
+    <div id="spotify-modal" class="modal-overlay" hidden>
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Cerrar modal">&times;</button>
+        <h3 id="modal-title" class="modal-title">Playlists en Spotify</h3>
+        <p id="modal-desc" class="modal-desc"></p>
+        
+        <!-- AdSense placeholder -->
+        <div class="modal-ad">
+          <div class="ad-placeholder">
+            <!-- Anuncio AdSense aquí (300x250 o 336x280) -->
+            <p style="text-align:center;color:var(--muted);font-size:0.85rem;">Espacio para anuncio</p>
+          </div>
+        </div>
+
+        <div id="modal-playlists" class="modal-playlists">
+          <!-- Playlists rendered by JS -->
+        </div>
+      </div>
     </div>
 
   </div>
