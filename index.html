@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Bingo Musical — playlists temáticas y juegos musicales para reuniones familiares. Crea cartones, juega y comparte." />
+  <meta property="og:title" content="Bingo Musical - Playlists temáticas" />
+  <meta property="og:description" content="Playlists organizadas por tema: cumpleaños, navidad, otoño... un juego familiar divertido." />
+  <title>Bingo Musical — Bingo Show</title>
+
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#ffda77">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/icon.svg">
+
+  <!-- Placeholder AdSense (comentado) -->
+  <!--
+  <script data-ad-client="ca-pub-XXXXXXXXXXXX" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  -->
+</head>
+<body>
+  <div id="app" class="page">
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo-wrap">
+          <img src="assets/icons/bingo-logo.svg" alt="Bingo Musical logo" class="logo-img" />
+          <a href="/" class="logo">Bingo Musical</a>
+        </div>
+        <nav class="main-nav" aria-label="Navegación principal">
+          <button id="menu-toggle" aria-expanded="false" aria-controls="main-menu" class="menu-btn">☰</button>
+          <ul id="main-menu" class="menu">
+            <li><a href="#otoño">Otoño</a></li>
+            <li><a href="#cumple">Cumpleaños</a></li>
+            <li><a href="#navidad">Navidad</a></li>
+            <li><a href="#bingo">Bingo</a></li>
+            <li><a href="#about">Sobre</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero card hero-animated">
+        <div class="hero-left">
+          <h1>Bingo Musical — ¡Juega en familia!</h1>
+          <p class="lead">Crea cartones, elige playlists y disfruta del juego. Plantillas temáticas para cumpleaños, navidad, otoño y más.</p>
+          <div class="hero-ctas">
+            <a class="btn primary" href="#bingo">Empezar a jugar</a>
+            <a class="btn ghost" href="#about">Cómo funciona</a>
+          </div>
+        </div>
+        <div class="hero-right">
+          <img src="assets/img/party.svg" alt="Ilustración fiesta" />
+        </div>
+      </section>
+
+      <section id="secciones" class="grid grid-cards">
+        <!-- Cards rendered by JS -->
+      </section>
+
+      <section id="bingo" class="card">
+        <h2>Bingo Musical</h2>
+        <p>Genera cartones únicos con las canciones de tu lista seleccionada.</p>
+
+        <div class="controls">
+          <label for="selectPlaylist">Seleccionar sección</label>
+          <select id="selectPlaylist" aria-label="Seleccionar sección"></select>
+
+          <label for="numSongs">Canciones por cartón</label>
+          <input id="numSongs" type="number" min="3" max="50" value="12" />
+
+          <label for="numCards">Número de cartones</label>
+          <input id="numCards" type="number" min="1" max="200" value="4" />
+
+          <button id="generateBtn" class="btn primary">Generar cartones</button>
+        </div>
+
+        <div id="bingo-output" class="bingo-output" aria-live="polite"></div>
+      </section>
+
+      <section id="about" class="card">
+        <h2>Cómo funciona</h2>
+        <ol>
+          <li>Selecciona una categoría (ej. Cumpleaños).</li>
+          <li>Ajusta canciones por cartón y número de cartones.</li>
+          <li>Genera y descarga los cartones o compártelos con la familia.</li>
+        </ol>
+        <p>Website pensado para uso familiar. Si quieres colaborar, abre un issue en GitHub.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div>© <span id="year"></span> Bingo Musical</div>
+          <div class="links">
+            <a href="#privacy">Privacidad</a> · <a href="#cookies">Cookies</a> · <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Cookie consent -->
+    <div id="cookie-consent" class="cookie-consent" role="dialog" aria-live="polite" aria-label="Consentimiento de cookies">
+      <div class="cookie-text">
+        Esta web usa cookies para mejorar la experiencia y para anuncios (placeholder). Acepta si estás de acuerdo.
+      </div>
+      <div class="cookie-actions">
+        <button id="accept-cookies" class="btn primary small">Aceptar</button>
+        <button id="decline-cookies" class="btn ghost small">Rechazar</button>
+      </div>
+    </div>
+
+    <!-- Offline fallback -->
+    <div id="offline-banner" class="offline-banner" hidden>
+      Estás desconectado — estás viendo la versión offline.
+    </div>
+
+  </div>
+
+  <script src="assets/js/app.js" defer></script>
+  <script>
+    // register service worker
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.register('/service-worker.js').catch(()=>{ console.warn('SW registration failed'); });
+    }
+  </script>
+</body>
+</html>
