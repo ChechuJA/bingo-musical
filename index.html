@@ -46,13 +46,13 @@
     </header>
 
     <main class="container">
-      <!-- 0. INTRO: Hero - Juega en familia -->
+      <!-- HERO: Juega en familia -->
       <section class="hero card hero-animated">
         <div class="hero-left">
           <h1>Bingo Musical — ¡Juega en familia!</h1>
-          <p class="lead">Descarga cartones listos para jugar o crea los tuyos personalizados. Plantillas temáticas para cumpleaños, navidad, otoño y más.</p>
+          <p class="lead">Descarga cartones listos para jugar con canciones temáticas. Elige tu categoría favorita y empieza a jugar con Spotify.</p>
           <div class="hero-ctas">
-            <a class="btn primary" href="#destacados">Ver cartones</a>
+            <a class="btn primary" href="#categorias">Explorar categorías</a>
             <a class="btn ghost" href="#about">Cómo funciona</a>
           </div>
         </div>
@@ -61,29 +61,29 @@
         </div>
       </section>
 
-      <!-- 1. CÓMO FUNCIONA -->
+      <!-- CÓMO FUNCIONA -->
       <section id="about" class="card">
         <h2>📖 Cómo Funciona</h2>
         <div class="how-it-works">
           <div class="step">
             <span class="step-number">1</span>
-            <h3>Elige tus cartones</h3>
-            <p>Descarga cartones pre-generados de nuestras categorías temáticas o navega a la sección de generador para crear los tuyos.</p>
+            <h3>Elige tu categoría</h3>
+            <p>Selecciona entre Navidad, Clásicos Pop, Cumpleaños, Otoño y más temáticas musicales.</p>
           </div>
           <div class="step">
             <span class="step-number">2</span>
-            <h3>Prepara la música</h3>
-            <p>Usa las playlists de Spotify recomendadas o crea tu propia lista con las canciones de los cartones.</p>
+            <h3>Descarga cartones</h3>
+            <p>Elige el tamaño que prefieras (pequeños, medianos o grandes) y descarga los cartones en Markdown.</p>
           </div>
           <div class="step">
             <span class="step-number">3</span>
             <h3>¡A jugar!</h3>
-            <p>Reparte los cartones, reproduce las canciones en orden aleatorio y marca las que vayan sonando. ¡El primero en completar gana!</p>
+            <p>Usa las playlists de Spotify sugeridas, reparte cartones y marca las canciones. ¡El primero en completar gana!</p>
           </div>
         </div>
       </section>
 
-      <!-- 2. ESPACIO PUBLICIDAD #1 -->
+      <!-- ESPACIO PUBLICIDAD #1 -->
       <section class="ad-space" aria-label="Espacio publicitario">
         <div class="ad-placeholder">
           <!-- Google AdSense Horizontal Banner (728x90 o 970x90) -->
@@ -93,16 +93,58 @@
         </div>
       </section>
 
-      <!-- 3. TOP 9 - Bingos Más Descargados (3x3 grid) -->
-      <section id="destacados" class="card">
-        <h2>🏆 Top 9 - Cartones Más Descargados</h2>
-        <p>Los cartones más populares organizados por tamaño: grandes (20+ canciones), medianos (12-15) y pequeños (hasta 10).</p>
-        <div id="featured-cards" class="top-grid" aria-live="polite">
-          <!-- Top 9 cards rendered by JS in 3x3 grid -->
+      <!-- CATEGORÍAS - Grid 6 cards clickeables -->
+      <section id="categorias" class="card">
+        <h2>🎵 Explora Nuestras Categorías</h2>
+        <p>Haz clic en cualquier categoría para ver todos los cartones disponibles y playlists de Spotify.</p>
+        <div class="categories-grid">
+          
+          <a href="navidad.html" class="category-card" style="--theme-color: #c41e3a;">
+            <span class="category-icon">🎄</span>
+            <h3>Navidad</h3>
+            <p>20 canciones · 90 cartones</p>
+            <span class="category-badge">3 tamaños</span>
+          </a>
+
+          <a href="clasicos-pop.html" class="category-card" style="--theme-color: #ff6b9d;">
+            <span class="category-icon">🎸</span>
+            <h3>Clásicos del Pop</h3>
+            <p>25 canciones · 90 cartones</p>
+            <span class="category-badge">3 tamaños</span>
+          </a>
+
+          <a href="pop-latino.html" class="category-card" style="--theme-color: #ff8c42;">
+            <span class="category-icon">💃</span>
+            <h3>Pop Latino</h3>
+            <p>20 canciones · 90 cartones</p>
+            <span class="category-badge">3 tamaños</span>
+          </a>
+
+          <a href="otono.html" class="category-card" style="--theme-color: #d4a574;">
+            <span class="category-icon">🍂</span>
+            <h3>Música de Otoño</h3>
+            <p>15 canciones · 50 cartones</p>
+            <span class="category-badge">2 tamaños</span>
+          </a>
+
+          <a href="cumpleanos.html" class="category-card" style="--theme-color: #ffd93d;">
+            <span class="category-icon">🎂</span>
+            <h3>Cumpleaños</h3>
+            <p>15 canciones · 50 cartones</p>
+            <span class="category-badge">2 tamaños</span>
+          </a>
+
+          <a href="mix.html" class="category-card" style="--theme-color: #9b59b6;">
+            <span class="category-icon">🎶</span>
+            <h3>Mix Musical</h3>
+            <p>49 canciones · 150 cartones</p>
+            <span class="category-badge">Colección</span>
+          </a>
+
         </div>
       </section>
 
-      <!-- 4. ESPACIO PUBLICIDAD #2 -->
+      <!-- ESPACIO PUBLICIDAD #2 -->
       <section class="ad-space" aria-label="Espacio publicitario">
         <div class="ad-placeholder">
           <p style="text-align:center;color:var(--muted);padding:2rem;background:var(--glass);border-radius:12px;">
@@ -111,41 +153,6 @@
         </div>
       </section>
 
-      <!-- 5. CATEGORÍAS - Todas las colecciones -->
-      <section id="mix" class="card">
-        <h2>📚 Todas las Categorías</h2>
-        <p>Explora todas nuestras colecciones de cartones organizadas por temática.</p>
-        <div id="downloadable-cards" class="grid grid-cards" aria-live="polite">
-          <!-- Cards rendered by JS -->
-        </div>
-      </section>
-
-      <!-- 6. SECCIONES TEMÁTICAS (para el selector) -->
-      <section id="secciones" class="grid grid-cards" hidden>
-        <!-- Cards rendered by JS - usado solo para datos del selector -->
-      </section>
-
-      <!-- GENERADOR (EN PROGRESO - Oculto por ahora) -->
-      <section id="bingo" class="card" style="display:none;">
-        <h2>🎲 Generador de Cartones (En desarrollo)</h2>
-        <p>Próximamente: Genera cartones personalizados con tus propias canciones.</p>
-
-        <div class="controls">
-          <label for="selectPlaylist">Seleccionar sección</label>
-          <select id="selectPlaylist" aria-label="Seleccionar sección"></select>
-
-          <label for="numSongs">Canciones por cartón</label>
-          <input id="numSongs" type="number" min="3" max="50" value="12" />
-
-          <label for="numCards">Número de cartones</label>
-          <input id="numCards" type="number" min="1" max="200" value="4" />
-
-          <button id="generateBtn" class="btn primary">Generar cartones</button>
-        </div>
-
-        <div id="bingo-output" class="bingo-output" aria-live="polite"></div>
-      </section>
-      </section>
     </main>
 
     <footer class="site-footer">

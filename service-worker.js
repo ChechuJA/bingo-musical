@@ -1,11 +1,18 @@
 
-const CACHE_NAME = 'bingo-musical-v3';
+const CACHE_NAME = 'bingo-musical-v4';
 const OFFLINE_URL = '/offline.html';
 const ASSETS = [
   '/',
   '/index.html',
+  '/navidad.html',
+  '/clasicos-pop.html',
+  '/pop-latino.html',
+  '/otono.html',
+  '/cumpleanos.html',
+  '/mix.html',
   '/assets/css/styles.css',
   '/assets/js/app.js',
+  '/assets/js/app-category.js',
   '/manifest.json',
   '/offline.html',
   '/data/playlists.json',
