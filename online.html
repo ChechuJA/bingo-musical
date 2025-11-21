@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Juega bingo musical online en tiempo real. Crea salas y juega con amigos sin registro. Modo multijugador estilo Kahoot." />
+  <meta name="keywords" content="bingo musical online, juego multijugador, bingo tiempo real, kahoot musical, juego sin registro" />
+  <meta name="author" content="Bingo Musical" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://bingomusicalgratis.es/online.html" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bingomusicalgratis.es/online.html" />
+  <meta property="og:title" content="Bingo Musical Online - Juega en Tiempo Real" />
+  <meta property="og:description" content="Juega bingo musical online con amigos. Crea salas, comparte códigos y juega sin registro." />
+  <meta property="og:image" content="https://bingomusicalgratis.es/assets/icons/icon-512.png" />
+  
+  <title>Bingo Musical Online - Juega en Tiempo Real | Modo Multijugador</title>
+
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#ffda77">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/online.css">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/icon.svg">
+
+  <!-- i18n Support -->
+  <script src="assets/js/i18n.js"></script>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+
+  <style>
+    .online-hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 3rem 1.5rem;
+      border-radius: var(--radius);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .online-hero h1 {
+      color: white;
+      margin: 0 0 1rem;
+      font-size: 2.5rem;
+    }
+    .online-hero .lead {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.2rem;
+    }
+    .mode-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .mode-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .mode-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+    .mode-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    .mode-card h2 {
+      color: var(--accent);
+      margin: 0 0 0.5rem;
+    }
+    .mode-card p {
+      color: var(--muted);
+      margin: 0 0 1.5rem;
+    }
+    .room-input-section {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 500px;
+      margin: 2rem auto;
+    }
+    .room-input-section h3 {
+      text-align: center;
+      color: var(--accent);
+      margin-top: 0;
+    }
+    .room-code-input {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .room-code-input input {
+      flex: 1;
+      padding: 0.8rem;
+      font-size: 1.2rem;
+      text-align: center;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+    }
+    .room-code-input input:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .feature-item {
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    .feature-item h3 {
+      color: var(--accent-2);
+      margin: 0.5rem 0;
+    }
+    .feature-item p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" class="page">
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo-wrap">
+          <img src="assets/icons/bingo-logo.svg" alt="Bingo Musical logo" class="logo-img" />
+          <a href="/" class="logo" data-i18n="siteName">Bingo Musical</a>
+        </div>
+        <nav class="main-nav" aria-label="Navegación principal">
+          <button id="menu-toggle" aria-expanded="false" aria-controls="main-menu" class="menu-btn">☰</button>
+          <ul id="main-menu" class="menu">
+            <li><a href="index.html" data-i18n="nav.home">🏠 Inicio</a></li>
+            <li><a href="online.html" class="active">🎮 Jugar Online</a></li>
+            <li><a href="faq.html" data-i18n="nav.faq">💬 FAQ</a></li>
+            <li class="lang-selector-item">
+              <select id="lang-selector" class="lang-select" aria-label="Seleccionar idioma">
+                <option value="es">🇪🇸 ES</option>
+                <option value="ca">🇪🇸 CA</option>
+                <option value="en">🇬🇧 EN</option>
+              </select>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Hero Section -->
+      <section class="online-hero">
+        <div class="hero-content">
+          <h1 data-i18n="online.title">🎮 Bingo Musical Online</h1>
+          <p class="lead" data-i18n="online.subtitle">Juega en tiempo real con amigos. Sin registro. ¡Como Kahoot!</p>
+        </div>
+      </section>
+
+      <!-- Ad Space 1 -->
+      <div class="ad-space">
+        <div class="ad-placeholder" style="background: var(--glass); min-height: 90px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+          <span style="color: var(--muted); font-size: 0.9rem;">📢 Espacio publicitario</span>
+        </div>
+      </div>
+
+      <!-- Mode Selection -->
+      <section class="mode-selection">
+        <div class="mode-selector">
+          <div class="mode-card" id="create-room-btn">
+            <div class="mode-icon">🎯</div>
+            <h2 data-i18n="online.createRoom">Crear Sala</h2>
+            <p data-i18n="online.createRoomDesc">Organiza una partida y comparte el código con tus amigos</p>
+            <button class="btn primary" data-i18n="online.createRoomBtn">Crear Nueva Sala</button>
+          </div>
+
+          <div class="mode-card" id="join-room-card">
+            <div class="mode-icon">👥</div>
+            <h2 data-i18n="online.joinRoom">Unirse a Sala</h2>
+            <p data-i18n="online.joinRoomDesc">Introduce el código de la sala para empezar a jugar</p>
+            <div class="room-code-input">
+              <input type="text" id="room-code-input" data-i18n-aria="online.roomCodePlaceholder" placeholder="ABCD" maxlength="6" style="flex: 1;" />
+              <button class="btn primary" id="join-room-btn" data-i18n="online.joinRoomBtn">Unirse</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad Space 2 -->
+      <div class="ad-space">
+        <div class="ad-placeholder" style="background: var(--glass); min-height: 90px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+          <span style="color: var(--muted); font-size: 0.9rem;">📢 Espacio publicitario</span>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <section class="features-section">
+        <h2 style="text-align: center; color: var(--accent); margin: 2rem 0 1rem;" data-i18n="online.featuresTitle">✨ Características</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">⚡</div>
+            <h3 data-i18n="online.featureRealTime">Tiempo Real</h3>
+            <p data-i18n="online.featureRealTimeDesc">Todos los jugadores ven las actualizaciones instantáneamente</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🎲</div>
+            <h3 data-i18n="online.featureUniqueCards">Cartones Únicos</h3>
+            <p data-i18n="online.featureUniqueCardsDesc">Cada jugador recibe un cartón diferente automáticamente</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🚀</div>
+            <h3 data-i18n="online.featureNoRegister">Sin Registro</h3>
+            <p data-i18n="online.featureNoRegisterDesc">Empieza a jugar inmediatamente, sin crear cuenta</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📱</div>
+            <h3 data-i18n="online.featureMultiDevice">Multi-dispositivo</h3>
+            <p data-i18n="online.featureMultiDeviceDesc">Juega desde móvil, tablet o computadora</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🎵</div>
+            <h3 data-i18n="online.featureCategories">Múltiples Categorías</h3>
+            <p data-i18n="online.featureCategoriesDesc">Elige entre Navidad, Pop, Rock y más temáticas</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🏆</div>
+            <h3 data-i18n="online.featureWinners">Sistema de Ganadores</h3>
+            <p data-i18n="online.featureWinnersDesc">El host valida y anuncia a los ganadores</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works -->
+      <section style="margin: 3rem 0;">
+        <h2 style="text-align: center; color: var(--accent); margin-bottom: 2rem;" data-i18n="online.howItWorksTitle">📖 Cómo Funciona</h2>
+        <div class="how-it-works">
+          <div class="step">
+            <span class="step-number">1</span>
+            <h3 data-i18n="online.howItWorksStep1">Crea o Únete</h3>
+            <p data-i18n="online.howItWorksStep1Desc">El host crea una sala y comparte el código. Los jugadores se unen con el código.</p>
+          </div>
+          <div class="step">
+            <span class="step-number">2</span>
+            <h3 data-i18n="online.howItWorksStep2">Recibe tu Cartón</h3>
+            <p data-i18n="online.howItWorksStep2Desc">Cada jugador recibe automáticamente un cartón único con canciones aleatorias.</p>
+          </div>
+          <div class="step">
+            <span class="step-number">3</span>
+            <h3 data-i18n="online.howItWorksStep3">¡A Jugar!</h3>
+            <p data-i18n="online.howItWorksStep3Desc">El host marca las canciones. Cuando completes tu cartón, ¡canta BINGO!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad Space 3 -->
+      <div class="ad-space">
+        <div class="ad-placeholder" style="background: var(--glass); min-height: 90px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+          <span style="color: var(--muted); font-size: 0.9rem;">📢 Espacio publicitario</span>
+        </div>
+      </div>
+    </main>
+
+    <footer class="container">
+      <div class="footer-inner">
+        <p>&copy; <span id="year"></span> Bingo Musical. Todos los derechos reservados.</p>
+        <nav>
+          <a href="legal.html" data-i18n="footer.legal">Aviso Legal</a> · 
+          <a href="privacy.html" data-i18n="footer.privacy">Privacidad</a> · 
+          <a href="cookies.html" data-i18n="footer.cookies">Cookies</a>
+        </nav>
+      </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent" class="cookie-consent">
+      <p class="cookie-text" data-i18n="cookie.message">
+        Usamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra política de cookies.
+      </p>
+      <div class="cookie-actions">
+        <button id="accept-cookies" class="btn primary" style="font-size:0.85rem; padding:0.4rem 0.7rem;" data-i18n="cookie.accept">Aceptar</button>
+        <button id="decline-cookies" class="btn ghost" style="font-size:0.85rem; padding:0.4rem 0.7rem;" data-i18n="cookie.decline">Rechazar</button>
+      </div>
+    </div>
+
+    <!-- Offline Banner -->
+    <div id="offline-banner" class="offline-banner" hidden>
+      <span data-i18n="offline.message">Sin conexión. Algunas funciones pueden no estar disponibles.</span>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/online.js"></script>
+</body>
+</html>

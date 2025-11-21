@@ -71,6 +71,37 @@
     },
     "ads": {
       "placeholder": "📢 Espacio para publicidad"
+    },
+    "online": {
+      "title": "Bingo Musical Online",
+      "subtitle": "Juega en tiempo real con amigos. Sin registro. ¡Como Kahoot!",
+      "createRoom": "Crear Sala",
+      "createRoomDesc": "Organiza una partida y comparte el código con tus amigos",
+      "createRoomBtn": "Crear Nueva Sala",
+      "joinRoom": "Unirse a Sala",
+      "joinRoomDesc": "Introduce el código de la sala para empezar a jugar",
+      "joinRoomBtn": "Unirse",
+      "roomCodePlaceholder": "ABCD",
+      "featuresTitle": "✨ Características",
+      "featureRealTime": "Tiempo Real",
+      "featureRealTimeDesc": "Todos los jugadores ven las actualizaciones instantáneamente",
+      "featureUniqueCards": "Cartones Únicos",
+      "featureUniqueCardsDesc": "Cada jugador recibe un cartón diferente automáticamente",
+      "featureNoRegister": "Sin Registro",
+      "featureNoRegisterDesc": "Empieza a jugar inmediatamente, sin crear cuenta",
+      "featureMultiDevice": "Multi-dispositivo",
+      "featureMultiDeviceDesc": "Juega desde móvil, tablet o computadora",
+      "featureCategories": "Múltiples Categorías",
+      "featureCategoriesDesc": "Elige entre Navidad, Pop, Rock y más temáticas",
+      "featureWinners": "Sistema de Ganadores",
+      "featureWinnersDesc": "El host valida y anuncia a los ganadores",
+      "howItWorksTitle": "📖 Cómo Funciona",
+      "howItWorksStep1": "Crea o Únete",
+      "howItWorksStep1Desc": "El host crea una sala y comparte el código. Los jugadores se unen con el código.",
+      "howItWorksStep2": "Recibe tu Cartón",
+      "howItWorksStep2Desc": "Cada jugador recibe automáticamente un cartón único con canciones aleatorias.",
+      "howItWorksStep3": "¡A Jugar!",
+      "howItWorksStep3Desc": "El host marca las canciones. Cuando completes tu cartón, ¡canta BINGO!"
     }
   },
   "ca": {
@@ -145,6 +176,37 @@
     },
     "ads": {
       "placeholder": "📢 Espai per a publicitat"
+    },
+    "online": {
+      "title": "Bingo Musical Online",
+      "subtitle": "Juga en temps real amb amics. Sense registre. Com Kahoot!",
+      "createRoom": "Crear Sala",
+      "createRoomDesc": "Organitza una partida i comparteix el codi amb els teus amics",
+      "createRoomBtn": "Crear Nova Sala",
+      "joinRoom": "Unir-se a Sala",
+      "joinRoomDesc": "Introdueix el codi de la sala per començar a jugar",
+      "joinRoomBtn": "Unir-se",
+      "roomCodePlaceholder": "ABCD",
+      "featuresTitle": "✨ Característiques",
+      "featureRealTime": "Temps Real",
+      "featureRealTimeDesc": "Tots els jugadors veuen les actualitzacions instantàniament",
+      "featureUniqueCards": "Cartons Únics",
+      "featureUniqueCardsDesc": "Cada jugador rep un cartó diferent automàticament",
+      "featureNoRegister": "Sense Registre",
+      "featureNoRegisterDesc": "Comença a jugar immediatament, sense crear compte",
+      "featureMultiDevice": "Multi-dispositiu",
+      "featureMultiDeviceDesc": "Juga des de mòbil, tauleta o ordinador",
+      "featureCategories": "Múltiples Categories",
+      "featureCategoriesDesc": "Tria entre Nadal, Pop, Rock i més temàtiques",
+      "featureWinners": "Sistema de Guanyadors",
+      "featureWinnersDesc": "L'amfitrió valida i anuncia els guanyadors",
+      "howItWorksTitle": "📖 Com Funciona",
+      "howItWorksStep1": "Crea o Uneix-te",
+      "howItWorksStep1Desc": "L'amfitrió crea una sala i comparteix el codi. Els jugadors s'uneixen amb el codi.",
+      "howItWorksStep2": "Rep el teu Cartó",
+      "howItWorksStep2Desc": "Cada jugador rep automàticament un cartó únic amb cançons aleatòries.",
+      "howItWorksStep3": "A Jugar!",
+      "howItWorksStep3Desc": "L'amfitrió marca les cançons. Quan completis el teu cartó, canta BINGO!"
     }
   },
   "en": {
@@ -219,6 +281,37 @@
     },
     "ads": {
       "placeholder": "📢 Ad space"
+    },
+    "online": {
+      "title": "Musical Bingo Online",
+      "subtitle": "Play in real-time with friends. No registration. Like Kahoot!",
+      "createRoom": "Create Room",
+      "createRoomDesc": "Organize a game and share the code with your friends",
+      "createRoomBtn": "Create New Room",
+      "joinRoom": "Join Room",
+      "joinRoomDesc": "Enter the room code to start playing",
+      "joinRoomBtn": "Join",
+      "roomCodePlaceholder": "ABCD",
+      "featuresTitle": "✨ Features",
+      "featureRealTime": "Real-Time",
+      "featureRealTimeDesc": "All players see updates instantly",
+      "featureUniqueCards": "Unique Cards",
+      "featureUniqueCardsDesc": "Each player receives a different card automatically",
+      "featureNoRegister": "No Registration",
+      "featureNoRegisterDesc": "Start playing immediately, no account needed",
+      "featureMultiDevice": "Multi-Device",
+      "featureMultiDeviceDesc": "Play from mobile, tablet or computer",
+      "featureCategories": "Multiple Categories",
+      "featureCategoriesDesc": "Choose from Christmas, Pop, Rock and more themes",
+      "featureWinners": "Winner System",
+      "featureWinnersDesc": "The host validates and announces winners",
+      "howItWorksTitle": "📖 How It Works",
+      "howItWorksStep1": "Create or Join",
+      "howItWorksStep1Desc": "The host creates a room and shares the code. Players join with the code.",
+      "howItWorksStep2": "Get Your Card",
+      "howItWorksStep2Desc": "Each player automatically receives a unique card with random songs.",
+      "howItWorksStep3": "Let's Play!",
+      "howItWorksStep3Desc": "The host marks songs. When you complete your card, shout BINGO!"
     }
   }
 }

@@ -1,9 +1,10 @@
 
-const CACHE_NAME = 'bingo-musical-v6';
+const CACHE_NAME = 'bingo-musical-v7';
 const OFFLINE_URL = '/offline.html';
 const ASSETS = [
   '/',
   '/index.html',
+  '/online.html',
   '/navidad.html',
   '/clasicos-pop.html',
   '/pop-latino.html',
@@ -15,9 +16,11 @@ const ASSETS = [
   '/musica-espanol.html',
   '/generador.html',
   '/assets/css/styles.css',
+  '/assets/css/online.css',
   '/assets/js/app.js',
   '/assets/js/app-category.js',
   '/assets/js/i18n.js',
+  '/assets/js/online.js',
   '/manifest.json',
   '/offline.html',
   '/data/playlists.json',
@@ -48,6 +51,26 @@ self.addEventListener('activate', event => {
 // Fetch - network first, fallback to cache
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
+  
+  // Don't cache Firebase or external API requests
+  // Use URL object for more precise hostname checking
+  try {
+    const requestUrl = new URL(event.request.url);
+    const hostname = requestUrl.hostname;
+    
+    if (hostname.endsWith('.firebaseio.com') || 
+        hostname.endsWith('.googleapis.com') ||
+        hostname.endsWith('.gstatic.com') ||
+        hostname === 'firebaseio.com' ||
+        hostname === 'googleapis.com' ||
+        hostname === 'gstatic.com') {
+      event.respondWith(fetch(event.request));
+      return;
+    }
+  } catch (e) {
+    // Invalid URL, let it pass through to normal handling
+  }
+  
   event.respondWith(
     fetch(event.request).then(resp => {
       // update cache

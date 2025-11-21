@@ -6,13 +6,23 @@
 ## ✨ Features
 
 ### 🎯 Core Functionality
+- **Online Multiplayer Mode** (NEW!): Play in real-time with friends, Kahoot-style
 - **Pre-generated Bingo Cards**: Ready-to-download cards in multiple formats (Markdown, PDF, PowerPoint)
 - **Multiple Categories**: 9 themed categories including Christmas, Classic Pop, Rock, Latin Pop, and more
 - **Spotify Integration**: Curated playlists for each category with modal display
 - **PWA Support**: Offline functionality with service worker caching
 - **Responsive Design**: Works on desktop, tablet, and mobile devices
 
-### 🌍 Multilingual Support (NEW!)
+### 🎮 Online Multiplayer (NEW!)
+- **Real-time Gameplay**: Kahoot-style multiplayer experience
+- **No Registration**: Start playing immediately without creating accounts
+- **Unique Cards**: Each player gets a different randomly generated bingo card
+- **Room System**: Create or join rooms with 6-digit codes
+- **Host Controls**: Game host marks songs and validates winners
+- **Multi-device**: Play from any device with a web browser
+- **Firebase Integration**: Real-time synchronization using Firebase Realtime Database
+
+### 🌍 Multilingual Support
 - **3 Languages**: Spanish (default), Catalan, and English
 - **Auto-detection**: Automatically detects browser language
 - **Persistent Selection**: Language preference saved in localStorage
@@ -70,27 +80,30 @@ Automatic deployment to GitHub Pages via GitHub Actions:
 ```
 bingo-musical/
 ├── index.html                 # Homepage with category grid
+├── online.html               # Online multiplayer mode (NEW)
 ├── navidad.html              # Christmas category page
 ├── clasicos-pop.html         # Classic Pop category page
 ├── pop-latino.html           # Latin Pop category page
 ├── otono.html                # Autumn category page
 ├── cumpleanos.html           # Birthday category page
 ├── mix.html                  # Mix collection page
-├── rock.html                 # Rock category page (NEW)
-├── musica-ingles.html        # English music page (NEW)
-├── musica-espanol.html       # Spanish music page (NEW)
+├── rock.html                 # Rock category page
+├── musica-ingles.html        # English music page
+├── musica-espanol.html       # Spanish music page
 ├── assets/
 │   ├── css/
-│   │   └── styles.css        # Responsive design system
+│   │   ├── styles.css        # Responsive design system
+│   │   └── online.css        # Online mode styles (NEW)
 │   └── js/
 │       ├── app.js            # Main application logic
 │       ├── app-category.js   # Category page logic
-│       └── i18n.js           # Internationalization (NEW)
+│       ├── i18n.js           # Internationalization
+│       └── online.js         # Online multiplayer logic (NEW)
 ├── data/
 │   ├── playlists.json        # Song collections
 │   ├── downloadable-cards.json  # Card metadata
 │   ├── spotify-playlists.json   # Spotify integration
-│   └── i18n.json             # Translations (es, ca, en) (NEW)
+│   └── i18n.json             # Translations (es, ca, en)
 ├── cartones/                 # Pre-generated card files
 │   ├── navidad/
 │   ├── clasicos-del-pop/
@@ -103,7 +116,8 @@ bingo-musical/
 ├── legal.html               # Legal notice
 ├── privacy.html             # Privacy policy
 ├── cookies.html             # Cookie policy
-└── faq.html                 # FAQ page
+├── faq.html                 # FAQ page
+└── FIREBASE-SETUP.md        # Firebase configuration guide (NEW)
 ```
 
 ## 🔧 Technology Stack
@@ -112,8 +126,30 @@ bingo-musical/
 - **Styling**: Custom CSS with CSS variables
 - **PWA**: Service Worker with network-first caching
 - **i18n**: Custom internationalization module
+- **Real-time Backend**: Firebase Realtime Database (NEW)
 - **Deployment**: GitHub Pages with GitHub Actions
 - **Security**: CodeQL analysis on every PR
+
+## 🎮 Setting Up Online Multiplayer
+
+The online multiplayer feature requires Firebase Realtime Database setup. Follow these steps:
+
+1. **Read the setup guide**: See [FIREBASE-SETUP.md](./FIREBASE-SETUP.md) for detailed instructions
+2. **Create Firebase project**: Sign up at [Firebase Console](https://console.firebase.google.com/)
+3. **Enable Realtime Database**: Create a database in your Firebase project
+4. **Get configuration**: Copy your Firebase config from the Firebase Console
+5. **Update code**: Replace the placeholder config in `assets/js/online.js` with your actual Firebase config
+6. **Test**: Open `online.html` and create/join a room to verify it works
+
+### Firebase Free Tier Limits
+- 1 GB stored data
+- 10 GB/month downloads
+- 100 simultaneous connections
+
+This is sufficient for moderate traffic (hundreds of concurrent games).
+
+### Demo Mode
+If Firebase is not configured, the online feature will show a demo mode message. The rest of the app works normally.
 
 ## 🌐 Internationalization
 
