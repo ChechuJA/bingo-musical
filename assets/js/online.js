@@ -1,7 +1,10 @@
 /* online.js - Online Multiplayer Bingo Logic */
 /* Uses Firebase Realtime Database for real-time synchronization */
 
-// Firebase Configuration (placeholder - needs to be replaced with actual config)
+// Firebase Configuration
+// IMPORTANT: Replace these placeholder values with your actual Firebase config
+// See FIREBASE-SETUP.md for detailed setup instructions
+// Never commit real API keys to public repositories
 const firebaseConfig = {
   apiKey: "AIzaSyDEMO_PLACEHOLDER_KEY",
   authDomain: "bingo-musical-demo.firebaseapp.com",
@@ -58,8 +61,88 @@ function getRandomAvatar() {
   return avatars[Math.floor(Math.random() * avatars.length)];
 }
 
-// Sanitization function
-const sanitize = s => (typeof s === 'string') ? s.replaceAll('<','&lt;').replaceAll('>','&gt;') : '';
+// Sanitization function (improved)
+const sanitize = s => {
+  if (typeof s !== 'string') return '';
+  return s
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+};
+
+// Show error message (better UX than alert)
+function showErrorMessage(message) {
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'error-message';
+  errorDiv.style.position = 'fixed';
+  errorDiv.style.top = '80px';
+  errorDiv.style.left = '50%';
+  errorDiv.style.transform = 'translateX(-50%)';
+  errorDiv.style.maxWidth = '500px';
+  errorDiv.style.zIndex = '1000';
+  errorDiv.textContent = message;
+  document.body.appendChild(errorDiv);
+  
+  setTimeout(() => errorDiv.remove(), 5000);
+}
+
+// Show success message
+function showSuccessMessage(message) {
+  const successDiv = document.createElement('div');
+  successDiv.className = 'success-message';
+  successDiv.style.position = 'fixed';
+  successDiv.style.top = '80px';
+  successDiv.style.left = '50%';
+  successDiv.style.transform = 'translateX(-50%)';
+  successDiv.style.maxWidth = '500px';
+  successDiv.style.zIndex = '1000';
+  successDiv.textContent = message;
+  document.body.appendChild(successDiv);
+  
+  setTimeout(() => successDiv.remove(), 3000);
+}
+
+// Show custom prompt dialog (better UX than prompt())
+function showPromptDialog(title, placeholder, callback) {
+  const modal = document.createElement('div');
+  modal.className = 'winner-modal';
+  modal.innerHTML = `
+    <div class="winner-content" style="max-width: 500px;">
+      <h2 style="color: var(--accent); margin-bottom: 1rem;">${sanitize(title)}</h2>
+      <input type="text" id="prompt-input" placeholder="${sanitize(placeholder)}" 
+             style="width: 100%; padding: 1rem; font-size: 1.1rem; border-radius: 8px; border: 2px solid #ddd; margin-bottom: 1rem;" />
+      <div style="display: flex; gap: 1rem; justify-content: center;">
+        <button class="btn primary" id="prompt-ok">OK</button>
+        <button class="btn ghost" id="prompt-cancel">Cancelar</button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+  
+  const input = document.getElementById('prompt-input');
+  input.focus();
+
+  document.getElementById('prompt-ok').addEventListener('click', () => {
+    const value = input.value.trim();
+    modal.remove();
+    callback(value || null);
+  });
+
+  document.getElementById('prompt-cancel').addEventListener('click', () => {
+    modal.remove();
+    callback(null);
+  });
+
+  // Allow Enter key to submit
+  input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      document.getElementById('prompt-ok').click();
+    }
+  });
+}
 
 // Load playlists data
 async function loadPlaylists() {
@@ -143,7 +226,7 @@ async function createRoom() {
       listenToRoomUpdates(roomCode);
     } catch (error) {
       console.error('Error creating room:', error);
-      alert('Error al crear la sala. Por favor, intenta de nuevo.');
+      showErrorMessage('Error al crear la sala. Por favor, intenta de nuevo.');
     }
   });
 }
@@ -156,7 +239,7 @@ async function joinRoom(roomCode) {
   }
 
   if (!roomCode || roomCode.length < 4) {
-    alert('Por favor, introduce un código válido');
+    showErrorMessage('Por favor, introduce un código válido');
     return;
   }
 
@@ -167,46 +250,56 @@ async function joinRoom(roomCode) {
     const roomData = roomSnapshot.val();
 
     if (!roomData) {
-      alert('Sala no encontrada. Verifica el código e intenta de nuevo.');
+      showErrorMessage('Sala no encontrada. Verifica el código e intenta de nuevo.');
       return;
     }
 
     if (roomData.gameEnded) {
-      alert('Esta partida ya ha finalizado.');
+      showErrorMessage('Esta partida ya ha finalizado.');
       return;
     }
 
-    // Prompt for player name
-    const playerName = prompt('Introduce tu nombre (opcional):') || `Jugador ${generateId().substring(0, 4)}`;
-    
-    state.roomCode = roomCode;
-    state.isHost = false;
-    state.playerName = sanitize(playerName);
-    state.playerId = generateId();
+    // Show name input dialog
+    showPromptDialog('Introduce tu nombre', 'Jugador', async (playerName) => {
+      if (playerName === null) return; // User cancelled
+      
+      if (!playerName) {
+        playerName = `Jugador ${generateId().substring(0, 4)}`;
+      }
+      
+      state.roomCode = roomCode;
+      state.isHost = false;
+      state.playerName = sanitize(playerName);
+      state.playerId = generateId();
 
-    // Generate unique card for this player
-    const playerCard = generateBingoCard(roomData.songs, 12);
-    state.playerCard = playerCard;
+      // Generate unique card for this player
+      const playerCard = generateBingoCard(roomData.songs, 12);
+      state.playerCard = playerCard;
 
-    // Add player to room
-    const playerData = {
-      id: state.playerId,
-      name: state.playerName,
-      avatar: getRandomAvatar(),
-      card: playerCard,
-      markedSongs: [],
-      hasBingo: false,
-      joinedAt: Date.now()
-    };
+      // Add player to room
+      const playerData = {
+        id: state.playerId,
+        name: state.playerName,
+        avatar: getRandomAvatar(),
+        card: playerCard,
+        markedSongs: [],
+        hasBingo: false,
+        joinedAt: Date.now()
+      };
 
-    await database.ref(`rooms/${roomCode}/players/${state.playerId}`).set(playerData);
-
-    showPlayerView(roomCode, roomData, playerCard);
-    listenToRoomUpdates(roomCode);
+      try {
+        await database.ref(`rooms/${roomCode}/players/${state.playerId}`).set(playerData);
+        showPlayerView(roomCode, roomData, playerCard);
+        listenToRoomUpdates(roomCode);
+      } catch (error) {
+        console.error('Error adding player to room:', error);
+        showErrorMessage('Error al unirse a la sala. Por favor, intenta de nuevo.');
+      }
+    });
 
   } catch (error) {
     console.error('Error joining room:', error);
-    alert('Error al unirse a la sala. Por favor, intenta de nuevo.');
+    showErrorMessage('Error al unirse a la sala. Por favor, intenta de nuevo.');
   }
 }
 
@@ -340,7 +433,7 @@ async function endGame() {
 
   try {
     await database.ref(`rooms/${state.roomCode}/gameEnded`).set(true);
-    alert('Juego finalizado. Gracias por jugar!');
+    showSuccessMessage('Juego finalizado. Gracias por jugar!');
     setTimeout(() => window.location.href = 'online.html', 2000);
   } catch (error) {
     console.error('Error ending game:', error);
@@ -534,7 +627,7 @@ function listenToRoomUpdates(roomCode) {
   // Listen to game end
   roomRef.child('gameEnded').on('value', (snapshot) => {
     if (snapshot.val() === true) {
-      alert('El juego ha finalizado. Gracias por jugar!');
+      showSuccessMessage('El juego ha finalizado. Gracias por jugar!');
       setTimeout(() => window.location.href = 'online.html', 2000);
     }
   });

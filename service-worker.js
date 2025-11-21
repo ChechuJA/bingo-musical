@@ -53,11 +53,22 @@ self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
   
   // Don't cache Firebase or external API requests
-  if (event.request.url.includes('firebaseio.com') || 
-      event.request.url.includes('googleapis.com') ||
-      event.request.url.includes('gstatic.com')) {
-    event.respondWith(fetch(event.request));
-    return;
+  // Use URL object for more precise hostname checking
+  try {
+    const requestUrl = new URL(event.request.url);
+    const hostname = requestUrl.hostname;
+    
+    if (hostname.endsWith('.firebaseio.com') || 
+        hostname.endsWith('.googleapis.com') ||
+        hostname.endsWith('.gstatic.com') ||
+        hostname === 'firebaseio.com' ||
+        hostname === 'googleapis.com' ||
+        hostname === 'gstatic.com') {
+      event.respondWith(fetch(event.request));
+      return;
+    }
+  } catch (e) {
+    // Invalid URL, let it pass through to normal handling
   }
   
   event.respondWith(
