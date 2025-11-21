@@ -6,36 +6,56 @@ Progressive Web App (PWA) for generating musical bingo cards with themed playlis
 ## Architecture & Key Files
 
 ### Core Application Structure
-- **`index.html`**: Homepage with category cards grid and hero section (no hash routing - uses dedicated pages per category)
-- **Category pages**: Dedicated HTML pages for each category (`navidad.html`, `clasicos-pop.html`, `pop-latino.html`, `otono.html`, `cumpleanos.html`, `mix.html`)
-- **`assets/js/app.js`**: Main client logic (playlist rendering, card generation, cookie consent, offline detection, downloadable cards UI, Spotify modal)
-- **`assets/css/styles.css`**: Cartoon-style design with CSS custom properties, responsive grid layouts, modal styles, category-specific theming
-- **`data/playlists.json`**: Themed song collections (UTF-8 encoded with Spanish characters)
-- **`data/downloadable-cards.json`**: Metadata for pre-generated bingo cards with hierarchical structure (categories → subcategories → files)
-- **`data/spotify-playlists.json`**: Spotify playlist URLs organized by category for user reference
-- **`cartones/`**: Pre-generated bingo cards organized by theme folders (navidad/, clasicos-del-pop/, pop-latino-y-espanol/, musica-de-otono/, cumpleanos/, Mix Musical/)
-- **`service-worker.js`**: PWA offline support with network-first strategy, cache version `bingo-musical-v1`
+- **`index.html`**: Landing page with hero, "Cómo Funciona" section, and 6 category cards grid. Each category links to dedicated page for maximum ad impressions.
+- **Category pages**: 6 dedicated HTML pages with themed design:
+  - `navidad.html` - 🎄 Christmas (red #c41e3a, 20 songs, 90 cards)
+  - `clasicos-pop.html` - 🎸 Pop Classics (pink #ff6b9d, 25 songs, 90 cards)
+  - `pop-latino.html` - 💃 Latin Pop (orange #ff8c42, 20 songs, 90 cards)
+  - `otono.html` - 🍂 Autumn (brown #d4a574, 15 songs, 50 cards)
+  - `cumpleanos.html` - 🎂 Birthday (yellow #ffd93d, 15 songs, 50 cards)
+  - `mix.html` - 🎶 Mix Musical (purple #9b59b6, 49 songs, 150 cards)
+- **`assets/js/app.js`**: Main client logic for landing page (cookie consent, offline detection, mobile menu)
+- **`assets/js/app-category.js`**: Category-specific logic (loads single category from downloadable-cards.json, renders Top 3 + all cards, Spotify modal)
+- **`assets/css/styles.css`**: Cartoon-style design with CSS custom properties, category-themed colors, responsive grids, modal styles
+- **`data/playlists.json`**: 95 songs across 5 categories for card generation (UTF-8 encoded)
+- **`data/downloadable-cards.json`**: Metadata for 370+ pre-generated cards (hierarchical: categories → files or categories → subcategories → files)
+- **`data/spotify-playlists.json`**: Curated Spotify playlist URLs by category (4 categories with 3 playlists each)
+- **`cartones/`**: Pre-generated bingo cards organized by normalized folder names:
+  - `navidad/` (pequeños, medianos, grandes)
+  - `clasicos-del-pop/` (3 sizes)
+  - `pop-latino-y-espanol/` (3 sizes)
+  - `musica-de-otono/` (2 sizes)
+  - `cumpleanos/` (2 sizes)
+  - `Mix Musical/Mix 1/` (listado + 150 cards MD + PDF + PPTX)
+- **`service-worker.js`**: PWA offline support, cache v4, network-first strategy
 - **`manifest.json`**: PWA configuration for standalone app experience
+- **`scripts/generate-cards.py`**: Python script to auto-generate random bingo cards from playlists.json
 
 ### Data Flow
 
 #### Homepage (index.html)
-1. Displays hero section with main CTA buttons
-2. Shows "How it works" section explaining the 3-step process
-3. Renders 6 category cards in responsive grid
-4. Each category card links to dedicated category page
-5. Categories: Navidad (🎄), Clásicos del Pop (🎸), Pop Latino (💃), Otoño (🍂), Cumpleaños (🎂), Mix Musical (🎶)
+1. Displays hero section with CTA to explore categories
+2. Shows "Cómo Funciona" 3-step process with numbered circles
+3. **AD SPACE #1**: Horizontal banner (728x90 or 970x90)
+4. Renders 6 category cards grid with hover effects and theme colors
+5. **AD SPACE #2**: Second horizontal banner
+6. Each category card links to dedicated HTML page (maximizes ad impressions per user journey)
 
 #### Category Pages (e.g., navidad.html)
-1. Category-themed header with icon and description
-2. Advertisement space at top
-3. "🎵 Ver Playlists de Spotify" button opens modal with:
-   - AdSense ad space (300x250 or 336x280)
+**Multi-page strategy for maximum ad revenue:**
+1. **AD SPACE #1 (Entrada)**: First impression horizontal banner
+2. Category-themed header with icon, title, stats (songs/cards/sizes)
+3. **AD SPACE #2**: After stats section
+4. "Top 3 Destacados": Auto-rendered most popular cards (sorted by song count)
+5. **AD SPACE #3**: Mid-page horizontal banner
+6. "Todos los Cartones": All downloadable files for this category
+7. **AD SPACE #4 (Salida)**: Exit horizontal banner
+8. "🎵 Ver Playlists Spotify" button opens modal with:
+   - **Modal AD**: 300x250 or 336x280 ad space
    - 3 curated Spotify playlists with direct links
-4. Downloadable cards section with multiple sizes
-5. Each card file shows format, song count, and download button
-6. Direct downloads from `/cartones/{category}/{filename}`
-7. Advertisement space at bottom
+   - Keyboard accessible (Esc to close)
+
+**Each category page = 4-5 ad impressions + user navigates back to landing = compounding effect**
 
 #### Card Files Structure
 1. **Multiple formats**: Markdown (.md), PDF (.pdf), PowerPoint (.pptx), Plain text (.txt)

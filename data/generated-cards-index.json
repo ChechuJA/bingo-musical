@@ -99,5 +99,97 @@
       "cancionesPorCarton": 20,
       "numCartones": 40
     }
+  },
+  "Rock Clásico": {
+    "pequeños": {
+      "listado": "cartones/rock-clasico/pequeños/listado-canciones-rock-clasico-pequeños.md",
+      "cartones": "cartones/rock-clasico/pequeños/cartones-rock-clasico-pequeños.md",
+      "numCanciones": 25,
+      "cancionesPorCarton": 8,
+      "numCartones": 20
+    },
+    "medianos": {
+      "listado": "cartones/rock-clasico/medianos/listado-canciones-rock-clasico-medianos.md",
+      "cartones": "cartones/rock-clasico/medianos/cartones-rock-clasico-medianos.md",
+      "numCanciones": 25,
+      "cancionesPorCarton": 12,
+      "numCartones": 30
+    },
+    "grandes": {
+      "listado": "cartones/rock-clasico/grandes/listado-canciones-rock-clasico-grandes.md",
+      "cartones": "cartones/rock-clasico/grandes/cartones-rock-clasico-grandes.md",
+      "numCanciones": 25,
+      "cancionesPorCarton": 20,
+      "numCartones": 40
+    }
+  },
+  "Música en Inglés": {
+    "pequeños": {
+      "listado": "cartones/musica-en-ingles/pequeños/listado-canciones-musica-en-ingles-pequeños.md",
+      "cartones": "cartones/musica-en-ingles/pequeños/cartones-musica-en-ingles-pequeños.md",
+      "numCanciones": 25,
+      "cancionesPorCarton": 8,
+      "numCartones": 20
+    },
+    "medianos": {
+      "listado": "cartones/musica-en-ingles/medianos/listado-canciones-musica-en-ingles-medianos.md",
+      "cartones": "cartones/musica-en-ingles/medianos/cartones-musica-en-ingles-medianos.md",
+      "numCanciones": 25,
+      "cancionesPorCarton": 12,
+      "numCartones": 30
+    },
+    "grandes": {
+      "listado": "cartones/musica-en-ingles/grandes/listado-canciones-musica-en-ingles-grandes.md",
+      "cartones": "cartones/musica-en-ingles/grandes/cartones-musica-en-ingles-grandes.md",
+      "numCanciones": 25,
+      "cancionesPorCarton": 20,
+      "numCartones": 40
+    }
+  },
+  "Música en Español": {
+    "pequeños": {
+      "listado": "cartones/musica-en-espanol/pequeños/listado-canciones-musica-en-espanol-pequeños.md",
+      "cartones": "cartones/musica-en-espanol/pequeños/cartones-musica-en-espanol-pequeños.md",
+      "numCanciones": 25,
+      "cancionesPorCarton": 8,
+      "numCartones": 20
+    },
+    "medianos": {
+      "listado": "cartones/musica-en-espanol/medianos/listado-canciones-musica-en-espanol-medianos.md",
+      "cartones": "cartones/musica-en-espanol/medianos/cartones-musica-en-espanol-medianos.md",
+      "numCanciones": 25,
+      "cancionesPorCarton": 12,
+      "numCartones": 30
+    },
+    "grandes": {
+      "listado": "cartones/musica-en-espanol/grandes/listado-canciones-musica-en-espanol-grandes.md",
+      "cartones": "cartones/musica-en-espanol/grandes/cartones-musica-en-espanol-grandes.md",
+      "numCanciones": 25,
+      "cancionesPorCarton": 20,
+      "numCartones": 40
+    }
+  },
+  "Rock": {
+    "pequeños": {
+      "listado": "cartones/rock/pequeños/listado-canciones-rock-pequeños.md",
+      "cartones": "cartones/rock/pequeños/cartones-rock-pequeños.md",
+      "numCanciones": 25,
+      "cancionesPorCarton": 8,
+      "numCartones": 20
+    },
+    "medianos": {
+      "listado": "cartones/rock/medianos/listado-canciones-rock-medianos.md",
+      "cartones": "cartones/rock/medianos/cartones-rock-medianos.md",
+      "numCanciones": 25,
+      "cancionesPorCarton": 12,
+      "numCartones": 30
+    },
+    "grandes": {
+      "listado": "cartones/rock/grandes/listado-canciones-rock-grandes.md",
+      "cartones": "cartones/rock/grandes/cartones-rock-grandes.md",
+      "numCanciones": 25,
+      "cancionesPorCarton": 20,
+      "numCartones": 40
+    }
   }
 }
