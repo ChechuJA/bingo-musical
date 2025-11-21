@@ -69,6 +69,23 @@ body{
 
 .offline-banner{ position:fixed; left:50%; transform:translateX(-50%); top:0; background:#ffda77; color:#2b1212; padding:.6rem 1rem; border-bottom-left-radius:8px; border-bottom-right-radius:8px; box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
 
+/* How it works section */
+.how-it-works{ display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:2rem; margin-top:1.5rem; }
+.step{ text-align:center; }
+.step-number{ display:inline-block; width:3rem; height:3rem; line-height:3rem; background:var(--accent); color:#fff; border-radius:50%; font-size:1.5rem; font-weight:700; margin-bottom:1rem; }
+.step h3{ margin:.5rem 0; color:var(--accent-2); }
+.step p{ color:var(--muted); font-size:0.95rem; line-height:1.6; }
+
+/* Ad spaces */
+.ad-space{ margin:2rem 0; }
+.ad-placeholder{ min-height:100px; }
+
+/* Top 9 Grid (3x3) */
+.top-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem; margin-top:1.5rem; }
+@media (min-width: 900px){
+  .top-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+
 /* Downloadable cards section */
 .downloadable-category{ margin-bottom:2rem; }
 .category-header{ margin-bottom:1rem; }

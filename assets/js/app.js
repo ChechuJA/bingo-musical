@@ -418,9 +418,22 @@ async function renderFeaturedCards(){
     const resp = await fetch('/data/downloadable-cards.json');
     const data = await resp.json();
 
-    // Featured items (manually selected most downloaded)
+    // Top 9: 3 grandes (20+ canciones), 3 medianos (12-15), 3 pequeños (<10)
     const featured = [
-      { category: 'Mix', subcategory: 'Mix 1', fileIndex: 2 }, // PDF Mix 1
+      // 3 GRANDES (20 canciones)
+      { category: 'Navidad', fileIndex: 3 },          // Grandes 20 canciones
+      { category: 'Clásicos Pop', fileIndex: 3 },     // Grandes 20 canciones  
+      { category: 'Pop Latino', fileIndex: 3 },       // Grandes 20 canciones
+      
+      // 3 MEDIANOS (12 canciones)
+      { category: 'Navidad', fileIndex: 2 },          // Medianos 12 canciones
+      { category: 'Clásicos Pop', fileIndex: 2 },     // Medianos 12 canciones
+      { category: 'Mix', subcategory: 'Mix 1', fileIndex: 1 }, // Mix MD 12 canciones
+      
+      // 3 PEQUEÑOS (8 canciones)
+      { category: 'Otoño', fileIndex: 1 },            // Pequeños 8 canciones
+      { category: 'Cumpleaños', fileIndex: 1 },       // Pequeños 8 canciones
+      { category: 'Pop Latino', fileIndex: 1 }        // Pequeños 8 canciones
     ];
 
     featured.forEach(({ category, subcategory, fileIndex }) => {

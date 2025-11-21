@@ -46,12 +46,13 @@
     </header>
 
     <main class="container">
+      <!-- 0. INTRO: Hero - Juega en familia -->
       <section class="hero card hero-animated">
         <div class="hero-left">
           <h1>Bingo Musical — ¡Juega en familia!</h1>
-          <p class="lead">Crea cartones, elige playlists y disfruta del juego. Plantillas temáticas para cumpleaños, navidad, otoño y más.</p>
+          <p class="lead">Descarga cartones listos para jugar o crea los tuyos personalizados. Plantillas temáticas para cumpleaños, navidad, otoño y más.</p>
           <div class="hero-ctas">
-            <a class="btn primary" href="#bingo">Empezar a jugar</a>
+            <a class="btn primary" href="#destacados">Ver cartones</a>
             <a class="btn ghost" href="#about">Cómo funciona</a>
           </div>
         </div>
@@ -60,21 +61,74 @@
         </div>
       </section>
 
-      <section id="destacados" class="card">
-        <h2>🎵 Bingos Más Descargados</h2>
-        <p>Los cartones más populares, listos para descargar y jugar.</p>
-        <div id="featured-cards" class="grid grid-cards" aria-live="polite">
-          <!-- Featured cards rendered by JS -->
+      <!-- 1. CÓMO FUNCIONA -->
+      <section id="about" class="card">
+        <h2>📖 Cómo Funciona</h2>
+        <div class="how-it-works">
+          <div class="step">
+            <span class="step-number">1</span>
+            <h3>Elige tus cartones</h3>
+            <p>Descarga cartones pre-generados de nuestras categorías temáticas o navega a la sección de generador para crear los tuyos.</p>
+          </div>
+          <div class="step">
+            <span class="step-number">2</span>
+            <h3>Prepara la música</h3>
+            <p>Usa las playlists de Spotify recomendadas o crea tu propia lista con las canciones de los cartones.</p>
+          </div>
+          <div class="step">
+            <span class="step-number">3</span>
+            <h3>¡A jugar!</h3>
+            <p>Reparte los cartones, reproduce las canciones en orden aleatorio y marca las que vayan sonando. ¡El primero en completar gana!</p>
+          </div>
         </div>
       </section>
 
-      <section id="secciones" class="grid grid-cards">
-        <!-- Cards rendered by JS -->
+      <!-- 2. ESPACIO PUBLICIDAD #1 -->
+      <section class="ad-space" aria-label="Espacio publicitario">
+        <div class="ad-placeholder">
+          <!-- Google AdSense Horizontal Banner (728x90 o 970x90) -->
+          <p style="text-align:center;color:var(--muted);padding:2rem;background:var(--glass);border-radius:12px;">
+            📢 Espacio para publicidad horizontal
+          </p>
+        </div>
       </section>
 
-      <section id="bingo" class="card">
-        <h2>Bingo Musical</h2>
-        <p>Genera cartones únicos con las canciones de tu lista seleccionada.</p>
+      <!-- 3. TOP 9 - Bingos Más Descargados (3x3 grid) -->
+      <section id="destacados" class="card">
+        <h2>🏆 Top 9 - Cartones Más Descargados</h2>
+        <p>Los cartones más populares organizados por tamaño: grandes (20+ canciones), medianos (12-15) y pequeños (hasta 10).</p>
+        <div id="featured-cards" class="top-grid" aria-live="polite">
+          <!-- Top 9 cards rendered by JS in 3x3 grid -->
+        </div>
+      </section>
+
+      <!-- 4. ESPACIO PUBLICIDAD #2 -->
+      <section class="ad-space" aria-label="Espacio publicitario">
+        <div class="ad-placeholder">
+          <p style="text-align:center;color:var(--muted);padding:2rem;background:var(--glass);border-radius:12px;">
+            📢 Espacio para publicidad horizontal
+          </p>
+        </div>
+      </section>
+
+      <!-- 5. CATEGORÍAS - Todas las colecciones -->
+      <section id="mix" class="card">
+        <h2>📚 Todas las Categorías</h2>
+        <p>Explora todas nuestras colecciones de cartones organizadas por temática.</p>
+        <div id="downloadable-cards" class="grid grid-cards" aria-live="polite">
+          <!-- Cards rendered by JS -->
+        </div>
+      </section>
+
+      <!-- 6. SECCIONES TEMÁTICAS (para el selector) -->
+      <section id="secciones" class="grid grid-cards" hidden>
+        <!-- Cards rendered by JS - usado solo para datos del selector -->
+      </section>
+
+      <!-- GENERADOR (EN PROGRESO - Oculto por ahora) -->
+      <section id="bingo" class="card" style="display:none;">
+        <h2>🎲 Generador de Cartones (En desarrollo)</h2>
+        <p>Próximamente: Genera cartones personalizados con tus propias canciones.</p>
 
         <div class="controls">
           <label for="selectPlaylist">Seleccionar sección</label>
@@ -91,23 +145,6 @@
 
         <div id="bingo-output" class="bingo-output" aria-live="polite"></div>
       </section>
-
-      <section id="mix" class="card">
-        <h2>Mix Musical</h2>
-        <p>Cartones pre-generados listos para descargar y jugar. ¡Sin configuración necesaria!</p>
-        <div id="downloadable-cards" class="grid grid-cards" aria-live="polite">
-          <!-- Cards rendered by JS -->
-        </div>
-      </section>
-
-      <section id="about" class="card">
-        <h2>Cómo funciona</h2>
-        <ol>
-          <li>Selecciona una categoría (ej. Cumpleaños).</li>
-          <li>Ajusta canciones por cartón y número de cartones.</li>
-          <li>Genera y descarga los cartones o compártelos con la familia.</li>
-        </ol>
-        <p>Website pensado para uso familiar. Si quieres colaborar, abre un issue en GitHub.</p>
       </section>
     </main>
 

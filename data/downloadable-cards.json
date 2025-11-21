@@ -4,10 +4,19 @@
     "descripcion": "Cartones con canciones temáticas de otoño perfectos para celebraciones de la temporada.",
     "archivos": [
       {
-        "nombre": "Cartones de Otoño (Próximamente)",
-        "ruta": "#",
-        "canciones": 0,
-        "solicitar": true
+        "nombre": "Listado Completo (15 canciones)",
+        "ruta": "cartones/musica-de-otono/pequeños/listado-canciones-musica-de-otono-pequeños.md",
+        "canciones": 15
+      },
+      {
+        "nombre": "Cartones Pequeños (8 canciones × 20 cartones)",
+        "ruta": "cartones/musica-de-otono/pequeños/cartones-musica-de-otono-pequeños.md",
+        "canciones": 8
+      },
+      {
+        "nombre": "Cartones Medianos (12 canciones × 30 cartones)",
+        "ruta": "cartones/musica-de-otono/medianos/cartones-musica-de-otono-medianos.md",
+        "canciones": 12
       }
     ]
   },
@@ -16,10 +25,28 @@
     "descripcion": "Villancicos y canciones navideñas clásicas para tus fiestas decembrinas.",
     "archivos": [
       {
-        "nombre": "Cartones de Navidad (Próximamente)",
-        "ruta": "#",
-        "canciones": 0,
-        "solicitar": true
+        "nombre": "Listado Completo (20 canciones)",
+        "ruta": "cartones/navidad/pequeños/listado-canciones-navidad-pequeños.md",
+        "canciones": 20,
+        "spotify": true
+      },
+      {
+        "nombre": "Cartones Pequeños (8 canciones × 20 cartones)",
+        "ruta": "cartones/navidad/pequeños/cartones-navidad-pequeños.md",
+        "canciones": 8,
+        "spotify": true
+      },
+      {
+        "nombre": "Cartones Medianos (12 canciones × 30 cartones)",
+        "ruta": "cartones/navidad/medianos/cartones-navidad-medianos.md",
+        "canciones": 12,
+        "spotify": true
+      },
+      {
+        "nombre": "Cartones Grandes (20 canciones × 40 cartones)",
+        "ruta": "cartones/navidad/grandes/cartones-navidad-grandes.md",
+        "canciones": 20,
+        "spotify": true
       }
     ]
   },
@@ -28,10 +55,19 @@
     "descripcion": "Canciones festivas y animadas ideales para celebraciones de cumpleaños.",
     "archivos": [
       {
-        "nombre": "Cartones de Cumpleaños (Próximamente)",
-        "ruta": "#",
-        "canciones": 0,
-        "solicitar": true
+        "nombre": "Listado Completo (15 canciones)",
+        "ruta": "cartones/cumpleanos/pequeños/listado-canciones-cumpleanos-pequeños.md",
+        "canciones": 15
+      },
+      {
+        "nombre": "Cartones Pequeños (8 canciones × 20 cartones)",
+        "ruta": "cartones/cumpleanos/pequeños/cartones-cumpleanos-pequeños.md",
+        "canciones": 8
+      },
+      {
+        "nombre": "Cartones Medianos (12 canciones × 30 cartones)",
+        "ruta": "cartones/cumpleanos/medianos/cartones-cumpleanos-medianos.md",
+        "canciones": 12
       }
     ]
   },
@@ -40,10 +76,58 @@
     "descripcion": "Los mejores éxitos pop de todos los tiempos en cartones listos para jugar.",
     "archivos": [
       {
-        "nombre": "Cartones Clásicos Pop (Próximamente)",
-        "ruta": "#",
-        "canciones": 0,
-        "solicitar": true
+        "nombre": "Listado Completo (25 canciones)",
+        "ruta": "cartones/clasicos-del-pop/pequeños/listado-canciones-clasicos-del-pop-pequeños.md",
+        "canciones": 25,
+        "spotify": true
+      },
+      {
+        "nombre": "Cartones Pequeños (8 canciones × 20 cartones)",
+        "ruta": "cartones/clasicos-del-pop/pequeños/cartones-clasicos-del-pop-pequeños.md",
+        "canciones": 8,
+        "spotify": true
+      },
+      {
+        "nombre": "Cartones Medianos (12 canciones × 30 cartones)",
+        "ruta": "cartones/clasicos-del-pop/medianos/cartones-clasicos-del-pop-medianos.md",
+        "canciones": 12,
+        "spotify": true
+      },
+      {
+        "nombre": "Cartones Grandes (20 canciones × 40 cartones)",
+        "ruta": "cartones/clasicos-del-pop/grandes/cartones-clasicos-del-pop-grandes.md",
+        "canciones": 20,
+        "spotify": true
+      }
+    ]
+  },
+  "Pop Latino": {
+    "nombre": "Pop Latino y Español",
+    "descripcion": "Éxitos del pop latino y español para ambientar tus fiestas con ritmo.",
+    "archivos": [
+      {
+        "nombre": "Listado Completo (20 canciones)",
+        "ruta": "cartones/pop-latino-y-espanol/pequeños/listado-canciones-pop-latino-y-espanol-pequeños.md",
+        "canciones": 20,
+        "spotify": true
+      },
+      {
+        "nombre": "Cartones Pequeños (8 canciones × 20 cartones)",
+        "ruta": "cartones/pop-latino-y-espanol/pequeños/cartones-pop-latino-y-espanol-pequeños.md",
+        "canciones": 8,
+        "spotify": true
+      },
+      {
+        "nombre": "Cartones Medianos (12 canciones × 30 cartones)",
+        "ruta": "cartones/pop-latino-y-espanol/medianos/cartones-pop-latino-y-espanol-medianos.md",
+        "canciones": 12,
+        "spotify": true
+      },
+      {
+        "nombre": "Cartones Grandes (20 canciones × 40 cartones)",
+        "ruta": "cartones/pop-latino-y-espanol/grandes/cartones-pop-latino-y-espanol-grandes.md",
+        "canciones": 20,
+        "spotify": true
       }
     ]
   },

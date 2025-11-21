@@ -1,0 +1,103 @@
+{
+  "Música de Otoño": {
+    "pequeños": {
+      "listado": "cartones/musica-de-otono/pequeños/listado-canciones-musica-de-otono-pequeños.md",
+      "cartones": "cartones/musica-de-otono/pequeños/cartones-musica-de-otono-pequeños.md",
+      "numCanciones": 15,
+      "cancionesPorCarton": 8,
+      "numCartones": 20
+    },
+    "medianos": {
+      "listado": "cartones/musica-de-otono/medianos/listado-canciones-musica-de-otono-medianos.md",
+      "cartones": "cartones/musica-de-otono/medianos/cartones-musica-de-otono-medianos.md",
+      "numCanciones": 15,
+      "cancionesPorCarton": 12,
+      "numCartones": 30
+    }
+  },
+  "Cumpleaños": {
+    "pequeños": {
+      "listado": "cartones/cumpleanos/pequeños/listado-canciones-cumpleanos-pequeños.md",
+      "cartones": "cartones/cumpleanos/pequeños/cartones-cumpleanos-pequeños.md",
+      "numCanciones": 15,
+      "cancionesPorCarton": 8,
+      "numCartones": 20
+    },
+    "medianos": {
+      "listado": "cartones/cumpleanos/medianos/listado-canciones-cumpleanos-medianos.md",
+      "cartones": "cartones/cumpleanos/medianos/cartones-cumpleanos-medianos.md",
+      "numCanciones": 15,
+      "cancionesPorCarton": 12,
+      "numCartones": 30
+    }
+  },
+  "Navidad": {
+    "pequeños": {
+      "listado": "cartones/navidad/pequeños/listado-canciones-navidad-pequeños.md",
+      "cartones": "cartones/navidad/pequeños/cartones-navidad-pequeños.md",
+      "numCanciones": 20,
+      "cancionesPorCarton": 8,
+      "numCartones": 20
+    },
+    "medianos": {
+      "listado": "cartones/navidad/medianos/listado-canciones-navidad-medianos.md",
+      "cartones": "cartones/navidad/medianos/cartones-navidad-medianos.md",
+      "numCanciones": 20,
+      "cancionesPorCarton": 12,
+      "numCartones": 30
+    },
+    "grandes": {
+      "listado": "cartones/navidad/grandes/listado-canciones-navidad-grandes.md",
+      "cartones": "cartones/navidad/grandes/cartones-navidad-grandes.md",
+      "numCanciones": 20,
+      "cancionesPorCarton": 20,
+      "numCartones": 40
+    }
+  },
+  "Clásicos del Pop": {
+    "pequeños": {
+      "listado": "cartones/clasicos-del-pop/pequeños/listado-canciones-clasicos-del-pop-pequeños.md",
+      "cartones": "cartones/clasicos-del-pop/pequeños/cartones-clasicos-del-pop-pequeños.md",
+      "numCanciones": 25,
+      "cancionesPorCarton": 8,
+      "numCartones": 20
+    },
+    "medianos": {
+      "listado": "cartones/clasicos-del-pop/medianos/listado-canciones-clasicos-del-pop-medianos.md",
+      "cartones": "cartones/clasicos-del-pop/medianos/cartones-clasicos-del-pop-medianos.md",
+      "numCanciones": 25,
+      "cancionesPorCarton": 12,
+      "numCartones": 30
+    },
+    "grandes": {
+      "listado": "cartones/clasicos-del-pop/grandes/listado-canciones-clasicos-del-pop-grandes.md",
+      "cartones": "cartones/clasicos-del-pop/grandes/cartones-clasicos-del-pop-grandes.md",
+      "numCanciones": 25,
+      "cancionesPorCarton": 20,
+      "numCartones": 40
+    }
+  },
+  "Pop Latino y Español": {
+    "pequeños": {
+      "listado": "cartones/pop-latino-y-espanol/pequeños/listado-canciones-pop-latino-y-espanol-pequeños.md",
+      "cartones": "cartones/pop-latino-y-espanol/pequeños/cartones-pop-latino-y-espanol-pequeños.md",
+      "numCanciones": 20,
+      "cancionesPorCarton": 8,
+      "numCartones": 20
+    },
+    "medianos": {
+      "listado": "cartones/pop-latino-y-espanol/medianos/listado-canciones-pop-latino-y-espanol-medianos.md",
+      "cartones": "cartones/pop-latino-y-espanol/medianos/cartones-pop-latino-y-espanol-medianos.md",
+      "numCanciones": 20,
+      "cancionesPorCarton": 12,
+      "numCartones": 30
+    },
+    "grandes": {
+      "listado": "cartones/pop-latino-y-espanol/grandes/listado-canciones-pop-latino-y-espanol-grandes.md",
+      "cartones": "cartones/pop-latino-y-espanol/grandes/cartones-pop-latino-y-espanol-grandes.md",
+      "numCanciones": 20,
+      "cancionesPorCarton": 20,
+      "numCartones": 40
+    }
+  }
+}
