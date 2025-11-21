@@ -1,5 +1,5 @@
 
-const CACHE_NAME = 'bingo-musical-v5';
+const CACHE_NAME = 'bingo-musical-v6';
 const OFFLINE_URL = '/offline.html';
 const ASSETS = [
   '/',
@@ -13,6 +13,7 @@ const ASSETS = [
   '/rock.html',
   '/musica-ingles.html',
   '/musica-espanol.html',
+  '/generador.html',
   '/assets/css/styles.css',
   '/assets/js/app.js',
   '/assets/js/app-category.js',

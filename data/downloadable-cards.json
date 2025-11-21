@@ -146,6 +146,84 @@
     "descripcion": "Reggaeton, trap y urban latino - lo más actual en español.",
     "archivos": []
   },
+  "Rock": {
+    "nombre": "Rock Clásico",
+    "descripcion": "Los mejores temas de rock de todos los tiempos para tus eventos.",
+    "archivos": [
+      {
+        "nombre": "Listado Completo (25 canciones)",
+        "ruta": "cartones/rock/pequeños/listado-canciones-rock-pequeños.md",
+        "canciones": 25
+      },
+      {
+        "nombre": "Cartones Pequeños (8 canciones × 20 cartones)",
+        "ruta": "cartones/rock/pequeños/cartones-rock-pequeños.md",
+        "canciones": 8
+      },
+      {
+        "nombre": "Cartones Medianos (12 canciones × 30 cartones)",
+        "ruta": "cartones/rock/medianos/cartones-rock-medianos.md",
+        "canciones": 12
+      },
+      {
+        "nombre": "Cartones Grandes (20 canciones × 40 cartones)",
+        "ruta": "cartones/rock/grandes/cartones-rock-grandes.md",
+        "canciones": 20
+      }
+    ]
+  },
+  "Música en Inglés": {
+    "nombre": "Música en Inglés",
+    "descripcion": "Los hits internacionales más populares de todos los tiempos.",
+    "archivos": [
+      {
+        "nombre": "Listado Completo (25 canciones)",
+        "ruta": "cartones/musica-en-ingles/pequeños/listado-canciones-musica-en-ingles-pequeños.md",
+        "canciones": 25
+      },
+      {
+        "nombre": "Cartones Pequeños (8 canciones × 20 cartones)",
+        "ruta": "cartones/musica-en-ingles/pequeños/cartones-musica-en-ingles-pequeños.md",
+        "canciones": 8
+      },
+      {
+        "nombre": "Cartones Medianos (12 canciones × 30 cartones)",
+        "ruta": "cartones/musica-en-ingles/medianos/cartones-musica-en-ingles-medianos.md",
+        "canciones": 12
+      },
+      {
+        "nombre": "Cartones Grandes (20 canciones × 40 cartones)",
+        "ruta": "cartones/musica-en-ingles/grandes/cartones-musica-en-ingles-grandes.md",
+        "canciones": 20
+      }
+    ]
+  },
+  "Música en Español": {
+    "nombre": "Música en Español",
+    "descripcion": "Los mejores hits en español de diferentes géneros y épocas.",
+    "archivos": [
+      {
+        "nombre": "Listado Completo (25 canciones)",
+        "ruta": "cartones/musica-en-espanol/pequeños/listado-canciones-musica-en-espanol-pequeños.md",
+        "canciones": 25
+      },
+      {
+        "nombre": "Cartones Pequeños (8 canciones × 20 cartones)",
+        "ruta": "cartones/musica-en-espanol/pequeños/cartones-musica-en-espanol-pequeños.md",
+        "canciones": 8
+      },
+      {
+        "nombre": "Cartones Medianos (12 canciones × 30 cartones)",
+        "ruta": "cartones/musica-en-espanol/medianos/cartones-musica-en-espanol-medianos.md",
+        "canciones": 12
+      },
+      {
+        "nombre": "Cartones Grandes (20 canciones × 40 cartones)",
+        "ruta": "cartones/musica-en-espanol/grandes/cartones-musica-en-espanol-grandes.md",
+        "canciones": 20
+      }
+    ]
+  },
   "Infantil": {
     "nombre": "Música Infantil",
     "descripcion": "Canciones de películas Disney, villancicos infantiles y más para los más pequeños.",

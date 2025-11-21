@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Generador de Bingo Musical - Crea tus propios cartones personalizados con tu lista de canciones.">
+  <title>Generador Personalizado - Bingo Musical</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/icon-192.png">
+  <meta name="theme-color" content="#6366f1">
+  <style>
+    .generator-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid var(--glass);
+      border-radius: 8px;
+      font-size: 1rem;
+      background: var(--glass);
+      color: var(--text);
+      transition: all 0.3s ease;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: rgba(255,255,255,0.1);
+    }
+    .form-group textarea {
+      min-height: 200px;
+      font-family: 'Courier New', monospace;
+      resize: vertical;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .validation-message {
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      font-weight: 500;
+    }
+    .validation-message.success {
+      background: rgba(34, 197, 94, 0.1);
+      border: 2px solid #22c55e;
+      color: #22c55e;
+    }
+    .validation-message.error {
+      background: rgba(239, 68, 68, 0.1);
+      border: 2px solid #ef4444;
+      color: #ef4444;
+    }
+    .validation-message.warning {
+      background: rgba(234, 179, 8, 0.1);
+      border: 2px solid #eab308;
+      color: #eab308;
+    }
+    .format-example {
+      background: var(--glass);
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--primary);
+      margin: 1rem 0;
+    }
+    .format-example code {
+      display: block;
+      color: var(--primary);
+      font-family: 'Courier New', monospace;
+      line-height: 1.6;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .stat-box {
+      background: var(--glass);
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .stat-box .label {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+    .stat-box .value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .cards-preview {
+      margin-top: 2rem;
+    }
+    .bingo-card-preview {
+      background: var(--glass);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      border: 2px solid rgba(99, 102, 241, 0.2);
+    }
+    .bingo-card-preview h4 {
+      margin: 0 0 1rem 0;
+      color: var(--primary);
+    }
+    .bingo-card-preview ol {
+      margin: 0;
+      padding-left: 1.5rem;
+    }
+    .bingo-card-preview li {
+      padding: 0.25rem 0;
+    }
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    @media (max-width: 768px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-banner" hidden id="offline-banner">📡 Modo offline – Algunas funciones limitadas</div>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">🎵 Bingo Musical</a>
+      </div>
+      <nav class="main-nav">
+        <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false">☰</button>
+        <ul class="menu">
+          <li><a href="index.html">🏠 Inicio</a></li>
+          <li><a href="index.html#about">❓ Cómo funciona</a></li>
+          <li><a href="index.html#categorias">📚 Categorías</a></li>
+          <li><a href="faq.html">💬 FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container generator-container">
+    
+    <!-- HEADER -->
+    <section class="hero card" style="background:linear-gradient(135deg, rgba(99,102,241,0.1), rgba(79,70,229,0.05)); margin-top: 2rem;">
+      <div style="text-align:center;">
+        <span style="font-size:4rem;display:block;margin-bottom:1rem;">🎨</span>
+        <h1 style="color:#6366f1;margin:0 0 .5rem;">Generador Personalizado</h1>
+        <p class="lead">Crea tus propios cartones de bingo con tu lista de canciones favoritas</p>
+      </div>
+    </section>
+
+    <!-- FORMULARIO -->
+    <section class="card">
+      <h2>📝 Introduce tus canciones</h2>
+      
+      <div class="format-example">
+        <strong>📋 Formato requerido:</strong>
+        <code>1. Canción - Artista
+2. Otra Canción - Otro Artista
+3. Tercera Canción - Artista</code>
+        <p style="margin:0.5rem 0 0 0; color: var(--muted); font-size: 0.9rem;">
+          Cada línea debe empezar con un número seguido de punto, luego el título de la canción, un guion, y el nombre del artista.
+        </p>
+      </div>
+
+      <form id="generator-form">
+        <div class="form-group">
+          <label for="song-list">
+            🎵 Lista de canciones
+            <span style="color:var(--muted);font-weight:normal;font-size:0.9rem;">(Una por línea)</span>
+          </label>
+          <textarea 
+            id="song-list" 
+            placeholder="1. Bohemian Rhapsody - Queen&#10;2. Stairway to Heaven - Led Zeppelin&#10;3. Hotel California - Eagles&#10;..."
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="songs-per-card">🎯 Canciones por cartón</label>
+            <input 
+              type="number" 
+              id="songs-per-card" 
+              value="12" 
+              min="3" 
+              max="50"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="num-cards">🎫 Número de cartones</label>
+            <input 
+              type="number" 
+              id="num-cards" 
+              value="10" 
+              min="1" 
+              max="200"
+              required
+            >
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" id="validate-btn" class="btn primary">
+            ✅ Validar Formato
+          </button>
+          <button type="submit" id="generate-btn" class="btn primary" disabled>
+            🎲 Generar Cartones
+          </button>
+          <button type="button" id="clear-btn" class="btn ghost">
+            🗑️ Limpiar
+          </button>
+        </div>
+      </form>
+
+      <!-- Mensaje de validación -->
+      <div id="validation-feedback"></div>
+
+      <!-- Estadísticas -->
+      <div id="stats-container" style="display:none;">
+        <h3 style="margin-top:2rem;">📊 Estadísticas</h3>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="label">Total Canciones</div>
+            <div class="value" id="stat-total-songs">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="label">Canciones/Cartón</div>
+            <div class="value" id="stat-songs-per-card">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="label">Cartones</div>
+            <div class="value" id="stat-num-cards">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="label">Mínimo Necesario</div>
+            <div class="value" id="stat-min-songs">0</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vista previa de cartones -->
+    <section class="card cards-preview" id="preview-section" style="display:none;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+        <h2>🎫 Cartones Generados</h2>
+        <button id="download-all-btn" class="btn primary">
+          💾 Descargar Todos (TXT)
+        </button>
+      </div>
+      <div id="cards-container"></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Bingo Musical. Todos los derechos reservados.</p>
+      <nav>
+        <a href="legal.html">Aviso Legal</a> · 
+        <a href="privacy.html">Privacidad</a> · 
+        <a href="cookies.html">Cookies</a> · 
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+  <script>
+    // Custom generator logic
+    let parsedSongs = [];
+    let generatedCards = [];
+
+    const songListInput = document.getElementById('song-list');
+    const validateBtn = document.getElementById('validate-btn');
+    const generateBtn = document.getElementById('generate-btn');
+    const clearBtn = document.getElementById('clear-btn');
+    const validationFeedback = document.getElementById('validation-feedback');
+    const statsContainer = document.getElementById('stats-container');
+    const previewSection = document.getElementById('preview-section');
+    const cardsContainer = document.getElementById('cards-container');
+    const downloadAllBtn = document.getElementById('download-all-btn');
+    const generatorForm = document.getElementById('generator-form');
+
+    // Validar formato
+    validateBtn.addEventListener('click', () => {
+      const text = songListInput.value.trim();
+      if (!text) {
+        showFeedback('Por favor, introduce una lista de canciones.', 'error');
+        return;
+      }
+
+      const lines = text.split('\n').filter(line => line.trim());
+      const regex = /^\d+\.\s+(.+?)\s+-\s+(.+)$/;
+      const errors = [];
+      parsedSongs = [];
+
+      lines.forEach((line, index) => {
+        const match = line.trim().match(regex);
+        if (!match) {
+          errors.push(`Línea ${index + 1}: Formato incorrecto`);
+        } else {
+          parsedSongs.push({
+            title: match[1].trim(),
+            artist: match[2].trim(),
+            full: `${match[1].trim()} - ${match[2].trim()}`
+          });
+        }
+      });
+
+      if (errors.length > 0) {
+        showFeedback(
+          `❌ Se encontraron ${errors.length} errores de formato:<br>` + 
+          errors.slice(0, 5).join('<br>') + 
+          (errors.length > 5 ? `<br>...y ${errors.length - 5} más` : ''),
+          'error'
+        );
+        generateBtn.disabled = true;
+        statsContainer.style.display = 'none';
+        return;
+      }
+
+      // Validar cantidad mínima
+      const songsPerCard = parseInt(document.getElementById('songs-per-card').value);
+      const numCards = parseInt(document.getElementById('num-cards').value);
+      const minRequired = calculateMinSongs(songsPerCard, numCards);
+
+      if (parsedSongs.length < minRequired) {
+        showFeedback(
+          `⚠️ Necesitas al menos ${minRequired} canciones para generar ${numCards} cartones con ${songsPerCard} canciones cada uno sin repetir cartones idénticos.<br>` +
+          `Actualmente tienes ${parsedSongs.length} canciones.`,
+          'warning'
+        );
+        generateBtn.disabled = true;
+      } else {
+        showFeedback(
+          `✅ ¡Perfecto! ${parsedSongs.length} canciones válidas detectadas.<br>` +
+          `Puedes generar hasta ${numCards} cartones únicos.`,
+          'success'
+        );
+        generateBtn.disabled = false;
+      }
+
+      // Mostrar estadísticas
+      updateStats(parsedSongs.length, songsPerCard, numCards, minRequired);
+    });
+
+    // Generar cartones
+    generatorForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (parsedSongs.length === 0) {
+        showFeedback('Primero valida tu lista de canciones.', 'error');
+        return;
+      }
+
+      const songsPerCard = parseInt(document.getElementById('songs-per-card').value);
+      const numCards = parseInt(document.getElementById('num-cards').value);
+
+      generatedCards = [];
+      for (let i = 0; i < numCards; i++) {
+        const shuffled = [...parsedSongs].sort(() => Math.random() - 0.5);
+        const selected = shuffled.slice(0, songsPerCard);
+        generatedCards.push(selected);
+      }
+
+      renderCards();
+      previewSection.style.display = 'block';
+      previewSection.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Limpiar
+    clearBtn.addEventListener('click', () => {
+      songListInput.value = '';
+      parsedSongs = [];
+      generatedCards = [];
+      generateBtn.disabled = true;
+      validationFeedback.innerHTML = '';
+      statsContainer.style.display = 'none';
+      previewSection.style.display = 'none';
+      cardsContainer.innerHTML = '';
+    });
+
+    // Renderizar cartones
+    function renderCards() {
+      cardsContainer.innerHTML = '';
+      generatedCards.forEach((card, index) => {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'bingo-card-preview';
+        
+        const title = document.createElement('h4');
+        title.textContent = `Cartón ${index + 1}`;
+        cardDiv.appendChild(title);
+
+        const ol = document.createElement('ol');
+        card.forEach(song => {
+          const li = document.createElement('li');
+          li.textContent = song.full;
+          ol.appendChild(li);
+        });
+        cardDiv.appendChild(ol);
+
+        const downloadBtn = document.createElement('button');
+        downloadBtn.className = 'btn ghost';
+        downloadBtn.innerHTML = '💾 Descargar';
+        downloadBtn.addEventListener('click', () => downloadSingleCard(card, index + 1));
+        cardDiv.appendChild(downloadBtn);
+
+        cardsContainer.appendChild(cardDiv);
+      });
+    }
+
+    // Descargar cartón individual
+    function downloadSingleCard(songs, index) {
+      const content = `Cartón ${index}\n\n` + songs.map((s, i) => `${i + 1}. ${s.full}`).join('\n');
+      downloadFile(content, `carton-${index}.txt`);
+    }
+
+    // Descargar todos
+    downloadAllBtn.addEventListener('click', () => {
+      let content = 'CARTONES DE BINGO MUSICAL\n';
+      content += '='.repeat(50) + '\n\n';
+      
+      generatedCards.forEach((card, index) => {
+        content += `CARTÓN ${index + 1}\n`;
+        content += '-'.repeat(30) + '\n';
+        card.forEach((song, i) => {
+          content += `${i + 1}. ${song.full}\n`;
+        });
+        content += '\n';
+      });
+
+      downloadFile(content, 'todos-los-cartones.txt');
+    });
+
+    // Utilidad para descargar
+    function downloadFile(content, filename) {
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    // Mostrar feedback
+    function showFeedback(message, type) {
+      validationFeedback.innerHTML = `<div class="validation-message ${type}">${message}</div>`;
+    }
+
+    // Actualizar estadísticas
+    function updateStats(totalSongs, songsPerCard, numCards, minRequired) {
+      document.getElementById('stat-total-songs').textContent = totalSongs;
+      document.getElementById('stat-songs-per-card').textContent = songsPerCard;
+      document.getElementById('stat-num-cards').textContent = numCards;
+      document.getElementById('stat-min-songs').textContent = minRequired;
+      statsContainer.style.display = 'block';
+    }
+
+    // Calcular mínimo de canciones necesarias
+    function calculateMinSongs(songsPerCard, numCards) {
+      // Formula: Para evitar cartones idénticos necesitamos
+      // al menos songsPerCard + (numCards - 1) canciones
+      // Esto garantiza variación mínima
+      return Math.max(songsPerCard, songsPerCard + Math.ceil((numCards - 1) / 2));
+    }
+
+    // Actualizar stats cuando cambian los inputs
+    document.getElementById('songs-per-card').addEventListener('input', () => {
+      if (parsedSongs.length > 0) {
+        const songsPerCard = parseInt(document.getElementById('songs-per-card').value);
+        const numCards = parseInt(document.getElementById('num-cards').value);
+        const minRequired = calculateMinSongs(songsPerCard, numCards);
+        updateStats(parsedSongs.length, songsPerCard, numCards, minRequired);
+      }
+    });
+
+    document.getElementById('num-cards').addEventListener('input', () => {
+      if (parsedSongs.length > 0) {
+        const songsPerCard = parseInt(document.getElementById('songs-per-card').value);
+        const numCards = parseInt(document.getElementById('num-cards').value);
+        const minRequired = calculateMinSongs(songsPerCard, numCards);
+        updateStats(parsedSongs.length, songsPerCard, numCards, minRequired);
+      }
+    });
+  </script>
+</body>
+</html>
