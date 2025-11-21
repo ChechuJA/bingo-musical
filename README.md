@@ -204,7 +204,7 @@ See repository for license details.
 
 ## 📧 Contact
 
-For questions or support: contacto@bingomusical.com
+For questions or support: contacto@bingomusicalgratis.es
 
 ---
 

@@ -231,7 +231,9 @@ The project includes required legal pages for AdSense compliance:
 - **`cookies.html`**: Política de Cookies (Cookie Policy)
 - **`faq.html`**: Preguntas Frecuentes (FAQ)
 
-All pages use the same design system and are linked from footer. Update contact email (`contacto@bingomusical.com`) before going live.
+All pages use the same design system and are linked from footer. 
+
+**Contact**: contacto@bingomusicalgratis.es (Jesus Angel Señoran)
 
 ### Current Categories
 The application currently supports the following categories:
