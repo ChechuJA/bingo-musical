@@ -131,6 +131,21 @@
       }
     ]
   },
+  "Rock": {
+    "nombre": "Rock Clásico",
+    "descripcion": "Los mejores clásicos del rock de todos los tiempos para verdaderos rockeros.",
+    "archivos": []
+  },
+  "Inglés": {
+    "nombre": "Música en Inglés",
+    "descripcion": "Éxitos internacionales actuales en inglés - pop, rock y más.",
+    "archivos": []
+  },
+  "Español": {
+    "nombre": "Música en Español",
+    "descripcion": "Reggaeton, trap y urban latino - lo más actual en español.",
+    "archivos": []
+  },
   "Infantil": {
     "nombre": "Música Infantil",
     "descripcion": "Canciones de películas Disney, villancicos infantiles y más para los más pequeños.",

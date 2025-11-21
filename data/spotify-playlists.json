@@ -82,5 +82,68 @@
         "descripcion": "Para bailar sin parar"
       }
     ]
+  },
+  "Rock": {
+    "nombre": "Rock Clásico",
+    "descripcion": "Los mejores clásicos del rock de todos los tiempos",
+    "playlists": [
+      {
+        "nombre": "Rock Classics",
+        "url": "https://open.spotify.com/playlist/37i9dQZF1DWXRqgorJj26U",
+        "descripcion": "Clásicos del rock que nunca pasan de moda"
+      },
+      {
+        "nombre": "Classic Rock Drive",
+        "url": "https://open.spotify.com/playlist/37i9dQZF1DWXRqgorJj26U",
+        "descripcion": "Rock para la carretera"
+      },
+      {
+        "nombre": "Rock Legends",
+        "url": "https://open.spotify.com/playlist/37i9dQZF1DX1spT6G94GFC",
+        "descripcion": "Las leyendas del rock"
+      }
+    ]
+  },
+  "Inglés": {
+    "nombre": "Música en Inglés",
+    "descripcion": "Lo mejor de la música actual en inglés",
+    "playlists": [
+      {
+        "nombre": "Today's Top Hits",
+        "url": "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M",
+        "descripcion": "Los éxitos más grandes del momento"
+      },
+      {
+        "nombre": "Pop Rising",
+        "url": "https://open.spotify.com/playlist/37i9dQZF1DWUa8ZRTfalHk",
+        "descripcion": "Nuevas estrellas del pop"
+      },
+      {
+        "nombre": "Global Top 50",
+        "url": "https://open.spotify.com/playlist/37i9dQZEVXbMDoHDwVN2tF",
+        "descripcion": "Las 50 canciones más escuchadas en el mundo"
+      }
+    ]
+  },
+  "Español": {
+    "nombre": "Música en Español",
+    "descripcion": "Reggaeton, trap y urban latino actual",
+    "playlists": [
+      {
+        "nombre": "Viva Latino",
+        "url": "https://open.spotify.com/playlist/37i9dQZF1DX10zKzsJ2jva",
+        "descripcion": "Lo último en música urbana latina"
+      },
+      {
+        "nombre": "Baila Reggaeton",
+        "url": "https://open.spotify.com/playlist/37i9dQZF1DX0XUfTFmNBRM",
+        "descripcion": "Los mejores reggaetons para bailar"
+      },
+      {
+        "nombre": "Top 50 España",
+        "url": "https://open.spotify.com/playlist/37i9dQZEVXbNFJfN1Vw8d9",
+        "descripcion": "Las 50 más escuchadas en España"
+      }
+    ]
   }
 }
