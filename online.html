@@ -172,8 +172,8 @@
       <!-- Hero Section -->
       <section class="online-hero">
         <div class="hero-content">
-          <h1>🎮 Bingo Musical Online</h1>
-          <p class="lead">Juega en tiempo real con amigos. Sin registro. ¡Como Kahoot!</p>
+          <h1 data-i18n="online.title">🎮 Bingo Musical Online</h1>
+          <p class="lead" data-i18n="online.subtitle">Juega en tiempo real con amigos. Sin registro. ¡Como Kahoot!</p>
         </div>
       </section>
 
@@ -189,18 +189,18 @@
         <div class="mode-selector">
           <div class="mode-card" id="create-room-btn">
             <div class="mode-icon">🎯</div>
-            <h2>Crear Sala</h2>
-            <p>Organiza una partida y comparte el código con tus amigos</p>
-            <button class="btn primary">Crear Nueva Sala</button>
+            <h2 data-i18n="online.createRoom">Crear Sala</h2>
+            <p data-i18n="online.createRoomDesc">Organiza una partida y comparte el código con tus amigos</p>
+            <button class="btn primary" data-i18n="online.createRoomBtn">Crear Nueva Sala</button>
           </div>
 
           <div class="mode-card" id="join-room-card">
             <div class="mode-icon">👥</div>
-            <h2>Unirse a Sala</h2>
-            <p>Introduce el código de la sala para empezar a jugar</p>
+            <h2 data-i18n="online.joinRoom">Unirse a Sala</h2>
+            <p data-i18n="online.joinRoomDesc">Introduce el código de la sala para empezar a jugar</p>
             <div class="room-code-input">
-              <input type="text" id="room-code-input" placeholder="ABCD" maxlength="6" style="flex: 1;" />
-              <button class="btn primary" id="join-room-btn">Unirse</button>
+              <input type="text" id="room-code-input" data-i18n-aria="online.roomCodePlaceholder" placeholder="ABCD" maxlength="6" style="flex: 1;" />
+              <button class="btn primary" id="join-room-btn" data-i18n="online.joinRoomBtn">Unirse</button>
             </div>
           </div>
         </div>
@@ -215,59 +215,59 @@
 
       <!-- Features -->
       <section class="features-section">
-        <h2 style="text-align: center; color: var(--accent); margin: 2rem 0 1rem;">✨ Características</h2>
+        <h2 style="text-align: center; color: var(--accent); margin: 2rem 0 1rem;" data-i18n="online.featuresTitle">✨ Características</h2>
         <div class="features-grid">
           <div class="feature-item">
             <div class="feature-icon">⚡</div>
-            <h3>Tiempo Real</h3>
-            <p>Todos los jugadores ven las actualizaciones instantáneamente</p>
+            <h3 data-i18n="online.featureRealTime">Tiempo Real</h3>
+            <p data-i18n="online.featureRealTimeDesc">Todos los jugadores ven las actualizaciones instantáneamente</p>
           </div>
           <div class="feature-item">
             <div class="feature-icon">🎲</div>
-            <h3>Cartones Únicos</h3>
-            <p>Cada jugador recibe un cartón diferente automáticamente</p>
+            <h3 data-i18n="online.featureUniqueCards">Cartones Únicos</h3>
+            <p data-i18n="online.featureUniqueCardsDesc">Cada jugador recibe un cartón diferente automáticamente</p>
           </div>
           <div class="feature-item">
             <div class="feature-icon">🚀</div>
-            <h3>Sin Registro</h3>
-            <p>Empieza a jugar inmediatamente, sin crear cuenta</p>
+            <h3 data-i18n="online.featureNoRegister">Sin Registro</h3>
+            <p data-i18n="online.featureNoRegisterDesc">Empieza a jugar inmediatamente, sin crear cuenta</p>
           </div>
           <div class="feature-item">
             <div class="feature-icon">📱</div>
-            <h3>Multi-dispositivo</h3>
-            <p>Juega desde móvil, tablet o computadora</p>
+            <h3 data-i18n="online.featureMultiDevice">Multi-dispositivo</h3>
+            <p data-i18n="online.featureMultiDeviceDesc">Juega desde móvil, tablet o computadora</p>
           </div>
           <div class="feature-item">
             <div class="feature-icon">🎵</div>
-            <h3>Múltiples Categorías</h3>
-            <p>Elige entre Navidad, Pop, Rock y más temáticas</p>
+            <h3 data-i18n="online.featureCategories">Múltiples Categorías</h3>
+            <p data-i18n="online.featureCategoriesDesc">Elige entre Navidad, Pop, Rock y más temáticas</p>
           </div>
           <div class="feature-item">
             <div class="feature-icon">🏆</div>
-            <h3>Sistema de Ganadores</h3>
-            <p>El host valida y anuncia a los ganadores</p>
+            <h3 data-i18n="online.featureWinners">Sistema de Ganadores</h3>
+            <p data-i18n="online.featureWinnersDesc">El host valida y anuncia a los ganadores</p>
           </div>
         </div>
       </section>
 
       <!-- How It Works -->
       <section style="margin: 3rem 0;">
-        <h2 style="text-align: center; color: var(--accent); margin-bottom: 2rem;">📖 Cómo Funciona</h2>
+        <h2 style="text-align: center; color: var(--accent); margin-bottom: 2rem;" data-i18n="online.howItWorksTitle">📖 Cómo Funciona</h2>
         <div class="how-it-works">
           <div class="step">
             <span class="step-number">1</span>
-            <h3>Crea o Únete</h3>
-            <p>El host crea una sala y comparte el código. Los jugadores se unen con el código.</p>
+            <h3 data-i18n="online.howItWorksStep1">Crea o Únete</h3>
+            <p data-i18n="online.howItWorksStep1Desc">El host crea una sala y comparte el código. Los jugadores se unen con el código.</p>
           </div>
           <div class="step">
             <span class="step-number">2</span>
-            <h3>Recibe tu Cartón</h3>
-            <p>Cada jugador recibe automáticamente un cartón único con canciones aleatorias.</p>
+            <h3 data-i18n="online.howItWorksStep2">Recibe tu Cartón</h3>
+            <p data-i18n="online.howItWorksStep2Desc">Cada jugador recibe automáticamente un cartón único con canciones aleatorias.</p>
           </div>
           <div class="step">
             <span class="step-number">3</span>
-            <h3>¡A Jugar!</h3>
-            <p>El host marca las canciones. Cuando completes tu cartón, ¡canta BINGO!</p>
+            <h3 data-i18n="online.howItWorksStep3">¡A Jugar!</h3>
+            <p data-i18n="online.howItWorksStep3Desc">El host marca las canciones. Cuando completes tu cartón, ¡canta BINGO!</p>
           </div>
         </div>
       </section>
