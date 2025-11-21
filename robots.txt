@@ -1,0 +1,28 @@
+# robots.txt para Bingo Musical
+User-agent: *
+Allow: /
+
+# Permitir rastreo de todos los contenidos importantes
+Allow: /index.html
+Allow: /generador.html
+Allow: /navidad.html
+Allow: /clasicos-pop.html
+Allow: /pop-latino.html
+Allow: /rock.html
+Allow: /musica-ingles.html
+Allow: /musica-espanol.html
+Allow: /otono.html
+Allow: /cumpleanos.html
+Allow: /mix.html
+
+# Permitir recursos
+Allow: /assets/
+Allow: /data/
+
+# Bloquear archivos innecesarios
+Disallow: /cartones/*.txt
+Disallow: /cartones/*.pdf
+Disallow: /cartones/*.pptx
+
+# Sitemap
+Sitemap: https://bingomusical.com/sitemap.xml
