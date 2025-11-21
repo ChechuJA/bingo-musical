@@ -103,9 +103,38 @@
   </url>
   
   <url>
-    <loc>https://bingomusical.com/cookies.html</loc>
+    <loc>https://bingomusical.com/faq.html</loc>
     <lastmod>2025-11-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <!-- Blog Section -->
+  <url>
+    <loc>https://bingomusical.com/blog.html</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://bingomusical.com/blog/como-organizar-bingo-musical.html</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bingomusical.com/blog/ideas-creativas-bingo-musical.html</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bingomusical.com/blog/historia-bingo-musical.html</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

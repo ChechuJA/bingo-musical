@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Blog de Bingo Musical - Guías, tutoriales y consejos para organizar el mejor bingo musical. Aprende trucos, ideas creativas y más.">
+  <meta name="keywords" content="blog bingo musical, guías bingo musical, consejos juegos musicales, ideas fiestas, tutoriales bingo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bingomusical.com/blog.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bingomusical.com/blog.html">
+  <meta property="og:title" content="Blog - Guías y Consejos de Bingo Musical">
+  <meta property="og:description" content="Aprende a organizar el mejor bingo musical con nuestras guías y tutoriales.">
+  <meta property="og:image" content="https://bingomusical.com/assets/icons/icon-512.png">
+  
+  <title>Blog - Guías y Consejos | Bingo Musical</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/icon-192.png">
+  <meta name="theme-color" content="#6366f1">
+  
+  <style>
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .blog-card {
+      background: var(--glass);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid rgba(99, 102, 241, 0.1);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.2);
+    }
+    .blog-card-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+    .blog-card-content {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+    .blog-card-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 0 0 0.75rem 0;
+      color: var(--text);
+    }
+    .blog-card-excerpt {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+    .blog-card-link {
+      align-self: flex-start;
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-banner" hidden id="offline-banner">📡 Modo offline – Algunas funciones limitadas</div>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">🎵 Bingo Musical</a>
+      </div>
+      <nav class="main-nav">
+        <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false">☰</button>
+        <ul class="menu">
+          <li><a href="index.html">🏠 Inicio</a></li>
+          <li><a href="index.html#about">❓ Cómo funciona</a></li>
+          <li><a href="index.html#categorias">📚 Categorías</a></li>
+          <li><a href="blog.html" class="active">📝 Blog</a></li>
+          <li><a href="faq.html">💬 FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="margin-top: 2rem;">
+    
+    <!-- Header del Blog -->
+    <section class="hero card" style="background:linear-gradient(135deg, rgba(99,102,241,0.1), rgba(168,85,247,0.05));">
+      <div style="text-align:center;">
+        <span style="font-size:4rem;display:block;margin-bottom:1rem;">📝</span>
+        <h1 style="color:#6366f1;margin:0 0 .5rem;">Blog de Bingo Musical</h1>
+        <p class="lead">Guías, consejos y trucos para organizar el mejor bingo musical</p>
+      </div>
+    </section>
+
+    <!-- Grid de Artículos -->
+    <section class="blog-grid">
+      
+      <!-- Artículo 1: Cómo organizar -->
+      <article class="blog-card">
+        <div class="blog-card-image">🎯</div>
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <span>📅 21 Nov 2025</span>
+            <span>⏱️ 5 min lectura</span>
+          </div>
+          <h2 class="blog-card-title">Cómo Organizar un Bingo Musical Paso a Paso</h2>
+          <p class="blog-card-excerpt">
+            Guía completa para organizar un bingo musical exitoso: desde la preparación de materiales 
+            hasta las reglas del juego. Incluye checklist descargable y consejos prácticos.
+          </p>
+          <a href="blog/como-organizar-bingo-musical.html" class="btn primary blog-card-link">Leer más →</a>
+        </div>
+      </article>
+
+      <!-- Artículo 2: 10 ideas -->
+      <article class="blog-card">
+        <div class="blog-card-image">💡</div>
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <span>📅 21 Nov 2025</span>
+            <span>⏱️ 7 min lectura</span>
+          </div>
+          <h2 class="blog-card-title">10 Ideas Creativas para Fiestas con Bingo Musical</h2>
+          <p class="blog-card-excerpt">
+            Descubre 10 formas originales de usar el bingo musical en diferentes eventos: 
+            cumpleaños, bodas, reuniones familiares y más. Con ejemplos reales y temas únicos.
+          </p>
+          <a href="blog/ideas-creativas-bingo-musical.html" class="btn primary blog-card-link">Leer más →</a>
+        </div>
+      </article>
+
+      <!-- Artículo 3: Historia -->
+      <article class="blog-card">
+        <div class="blog-card-image">📚</div>
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <span>📅 21 Nov 2025</span>
+            <span>⏱️ 4 min lectura</span>
+          </div>
+          <h2 class="blog-card-title">Historia del Bingo Musical</h2>
+          <p class="blog-card-excerpt">
+            Descubre el origen del bingo musical, cómo evolucionó desde el bingo tradicional y 
+            por qué se ha convertido en uno de los juegos favoritos para eventos familiares.
+          </p>
+          <a href="blog/historia-bingo-musical.html" class="btn primary blog-card-link">Leer más →</a>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- CTA Section -->
+    <section class="card" style="background:linear-gradient(135deg, rgba(99,102,241,0.1), rgba(168,85,247,0.05)); margin-top: 3rem; text-align: center;">
+      <h2>¿Listo para jugar?</h2>
+      <p style="color: var(--muted); margin: 1rem 0 1.5rem;">
+        Explora nuestras 9 categorías de bingo musical o crea tu propio cartón personalizado
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="index.html#categorias" class="btn primary">Ver Categorías</a>
+        <a href="generador.html" class="btn ghost">Generador Personalizado</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Bingo Musical. Todos los derechos reservados.</p>
+      <nav>
+        <a href="legal.html">Aviso Legal</a> · 
+        <a href="privacy.html">Privacidad</a> · 
+        <a href="cookies.html">Cookies</a> · 
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
