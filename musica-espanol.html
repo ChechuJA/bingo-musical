@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cartones de Bingo Musical - Música en Español. Descarga cartones con reggaeton, trap y urban latino.">
+  <title>Música en Español - Bingo Musical</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/icon-192.png">
+  <meta name="theme-color" content="#ff4500">
+</head>
+<body>
+  <div class="offline-banner" hidden id="offline-banner">📡 Modo offline – Algunas funciones limitadas</div>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">🎵 Bingo Musical</a>
+      </div>
+      <nav class="main-nav">
+        <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false">☰</button>
+        <ul class="menu">
+          <li><a href="index.html">🏠 Inicio</a></li>
+          <li><a href="index.html#about">❓ Cómo funciona</a></li>
+          <li><a href="index.html#categorias">📚 Categorías</a></li>
+          <li><a href="faq.html">💬 FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- ESPACIO PUBLICIDAD #1 (Entrada) -->
+    <section class="ad-space" aria-label="Espacio publicitario" style="margin-top:2rem;">
+      <div class="ad-placeholder">
+        <!-- Google AdSense Horizontal Banner -->
+        <p style="text-align:center;color:var(--muted);padding:2rem;background:var(--glass);border-radius:12px;">
+          📢 Espacio para publicidad horizontal
+        </p>
+      </div>
+    </section>
+
+    <!-- HEADER TEMÁTICO -->
+    <section class="hero card" style="background:linear-gradient(135deg, rgba(255,69,0,0.1), rgba(255,69,0,0.05));">
+      <div style="text-align:center;">
+        <span style="font-size:4rem;display:block;margin-bottom:1rem;">🔥</span>
+        <h1 style="color:#ff4500;margin:0 0 .5rem;">Música en Español</h1>
+        <p class="lead">Reggaeton, trap y urban latino - lo más actual en español</p>
+        <div class="hero-ctas" style="margin-top:1.5rem;">
+          <button class="btn primary" id="btn-spotify-modal" style="background:#ff4500;">
+            🎵 Ver Playlists Spotify
+          </button>
+          <a class="btn ghost" href="index.html">← Volver a categorías</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESTADÍSTICAS -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin:2rem 0;">
+      <div class="card" style="text-align:center;padding:1.5rem;">
+        <div style="font-size:2rem;color:#ff4500;font-weight:700;">25</div>
+        <div style="color:var(--muted);font-size:0.9rem;">Canciones</div>
+      </div>
+      <div class="card" style="text-align:center;padding:1.5rem;">
+        <div style="font-size:2rem;color:#ff4500;font-weight:700;">Próximamente</div>
+        <div style="color:var(--muted);font-size:0.9rem;">Cartones</div>
+      </div>
+      <div class="card" style="text-align:center;padding:1.5rem;">
+        <div style="font-size:2rem;color:#ff4500;font-weight:700;">-</div>
+        <div style="color:var(--muted);font-size:0.9rem;">Tamaños</div>
+      </div>
+    </div>
+
+    <!-- ESPACIO PUBLICIDAD #2 -->
+    <section class="ad-space" aria-label="Espacio publicitario">
+      <div class="ad-placeholder">
+        <p style="text-align:center;color:var(--muted);padding:2rem;background:var(--glass);border-radius:12px;">
+          📢 Espacio para publicidad horizontal
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTENIDO DISPONIBLE PRÓXIMAMENTE -->
+    <section class="card">
+      <h2>🚀 Próximamente Disponible</h2>
+      <p>Estamos preparando los cartones de Música en Español con lo más actual del reggaeton y trap: Bad Bunny, Karol G, Maluma, Anuel AA, Ozuna, J Balvin y muchos más.</p>
+      <p>Mientras tanto, puedes disfrutar de nuestras playlists de Spotify haciendo clic en el botón de arriba.</p>
+      <div id="all-cards" class="files-grid" aria-live="polite">
+        <!-- JS renders all cards when available -->
+      </div>
+    </section>
+
+    <!-- ESPACIO PUBLICIDAD #3 (Salida) -->
+    <section class="ad-space" aria-label="Espacio publicitario">
+      <div class="ad-placeholder">
+        <p style="text-align:center;color:var(--muted);padding:2rem;background:var(--glass);border-radius:12px;">
+          📢 Espacio para publicidad horizontal
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>
+        <a href="legal.html">Aviso Legal</a> · 
+        <a href="privacy.html">Privacidad</a> · 
+        <a href="cookies.html">Cookies</a> · 
+        <a href="faq.html">FAQ</a>
+      </p>
+      <p>Bingo Musical © 2024</p>
+    </div>
+  </footer>
+
+  <!-- MODAL SPOTIFY -->
+  <div id="spotify-modal" class="modal-overlay" hidden aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-labelledby="modal-title">
+      <button class="modal-close" aria-label="Cerrar">×</button>
+      <h3 id="modal-title"></h3>
+      <p id="modal-desc"></p>
+      
+      <!-- Ad space dentro del modal -->
+      <div class="modal-ad">
+        <!-- Google AdSense 300x250 o 336x280 -->
+        <p style="text-align:center;color:var(--muted);padding:1rem;background:var(--glass);border-radius:8px;margin:1rem 0;">
+          📢 Espacio para publicidad (300x250)
+        </p>
+      </div>
+
+      <div id="modal-playlists">
+        <!-- Spotify playlists rendered here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- COOKIE CONSENT -->
+  <div id="cookie-banner" class="cookie-banner" hidden>
+    <p>Usamos cookies técnicas y publicitarias (Google AdSense) para mejorar tu experiencia. 
+      <a href="cookies.html">Más info</a>
+    </p>
+    <div>
+      <button id="cookie-accept" class="btn primary">Aceptar</button>
+      <button id="cookie-decline" class="btn ghost">Solo esenciales</button>
+    </div>
+  </div>
+
+  <script src="assets/js/app-category.js" data-category="Español"></script>
+</body>
+</html>

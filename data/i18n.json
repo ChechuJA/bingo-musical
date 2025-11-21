@@ -1,0 +1,224 @@
+{
+  "es": {
+    "siteName": "Bingo Musical",
+    "nav": {
+      "home": "Inicio",
+      "howItWorks": "Cómo funciona",
+      "categories": "Categorías",
+      "faq": "FAQ"
+    },
+    "hero": {
+      "title": "Bingo Musical — ¡Juega en familia!",
+      "subtitle": "Descarga cartones listos para jugar con canciones temáticas. Elige tu categoría favorita y empieza a jugar con Spotify.",
+      "exploreBtn": "Explorar categorías",
+      "howItWorksBtn": "Cómo funciona"
+    },
+    "howItWorks": {
+      "title": "Cómo Funciona",
+      "step1Title": "Elige tu categoría",
+      "step1Text": "Selecciona entre Navidad, Clásicos Pop, Cumpleaños, Otoño y más temáticas musicales.",
+      "step2Title": "Descarga cartones",
+      "step2Text": "Elige el tamaño que prefieras (pequeños, medianos o grandes) y descarga los cartones en Markdown.",
+      "step3Title": "¡A jugar!",
+      "step3Text": "Usa las playlists de Spotify sugeridas, reparte cartones y marca las canciones. ¡El primero en completar gana!"
+    },
+    "categories": {
+      "title": "Explora Nuestras Categorías",
+      "subtitle": "Haz clic en cualquier categoría para ver todos los cartones disponibles y playlists de Spotify.",
+      "christmas": "Navidad",
+      "classicPop": "Clásicos del Pop",
+      "latinPop": "Pop Latino",
+      "autumn": "Música de Otoño",
+      "birthday": "Cumpleaños",
+      "mix": "Mix Musical",
+      "rock": "Rock Clásico",
+      "english": "Música en Inglés",
+      "spanish": "Música en Español",
+      "songs": "canciones",
+      "cards": "cartones",
+      "sizes": "tamaños",
+      "collection": "Colección",
+      "new": "Nuevo",
+      "comingSoon": "Próximamente"
+    },
+    "categoryPages": {
+      "backBtn": "← Volver a categorías",
+      "spotifyBtn": "🎵 Ver Playlists Spotify",
+      "statsCards": "Cartones",
+      "statsSongs": "Canciones",
+      "statsSizes": "Tamaños",
+      "comingSoonTitle": "Próximamente Disponible",
+      "comingSoonText": "Estamos preparando los cartones de esta categoría. Mientras tanto, puedes disfrutar de nuestras playlists de Spotify.",
+      "featuredTitle": "⭐ Cartones Destacados",
+      "featuredSubtitle": "Los 3 cartones más descargados de esta categoría",
+      "allCardsTitle": "📦 Todos los Cartones",
+      "allCardsSubtitle": "Descarga el listado completo o elige por tamaño"
+    },
+    "footer": {
+      "legal": "Aviso Legal",
+      "privacy": "Privacidad",
+      "cookies": "Cookies",
+      "copyright": "Bingo Musical © 2024"
+    },
+    "cookie": {
+      "message": "Usamos cookies técnicas y publicitarias (Google AdSense) para mejorar tu experiencia.",
+      "moreInfo": "Más info",
+      "accept": "Aceptar",
+      "decline": "Solo esenciales"
+    },
+    "offline": {
+      "banner": "📡 Modo offline – Algunas funciones limitadas"
+    },
+    "ads": {
+      "placeholder": "📢 Espacio para publicidad"
+    }
+  },
+  "ca": {
+    "siteName": "Bingo Musical",
+    "nav": {
+      "home": "Inici",
+      "howItWorks": "Com funciona",
+      "categories": "Categories",
+      "faq": "FAQ"
+    },
+    "hero": {
+      "title": "Bingo Musical — Juga en família!",
+      "subtitle": "Descarrega cartons llestos per jugar amb cançons temàtiques. Tria la teva categoria favorita i comença a jugar amb Spotify.",
+      "exploreBtn": "Explorar categories",
+      "howItWorksBtn": "Com funciona"
+    },
+    "howItWorks": {
+      "title": "Com Funciona",
+      "step1Title": "Tria la teva categoria",
+      "step1Text": "Selecciona entre Nadal, Clàssics Pop, Aniversaris, Tardor i més temàtiques musicals.",
+      "step2Title": "Descarrega cartons",
+      "step2Text": "Tria la mida que prefereixis (petits, mitjans o grans) i descarrega els cartons en Markdown.",
+      "step3Title": "A jugar!",
+      "step3Text": "Utilitza les llistes de reproducció de Spotify suggerides, reparteix cartons i marca les cançons. El primer a completar guanya!"
+    },
+    "categories": {
+      "title": "Explora les Nostres Categories",
+      "subtitle": "Fes clic a qualsevol categoria per veure tots els cartons disponibles i llistes de Spotify.",
+      "christmas": "Nadal",
+      "classicPop": "Clàssics del Pop",
+      "latinPop": "Pop Llatí",
+      "autumn": "Música de Tardor",
+      "birthday": "Aniversaris",
+      "mix": "Mix Musical",
+      "rock": "Rock Clàssic",
+      "english": "Música en Anglès",
+      "spanish": "Música en Espanyol",
+      "songs": "cançons",
+      "cards": "cartons",
+      "sizes": "mides",
+      "collection": "Col·lecció",
+      "new": "Nou",
+      "comingSoon": "Properament"
+    },
+    "categoryPages": {
+      "backBtn": "← Tornar a categories",
+      "spotifyBtn": "🎵 Veure Llistes Spotify",
+      "statsCards": "Cartons",
+      "statsSongs": "Cançons",
+      "statsSizes": "Mides",
+      "comingSoonTitle": "Properament Disponible",
+      "comingSoonText": "Estem preparant els cartons d'aquesta categoria. Mentre tant, pots gaudir de les nostres llistes de Spotify.",
+      "featuredTitle": "⭐ Cartons Destacats",
+      "featuredSubtitle": "Els 3 cartons més descarregats d'aquesta categoria",
+      "allCardsTitle": "📦 Tots els Cartons",
+      "allCardsSubtitle": "Descarrega el llistat complet o tria per mida"
+    },
+    "footer": {
+      "legal": "Avís Legal",
+      "privacy": "Privacitat",
+      "cookies": "Galetes",
+      "copyright": "Bingo Musical © 2024"
+    },
+    "cookie": {
+      "message": "Utilitzem galetes tècniques i publicitàries (Google AdSense) per millorar la teva experiència.",
+      "moreInfo": "Més informació",
+      "accept": "Acceptar",
+      "decline": "Només essencials"
+    },
+    "offline": {
+      "banner": "📡 Mode offline – Algunes funcions limitades"
+    },
+    "ads": {
+      "placeholder": "📢 Espai per a publicitat"
+    }
+  },
+  "en": {
+    "siteName": "Musical Bingo",
+    "nav": {
+      "home": "Home",
+      "howItWorks": "How it works",
+      "categories": "Categories",
+      "faq": "FAQ"
+    },
+    "hero": {
+      "title": "Musical Bingo — Play with family!",
+      "subtitle": "Download ready-to-play cards with themed songs. Choose your favorite category and start playing with Spotify.",
+      "exploreBtn": "Explore categories",
+      "howItWorksBtn": "How it works"
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "step1Title": "Choose your category",
+      "step1Text": "Select from Christmas, Classic Pop, Birthday, Autumn and more musical themes.",
+      "step2Title": "Download cards",
+      "step2Text": "Choose your preferred size (small, medium or large) and download the cards in Markdown format.",
+      "step3Title": "Let's play!",
+      "step3Text": "Use the suggested Spotify playlists, distribute cards and mark the songs. First to complete wins!"
+    },
+    "categories": {
+      "title": "Explore Our Categories",
+      "subtitle": "Click on any category to see all available cards and Spotify playlists.",
+      "christmas": "Christmas",
+      "classicPop": "Classic Pop",
+      "latinPop": "Latin Pop",
+      "autumn": "Autumn Music",
+      "birthday": "Birthday",
+      "mix": "Musical Mix",
+      "rock": "Classic Rock",
+      "english": "English Music",
+      "spanish": "Spanish Music",
+      "songs": "songs",
+      "cards": "cards",
+      "sizes": "sizes",
+      "collection": "Collection",
+      "new": "New",
+      "comingSoon": "Coming Soon"
+    },
+    "categoryPages": {
+      "backBtn": "← Back to categories",
+      "spotifyBtn": "🎵 View Spotify Playlists",
+      "statsCards": "Cards",
+      "statsSongs": "Songs",
+      "statsSizes": "Sizes",
+      "comingSoonTitle": "Coming Soon",
+      "comingSoonText": "We're preparing the cards for this category. Meanwhile, you can enjoy our Spotify playlists.",
+      "featuredTitle": "⭐ Featured Cards",
+      "featuredSubtitle": "The 3 most downloaded cards from this category",
+      "allCardsTitle": "📦 All Cards",
+      "allCardsSubtitle": "Download the complete listing or choose by size"
+    },
+    "footer": {
+      "legal": "Legal Notice",
+      "privacy": "Privacy",
+      "cookies": "Cookies",
+      "copyright": "Musical Bingo © 2024"
+    },
+    "cookie": {
+      "message": "We use technical and advertising cookies (Google AdSense) to improve your experience.",
+      "moreInfo": "More info",
+      "accept": "Accept",
+      "decline": "Essential only"
+    },
+    "offline": {
+      "banner": "📡 Offline mode – Some features limited"
+    },
+    "ads": {
+      "placeholder": "📢 Ad space"
+    }
+  }
+}

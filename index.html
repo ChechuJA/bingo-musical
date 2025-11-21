@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="icon" type="image/svg+xml" href="assets/icons/icon.svg">
 
+  <!-- i18n Support -->
+  <script src="assets/js/i18n.js"></script>
+
   <!-- Placeholder AdSense (comentado) -->
   <!--
   <script data-ad-client="ca-pub-XXXXXXXXXXXX" async
@@ -29,17 +32,22 @@
       <div class="container header-inner">
         <div class="logo-wrap">
           <img src="assets/icons/bingo-logo.svg" alt="Bingo Musical logo" class="logo-img" />
-          <a href="/" class="logo">Bingo Musical</a>
+          <a href="/" class="logo" data-i18n="siteName">Bingo Musical</a>
         </div>
         <nav class="main-nav" aria-label="Navegación principal">
           <button id="menu-toggle" aria-expanded="false" aria-controls="main-menu" class="menu-btn">☰</button>
           <ul id="main-menu" class="menu">
-            <li><a href="#otoño">Otoño</a></li>
-            <li><a href="#cumple">Cumpleaños</a></li>
-            <li><a href="#navidad">Navidad</a></li>
-            <li><a href="#bingo">Bingo</a></li>
-            <li><a href="#mix">Mix</a></li>
-            <li><a href="#about">Sobre</a></li>
+            <li><a href="index.html" data-i18n="nav.home">🏠 Inicio</a></li>
+            <li><a href="#about" data-i18n="nav.howItWorks">❓ Cómo funciona</a></li>
+            <li><a href="#categorias" data-i18n="nav.categories">📚 Categorías</a></li>
+            <li><a href="faq.html" data-i18n="nav.faq">💬 FAQ</a></li>
+            <li class="lang-selector-item">
+              <select id="lang-selector" class="lang-select" aria-label="Seleccionar idioma">
+                <option value="es">🇪🇸 ES</option>
+                <option value="ca">🇪🇸 CA</option>
+                <option value="en">🇬🇧 EN</option>
+              </select>
+            </li>
           </ul>
         </nav>
       </div>
@@ -49,11 +57,11 @@
       <!-- HERO: Juega en familia -->
       <section class="hero card hero-animated">
         <div class="hero-left">
-          <h1>Bingo Musical — ¡Juega en familia!</h1>
-          <p class="lead">Descarga cartones listos para jugar con canciones temáticas. Elige tu categoría favorita y empieza a jugar con Spotify.</p>
+          <h1 data-i18n="hero.title">Bingo Musical — ¡Juega en familia!</h1>
+          <p class="lead" data-i18n="hero.subtitle">Descarga cartones listos para jugar con canciones temáticas. Elige tu categoría favorita y empieza a jugar con Spotify.</p>
           <div class="hero-ctas">
-            <a class="btn primary" href="#categorias">Explorar categorías</a>
-            <a class="btn ghost" href="#about">Cómo funciona</a>
+            <a class="btn primary" href="#categorias" data-i18n="hero.exploreBtn">Explorar categorías</a>
+            <a class="btn ghost" href="#about" data-i18n="hero.howItWorksBtn">Cómo funciona</a>
           </div>
         </div>
         <div class="hero-right">
@@ -63,22 +71,22 @@
 
       <!-- CÓMO FUNCIONA -->
       <section id="about" class="card">
-        <h2>📖 Cómo Funciona</h2>
+        <h2 data-i18n="howItWorks.title">📖 Cómo Funciona</h2>
         <div class="how-it-works">
           <div class="step">
             <span class="step-number">1</span>
-            <h3>Elige tu categoría</h3>
-            <p>Selecciona entre Navidad, Clásicos Pop, Cumpleaños, Otoño y más temáticas musicales.</p>
+            <h3 data-i18n="howItWorks.step1Title">Elige tu categoría</h3>
+            <p data-i18n="howItWorks.step1Text">Selecciona entre Navidad, Clásicos Pop, Cumpleaños, Otoño y más temáticas musicales.</p>
           </div>
           <div class="step">
             <span class="step-number">2</span>
-            <h3>Descarga cartones</h3>
-            <p>Elige el tamaño que prefieras (pequeños, medianos o grandes) y descarga los cartones en Markdown.</p>
+            <h3 data-i18n="howItWorks.step2Title">Descarga cartones</h3>
+            <p data-i18n="howItWorks.step2Text">Elige el tamaño que prefieras (pequeños, medianos o grandes) y descarga los cartones en Markdown.</p>
           </div>
           <div class="step">
             <span class="step-number">3</span>
-            <h3>¡A jugar!</h3>
-            <p>Usa las playlists de Spotify sugeridas, reparte cartones y marca las canciones. ¡El primero en completar gana!</p>
+            <h3 data-i18n="howItWorks.step3Title">¡A jugar!</h3>
+            <p data-i18n="howItWorks.step3Text">Usa las playlists de Spotify sugeridas, reparte cartones y marca las canciones. ¡El primero en completar gana!</p>
           </div>
         </div>
       </section>
@@ -95,8 +103,8 @@
 
       <!-- CATEGORÍAS - Grid 6 cards clickeables -->
       <section id="categorias" class="card">
-        <h2>🎵 Explora Nuestras Categorías</h2>
-        <p>Haz clic en cualquier categoría para ver todos los cartones disponibles y playlists de Spotify.</p>
+        <h2 data-i18n="categories.title">🎵 Explora Nuestras Categorías</h2>
+        <p data-i18n="categories.subtitle">Haz clic en cualquier categoría para ver todos los cartones disponibles y playlists de Spotify.</p>
         <div class="categories-grid">
           
           <a href="navidad.html" class="category-card" style="--theme-color: #c41e3a;">
@@ -139,6 +147,27 @@
             <h3>Mix Musical</h3>
             <p>49 canciones · 150 cartones</p>
             <span class="category-badge">Colección</span>
+          </a>
+
+          <a href="rock.html" class="category-card" style="--theme-color: #8b0000;">
+            <span class="category-icon">🤘</span>
+            <h3>Rock Clásico</h3>
+            <p>25 canciones · Próximamente</p>
+            <span class="category-badge">Nuevo</span>
+          </a>
+
+          <a href="musica-ingles.html" class="category-card" style="--theme-color: #1e90ff;">
+            <span class="category-icon">🌍</span>
+            <h3>Música en Inglés</h3>
+            <p>25 canciones · Próximamente</p>
+            <span class="category-badge">Nuevo</span>
+          </a>
+
+          <a href="musica-espanol.html" class="category-card" style="--theme-color: #ff4500;">
+            <span class="category-icon">🔥</span>
+            <h3>Música en Español</h3>
+            <p>25 canciones · Próximamente</p>
+            <span class="category-badge">Nuevo</span>
           </a>
 
         </div>
@@ -214,6 +243,19 @@
     if('serviceWorker' in navigator){
       navigator.serviceWorker.register('/service-worker.js').catch(()=>{ console.warn('SW registration failed'); });
     }
+    
+    // Language selector event handler
+    document.addEventListener('DOMContentLoaded', () => {
+      const langSelector = document.getElementById('lang-selector');
+      if (langSelector) {
+        langSelector.addEventListener('change', (e) => {
+          const newLang = e.target.value;
+          if (I18n.setLanguage(newLang)) {
+            I18n.translatePage();
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>
