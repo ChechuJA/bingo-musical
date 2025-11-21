@@ -85,11 +85,16 @@ const I18n = (() => {
       return false;
     }
     
+    // Don't update if already current language
+    if (lang === currentLang) {
+      return true;
+    }
+    
     currentLang = lang;
     localStorage.setItem(STORAGE_KEY, lang);
     document.documentElement.lang = lang;
     
-    // Update URL without reload
+    // Update URL without reload, preserving other parameters
     const url = new URL(window.location);
     url.searchParams.set('lang', lang);
     window.history.replaceState({}, '', url);
