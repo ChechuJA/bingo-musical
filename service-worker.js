@@ -1,5 +1,5 @@
 
-const CACHE_NAME = 'bingo-musical-v4';
+const CACHE_NAME = 'bingo-musical-v5';
 const OFFLINE_URL = '/offline.html';
 const ASSETS = [
   '/',
@@ -10,15 +10,20 @@ const ASSETS = [
   '/otono.html',
   '/cumpleanos.html',
   '/mix.html',
+  '/rock.html',
+  '/musica-ingles.html',
+  '/musica-espanol.html',
   '/assets/css/styles.css',
   '/assets/js/app.js',
   '/assets/js/app-category.js',
+  '/assets/js/i18n.js',
   '/manifest.json',
   '/offline.html',
   '/data/playlists.json',
   '/data/downloadable-cards.json',
   '/data/spotify-playlists.json',
-  '/data/generated-cards-index.json'
+  '/data/generated-cards-index.json',
+  '/data/i18n.json'
 ];
 
 // Install - cache files
