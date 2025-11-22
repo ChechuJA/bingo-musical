@@ -135,8 +135,8 @@ function scanDirectory(dir, extensions = ['.html', '.js']) {
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
     
-    // Skip node_modules, .git, and other system directories
-    if (entry.name.startsWith('.') || entry.name === 'node_modules') {
+    // Skip node_modules, .git, scripts (security tools), and other system directories
+    if (entry.name.startsWith('.') || entry.name === 'node_modules' || entry.name === 'scripts') {
       continue;
     }
     
