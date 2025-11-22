@@ -5,12 +5,13 @@ const sanitize = s => (typeof s === 'string') ? s.replaceAll('<','&lt;').replace
 
 let spotifyData = {};
 
-document.addEventListener('DOMContentLoaded', async () => {
+  document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('year').textContent = new Date().getFullYear();
   setupMenu();
   setupCookie();
   setupOfflineBanner();
   setupSpotifyModal();
+  setupChristmasPopup();
 
   let playlists = {};
   try {
@@ -344,6 +345,55 @@ function setupSpotifyModal(){
     if(e.key === 'Escape' && !modal.hidden){
       modal.hidden = true;
       console.log('Modal cerrado por tecla Escape');
+    }
+  });
+}
+
+function setupChristmasPopup(){
+  const popup = document.getElementById('christmas-popup');
+  if(!popup) return;
+
+  const closeBtn = popup.querySelector('.christmas-popup-close');
+  const dismissBtn = document.getElementById('christmas-popup-dismiss');
+  
+  // Check if popup should be shown
+  const lastShown = localStorage.getItem('christmas_popup_last_shown');
+  const today = new Date().toDateString();
+  
+  // Show popup once per day
+  if(lastShown !== today){
+    // Delay popup appearance for better UX (2 seconds after page load)
+    setTimeout(() => {
+      popup.hidden = false;
+      localStorage.setItem('christmas_popup_last_shown', today);
+    }, 2000);
+  }
+  
+  // Close button click
+  if(closeBtn){
+    closeBtn.addEventListener('click', () => {
+      popup.hidden = true;
+    });
+  }
+  
+  // Dismiss button click
+  if(dismissBtn){
+    dismissBtn.addEventListener('click', () => {
+      popup.hidden = true;
+    });
+  }
+  
+  // Close on overlay click
+  popup.addEventListener('click', (e) => {
+    if(e.target === popup){
+      popup.hidden = true;
+    }
+  });
+  
+  // Close on Esc key
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && !popup.hidden){
+      popup.hidden = true;
     }
   });
 }

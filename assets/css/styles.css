@@ -423,3 +423,260 @@ body{
   .consent-modal-actions{ flex-direction:column; }
   .consent-modal-actions .cmp-btn{ width:100%; }
 }
+
+/* Christmas Promotional Popup */
+.christmas-popup-overlay{ 
+  position:fixed; 
+  inset:0; 
+  background:rgba(0,0,0,0.75); 
+  z-index:10001; 
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  backdrop-filter:blur(6px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.christmas-popup-overlay[hidden]{ 
+  display:none !important; 
+}
+
+@keyframes fadeIn{
+  from{ opacity:0; }
+  to{ opacity:1; }
+}
+
+.christmas-popup-content{ 
+  background:linear-gradient(135deg, #fff 0%, #fff6f0 100%);
+  border-radius:20px; 
+  max-width:520px; 
+  width:90%; 
+  padding:2.5rem 2rem; 
+  position:relative; 
+  box-shadow:0 20px 60px rgba(196,30,58,0.3); 
+  animation:popupSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-align:center;
+  border:3px solid #c41e3a;
+  overflow:hidden;
+}
+
+@keyframes popupSlideIn{
+  from{ 
+    opacity:0; 
+    transform:translateY(-40px) scale(0.9); 
+  }
+  to{ 
+    opacity:1; 
+    transform:translateY(0) scale(1); 
+  }
+}
+
+.christmas-popup-close{ 
+  position:absolute; 
+  top:1rem; 
+  right:1rem; 
+  background:rgba(255,255,255,0.9); 
+  border:2px solid #c41e3a; 
+  font-size:1.8rem; 
+  line-height:1; 
+  cursor:pointer; 
+  color:#c41e3a; 
+  width:40px;
+  height:40px;
+  border-radius:50%; 
+  z-index:10; 
+  transition:all 0.2s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+}
+
+.christmas-popup-close:hover{ 
+  background:#c41e3a; 
+  color:#fff; 
+  transform:rotate(90deg) scale(1.1);
+}
+
+.christmas-popup-icon{
+  font-size:4.5rem;
+  margin-bottom:1rem;
+  animation:bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce{
+  0%, 100%{ transform:translateY(0); }
+  50%{ transform:translateY(-10px); }
+}
+
+.christmas-popup-title{ 
+  margin:0 0 1rem; 
+  color:#c41e3a; 
+  font-size:1.8rem; 
+  font-weight:700;
+  text-shadow:2px 2px 4px rgba(196,30,58,0.1);
+}
+
+.christmas-popup-text{ 
+  color:#333; 
+  font-size:1.05rem; 
+  line-height:1.6;
+  margin:0 0 1.5rem;
+}
+
+.christmas-popup-features{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:1rem;
+  margin:1.5rem 0;
+  padding:1.5rem;
+  background:linear-gradient(135deg, rgba(196,30,58,0.08) 0%, rgba(196,30,58,0.03) 100%);
+  border-radius:12px;
+  border:2px dashed rgba(196,30,58,0.2);
+}
+
+.christmas-popup-features .feature{
+  display:flex;
+  flex-direction:column;
+  gap:0.5rem;
+  align-items:center;
+}
+
+.christmas-popup-features .feature-icon{
+  font-size:2rem;
+  display:block;
+}
+
+.christmas-popup-features .feature-text{
+  font-size:0.85rem;
+  color:#666;
+  font-weight:600;
+  text-align:center;
+  line-height:1.3;
+}
+
+.christmas-popup-actions{
+  display:flex;
+  flex-direction:column;
+  gap:0.75rem;
+  margin-top:1.5rem;
+}
+
+.christmas-btn-primary{
+  background:#c41e3a !important;
+  color:#fff !important;
+  padding:1rem 1.5rem !important;
+  font-size:1.1rem !important;
+  font-weight:700 !important;
+  border-radius:12px !important;
+  border:none !important;
+  cursor:pointer;
+  transition:all 0.3s;
+  text-decoration:none;
+  display:block;
+  box-shadow:0 8px 20px rgba(196,30,58,0.3);
+}
+
+.christmas-btn-primary:hover{
+  background:#8b1628 !important;
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(196,30,58,0.4);
+}
+
+.christmas-btn-ghost{
+  background:transparent !important;
+  color:#666 !important;
+  border:2px solid #ddd !important;
+  padding:0.75rem 1.5rem !important;
+  font-size:0.95rem !important;
+  font-weight:600 !important;
+  border-radius:10px !important;
+  cursor:pointer;
+  transition:all 0.2s;
+}
+
+.christmas-btn-ghost:hover{
+  background:#f5f5f5 !important;
+  border-color:#c41e3a !important;
+  color:#c41e3a !important;
+}
+
+/* Snowflakes Animation */
+.snowflakes{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  border-radius:20px;
+}
+
+.snowflake{
+  position:absolute;
+  top:-10%;
+  color:#c41e3a;
+  font-size:1.5rem;
+  opacity:0.6;
+  animation:snowfall linear infinite;
+}
+
+.snowflake:nth-child(1){ left:10%; animation-duration:8s; animation-delay:0s; }
+.snowflake:nth-child(2){ left:30%; animation-duration:10s; animation-delay:1s; font-size:1.2rem; }
+.snowflake:nth-child(3){ left:50%; animation-duration:12s; animation-delay:2s; font-size:1.8rem; }
+.snowflake:nth-child(4){ left:70%; animation-duration:9s; animation-delay:0.5s; font-size:1.3rem; }
+.snowflake:nth-child(5){ left:85%; animation-duration:11s; animation-delay:1.5s; font-size:1.6rem; }
+.snowflake:nth-child(6){ left:95%; animation-duration:13s; animation-delay:2.5s; }
+
+@keyframes snowfall{
+  0%{ 
+    transform:translateY(0) rotate(0deg); 
+    opacity:0.8;
+  }
+  50%{
+    opacity:0.6;
+  }
+  100%{ 
+    transform:translateY(110vh) rotate(360deg); 
+    opacity:0;
+  }
+}
+
+/* Responsive adjustments for Christmas popup */
+@media (max-width:900px){
+  .christmas-popup-content{
+    padding:2rem 1.5rem;
+    max-width:95%;
+  }
+  
+  .christmas-popup-icon{
+    font-size:3.5rem;
+  }
+  
+  .christmas-popup-title{
+    font-size:1.5rem;
+  }
+  
+  .christmas-popup-text{
+    font-size:0.95rem;
+  }
+  
+  .christmas-popup-features{
+    grid-template-columns:1fr;
+    gap:0.75rem;
+    padding:1rem;
+  }
+  
+  .christmas-popup-features .feature{
+    flex-direction:row;
+    gap:0.75rem;
+    justify-content:center;
+  }
+  
+  .christmas-popup-features .feature-icon{
+    font-size:1.5rem;
+  }
+  
+  .christmas-btn-primary{
+    font-size:1rem !important;
+    padding:0.9rem 1.2rem !important;
+  }
+}
