@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Juega al Bingo Musical interactivo gratis. Elige tu categoría favorita, genera tu cartón y marca las canciones mientras suenan. ¡Completa línea o bingo!">
+  <meta name="keywords" content="jugar bingo musical, bingo musical online, bingo interactivo, juego musical gratis, bingo navidad online">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bingomusical.com/jugar.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bingomusical.com/jugar.html">
+  <meta property="og:title" content="Jugar Bingo Musical Interactivo - Gratis y Sin Registro">
+  <meta property="og:description" content="Juega al bingo musical en tu navegador. Marca las canciones y gana. ¡Diversión instantánea!">
+  <meta property="og:image" content="https://bingomusical.com/assets/icons/icon-512.png">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Jugar Bingo Musical - Gratis y Sin Registro">
+  <meta name="twitter:description" content="Bingo musical interactivo con tus categorías favoritas.">
+  
+  <title>Jugar Bingo Musical Interactivo - Gratis | Bingo Musical</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/icon-192.png">
+  <meta name="theme-color" content="#9b59b6">
+  
+  <style>
+    /* Game-specific styles */
+    .game-board {
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+    
+    .bingo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+      margin: 2rem 0;
+    }
+    
+    .bingo-cell {
+      aspect-ratio: 1;
+      background: white;
+      border: 3px solid var(--primary);
+      border-radius: 12px;
+      padding: 0.75rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.75rem;
+      line-height: 1.2;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .bingo-cell:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(155, 89, 182, 0.3);
+    }
+    
+    .bingo-cell.wildcard {
+      background: linear-gradient(135deg, #9b59b6, #8e44ad);
+      color: white;
+      font-size: 2rem;
+      border-color: #8e44ad;
+    }
+    
+    .bingo-cell.marked {
+      background: linear-gradient(135deg, #27ae60, #229954);
+      color: white;
+      border-color: #27ae60;
+    }
+    
+    .bingo-cell.marked::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      font-weight: bold;
+      opacity: 0.9;
+    }
+    
+    .bingo-cell.current-song {
+      animation: pulse 1.5s infinite;
+      border-color: #e74c3c;
+      border-width: 4px;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+      50% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+    }
+    
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .current-song-display {
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      color: white;
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+    }
+    
+    .current-song-display h3 {
+      font-size: 1.5rem;
+      margin: 0 0 0.5rem;
+    }
+    
+    .current-song-display p {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin: 0;
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .stat-card {
+      background: var(--glass);
+      padding: 1rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+    
+    .category-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+    
+    .category-option {
+      padding: 1rem;
+      background: white;
+      border: 2px solid #ddd;
+      border-radius: 12px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    
+    .category-option:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+    
+    .category-option.selected {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    .category-option .emoji {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    
+    .victory-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: fadeIn 0.3s;
+    }
+    
+    .victory-content {
+      background: white;
+      padding: 3rem;
+      border-radius: 24px;
+      text-align: center;
+      max-width: 500px;
+      position: relative;
+      animation: bounceIn 0.5s;
+    }
+    
+    .victory-content h2 {
+      font-size: 3rem;
+      margin: 0 0 1rem;
+    }
+    
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: var(--primary);
+      animation: confettiFall 3s linear infinite;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes bounceIn {
+      0% { transform: scale(0.3); opacity: 0; }
+      50% { transform: scale(1.05); }
+      70% { transform: scale(0.9); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    
+    @keyframes confettiFall {
+      to { transform: translateY(100vh) rotate(360deg); }
+    }
+    
+    @media (max-width: 600px) {
+      .bingo-cell {
+        font-size: 0.65rem;
+        padding: 0.5rem;
+      }
+      
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-banner" hidden id="offline-banner">📡 Modo offline – Algunas funciones limitadas</div>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">🎵 Bingo Musical</a>
+      </div>
+      <nav class="main-nav">
+        <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false">☰</button>
+        <ul class="menu">
+          <li><a href="index.html">🏠 Inicio</a></li>
+          <li><a href="generador.html">🎲 Generador</a></li>
+          <li><a href="jugar.html" class="active">🎮 Jugar</a></li>
+          <li><a href="faq.html">💬 FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- ESPACIO PUBLICIDAD #1 (Entrada) -->
+    <section class="ad-space" aria-label="Espacio publicitario" style="margin-top:2rem;">
+      <div class="ad-placeholder">
+        <p style="text-align:center;color:var(--muted);padding:2rem;background:var(--glass);border-radius:12px;">
+          📢 Espacio para publicidad horizontal (antes de jugar)
+        </p>
+      </div>
+    </section>
+
+    <!-- HERO -->
+    <section class="hero card" style="background:linear-gradient(135deg, rgba(155,89,182,0.1), rgba(155,89,182,0.05)); margin-top:2rem;">
+      <div style="text-align:center;">
+        <span style="font-size:4rem;display:block;margin-bottom:1rem;">🎮</span>
+        <h1 style="color:#9b59b6;margin:0 0 .5rem;">Bingo Musical Interactivo</h1>
+        <p class="lead">Juega en solitario o en grupo. Marca las canciones y completa tu cartón</p>
+      </div>
+    </section>
+
+    <!-- SETUP SCREEN -->
+    <section id="setup-screen" class="card">
+      <h2 style="text-align:center;color:#9b59b6;">🎯 Configura tu Partida</h2>
+      
+      <div style="margin:2rem 0;">
+        <label style="display:block;font-weight:600;margin-bottom:1rem;text-align:center;">
+          Selecciona una Categoría Musical:
+        </label>
+        <div class="category-selector" id="category-selector">
+          <!-- Categories will be loaded by JS -->
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:2rem;">
+        <button id="btn-start-game" class="btn primary" disabled style="font-size:1.2rem;padding:1rem 2rem;background:#9b59b6;">
+          🎲 Generar Cartón y Empezar
+        </button>
+      </div>
+
+      <div style="margin-top:2rem;padding:1.5rem;background:var(--glass);border-radius:12px;">
+        <h3 style="font-size:1.1rem;margin:0 0 1rem;">📋 ¿Cómo se Juega?</h3>
+        <ol style="margin:0;padding-left:1.5rem;">
+          <li>Elige una categoría musical</li>
+          <li>Pulsa "Sonar Canción" para revelar una canción aleatoria</li>
+          <li>Si está en tu cartón, haz click en la casilla para marcarla</li>
+          <li>Los comodines (⭐) se pueden marcar en cualquier momento</li>
+          <li>¡Completa 4 casillas en línea (horizontal, vertical o diagonal) para ganar LÍNEA!</li>
+          <li>¡Marca todas las casillas para conseguir BINGO! 🎉</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- GAME SCREEN -->
+    <section id="game-screen" class="game-board" hidden>
+      
+      <!-- Stats -->
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-value" id="stat-marked">0</div>
+          <div class="stat-label">Marcadas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-songs">0</div>
+          <div class="stat-label">Canciones</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-remaining">16</div>
+          <div class="stat-label">Restantes</div>
+        </div>
+      </div>
+
+      <!-- Current Song Display -->
+      <div class="current-song-display" id="current-song-display">
+        <p style="opacity:0.8;margin-bottom:0.5rem;">Pulsa el botón para empezar</p>
+        <h3>🎵 ¿Qué canción sonará?</h3>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <button id="btn-next-song" class="btn primary" style="font-size:1.2rem;padding:1rem;background:#3498db;">
+          🔊 Sonar Canción
+        </button>
+        <button id="btn-new-game" class="btn ghost" style="font-size:1rem;">
+          🔄 Nueva Partida
+        </button>
+      </div>
+
+      <!-- Bingo Grid -->
+      <div class="bingo-grid" id="bingo-grid">
+        <!-- Grid cells will be generated by JS -->
+      </div>
+
+      <!-- Ad Space -->
+      <section class="ad-space" aria-label="Espacio publicitario" style="margin-top:2rem;">
+        <div class="ad-placeholder">
+          <p style="text-align:center;color:var(--muted);padding:1.5rem;background:var(--glass);border-radius:12px;">
+            📢 Espacio para publicidad (300x250)
+          </p>
+        </div>
+      </section>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>
+        <a href="legal.html">Aviso Legal</a> · 
+        <a href="privacy.html">Privacidad</a> · 
+        <a href="cookies.html">Cookies</a> · 
+        <a href="faq.html">FAQ</a>
+      </p>
+      <p>Bingo Musical © 2024</p>
+    </div>
+  </footer>
+
+  <!-- VICTORY MODAL -->
+  <div id="victory-modal" class="victory-modal" hidden>
+    <div class="victory-content">
+      <h2 id="victory-title">🎉</h2>
+      <p id="victory-message" style="font-size:1.5rem;margin:1rem 0;"></p>
+      <p style="color:var(--muted);margin-bottom:2rem;">Has marcado <span id="victory-count" style="font-weight:700;color:var(--primary);"></span> canciones</p>
+      
+      <!-- Ad Space in Victory Modal -->
+      <div class="ad-placeholder" style="margin:2rem 0;">
+        <p style="text-align:center;color:var(--muted);padding:1.5rem;background:var(--glass);border-radius:12px;">
+          📢 Espacio para publicidad (victoria)
+        </p>
+      </div>
+      
+      <button id="btn-play-again" class="btn primary" style="font-size:1.2rem;padding:1rem 2rem;background:#9b59b6;">
+        🎲 Jugar Otra Vez
+      </button>
+    </div>
+  </div>
+
+  <!-- COOKIE CONSENT -->
+  <div id="cookie-banner" class="cookie-banner" hidden>
+    <p>Usamos cookies técnicas y publicitarias (Google AdSense) para mejorar tu experiencia. 
+      <a href="cookies.html">Más info</a>
+    </p>
+    <div>
+      <button id="cookie-accept" class="btn primary">Aceptar</button>
+      <button id="cookie-decline" class="btn ghost">Solo esenciales</button>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/jugar.js"></script>
+</body>
+</html>
