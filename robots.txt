@@ -14,15 +14,39 @@ Allow: /musica-espanol.html
 Allow: /otono.html
 Allow: /cumpleanos.html
 Allow: /mix.html
+Allow: /jugar.html
+Allow: /online.html
+Allow: /blog.html
 
 # Permitir recursos
 Allow: /assets/
 Allow: /data/
 
-# Bloquear archivos innecesarios
+# Bloquear archivos descargables (no necesitan indexación)
 Disallow: /cartones/*.txt
 Disallow: /cartones/*.pdf
 Disallow: /cartones/*.pptx
+Disallow: /cartones-descargables/
+Disallow: /cartones-visuales/
+
+# Bloquear archivos del sistema y desarrollo
+Disallow: /scripts/
+Disallow: /.git
+Disallow: /.github
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /*.md$
+
+# Prevenir rastreo de URLs con parámetros sospechosos (seguridad)
+Disallow: /*?redirect=*
+Disallow: /*?url=*
+Disallow: /*?goto=*
+Disallow: /*?return=*
+Disallow: /*?next=*
+
+# Crawl-delay para prevenir abuso
+Crawl-delay: 1
 
 # Sitemap
 Sitemap: https://bingomusical.com/sitemap.xml
+Sitemap: https://bingomusicalgratis.es/sitemap.xml

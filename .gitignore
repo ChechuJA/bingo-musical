@@ -14,3 +14,38 @@ Thumbs.db
 
 # local envs
 .env
+
+# Security: Prevent common malicious file patterns
+*.exe
+*.dll
+*.bat
+*.cmd
+*.com
+*.scr
+*.vbs
+*.js.bak
+*.php
+*.asp
+*.aspx
+*.jsp
+*.cgi
+*.pl
+
+# Temporary and backup files
+*~
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.backup
+
+# Build artifacts
+dist/
+build/
+out/
+.cache/
+
+# Testing
+coverage/
+.nyc_output/
