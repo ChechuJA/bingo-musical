@@ -94,6 +94,8 @@ const issuesByFile = new Map();
 function scanFile(filePath, content) {
   const issues = [];
   
+  // Note: For very large files (>1MB), consider using streaming approach
+  // Current implementation is suitable for typical web project files
   suspiciousPatterns.forEach(({ name, pattern, severity }) => {
     const matches = content.matchAll(pattern);
     for (const match of matches) {

@@ -13,8 +13,8 @@ SECURITY_HEADERS='  <!-- Security Headers -->
 
 echo "Adding security headers to HTML files..."
 
-# Find all HTML files that don't have security headers
-for file in $(find . -name "*.html" -not -path "*/node_modules/*" -not -path "*/.git/*"); do
+# Find all HTML files that don't have security headers (handles filenames with spaces)
+find . -name "*.html" -not -path "*/node_modules/*" -not -path "*/.git/*" -print0 | while IFS= read -r -d '' file; do
   # Check if file already has security headers
   if ! grep -q "X-Content-Type-Options" "$file"; then
     echo "Processing: $file"

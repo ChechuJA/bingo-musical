@@ -54,8 +54,8 @@ jobs:
           "fonts.googleapis.com"
         )
         
-        # Find all script tags with src attributes
-        EXTERNAL_SCRIPTS=$(grep -rh "<script.*src=\"http" --include="*.html" | grep -v "assets/js" || true)
+        # Find all script tags with src attributes (handles both single and double quotes)
+        EXTERNAL_SCRIPTS=$(grep -rh "<script.*src=[\"']http" --include="*.html" | grep -v "assets/js" || true)
         
         if [ -n "$EXTERNAL_SCRIPTS" ]; then
           echo "Found external scripts:"
