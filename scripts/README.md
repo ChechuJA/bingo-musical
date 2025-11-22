@@ -1,12 +1,42 @@
-# Generador de Cartones de Bingo Musical
+# Scripts de Generación de Cartones de Bingo Musical
+
+Este directorio contiene scripts para generar cartones de bingo musical en diferentes formatos.
+
+## 📄 Scripts Disponibles
+
+### 1. `generate-cards.py` - Generador de Cartones Markdown
 
 Script de Python para generar automáticamente cartones de bingo en formato Markdown a partir de las playlists definidas en `data/playlists.json`.
 
-## Uso
-
+**Uso:**
 ```bash
 python scripts/generate-cards.py
 ```
+
+### 2. `generate-visual-cards.py` - Generador de Imágenes Visuales
+
+Script de Python que convierte los cartones .md en imágenes PNG con diseño de cuadrícula tipo bingo real.
+
+**Requisitos:**
+```bash
+pip install Pillow
+```
+
+**Uso:**
+```bash
+python scripts/generate-visual-cards.py
+```
+
+**Características:**
+- ✅ Cuadrícula 4x3 (12 casillas)
+- ✅ Comodines con emojis temáticos (🎄 Navidad, ⭐ Pop, 🤘 Rock)
+- ✅ Colores personalizados por categoría
+- ✅ Salida: `cartones-visuales/{categoria}/cartones-{nombre}-carton-{numero}.png`
+- ✅ Formato 800x1000px optimizado para impresión y web
+
+---
+
+## generate-cards.py
 
 ## Configuración
 
