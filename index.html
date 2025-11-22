@@ -325,14 +325,97 @@
             <a href="/legal.html">Aviso Legal</a> · 
             <a href="/privacy.html">Privacidad</a> · 
             <a href="/cookies.html">Cookies</a> · 
+            <a href="#" id="consent-settings-link">⚙️ Configuración de Cookies</a> · 
             <a href="/faq.html">FAQ</a>
           </div>
         </div>
       </div>
     </footer>
 
-    <!-- Cookie consent -->
-    <div id="cookie-consent" class="cookie-consent" role="dialog" aria-live="polite" aria-label="Consentimiento de cookies">
+    <!-- Google Consent Mode v2 (GDPR/RGPD Compliant) -->
+    <!-- CMP Banner -->
+    <div id="google-cmp-banner" class="google-cmp-banner" hidden>
+      <div class="cmp-content">
+        <h3 class="cmp-title">🍪 Tu privacidad es importante</h3>
+        <p class="cmp-text">
+          Utilizamos cookies y tecnologías similares para personalizar contenido y anuncios, proporcionar funciones de redes sociales y analizar nuestro tráfico. 
+          También compartimos información sobre tu uso de nuestro sitio con nuestros socios de publicidad (Google AdSense), quienes pueden combinarla con otra información que les hayas proporcionado.
+        </p>
+        <p class="cmp-text" style="font-size:0.85rem;">
+          Puedes aceptar todas las cookies haciendo clic en "Consentir" o gestionar tus preferencias en "Gestionar opciones". 
+          <a href="privacy.html" style="color:var(--accent);">Más información en nuestra Política de Privacidad</a>
+        </p>
+        <div class="cmp-actions">
+          <button id="cmp-accept-all" class="cmp-btn cmp-btn-primary">
+            ✓ Consentir
+          </button>
+          <button id="cmp-manage-options" class="cmp-btn cmp-btn-secondary">
+            ⚙️ Gestionar opciones
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Consent Management Modal -->
+    <div id="consent-modal" class="consent-modal" hidden>
+      <div class="consent-modal-content">
+        <button id="modal-close" class="consent-modal-close" aria-label="Cerrar">✕</button>
+        
+        <h2>Gestionar Preferencias de Cookies</h2>
+        <p>
+          Utilizamos diferentes tipos de cookies para optimizar tu experiencia en nuestro sitio web. 
+          Haz clic en las categorías a continuación para saber más sobre su propósito.
+        </p>
+
+        <div class="consent-option">
+          <h3>🔒 Cookies Esenciales (Siempre Activas)</h3>
+          <p>
+            Estas cookies son necesarias para el funcionamiento básico del sitio web, como la navegación y el acceso a áreas seguras. 
+            No se pueden desactivar.
+          </p>
+        </div>
+
+        <div class="consent-option">
+          <h3>📊 Cookies de Análisis y Rendimiento</h3>
+          <p>
+            Nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web, recopilando información de manera anónima. 
+            Estas cookies nos permiten mejorar el rendimiento del sitio.
+          </p>
+        </div>
+
+        <div class="consent-option">
+          <h3>🎯 Cookies de Publicidad Personalizada</h3>
+          <p>
+            Google AdSense utiliza estas cookies para mostrarte anuncios relevantes basados en tus intereses. 
+            Los datos pueden compartirse con terceros con tu consentimiento.
+          </p>
+        </div>
+
+        <div class="consent-option">
+          <h3>👤 Cookies de Personalización</h3>
+          <p>
+            Estas cookies permiten que el sitio recuerde tus elecciones (como tu idioma preferido) y proporcionen características mejoradas y más personales.
+          </p>
+        </div>
+
+        <div class="consent-modal-actions">
+          <button id="modal-accept-all" class="cmp-btn cmp-btn-primary">
+            ✓ Aceptar Todo
+          </button>
+          <button id="modal-essential-only" class="cmp-btn cmp-btn-secondary">
+            Solo Esenciales
+          </button>
+        </div>
+
+        <p style="font-size:0.85rem;margin-top:1.5rem;text-align:center;">
+          <a href="privacy.html" style="color:var(--accent);">Política de Privacidad</a> · 
+          <a href="cookies.html" style="color:var(--accent);">Política de Cookies</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Legacy cookie consent (deprecated) -->
+    <div id="cookie-consent" class="cookie-consent" role="dialog" aria-live="polite" aria-label="Consentimiento de cookies" style="display:none;">
       <div class="cookie-text">
         Esta web usa cookies para mejorar la experiencia y para anuncios (placeholder). Acepta si estás de acuerdo.
       </div>
@@ -370,6 +453,9 @@
 
   </div>
 
+  <!-- Google Consent Mode v2 - MUST load BEFORE any ads/analytics -->
+  <script src="assets/js/consent.js"></script>
+  
   <script src="assets/js/app.js" defer></script>
   <script>
     // register service worker

@@ -63,7 +63,168 @@ body{
 
 .footer-inner{ display:flex; justify-content:space-between; gap:1rem; align-items:center; padding:1rem 0; color:var(--muted); font-size:0.9rem; }
 
-.cookie-consent{ position:fixed; right:1rem; bottom:1rem; background:linear-gradient(180deg,#fff,#fff6f0); border-radius:12px; padding:.8rem; box-shadow: 0 10px 30px rgba(0,0,0,0.12); display:flex; gap:.6rem; align-items:center; max-width:420px; }
+/* Google CMP Banner (GDPR/RGPD Compliant) */
+.google-cmp-banner{ 
+  position:fixed; 
+  bottom:0; 
+  left:0; 
+  right:0; 
+  background:#fff; 
+  border-top: 3px solid var(--accent); 
+  padding:1.5rem; 
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.15); 
+  z-index:9999;
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
+.google-cmp-banner .cmp-content{ 
+  max-width:1100px;
+  margin:0 auto;
+  width:100%;
+}
+
+.google-cmp-banner .cmp-title{ 
+  font-size:1.2rem; 
+  font-weight:700; 
+  margin:0 0 0.5rem; 
+  color:#1b2430;
+}
+
+.google-cmp-banner .cmp-text{ 
+  font-size:0.95rem; 
+  color:var(--muted); 
+  line-height:1.6;
+  margin:0 0 1rem;
+}
+
+.google-cmp-banner .cmp-actions{ 
+  display:flex; 
+  gap:0.75rem; 
+  flex-wrap:wrap;
+}
+
+.google-cmp-banner .cmp-btn{
+  padding:0.75rem 1.5rem;
+  border-radius:8px;
+  border:none;
+  font-weight:600;
+  cursor:pointer;
+  font-size:0.95rem;
+  transition:all 0.2s;
+}
+
+.google-cmp-banner .cmp-btn-primary{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:#2b1212;
+  box-shadow: 0 4px 12px rgba(255,107,107,0.25);
+}
+
+.google-cmp-banner .cmp-btn-secondary{
+  background:#fff;
+  color:var(--muted);
+  border:2px solid #ddd;
+}
+
+.google-cmp-banner .cmp-btn:hover{
+  transform:translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Consent Modal */
+.consent-modal{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:rgba(0,0,0,0.7);
+  z-index:10000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:1rem;
+}
+
+.consent-modal-content{
+  background:#fff;
+  border-radius:16px;
+  padding:2rem;
+  max-width:600px;
+  width:100%;
+  max-height:90vh;
+  overflow-y:auto;
+  position:relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.consent-modal-close{
+  position:absolute;
+  top:1rem;
+  right:1rem;
+  background:none;
+  border:none;
+  font-size:1.5rem;
+  cursor:pointer;
+  color:var(--muted);
+  width:2rem;
+  height:2rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+}
+
+.consent-modal-close:hover{
+  background:var(--glass);
+}
+
+.consent-modal h2{
+  margin:0 0 1rem;
+  color:#1b2430;
+  font-size:1.5rem;
+}
+
+.consent-modal p{
+  color:var(--muted);
+  line-height:1.6;
+  margin:0 0 1.5rem;
+}
+
+.consent-option{
+  background:var(--glass);
+  border-radius:12px;
+  padding:1rem;
+  margin-bottom:1rem;
+}
+
+.consent-option h3{
+  margin:0 0 0.5rem;
+  font-size:1.1rem;
+  color:#1b2430;
+}
+
+.consent-option p{
+  margin:0;
+  font-size:0.9rem;
+  color:var(--muted);
+}
+
+.consent-modal-actions{
+  display:flex;
+  gap:0.75rem;
+  margin-top:1.5rem;
+  flex-wrap:wrap;
+}
+
+.consent-modal-actions .cmp-btn{
+  flex:1;
+  min-width:140px;
+}
+
+/* Legacy cookie consent (deprecated - keep for compatibility) */
+.cookie-consent{ position:fixed; right:1rem; bottom:1rem; background:linear-gradient(180deg,#fff,#fff6f0); border-radius:12px; padding:.8rem; box-shadow: 0 10px 30px rgba(0,0,0,0.12); display:flex; gap:.6rem; align-items:center; max-width:420px; display:none; }
 .cookie-consent .cookie-text{ font-size:0.9rem; color:var(--muted); }
 .cookie-consent .cookie-actions{ display:flex; gap:.4rem; }
 
@@ -250,4 +411,15 @@ body{
   .menu.show{ display:flex; }
   .lang-selector-item{ width:100%; justify-content:stretch; }
   .lang-select{ width:100%; }
+  
+  /* CMP responsive */
+  .google-cmp-banner{ padding:1rem; }
+  .google-cmp-banner .cmp-title{ font-size:1.05rem; }
+  .google-cmp-banner .cmp-text{ font-size:0.85rem; }
+  .google-cmp-banner .cmp-actions{ flex-direction:column; }
+  .google-cmp-banner .cmp-btn{ width:100%; text-align:center; }
+  
+  .consent-modal-content{ padding:1.5rem; }
+  .consent-modal-actions{ flex-direction:column; }
+  .consent-modal-actions .cmp-btn{ width:100%; }
 }
