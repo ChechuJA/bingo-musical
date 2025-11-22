@@ -1,0 +1,109 @@
+name: Security Check
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run security check every Monday at 9 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Run Security Scanner
+      run: |
+        echo "🔍 Running security validation..."
+        node scripts/security-check.js
+      continue-on-error: false
+      
+    - name: Check for suspicious files
+      run: |
+        echo "🔍 Checking for suspicious file types..."
+        SUSPICIOUS_FILES=$(find . -type f \( -name "*.php" -o -name "*.asp" -o -name "*.aspx" -o -name "*.jsp" -o -name "*.exe" -o -name "*.dll" \) ! -path "*/node_modules/*" ! -path "*/.git/*")
+        
+        if [ -n "$SUSPICIOUS_FILES" ]; then
+          echo "⚠️  WARNING: Found suspicious files:"
+          echo "$SUSPICIOUS_FILES"
+          exit 1
+        else
+          echo "✅ No suspicious files found"
+        fi
+        
+    - name: Verify external script sources
+      run: |
+        echo "🔍 Checking for unauthorized external scripts..."
+        
+        # Whitelist of allowed domains
+        ALLOWED_DOMAINS=(
+          "pagead2.googlesyndication.com"
+          "fundingchoicesmessages.google.com"
+          "www.gstatic.com"
+          "fonts.googleapis.com"
+        )
+        
+        # Find all script tags with src attributes
+        EXTERNAL_SCRIPTS=$(grep -rh "<script.*src=\"http" --include="*.html" | grep -v "assets/js" || true)
+        
+        if [ -n "$EXTERNAL_SCRIPTS" ]; then
+          echo "Found external scripts:"
+          echo "$EXTERNAL_SCRIPTS"
+          
+          # Check if any script is not from allowed domains
+          for domain in "${ALLOWED_DOMAINS[@]}"; do
+            EXTERNAL_SCRIPTS=$(echo "$EXTERNAL_SCRIPTS" | grep -v "$domain" || true)
+          done
+          
+          if [ -n "$EXTERNAL_SCRIPTS" ]; then
+            echo "⚠️  WARNING: Found unauthorized external scripts:"
+            echo "$EXTERNAL_SCRIPTS"
+            exit 1
+          else
+            echo "✅ All external scripts are from authorized domains"
+          fi
+        else
+          echo "✅ No external scripts found"
+        fi
+        
+    - name: Check for redirect patterns
+      run: |
+        echo "🔍 Checking for suspicious redirect patterns..."
+        
+        # Look for window.location assignments to external URLs
+        REDIRECTS=$(grep -rn "window\.location.*=.*http" --include="*.js" --include="*.html" | grep -v "bingomusical" || true)
+        
+        if [ -n "$REDIRECTS" ]; then
+          echo "⚠️  WARNING: Found potential redirect patterns:"
+          echo "$REDIRECTS"
+          # Don't fail the build, just warn
+          echo "::warning::Potential redirect patterns detected. Please review."
+        else
+          echo "✅ No suspicious redirects found"
+        fi
+        
+    - name: Security scan summary
+      if: always()
+      run: |
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "  Security Scan Complete"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo ""
+        echo "Checks performed:"
+        echo "  ✓ Security pattern analysis"
+        echo "  ✓ Suspicious file type detection"
+        echo "  ✓ External script validation"
+        echo "  ✓ Redirect pattern analysis"
+        echo ""
+        echo "For more details, see: SECURITY.md"

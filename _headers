@@ -1,0 +1,51 @@
+# Security Headers para Bingo Musical
+# Protección contra redirects maliciosos y ataques de seguridad
+# Compatible con GitHub Pages
+
+# Aplicar a todas las páginas
+/*
+  # Content Security Policy (CSP) - Previene XSS y ataques de inyección
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://fundingchoicesmessages.google.com https://pagead2.googlesyndication.com https://www.gstatic.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://firebaseio.com https://*.firebaseio.com https://www.google-analytics.com; frame-src 'self' https://fundingchoicesmessages.google.com https://www.google.com https://open.spotify.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  
+  # Previene clickjacking
+  X-Frame-Options: DENY
+  
+  # Previene MIME-type sniffing
+  X-Content-Type-Options: nosniff
+  
+  # Habilita protección XSS del navegador
+  X-XSS-Protection: 1; mode=block
+  
+  # Control de referrer para proteger privacidad
+  Referrer-Policy: strict-origin-when-cross-origin
+  
+  # Habilita HSTS (HTTPS estricto)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  
+  # Política de permisos del navegador
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()
+  
+  # Cache control para contenido estático
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Archivos JavaScript - mayor tiempo de cache
+/assets/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Archivos CSS - mayor tiempo de cache
+/assets/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Imágenes - mayor tiempo de cache
+/assets/img/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/icons/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Data files - menor tiempo de cache (pueden actualizarse)
+/data/*
+  Cache-Control: public, max-age=1800, must-revalidate
+
+# Service Worker - sin cache
+/service-worker.js
+  Cache-Control: no-cache, no-store, must-revalidate
