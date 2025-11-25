@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=()" />
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Contacta con el equipo de Bingo Musical Gratis. Sugerencias, dudas, colaboraciones o reportar problemas. Respondemos en 24-48 horas.">
+  <meta name="keywords" content="contacto bingo musical, email bingo musical, soporte, ayuda, colaboraciones">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bingomusicalgratis.es/contacto.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bingomusicalgratis.es/contacto.html">
+  <meta property="og:title" content="Contacto - Bingo Musical Gratis">
+  <meta property="og:description" content="¿Tienes dudas, sugerencias o quieres colaborar? Escríbenos y te responderemos pronto.">
+  <meta property="og:image" content="https://bingomusicalgratis.es/assets/icons/icon-512.png">
+  
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-9476968656644151">
+  
+  <title>Contacto - Escríbenos | Bingo Musical</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/icon-192.png">
+  <meta name="theme-color" content="#6366f1">
+
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .contact-info {
+      background: rgba(99,102,241,0.05);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 2px solid rgba(99,102,241,0.1);
+    }
+    .contact-info h3 {
+      color: #6366f1;
+      margin-top: 0;
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-item-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .contact-item-content h4 {
+      margin: 0 0 0.25rem;
+      color: #8e44ad;
+    }
+    .contact-item-content p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .contact-item-content a {
+      color: #6366f1;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-item-content a:hover {
+      text-decoration: underline;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid var(--glass);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      background: white;
+      transition: border-color 0.3s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #6366f1;
+    }
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    .form-note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+    .success-message {
+      background: rgba(46,204,113,0.1);
+      border-left: 4px solid #2ecc71;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      display: none;
+    }
+    .success-message.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">🎵 Bingo Musical</a>
+      </div>
+      <nav class="main-nav">
+        <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false">☰</button>
+        <ul class="menu">
+          <li><a href="index.html">🏠 Inicio</a></li>
+          <li><a href="index.html#categorias">📚 Categorías</a></li>
+          <li><a href="blog.html">📝 Blog</a></li>
+          <li><a href="about.html">👥 Quiénes Somos</a></li>
+          <li><a href="contacto.html" class="active">📧 Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="margin-top: 2rem;">
+    
+    <!-- Hero -->
+    <section class="hero card" style="background:linear-gradient(135deg, rgba(99,102,241,0.1), rgba(168,85,247,0.05)); text-align: center;">
+      <span style="font-size: 4rem; display: block; margin-bottom: 1rem;">📧</span>
+      <h1 style="color:#6366f1;">Contacto</h1>
+      <p class="lead">¿Tienes dudas, sugerencias o quieres colaborar? Escríbenos</p>
+    </section>
+
+    <!-- Grid de Contacto -->
+    <div class="contact-grid">
+      
+      <!-- Información de Contacto -->
+      <div class="contact-info">
+        <h3>💬 ¿Cómo podemos ayudarte?</h3>
+        
+        <div class="contact-item">
+          <div class="contact-item-icon">📧</div>
+          <div class="contact-item-content">
+            <h4>Email General</h4>
+            <p><a href="mailto:contacto@bingomusicalgratis.es">contacto@bingomusicalgratis.es</a></p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Para consultas generales, sugerencias o dudas. Respondemos en 24-48 horas.</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">🐛</div>
+          <div class="contact-item-content">
+            <h4>Reportar Problemas</h4>
+            <p><a href="mailto:soporte@bingomusicalgratis.es">soporte@bingomusicalgratis.es</a></p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">¿Encontraste un bug? ¿Algo no funciona como debería? Háznoslo saber con detalle.</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">🧪</div>
+          <div class="contact-item-content">
+            <h4>Beta Testers</h4>
+            <p><a href="mailto:beta@bingomusicalgratis.es">beta@bingomusicalgratis.es</a></p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">¿Quieres probar nuevas funcionalidades antes que nadie? Únete al programa de Beta Testers.</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">🤝</div>
+          <div class="contact-item-content">
+            <h4>Colaboraciones</h4>
+            <p><a href="mailto:colaborar@bingomusicalgratis.es">colaborar@bingomusicalgratis.es</a></p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Desarrolladores, diseñadores, curadores musicales, traductores... ¿quieres contribuir al proyecto?</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">⏱️</div>
+          <div class="contact-item-content">
+            <h4>Tiempo de Respuesta</h4>
+            <p style="font-weight: 600; color: #6366f1;">24-48 horas hábiles</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Respondemos todos los emails. Si no recibes respuesta en 48h, revisa tu carpeta de spam o reenvía el mensaje.</p>
+          </div>
+        </div>
+
+        <div style="background: rgba(241,196,15,0.1); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+          <p style="margin: 0; font-size: 0.9rem; color: var(--muted);">
+            <strong>🔒 Privacidad:</strong> Tu información de contacto solo se usa para responder a tu mensaje. No compartimos emails con terceros. Cumplimos RGPD/GDPR. Lee nuestra <a href="privacy.html" style="color: #6366f1;">política de privacidad</a>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Formulario de Contacto -->
+      <div class="card">
+        <h3 style="color: #6366f1; margin-top: 0;">Formulario de Contacto</h3>
+        <p style="color: var(--muted); margin-bottom: 2rem;">O usa el formulario para enviarnos un mensaje directo:</p>
+
+        <div id="success-message" class="success-message">
+          ✅ <strong>Mensaje enviado con éxito.</strong> Te responderemos pronto a tu email.
+        </div>
+
+        <form id="contact-form" action="https://formspree.io/f/xwpkvbld" method="POST">
+          
+          <div class="form-group">
+            <label for="name">Nombre *</label>
+            <input type="text" id="name" name="name" required placeholder="Tu nombre">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+            <p class="form-note">Necesitamos tu email para responderte.</p>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Asunto *</label>
+            <select id="subject" name="subject" required>
+              <option value="">-- Selecciona un asunto --</option>
+              <option value="Consulta General">Consulta General</option>
+              <option value="Reporte de Bug">Reportar Bug/Problema</option>
+              <option value="Sugerencia">Sugerencia de Mejora</option>
+              <option value="Nueva Categoría">Proponer Nueva Categoría</option>
+              <option value="Beta Tester">Quiero ser Beta Tester</option>
+              <option value="Colaboración">Colaboración/Contribución</option>
+              <option value="Prensa/Media">Prensa o Media</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensaje *</label>
+            <textarea id="message" name="message" required placeholder="Escribe tu mensaje aquí..."></textarea>
+            <p class="form-note">Sé lo más detallado posible. Si reportas un bug, incluye: navegador, dispositivo y pasos para reproducirlo.</p>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 2rem;">
+            <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal; cursor: pointer;">
+              <input type="checkbox" name="privacy-consent" required>
+              <span style="font-size: 0.9rem;">He leído y acepto la <a href="privacy.html" style="color: #6366f1;" target="_blank">política de privacidad</a> *</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn primary" style="width: 100%; font-size: 1.1rem;">
+            Enviar Mensaje 📤
+          </button>
+
+          <p style="font-size: 0.85rem; color: var(--muted); margin-top: 1rem; text-align: center;">
+            * Campos obligatorios
+          </p>
+
+        </form>
+
+        <script>
+          // Handle form submission with success message
+          const form = document.getElementById('contact-form');
+          const successMessage = document.getElementById('success-message');
+
+          form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            
+            try {
+              const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                  'Accept': 'application/json'
+                }
+              });
+
+              if (response.ok) {
+                successMessage.classList.add('show');
+                form.reset();
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                  successMessage.classList.remove('show');
+                }, 5000);
+              } else {
+                alert('Hubo un error al enviar el mensaje. Por favor, intenta enviarlo directamente a contacto@bingomusicalgratis.es');
+              }
+            } catch (error) {
+              alert('Hubo un error al enviar el mensaje. Por favor, intenta enviarlo directamente a contacto@bingomusicalgratis.es');
+            }
+          });
+        </script>
+      </div>
+
+    </div>
+
+    <!-- FAQ Rápido -->
+    <section class="card" style="margin-top: 3rem;">
+      <h2 style="color: #6366f1;">❓ Preguntas Frecuentes</h2>
+      <p style="color: var(--muted); margin-bottom: 2rem;">Antes de escribirnos, revisa si tu duda ya está resuelta en nuestro <a href="faq.html" style="color: #6366f1; font-weight: 600;">FAQ completo</a>. Aquí las más comunes:</p>
+
+      <div style="display: grid; gap: 1rem;">
+        
+        <details style="background: rgba(99,102,241,0.05); padding: 1rem; border-radius: 8px; cursor: pointer;">
+          <summary style="font-weight: 600; color: #6366f1; cursor: pointer;">¿Realmente es gratis?</summary>
+          <p style="margin: 1rem 0 0; line-height: 1.6;">Sí, 100%. Todos los cartones, playlists y funcionalidades principales son gratuitas. Nos financiamos con publicidad no intrusiva (Google AdSense) y, en el futuro, posibles features premium opcionales que no afectarán el uso básico.</p>
+        </details>
+
+        <details style="background: rgba(142,68,173,0.05); padding: 1rem; border-radius: 8px; cursor: pointer;">
+          <summary style="font-weight: 600; color: #8e44ad; cursor: pointer;">¿Necesito registrarme para descargar cartones?</summary>
+          <p style="margin: 1rem 0 0; line-height: 1.6;">No. Puedes descargar todos los cartones sin registro. Solo necesitarás cuenta para features futuras como el Generador de Playlists (requiere OAuth con Spotify) o Modo Multijugador Online.</p>
+        </details>
+
+        <details style="background: rgba(231,76,60,0.05); padding: 1rem; border-radius: 8px; cursor: pointer;">
+          <summary style="font-weight: 600; color: #e74c3c; cursor: pointer;">¿Puedo usar esto comercialmente?</summary>
+          <p style="margin: 1rem 0 0; line-height: 1.6;">Los cartones son gratuitos para uso personal, familiar, escolar y comunitario. Si quieres usarlos comercialmente (ejemplo: vender entradas a un evento con nuestros cartones), escríbenos a <a href="mailto:contacto@bingomusicalgratis.es" style="color: #e74c3c;">contacto@bingomusicalgratis.es</a> para discutir licenciamiento.</p>
+        </details>
+
+        <details style="background: rgba(46,204,113,0.05); padding: 1rem; border-radius: 8px; cursor: pointer;">
+          <summary style="font-weight: 600; color: #2ecc71; cursor: pointer;">¿Añadirán más categorías?</summary>
+          <p style="margin: 1rem 0 0; line-height: 1.6;">¡Sí! Estamos evaluando Reggaeton, Disney, Anime, Música Clásica y más. Si tienes sugerencias específicas, usa el formulario arriba con asunto "Proponer Nueva Categoría".</p>
+        </details>
+
+        <details style="background: rgba(52,152,219,0.05); padding: 1rem; border-radius: 8px; cursor: pointer;">
+          <summary style="font-weight: 600; color: #3498db; cursor: pointer;">¿Cómo reporto un error o bug?</summary>
+          <p style="margin: 1rem 0 0; line-height: 1.6;">Usa el formulario de arriba con asunto "Reportar Bug/Problema" o envía email directo a <a href="mailto:soporte@bingomusicalgratis.es" style="color: #3498db;">soporte@bingomusicalgratis.es</a>. Incluye: navegador (Chrome, Firefox, etc.), dispositivo (móvil, PC), y pasos detallados para reproducir el problema.</p>
+        </details>
+
+      </div>
+
+      <p style="margin-top: 2rem; text-align: center;">
+        <a href="faq.html" class="btn primary">Ver FAQ Completo →</a>
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <section class="card" style="background:linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; text-align: center; margin-top: 3rem;">
+      <h2 style="color: white;">🎉 Mientras Esperamos Tu Mensaje...</h2>
+      <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; margin: 1rem 0 2rem;">
+        ¿Por qué no exploras nuestras categorías o lees el blog mientras respondemos?
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="index.html#categorias" class="btn" style="background: white; color: #6366f1; font-weight: 600;">📚 Ver Categorías</a>
+        <a href="blog.html" class="btn ghost" style="border-color: white; color: white;">📝 Leer Blog</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Bingo Musical - Cartones gratis para jugar en familia</p>
+      <div class="footer-links">
+        <a href="about.html">Quiénes Somos</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="legal.html">Aviso Legal</a>
+        <a href="privacy.html">Privacidad</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
