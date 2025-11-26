@@ -163,8 +163,8 @@ En cada categoría, añade sección "Categorías relacionadas":
 <section>
   <h3>También te puede interesar</h3>
   <ul>
-    <li><a href="clasicos-pop.html">Clásicos del Pop</a></li>
-    <li><a href="rock.html">Rock Clásico</a></li>
+    <li><a href="pages/categories/clasicos-pop.html">Clásicos del Pop</a></li>
+    <li><a href="pages/categories/rock.html">Rock Clásico</a></li>
   </ul>
 </section>
 ```

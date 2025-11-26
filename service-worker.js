@@ -1,28 +1,42 @@
 
-const CACHE_NAME = 'bingo-musical-v7';
+const CACHE_NAME = 'bingo-musical-v8'; // Updated for folder reorganization
 const OFFLINE_URL = '/offline.html';
 const ASSETS = [
   '/',
   '/index.html',
-  '/online.html',
-  '/navidad.html',
-  '/clasicos-pop.html',
-  '/pop-latino.html',
-  '/otono.html',
-  '/cumpleanos.html',
-  '/mix.html',
-  '/rock.html',
-  '/musica-ingles.html',
-  '/musica-espanol.html',
-  '/generador.html',
+  '/blog.html',
+  // Categories
+  '/pages/categories/navidad.html',
+  '/pages/categories/clasicos-pop.html',
+  '/pages/categories/pop-latino.html',
+  '/pages/categories/otono.html',
+  '/pages/categories/cumpleanos.html',
+  '/pages/categories/mix.html',
+  '/pages/categories/rock.html',
+  '/pages/categories/musica-ingles.html',
+  '/pages/categories/musica-espanol.html',
+  // Tools
+  '/pages/tools/generador.html',
+  '/pages/tools/jugar.html',
+  '/pages/tools/online.html',
+  // Legal
+  '/pages/legal/privacy.html',
+  '/pages/legal/cookies.html',
+  '/pages/legal/legal.html',
+  '/pages/legal/faq.html',
+  '/pages/legal/contacto.html',
+  '/pages/legal/about.html',
+  // Assets
   '/assets/css/styles.css',
   '/assets/css/online.css',
   '/assets/js/app.js',
   '/assets/js/app-category.js',
   '/assets/js/i18n.js',
   '/assets/js/online.js',
+  '/assets/js/consent.js',
   '/manifest.json',
   '/offline.html',
+  // Data
   '/data/playlists.json',
   '/data/downloadable-cards.json',
   '/data/spotify-playlists.json',

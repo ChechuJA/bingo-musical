@@ -61,6 +61,9 @@ function updateConsent(grantAll) {
       'personalization_storage': 'granted'
     });
     saveConsent('all');
+
+    // Load external ad providers (e.g., Monetag) only after ads consent
+    loadAdProvidersIfConsented();
   } else {
     // Keep defaults (denied), only essential cookies
     gtag('consent', 'update', {
@@ -152,6 +155,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.adsbygoogle) {
         (adsbygoogle = window.adsbygoogle || []).push({});
       }
+
+      // Ensure external ad providers load now if registered
+      loadAdProvidersIfConsented();
     });
   }
 
@@ -174,6 +180,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.adsbygoogle) {
         (adsbygoogle = window.adsbygoogle || []).push({});
       }
+
+      loadAdProvidersIfConsented();
     });
   }
 
@@ -221,3 +229,67 @@ window.googleCMP = {
     location.reload();
   }
 };
+
+/**
+ * External Ad Providers Registry
+ * Allows registering third-party ad scripts (e.g., Monetag) to load only
+ * when user has granted ads consent. Scripts are loaded with defer and once.
+ */
+
+const adProviders = [];
+
+/**
+ * Register an ad provider script
+ * @param {{id:string, src:string, attrs?:Object}} provider
+ */
+function registerAdProvider(provider) {
+  if (!provider || !provider.id || !provider.src) return;
+  // Prevent duplicates
+  if (adProviders.some(p => p.id === provider.id)) return;
+  adProviders.push(provider);
+}
+
+function hasAdsConsent() {
+  const stored = getStoredConsent();
+  return stored && stored.choice === 'all';
+}
+
+function loadScriptDeferred(src, attrs) {
+  return new Promise((resolve, reject) => {
+    const existing = document.querySelector(`script[data-external-src="${src}"]`);
+    if (existing) { resolve(); return; }
+    const s = document.createElement('script');
+    s.src = src;
+    s.defer = true;
+    s.async = true;
+    s.setAttribute('data-external-src', src);
+    if (attrs && typeof attrs === 'object') {
+      Object.entries(attrs).forEach(([k,v]) => {
+        try { s.setAttribute(k, v); } catch (e) {}
+      });
+    }
+    s.onload = () => resolve();
+    s.onerror = (e) => reject(e);
+    document.head.appendChild(s);
+  });
+}
+
+async function loadAdProvidersIfConsented() {
+  if (!hasAdsConsent()) return;
+  for (const p of adProviders) {
+    try {
+      await loadScriptDeferred(p.src, p.attrs || {});
+      // Optionally call init callback
+      if (typeof p.onLoad === 'function') {
+        try { p.onLoad(); } catch(_) {}
+      }
+    } catch (e) {
+      // Swallow to avoid breaking UX
+      console.warn('Failed to load ad provider', p.id, e);
+    }
+  }
+}
+
+// Expose registry globally for simple integration in HTML pages
+window.registerAdProvider = registerAdProvider;
+window.loadAdProvidersIfConsented = loadAdProvidersIfConsented;

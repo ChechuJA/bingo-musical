@@ -29,18 +29,18 @@
   
   <title>🚧 [WIP] Bingo Musical Online - En Desarrollo | Bingo Musical</title>
 
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="../../manifest.json">
   <meta name="theme-color" content="#ffda77">
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="stylesheet" href="assets/css/online.css">
-  <link rel="icon" type="image/svg+xml" href="assets/icons/icon.svg">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="../../assets/css/online.css">
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/icon.svg">
 
   <!-- i18n Support -->
-  <script src="assets/js/i18n.js"></script>
+  <script src="../../assets/js/i18n.js"></script>
 
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
@@ -156,15 +156,15 @@
     <header class="site-header">
       <div class="container header-inner">
         <div class="logo-wrap">
-          <img src="assets/icons/bingo-logo.svg" alt="Bingo Musical logo" class="logo-img" />
+          <img src="../../assets/icons/bingo-logo.svg" alt="Bingo Musical logo" class="logo-img" />
           <a href="/" class="logo" data-i18n="siteName">Bingo Musical</a>
         </div>
         <nav class="main-nav" aria-label="Navegación principal">
           <button id="menu-toggle" aria-expanded="false" aria-controls="main-menu" class="menu-btn">☰</button>
           <ul id="main-menu" class="menu">
             <li><a href="index.html" data-i18n="nav.home">🏠 Inicio</a></li>
-            <li><a href="online.html" class="active">🎮 Jugar Online</a></li>
-            <li><a href="faq.html" data-i18n="nav.faq">💬 FAQ</a></li>
+            <li><a href="../../pages/tools/online.html" class="active">🎮 Jugar Online</a></li>
+            <li><a href="../../pages/legal/faq.html" data-i18n="nav.faq">💬 FAQ</a></li>
             <li class="lang-selector-item">
               <select id="lang-selector" class="lang-select" aria-label="Seleccionar idioma">
                 <option value="es">🇪🇸 ES</option>
@@ -185,7 +185,7 @@
           Estamos trabajando en el modo online con Firebase Realtime Database para que puedas jugar con amigos en tiempo real.
         </p>
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="jugar.html" class="btn" style="background: white; color: #e67e22; font-weight: 600; padding: 0.75rem 1.5rem;">
+          <a href="../../pages/tools/jugar.html" class="btn" style="background: white; color: #e67e22; font-weight: 600; padding: 0.75rem 1.5rem;">
             🎮 Jugar Modo Interactivo (Disponible Ahora)
           </a>
           <a href="index.html" class="btn ghost" style="border-color: white; color: white;">
@@ -310,9 +310,9 @@
       <div class="footer-inner">
         <p>&copy; <span id="year"></span> Bingo Musical. Todos los derechos reservados.</p>
         <nav>
-          <a href="legal.html" data-i18n="footer.legal">Aviso Legal</a> · 
-          <a href="privacy.html" data-i18n="footer.privacy">Privacidad</a> · 
-          <a href="cookies.html" data-i18n="footer.cookies">Cookies</a>
+          <a href="../../pages/legal/legal.html" data-i18n="footer.legal">Aviso Legal</a> · 
+          <a href="../../pages/legal/privacy.html" data-i18n="footer.privacy">Privacidad</a> · 
+          <a href="../../pages/legal/cookies.html" data-i18n="footer.cookies">Cookies</a>
         </nav>
       </div>
     </footer>
@@ -334,7 +334,7 @@
     </div>
   </div>
 
-  <script src="assets/js/app.js"></script>
-  <script src="assets/js/online.js"></script>
+  <script src="../../assets/js/app.js"></script>
+  <script src="../../assets/js/online.js"></script>
 </body>
 </html>
