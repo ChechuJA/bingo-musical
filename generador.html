@@ -215,14 +215,20 @@
       <div class="form-group">
         <label for="youtube-url">
           🔗 URL de Playlist de YouTube
-          <span style="color:var(--muted);font-weight:normal;font-size:0.9rem;">(debe ser pública)</span>
+          <span style="color:var(--muted);font-weight:normal;font-size:0.9rem;">(debe ser pública o "no listada")</span>
         </label>
         <input 
           type="url" 
           id="youtube-url" 
-          placeholder="https://www.youtube.com/playlist?list=PLxxxxxxxxxxxxxxxx"
+          placeholder="https://www.youtube.com/playlist?list=PLrAXtmErZgOeiKm4sgNOknGvNjby9efdf"
           style="font-family: monospace; font-size: 0.95rem;"
         >
+        <p style="margin:0.5rem 0 0 0; color: var(--muted); font-size: 0.85rem;">
+          💡 <strong>Ejemplo público:</strong> 
+          <a href="#" onclick="document.getElementById('youtube-url').value='https://www.youtube.com/playlist?list=PLrAXtmErZgOeiKm4sgNOknGvNjby9efdf'; return false;" style="color:#ff0000;text-decoration:underline;cursor:pointer;">
+            Playlist de prueba (100 canciones)
+          </a>
+        </p>
       </div>
 
       <button type="button" id="import-youtube-btn" class="btn primary" style="background:#ff0000;">
@@ -236,7 +242,7 @@
       <details style="margin-top:1rem;cursor:pointer;">
         <summary style="color:var(--muted);font-size:0.9rem;">ℹ️ ¿Cómo funciona?</summary>
         <ul style="color:var(--muted);font-size:0.85rem;margin:0.5rem 0 0 1.5rem;">
-          <li>La playlist debe ser <strong>pública</strong> o "no listada"</li>
+          <li>La playlist debe ser <strong>pública</strong> o <strong>"no listada"</strong></li>
           <li>Extraemos el título del video y el nombre del canal</li>
           <li>Limpiamos sufijos como "(Official Video)", "[Audio]", etc.</li>
           <li>Puedes editar las canciones después de importar</li>
@@ -367,17 +373,6 @@ Artista 2</code>
     <section class="card" style="background:linear-gradient(135deg, rgba(99,102,241,0.05), rgba(255,255,255,1)); border:2px dashed rgba(99,102,241,0.3);">
       <h2 style="text-align:center; color:#6366f1; margin-bottom:1.5rem;">🚀 Próximamente</h2>
       <div style="display:grid; gap:1.5rem;">
-        
-        <div style="display:flex; gap:1rem; align-items:start; padding:1rem; background:rgba(30,215,96,0.05); border-radius:8px;">
-          <span style="font-size:2rem;">🎵</span>
-          <div>
-            <h3 style="color:#1ed760; margin:0 0 0.5rem 0;">Importación automática desde Spotify</h3>
-            <p style="margin:0; color:var(--muted); line-height:1.6;">
-              En desarrollo debido a limitaciones técnicas de la API de Spotify (requiere OAuth).
-              Mientras tanto, usa la importación desde YouTube que ya está disponible arriba.
-            </p>
-          </div>
-        </div>
 
         <div style="display:flex; gap:1rem; align-items:start; padding:1rem; background:rgba(255,152,0,0.05); border-radius:8px;">
           <span style="font-size:2rem;">🎨</span>
@@ -405,6 +400,16 @@ Artista 2</code>
             <h3 style="color:#2196f3; margin:0 0 0.5rem 0;">Modo de juego interactivo online</h3>
             <p style="margin:0; color:var(--muted); line-height:1.6;">
               Juega bingo musical en tiempo real con tus amigos directamente desde el navegador.
+            </p>
+          </div>
+        </div>
+        
+        <div style="display:flex; gap:1rem; align-items:start; padding:1rem; background:rgba(30,215,96,0.05); border-radius:8px;">
+          <span style="font-size:2rem;">🎵</span>
+          <div>
+            <h3 style="color:#1ed760; margin:0 0 0.5rem 0;">Importación automática desde Spotify</h3>
+            <p style="margin:0; color:var(--muted); line-height:1.6;">
+              En desarrollo debido a limitaciones técnicas de la API de Spotify (requiere OAuth).
             </p>
           </div>
         </div>
