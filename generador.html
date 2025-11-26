@@ -209,60 +209,27 @@
     <section class="card">
       <h2>📝 Introduce tus canciones</h2>
       
-      <!-- IMPORT FROM SPOTIFY -->
-      <div style="background:linear-gradient(135deg, rgba(30,215,96,0.1), rgba(30,215,96,0.05)); padding:1.5rem; border-radius:12px; margin-bottom:1.5rem; border:2px solid rgba(30,215,96,0.3);">
-        <h3 style="color:#1ed760; margin:0 0 1rem 0; font-size:1.2rem;">🎵 Importar desde Spotify</h3>
-        <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1rem;">
-          Pega la URL de tu playlist pública de Spotify y la importaremos automáticamente.
-        </p>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:flex-start;">
-          <input 
-            type="url" 
-            id="spotify-url" 
-            placeholder="https://open.spotify.com/playlist/..."
-            style="flex:1; min-width:250px; padding:0.75rem; border:2px solid rgba(30,215,96,0.5); border-radius:8px; font-size:1rem;"
-          >
-          <button type="button" id="import-spotify-btn" class="btn" style="background:#1ed760; color:white; white-space:nowrap;">
-            📥 Importar Playlist
-          </button>
-        </div>
-        <details style="margin-top:1rem;">
-          <summary style="cursor:pointer; color:#1ed760; font-size:0.9rem; user-select:none;">📖 ¿Cómo obtener la URL de tu playlist?</summary>
-          <ol style="margin:0.5rem 0 0 1.5rem; padding:0; color:var(--muted); font-size:0.9rem; line-height:1.6;">
-            <li>Abre Spotify (web o app)</li>
-            <li>Ve a tu playlist</li>
-            <li>Haz clic en los tres puntos (⋯) → "Compartir" → "Copiar enlace de la playlist"</li>
-            <li>Pega el enlace aquí</li>
-            <li><strong>Nota:</strong> La playlist debe ser <u>pública</u> para poder importarla</li>
-          </ol>
-        </details>
-        
-        <!-- Mensaje de feedback para Spotify -->
-        <div id="spotify-feedback" style="margin-top:1rem;"></div>
-      </div>
-
-      <div style="text-align:center; margin:1.5rem 0; color:var(--muted); font-weight:600;">
-        ━━━ O introduce manualmente ━━━
-      </div>
-      
       <div class="format-example">
-        <strong>📋 Formatos aceptados:</strong>
-        <code>1. Canción - Artista
+        <strong>📋 Formatos aceptados (detección automática):</strong>
+        <code>Formato numerado:
+1. Canción - Artista
 2. Otra Canción - Otro Artista
 
-O también:
+Formato simple:
+Canción - Artista
+Otra Canción - Otro Artista
 
-Canción
-Artista
-Canción 2
-Artista 2
-
-O formato CSV:
-
+Formato CSV:
 Canción, Artista
-Otra Canción, Otro Artista</code>
+Otra Canción, Otro Artista
+
+Líneas alternas:
+Canción 1
+Artista 1
+Canción 2
+Artista 2</code>
         <p style="margin:0.5rem 0 0 0; color: var(--muted); font-size: 0.9rem;">
-          El sistema detecta automáticamente el formato. También puedes copiar/pegar directamente desde Spotify.
+          El sistema detecta automáticamente el formato. ¡Simplemente pega tus canciones y valida!
         </p>
       </div>
 
@@ -356,6 +323,58 @@ Otra Canción, Otro Artista</code>
       <div id="cards-container"></div>
     </section>
 
+    <!-- Próximamente -->
+    <section class="card" style="background:linear-gradient(135deg, rgba(99,102,241,0.05), rgba(255,255,255,1)); border:2px dashed rgba(99,102,241,0.3);">
+      <h2 style="text-align:center; color:#6366f1; margin-bottom:1.5rem;">🚀 Próximamente</h2>
+      <div style="display:grid; gap:1.5rem;">
+        
+        <div style="display:flex; gap:1rem; align-items:start; padding:1rem; background:rgba(30,215,96,0.05); border-radius:8px;">
+          <span style="font-size:2rem;">🎵</span>
+          <div>
+            <h3 style="color:#1ed760; margin:0 0 0.5rem 0;">Importación automática desde Spotify</h3>
+            <p style="margin:0; color:var(--muted); line-height:1.6;">
+              Pega la URL de tu playlist de Spotify y la importaremos automáticamente. 
+              Actualmente en desarrollo debido a limitaciones técnicas de la API de Spotify.
+            </p>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:1rem; align-items:start; padding:1rem; background:rgba(255,152,0,0.05); border-radius:8px;">
+          <span style="font-size:2rem;">🎨</span>
+          <div>
+            <h3 style="color:#ff9800; margin:0 0 0.5rem 0;">Plantillas visuales personalizables</h3>
+            <p style="margin:0; color:var(--muted); line-height:1.6;">
+              Genera cartones con diseños visuales atractivos, colores personalizados y temas predefinidos.
+            </p>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:1rem; align-items:start; padding:1rem; background:rgba(156,39,176,0.05); border-radius:8px;">
+          <span style="font-size:2rem;">💾</span>
+          <div>
+            <h3 style="color:#9c27b0; margin:0 0 0.5rem 0;">Exportar a PDF y PowerPoint</h3>
+            <p style="margin:0; color:var(--muted); line-height:1.6;">
+              Descarga tus cartones en formato PDF listo para imprimir o PowerPoint para proyectar.
+            </p>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:1rem; align-items:start; padding:1rem; background:rgba(33,150,243,0.05); border-radius:8px;">
+          <span style="font-size:2rem;">🎯</span>
+          <div>
+            <h3 style="color:#2196f3; margin:0 0 0.5rem 0;">Modo de juego interactivo online</h3>
+            <p style="margin:0; color:var(--muted); line-height:1.6;">
+              Juega bingo musical en tiempo real con tus amigos directamente desde el navegador.
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <p style="text-align:center; margin-top:2rem; color:var(--muted); font-size:0.9rem;">
+        💬 ¿Tienes sugerencias? <a href="contacto.html" style="color:#6366f1;">Contáctanos</a>
+      </p>
+    </section>
+
   </main>
 
   <footer class="footer">
@@ -403,7 +422,10 @@ Otra Canción, Otro Artista</code>
       // Formato 3: "Song, Artist" (CSV)
       const csvRegex = /^(.+?),\s*(.+)$/;
       
-      // Formato 4: Líneas alternas (Spotify copy/paste)
+      // Formato 4: "Song\tArtist" (TAB-separated - formato de Spotify copy/paste)
+      const tabRegex = /^(.+?)\t+(.+)$/;
+      
+      // Formato 5: Líneas alternas (Spotify en algunos casos)
       // Song
       // Artist
       // Song2
@@ -412,8 +434,22 @@ Otra Canción, Otro Artista</code>
       // Detectar formato
       let formatDetected = 'unknown';
       
+      // Probar formato TAB-separated (Spotify)
+      if (lines.some(line => tabRegex.test(line))) {
+        formatDetected = 'tab-spotify';
+        lines.forEach(line => {
+          const match = line.match(tabRegex);
+          if (match) {
+            songs.push({
+              title: match[1].trim(),
+              artist: match[2].trim(),
+              full: `${match[1].trim()} - ${match[2].trim()}`
+            });
+          }
+        });
+      }
       // Probar formato numerado
-      if (lines.some(line => numberedRegex.test(line.trim()))) {
+      else if (lines.some(line => numberedRegex.test(line.trim()))) {
         formatDetected = 'numbered';
         lines.forEach(line => {
           const match = line.trim().match(numberedRegex);
@@ -454,7 +490,7 @@ Otra Canción, Otro Artista</code>
           }
         });
       }
-      // Probar formato alterno (Spotify)
+      // Probar formato alterno (Spotify líneas alternas)
       else if (lines.length >= 2 && lines.length % 2 === 0) {
         formatDetected = 'alternate';
         for (let i = 0; i < lines.length; i += 2) {
@@ -483,10 +519,11 @@ Otra Canción, Otro Artista</code>
       parsedSongs = songs;
       
       const formatNames = {
+        'tab-spotify': 'formato con tabuladores',
         'numbered': '"1. Canción - Artista"',
         'dash': '"Canción - Artista"',
         'csv': '"Canción, Artista"',
-        'alternate': 'líneas alternas (Spotify)',
+        'alternate': 'líneas alternas',
         'unknown': 'desconocido'
       };
 
@@ -632,12 +669,6 @@ Otra Canción, Otro Artista</code>
     function showFeedback(message, type) {
       validationFeedback.innerHTML = `<div class="validation-message ${type}">${message}</div>`;
     }
-    
-    // Mostrar feedback para Spotify (en su propia área)
-    function showSpotifyFeedback(message, type) {
-      const spotifyFeedback = document.getElementById('spotify-feedback');
-      spotifyFeedback.innerHTML = `<div class="validation-message ${type}">${message}</div>`;
-    }
 
     // Actualizar estadísticas
     function updateStats(totalSongs, songsPerCard, numCards, minRequired) {
@@ -675,9 +706,13 @@ Otra Canción, Otro Artista</code>
       }
     });
 
-    // IMPORTACIÓN DESDE SPOTIFY
-    const spotifyUrlInput = document.getElementById('spotify-url');
-    const importSpotifyBtn = document.getElementById('import-spotify-btn');
+    /* NOTA: El scraping automático de Spotify no funciona debido a CORS.
+     * En su lugar, los usuarios deben copiar/pegar las canciones directamente desde Spotify.
+     * El parser inteligente detecta automáticamente el formato tab-separated que usa Spotify.
+     */
+  </script>
+</body>
+</html>
     
     importSpotifyBtn.addEventListener('click', async () => {
       const url = spotifyUrlInput.value.trim();
