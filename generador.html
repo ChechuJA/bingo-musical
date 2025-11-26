@@ -236,6 +236,9 @@
             <li><strong>Nota:</strong> La playlist debe ser <u>pública</u> para poder importarla</li>
           </ol>
         </details>
+        
+        <!-- Mensaje de feedback para Spotify -->
+        <div id="spotify-feedback" style="margin-top:1rem;"></div>
       </div>
 
       <div style="text-align:center; margin:1.5rem 0; color:var(--muted); font-weight:600;">
@@ -629,6 +632,12 @@ Otra Canción, Otro Artista</code>
     function showFeedback(message, type) {
       validationFeedback.innerHTML = `<div class="validation-message ${type}">${message}</div>`;
     }
+    
+    // Mostrar feedback para Spotify (en su propia área)
+    function showSpotifyFeedback(message, type) {
+      const spotifyFeedback = document.getElementById('spotify-feedback');
+      spotifyFeedback.innerHTML = `<div class="validation-message ${type}">${message}</div>`;
+    }
 
     // Actualizar estadísticas
     function updateStats(totalSongs, songsPerCard, numCards, minRequired) {
@@ -674,14 +683,14 @@ Otra Canción, Otro Artista</code>
       const url = spotifyUrlInput.value.trim();
       
       if (!url) {
-        showFeedback('Por favor, pega la URL de tu playlist de Spotify.', 'error');
+        showSpotifyFeedback('Por favor, pega la URL de tu playlist de Spotify.', 'error');
         return;
       }
       
       // Extraer playlist ID
       const playlistId = extractSpotifyPlaylistId(url);
       if (!playlistId) {
-        showFeedback('❌ URL de Spotify no válida. Asegúrate de que sea un enlace de playlist.', 'error');
+        showSpotifyFeedback('❌ URL de Spotify no válida. Asegúrate de que sea un enlace de playlist.', 'error');
         return;
       }
       
@@ -694,7 +703,7 @@ Otra Canción, Otro Artista</code>
         const tracks = await fetchSpotifyPlaylist(playlistId);
         
         if (tracks.length === 0) {
-          showFeedback('⚠️ La playlist está vacía o no se pudo acceder a ella.', 'warning');
+          showSpotifyFeedback('⚠️ La playlist está vacía o no se pudo acceder a ella.', 'warning');
           importSpotifyBtn.innerHTML = originalText;
           importSpotifyBtn.disabled = false;
           return;
@@ -707,7 +716,7 @@ Otra Canción, Otro Artista</code>
         
         songListInput.value = formattedText;
         
-        showFeedback(
+        showSpotifyFeedback(
           `✅ ¡Importación exitosa! ${tracks.length} canciones importadas desde Spotify.<br>` +
           `Haz clic en "Validar Formato" para continuar.`,
           'success'
@@ -718,7 +727,7 @@ Otra Canción, Otro Artista</code>
         
       } catch (error) {
         console.error('Error importing from Spotify:', error);
-        showFeedback(
+        showSpotifyFeedback(
           `❌ Error al importar la playlist: ${error.message}<br>` +
           `Verifica que la playlist sea pública e intenta de nuevo.`,
           'error'
