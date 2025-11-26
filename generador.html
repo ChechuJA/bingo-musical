@@ -293,6 +293,47 @@ Artista 2</code>
           ></textarea>
         </div>
 
+        <!-- Selección de rango -->
+        <div id="range-selector" style="display:none; margin-top:1rem; padding:1rem; background:var(--card-bg); border-radius:8px; border:2px dashed var(--primary);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+            <h4 style="margin:0; color:var(--primary);">✂️ Seleccionar Rango de Canciones</h4>
+            <button type="button" id="download-playlist-btn" class="btn ghost" style="padding:0.5rem 1rem; font-size:0.9rem;">
+              💾 Descargar Lista Original
+            </button>
+          </div>
+          <p style="color:var(--muted); font-size:0.9rem; margin:0.5rem 0 1rem 0;">
+            Selecciona un subconjunto de canciones para generar cartones más cortos
+          </p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="range-start">🔢 Desde canción #</label>
+              <input 
+                type="number" 
+                id="range-start" 
+                value="1" 
+                min="1"
+                style="font-size:0.95rem;"
+              >
+            </div>
+            <div class="form-group">
+              <label for="range-end">🔢 Hasta canción #</label>
+              <input 
+                type="number" 
+                id="range-end" 
+                value="100" 
+                min="1"
+                style="font-size:0.95rem;"
+              >
+            </div>
+          </div>
+          <button type="button" id="apply-range-btn" class="btn primary" style="width:100%; margin-top:0.5rem;">
+            ✅ Aplicar Rango
+          </button>
+          <p id="range-info" style="color:var(--muted); font-size:0.85rem; margin:0.5rem 0 0 0; text-align:center;">
+            Se usarán todas las canciones
+          </p>
+        </div>
+
         <div class="form-row">
           <div class="form-group">
             <label for="songs-per-card">🎯 Canciones por cartón</label>
@@ -772,6 +813,16 @@ Artista 2</code>
     const youtubeFeedback = document.getElementById('youtube-feedback');
     const songListTextarea = document.getElementById('song-list');
     
+    // Range selector
+    const rangeSelector = document.getElementById('range-selector');
+    const rangeStart = document.getElementById('range-start');
+    const rangeEnd = document.getElementById('range-end');
+    const applyRangeBtn = document.getElementById('apply-range-btn');
+    const rangeInfo = document.getElementById('range-info');
+    const downloadPlaylistBtn = document.getElementById('download-playlist-btn');
+    
+    let fullPlaylist = []; // Almacena la lista completa importada
+    
     importYoutubeBtn.addEventListener('click', async () => {
       const url = youtubeUrlInput.value.trim();
       
@@ -824,16 +875,26 @@ Artista 2</code>
         // Formatear canciones para el textarea
         const formattedSongs = songs.map((song, index) => {
           return `${index + 1}. ${song.name} - ${song.artist}`;
-        }).join('\n');
+        });
         
         // Insertar en textarea
-        songListTextarea.value = formattedSongs;
+        songListTextarea.value = formattedSongs.join('\n');
+        
+        // Guardar playlist completa para descarga y rangos
+        fullPlaylist = formattedSongs.slice();
+        
+        // Mostrar selector de rango
+        rangeSelector.style.display = 'block';
+        rangeEnd.value = songs.length;
+        rangeEnd.max = songs.length;
+        rangeStart.max = songs.length;
+        rangeInfo.textContent = `Se usarán las ${songs.length} canciones (del 1 al ${songs.length})`;
         
         // Scroll al textarea
         songListTextarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
         
-        // Mostrar éxito con info sobre límite
-        let successMessage = `✅ ¡Importadas ${songs.length} canciones! Ahora valida y genera tus cartones.`;
+        // Mostrar mensaje de éxito
+        let successMessage = `✅ ¡Importadas ${songs.length} canciones!`;
         if (songs.length >= 500) {
           successMessage += '<br>ℹ️ Nota: Se importaron las primeras 500 canciones (límite por rendimiento).';
         }
@@ -856,6 +917,61 @@ Artista 2</code>
         importYoutubeText.style.display = 'inline';
         importYoutubeLoading.style.display = 'none';
       }
+    });
+    
+    /**
+     * Aplicar rango de canciones
+     */
+    applyRangeBtn.addEventListener('click', () => {
+      const start = parseInt(rangeStart.value);
+      const end = parseInt(rangeEnd.value);
+      
+      if (start < 1 || end < start || end > fullPlaylist.length) {
+        showYoutubeFeedback('error', '❌ Rango inválido. Verifica los números.');
+        return;
+      }
+      
+      const selectedSongs = fullPlaylist.slice(start - 1, end);
+      songListTextarea.value = selectedSongs.join('\n');
+      
+      const count = end - start + 1;
+      rangeInfo.textContent = `Se usarán ${count} canciones (del ${start} al ${end})`;
+      rangeInfo.style.color = 'var(--primary)';
+      rangeInfo.style.fontWeight = '600';
+      
+      // Scroll al textarea
+      songListTextarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
+      // Mostrar feedback
+      showYoutubeFeedback('success', `✅ Rango aplicado: ${count} canciones seleccionadas (${start}-${end})`);
+      
+      // Auto-validar
+      setTimeout(() => {
+        validateBtn.click();
+      }, 500);
+    });
+    
+    /**
+     * Descargar lista original de canciones
+     */
+    downloadPlaylistBtn.addEventListener('click', () => {
+      if (fullPlaylist.length === 0) {
+        showYoutubeFeedback('error', '❌ No hay lista para descargar. Importa desde YouTube primero.');
+        return;
+      }
+      
+      const content = fullPlaylist.join('\n');
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `lista-completa-${fullPlaylist.length}-canciones.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      
+      showYoutubeFeedback('success', `✅ Lista completa descargada (${fullPlaylist.length} canciones)`);
     });
     
     /**
