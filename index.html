@@ -559,18 +559,17 @@
     });
   </script>
   
-  <!-- External Ad Provider: Monetag (optional, commented out by default)
-       Uncomment and configure with your Monetag script URL when ready.
-       This script loads ONLY when user grants ads consent (GDPR-compliant).
+  <!-- Monetag Ad Provider - Social Bar (Active)
+       Loads ONLY when user grants ads consent (GDPR-compliant).
+  -->
   <script>
-    // Register Monetag ad provider (deferred + consent-gated)
+    // Register Monetag Social Bar (zoneId: 10241740)
     registerAdProvider({
-      id: 'monetag',
-      src: 'https://example-cdn.monetag.com/tag.js', // Replace with your Monetag script URL
-      attrs: { 'data-zone': 'YOUR_ZONE_ID' }, // Add any required attributes
+      id: 'monetag-social',
+      src: 'https://5gvci.com/act/files/tag.min.js?z=10241740',
+      attrs: { 'data-cfasync': 'false' },
       onLoad: function() {
-        console.log('Monetag loaded under ads consent');
-        // Optional: Initialize Monetag after load if needed
+        console.log('✅ Monetag Social Bar loaded (consent-gated)');
       }
     });
     
@@ -578,6 +577,7 @@
     if (typeof loadAdProvidersIfConsented === 'function') {
       loadAdProvidersIfConsented();
     }
+  </script>
   </script>
   -->
 </body>

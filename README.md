@@ -210,12 +210,55 @@ Automatic security scanning via `.github/workflows/codeql-analysis.yml`
 
 ## 📊 Monetization Strategy
 
-- **AdSense Integration**: Placeholder spaces ready
+- **Google Consent Mode v2**: GDPR-compliant CMP implemented
+- **AdSense Integration**: Ready for approval, placeholder spaces prepared
+- **Monetag Support**: Temporary provider while AdSense approves (consent-gated)
 - **Multiple ad slots**: Homepage, category pages, modals
-- **User value first**: Free downloads + Spotify playlists
+- **User value first**: Free downloads + Spotify playlists + YouTube import
 - **Ad placement**: Strategic non-intrusive positions
 
-**Before enabling AdSense**: Ensure legal pages comply with GDPR.
+**Documentation**: See `docs/MONETAG-SETUP.md` and `docs/GOOGLE-CMP-GUIDE.md`
+
+## 📁 Project Structure
+
+```
+bingo-musical/
+├── index.html              # Landing page
+├── blog.html               # Blog index
+├── README.md              # This file
+├── SECURITY.md            # Security policy
+├── manifest.json          # PWA manifest
+├── service-worker.js      # PWA offline support
+├── sitemap.xml            # SEO sitemap
+├── pages/
+│   ├── categories/        # 9 category pages
+│   ├── tools/             # Generador, jugar, online
+│   └── legal/             # Privacy, cookies, FAQ, etc.
+├── blog/                  # Blog posts
+├── assets/
+│   ├── css/               # Styles
+│   ├── js/                # Client scripts (consent, i18n, etc.)
+│   └── icons/             # PWA icons
+├── cartones/              # Pre-generated downloadable cards
+├── data/                  # JSON data (playlists, metadata, i18n)
+├── docs/                  # Documentation & setup guides
+│   ├── MONETAG-SETUP.md
+│   ├── GOOGLE-CMP-GUIDE.md
+│   ├── YOUTUBE-SETUP-FINAL.md
+│   ├── SEO-GUIDE.md
+│   └── ... (more guides)
+├── scripts/               # Automation scripts
+└── cloudflare-worker/     # YouTube API proxy
+```
+
+## 📚 Documentation
+
+All setup guides and implementation docs are in `docs/`:
+- **Monetization**: `MONETAG-SETUP.md`, `GOOGLE-CMP-GUIDE.md`
+- **Features**: `YOUTUBE-SETUP-FINAL.md`, `ONLINE-IMPLEMENTATION.md`
+- **Infrastructure**: `FIREBASE-SETUP.md`, `SECURITY-IMPLEMENTATION.md`
+- **Marketing**: `SEO-GUIDE.md`, `plandeaccion.md`
+- **Changelog**: `REORGANIZATION-2025-11-27.md`
 
 ## 🤝 Contributing
 
