@@ -245,6 +245,7 @@
           <li>La playlist debe ser <strong>pública</strong> o <strong>"no listada"</strong></li>
           <li>Extraemos el título del video y el nombre del canal</li>
           <li>Limpiamos sufijos como "(Official Video)", "[Audio]", etc.</li>
+          <li><strong>Límite:</strong> Se importan máximo 500 canciones (por rendimiento)</li>
           <li>Puedes editar las canciones después de importar</li>
           <li>100% gratuito y seguro - tu API key está protegida</li>
         </ul>
@@ -831,8 +832,12 @@ Artista 2</code>
         // Scroll al textarea
         songListTextarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
         
-        // Mostrar éxito
-        showYoutubeFeedback('success', `✅ ¡Importadas ${songs.length} canciones! Ahora valida y genera tus cartones.`);
+        // Mostrar éxito con info sobre límite
+        let successMessage = `✅ ¡Importadas ${songs.length} canciones! Ahora valida y genera tus cartones.`;
+        if (songs.length >= 500) {
+          successMessage += '<br>ℹ️ Nota: Se importaron las primeras 500 canciones (límite por rendimiento).';
+        }
+        showYoutubeFeedback('success', successMessage);
         
         // Limpiar URL
         youtubeUrlInput.value = '';
