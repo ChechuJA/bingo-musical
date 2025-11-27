@@ -1071,6 +1071,24 @@ Artista 2</code>
       }
     }
   </script>
+
+  <!-- Monetag Social Bar (consent-gated) -->
+  <script src="../../assets/js/consent.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      if (typeof registerAdProvider === 'function') {
+        registerAdProvider({
+          id: 'monetag-social',
+          src: 'https://5gvci.com/act/files/tag.min.js?z=10241740',
+          attrs: { 'data-cfasync': 'false' },
+          onLoad: function() { console.log('✅ Monetag loaded'); }
+        });
+        if (typeof loadAdProvidersIfConsented === 'function') {
+          loadAdProvidersIfConsented();
+        }
+      }
+    });
+  </script>
 </body>
 </html>
 
