@@ -318,16 +318,22 @@
     </div>
   </div>
 
-  <!-- Monetag Social Bar (consent-gated) -->
+  <!-- Monetag Balanced Stack (In-Page + Vignette) -->
   <script src="../../assets/js/consent.js" defer></script>
   <script>
     window.addEventListener('DOMContentLoaded', function() {
       if (typeof registerAdProvider === 'function') {
         registerAdProvider({
-          id: 'monetag-social',
-          src: 'https://5gvci.com/act/files/tag.min.js?z=10241740',
+          id: 'monetag-inpage',
+          src: 'https://5gvci.com/act/files/tag.min.js?z=10241769',
           attrs: { 'data-cfasync': 'false' },
-          onLoad: function() { console.log('✅ Monetag loaded'); }
+          onLoad: () => console.log('✅ In-Page Push')
+        });
+        registerAdProvider({
+          id: 'monetag-vignette',
+          src: 'https://5gvci.com/act/files/tag.min.js?z=10241771',
+          attrs: { 'data-cfasync': 'false' },
+          onLoad: () => console.log('✅ Vignette')
         });
         if (typeof loadAdProvidersIfConsented === 'function') {
           loadAdProvidersIfConsented();

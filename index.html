@@ -559,24 +559,39 @@
     });
   </script>
   
-  <!-- Monetag Ad Provider - Social Bar (Active)
-       Loads ONLY when user grants ads consent (GDPR-compliant).
-  -->
+  <!-- Monetag Balanced Stack - Maximizes revenue with good UX -->
   <script>
-    // Register Monetag Social Bar (zoneId: 10241740)
-    registerAdProvider({
-      id: 'monetag-social',
-      src: 'https://5gvci.com/act/files/tag.min.js?z=10241740',
-      attrs: { 'data-cfasync': 'false' },
-      onLoad: function() {
-        console.log('✅ Monetag Social Bar loaded (consent-gated)');
+    window.addEventListener('DOMContentLoaded', function() {
+      if (typeof registerAdProvider === 'function') {
+        // 1. In-Page Push (10241769) - Bottom-right notification
+        registerAdProvider({
+          id: 'monetag-inpage',
+          src: 'https://5gvci.com/act/files/tag.min.js?z=10241769',
+          attrs: { 'data-cfasync': 'false' },
+          onLoad: () => console.log('✅ Monetag In-Page Push')
+        });
+        
+        // 2. Vignette Banner (10241771) - Subtle overlay
+        registerAdProvider({
+          id: 'monetag-vignette',
+          src: 'https://5gvci.com/act/files/tag.min.js?z=10241771',
+          attrs: { 'data-cfasync': 'false' },
+          onLoad: () => console.log('✅ Monetag Vignette')
+        });
+        
+        // 3. OnClick Popunder (10241768) - Only on main page
+        registerAdProvider({
+          id: 'monetag-onclick',
+          src: 'https://5gvci.com/act/files/tag.min.js?z=10241768',
+          attrs: { 'data-cfasync': 'false' },
+          onLoad: () => console.log('✅ Monetag OnClick')
+        });
+        
+        if (typeof loadAdProvidersIfConsented === 'function') {
+          loadAdProvidersIfConsented();
+        }
       }
     });
-    
-    // If consent was already granted, load immediately
-    if (typeof loadAdProvidersIfConsented === 'function') {
-      loadAdProvidersIfConsented();
-    }
   </script>
   </script>
   -->
