@@ -6,7 +6,10 @@ const sanitize = s => (typeof s === 'string') ? s.replaceAll('<','&lt;').replace
 let spotifyData = {};
 
   document.addEventListener('DOMContentLoaded', async () => {
-  document.getElementById('year').textContent = new Date().getFullYear();
+  const yearElement = document.getElementById('year');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
   setupMenu();
   setupCookie();
   setupOfflineBanner();

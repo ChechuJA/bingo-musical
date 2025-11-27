@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Optional: Reload ads after consent
       if (window.adsbygoogle) {
-        (adsbygoogle = window.adsbygoogle || []).push({});
+        try { (adsbygoogle = window.adsbygoogle || []).push({}); window.adsenseInitialized = true; } catch (e) { console.warn('AdSense already initialized'); }
       }
 
       // Ensure external ad providers load now if registered
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
       hideManageOptions();
       
       if (window.adsbygoogle) {
-        (adsbygoogle = window.adsbygoogle || []).push({});
+        try { (adsbygoogle = window.adsbygoogle || []).push({}); window.adsenseInitialized = true; } catch (e) { console.warn('AdSense already initialized'); }
       }
 
       loadAdProvidersIfConsented();
