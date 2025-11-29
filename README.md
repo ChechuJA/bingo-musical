@@ -172,7 +172,7 @@ The i18n system supports:
 - ✅ Cookie Policy (`cookies.html`)
 - ✅ Cookie consent banner
 
-**Important**: Update contact email (`contacto@bingomusical.com`) before going live.
+**Important**: The contact email is `contacto@bingomusicalgratis.es`.
 
 ## 🔒 Security
 
