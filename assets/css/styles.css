@@ -238,8 +238,8 @@ body{
 .step p{ color:var(--muted); font-size:0.95rem; line-height:1.6; }
 
 /* Ad spaces */
-.ad-space{ margin:2rem 0; }
-.ad-placeholder{ min-height:100px; }
+.ad-space{ margin:1.5rem 0; }
+.ad-placeholder{ min-height:1px; }
 
 /* Top 9 Grid (3x3) */
 .top-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem; margin-top:1.5rem; }

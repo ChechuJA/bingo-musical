@@ -36,14 +36,12 @@
   <style>
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 2rem;
       margin-top: 2rem;
-    }
-    @media (max-width: 900px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .contact-info {
       background: rgba(99,102,241,0.05);
@@ -82,53 +80,6 @@
     .contact-item-content a:hover {
       text-decoration: underline;
     }
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.75rem;
-      border: 2px solid var(--glass);
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 1rem;
-      background: white;
-      transition: border-color 0.3s;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: #6366f1;
-    }
-    .form-group textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-    .form-note {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-top: 0.5rem;
-    }
-    .success-message {
-      background: rgba(46,204,113,0.1);
-      border-left: 4px solid #2ecc71;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      display: none;
-    }
-    .success-message.show {
-      display: block;
-    }
   </style>
 </head>
 <body>
@@ -156,7 +107,7 @@
     <section class="hero card" style="background:linear-gradient(135deg, rgba(99,102,241,0.1), rgba(168,85,247,0.05)); text-align: center;">
       <span style="font-size: 4rem; display: block; margin-bottom: 1rem;">📧</span>
       <h1 style="color:#6366f1;">Contacto</h1>
-      <p class="lead">¿Tienes dudas, sugerencias o quieres colaborar? Escríbenos</p>
+      <p class="lead">¿Tienes dudas, sugerencias o quieres colaborar? Escríbenos por email.</p>
     </section>
 
     <!-- Grid de Contacto -->
@@ -216,104 +167,6 @@
             <strong>🔒 Privacidad:</strong> Tu información de contacto solo se usa para responder a tu mensaje. No compartimos emails con terceros. Cumplimos RGPD/GDPR. Lee nuestra <a href="../../pages/legal/privacy.html" style="color: #6366f1;">política de privacidad</a>.
           </p>
         </div>
-      </div>
-
-      <!-- Formulario de Contacto -->
-      <div class="card">
-        <h3 style="color: #6366f1; margin-top: 0;">Formulario de Contacto</h3>
-        <p style="color: var(--muted); margin-bottom: 2rem;">O usa el formulario para enviarnos un mensaje directo:</p>
-
-        <div id="success-message" class="success-message">
-          ✅ <strong>Mensaje enviado con éxito.</strong> Te responderemos pronto a tu email.
-        </div>
-
-        <form id="contact-form" action="https://formspree.io/f/xwpkvbld" method="POST">
-          
-          <div class="form-group">
-            <label for="name">Nombre *</label>
-            <input type="text" id="name" name="name" required placeholder="Tu nombre">
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email *</label>
-            <input type="email" id="email" name="email" required placeholder="tu@email.com">
-            <p class="form-note">Necesitamos tu email para responderte.</p>
-          </div>
-
-          <div class="form-group">
-            <label for="subject">Asunto *</label>
-            <select id="subject" name="subject" required>
-              <option value="">-- Selecciona un asunto --</option>
-              <option value="Consulta General">Consulta General</option>
-              <option value="Reporte de Bug">Reportar Bug/Problema</option>
-              <option value="Sugerencia">Sugerencia de Mejora</option>
-              <option value="Nueva Categoría">Proponer Nueva Categoría</option>
-              <option value="Beta Tester">Quiero ser Beta Tester</option>
-              <option value="Colaboración">Colaboración/Contribución</option>
-              <option value="Prensa/Media">Prensa o Media</option>
-              <option value="Otro">Otro</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="message">Mensaje *</label>
-            <textarea id="message" name="message" required placeholder="Escribe tu mensaje aquí..."></textarea>
-            <p class="form-note">Sé lo más detallado posible. Si reportas un bug, incluye: navegador, dispositivo y pasos para reproducirlo.</p>
-          </div>
-
-          <div class="form-group" style="margin-bottom: 2rem;">
-            <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal; cursor: pointer;">
-              <input type="checkbox" name="privacy-consent" required>
-              <span style="font-size: 0.9rem;">He leído y acepto la <a href="../../pages/legal/privacy.html" style="color: #6366f1;" target="_blank">política de privacidad</a> *</span>
-            </label>
-          </div>
-
-          <button type="submit" class="btn primary" style="width: 100%; font-size: 1.1rem;">
-            Enviar Mensaje 📤
-          </button>
-
-          <p style="font-size: 0.85rem; color: var(--muted); margin-top: 1rem; text-align: center;">
-            * Campos obligatorios
-          </p>
-
-        </form>
-
-        <script>
-          // Handle form submission with success message
-          const form = document.getElementById('contact-form');
-          const successMessage = document.getElementById('success-message');
-
-          form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const formData = new FormData(form);
-            
-            try {
-              const response = await fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                  'Accept': 'application/json'
-                }
-              });
-
-              if (response.ok) {
-                successMessage.classList.add('show');
-                form.reset();
-                // Scroll to success message
-                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                  successMessage.classList.remove('show');
-                }, 5000);
-              } else {
-                alert('Hubo un error al enviar el mensaje. Por favor, intenta enviarlo directamente a contacto@bingomusicalgratis.es');
-              }
-            } catch (error) {
-              alert('Hubo un error al enviar el mensaje. Por favor, intenta enviarlo directamente a contacto@bingomusicalgratis.es');
-            }
-          });
-        </script>
       </div>
 
     </div>
