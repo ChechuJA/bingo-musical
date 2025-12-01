@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test - Sidebar Ads & Monetag</title>
+  <link rel="stylesheet" href="/assets/css/sidebar-ads.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1 { color: #9b59b6; }
+    .test-section {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f9f9f9;
+      border-left: 4px solid #9b59b6;
+    }
+    .code {
+      background: #2a2a2a;
+      color: #0f0;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+      font-size: 12px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <!-- 📢 SIDEBAR ADS -->
+  <div class="sidebar-ad-container sidebar-ad-left">
+    <div class="sidebar-ad-slot ad-format-skyscraper">
+      <span class="sidebar-ad-label">Publicidad</span>
+      <div id="sidebar-left-ad"></div>
+    </div>
+  </div>
+
+  <div class="sidebar-ad-container sidebar-ad-right">
+    <div class="sidebar-ad-slot ad-format-skyscraper">
+      <span class="sidebar-ad-label">Publicidad</span>
+      <div id="sidebar-right-ad"></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <h1>🧪 Test - Sidebar Ads & Monetag Integration</h1>
+    
+    <div class="test-section">
+      <h2>✅ Checklist de Verificación</h2>
+      <ul>
+        <li>✓ Sidebars cargados a izquierda y derecha</li>
+        <li>✓ Scripts de sidebar-ads.js inicializados</li>
+        <li>✓ Monetag native banners configurados</li>
+        <li>Verifica en consola (F12) que no haya errores</li>
+        <li>Abre DevTools → Console para ver logs</li>
+      </ul>
+    </div>
+
+    <div class="test-section">
+      <h2>📋 Información de Debugging</h2>
+      <p>Abre la consola del navegador (F12) y busca:</p>
+      <div class="code">
+✅ Sidebar ads inicializados
+📢 Monetag zone 8655548 cargando en sidebar-left-ad
+📢 Monetag zone 8655550 cargando en sidebar-right-ad
+      </div>
+    </div>
+
+    <div class="test-section">
+      <h2>🔍 Si los ads NO aparecen:</h2>
+      <ol>
+        <li>Verifica en DevTools que los elementos DOM existan:
+          <div class="code">
+document.querySelector('.sidebar-ad-left')  // Debe existir
+document.getElementById('sidebar-left-ad')   // Debe existir
+          </div>
+        </li>
+        <li>Verifica que Monetag zones están correctas:
+          <ul>
+            <li>Zone 8655548 = Sidebar izquierdo</li>
+            <li>Zone 8655550 = Sidebar derecho</li>
+          </ul>
+        </li>
+        <li>Verifica que sidebar-ads.js cargó correctamente:
+          <div class="code">
+console.log(window.SidebarAds)  // Debe mostrar objeto con métodos
+          </div>
+        </li>
+        <li>Verifica que los scripts de Monetag se cargaron:
+          <div class="code">
+// En Network tab, busca requests a www.topcreativeformat.com
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="test-section">
+      <h2>💡 Posibles Soluciones</h2>
+      <ul>
+        <li><strong>Zone IDs incorrectos:</strong> Verifica en tu panel de Monetag</li>
+        <li><strong>Bloqueo de ads:</strong> Desactiva ad blockers en esta página</li>
+        <li><strong>Región no permitida:</strong> Monetag puede no servir en algunas regiones</li>
+        <li><strong>Cuenta Monetag no aprobada:</strong> Los ads solo aparecen con cuenta verificada</li>
+      </ul>
+    </div>
+
+    <div class="test-section">
+      <h2>📝 Contenido de Prueba</h2>
+      <p>Este es texto de relleno para probar que el layout funciona correctamente con los sidebars.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    </div>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e0e0e0; text-align: center; color: #999;">
+      <p>Test page para verificar sidebar ads y Monetag integration</p>
+    </footer>
+  </div>
+
+  <!-- 📢 SIDEBAR ADS SCRIPT -->
+  <script src="/assets/js/sidebar-ads.js"></script>
+  <script>
+    // Cargar ads de Monetag
+    if (document.getElementById('sidebar-left-ad')) {
+      SidebarAds.loadMonetagNative('sidebar-left-ad', '8655548');
+      console.log('📢 Cargando Monetag left ad...');
+    }
+    
+    if (document.getElementById('sidebar-right-ad')) {
+      SidebarAds.loadMonetagNative('sidebar-right-ad', '8655550');
+      console.log('📢 Cargando Monetag right ad...');
+    }
+    
+    // Logs de debugging
+    console.log('DOM ready - Verificando elementos:');
+    console.log('sidebar-left:', document.querySelector('.sidebar-ad-left'));
+    console.log('sidebar-right:', document.querySelector('.sidebar-ad-right'));
+    console.log('SidebarAds API:', window.SidebarAds);
+  </script>
+</body>
+</html>

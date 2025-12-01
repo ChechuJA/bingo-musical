@@ -32,7 +32,7 @@ const sidebarHTML = `
 // Scripts para inicializar los ads
 const sidebarScripts = `
 <!-- 📢 SIDEBAR ADS SCRIPT -->
-<script src="/assets/js/sidebar-ads.js"></script>
+<script src="/assets/js/sidebar-ads.js"><\/script>
 <script>
   // Cargar ads de Monetag en los sidebars
   if (document.getElementById('sidebar-left-ad')) {
@@ -42,7 +42,7 @@ const sidebarScripts = `
   if (document.getElementById('sidebar-right-ad')) {
     SidebarAds.loadMonetagNative('sidebar-right-ad', '8655550');
   }
-</script>
+<\/script>
 
 `;
 

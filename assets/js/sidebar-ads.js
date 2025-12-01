@@ -172,7 +172,7 @@
   }
   
   /**
-   * Cargar Monetag Native Banner
+   * Cargar Monetag Native Banner (estructura corregida)
    * 
    * @param {string} slotId - ID del elemento donde cargar el ad
    * @param {string} zoneId - Tu Zone ID de Monetag
@@ -181,16 +181,26 @@
     const slot = document.getElementById(slotId);
     if (!slot) return;
     
+    // Crear contenedor para el ad
+    const container = document.createElement('div');
+    container.id = `monetag-${zoneId}`;
+    container.style.minHeight = '600px';
+    container.style.display = 'flex';
+    container.style.alignItems = 'center';
+    container.style.justifyContent = 'center';
+    
+    slot.appendChild(container);
+    
+    // Cargar script de Monetag
     const script = document.createElement('script');
     script.async = true;
     script.setAttribute('data-cfasync', 'false');
-    script.src = `https://www.topcreativeformat.com/${zoneId}/invoke.js`;
+    script.type = 'text/javascript';
+    script.src = `//www.topcreativeformat.com/${zoneId}/invoke.js`;
     
-    const container = document.createElement('div');
-    container.id = `container-${zoneId}`;
-    
-    slot.appendChild(container);
     slot.appendChild(script);
+    
+    console.log(`📢 Monetag zone ${zoneId} cargando en ${slotId}`);
   }
   
   /**
