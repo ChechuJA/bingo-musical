@@ -617,5 +617,26 @@
       }
     });
   </script>
+
+  <!-- Monetag Balanced Stack (Sutil - Solo In-Page + Vignette) -->
+  <script>
+    // Cargar scripts Monetag solo si hay consentimiento de cookies
+    if (typeof registerAdProvider === 'function') {
+      // In-Page Push (zona 10241769) - Notificación abajo-derecha
+      registerAdProvider({
+        id: 'monetag-inpage',
+        src: 'https://niphaumeenses.net/act/files/tag.min.js?z=10241769',
+        onLoad: () => console.log('✅ Monetag In-Page Push')
+      });
+      
+      // Vignette Banner (zona 10241771) - Overlay suave
+      registerAdProvider({
+        id: 'monetag-vignette',
+        src: 'https://niphaumeenses.net/act/files/tag.min.js?z=10241771',
+        onLoad: () => console.log('✅ Monetag Vignette')
+      });
+    }
+  </script>
+
 </body>
 </html>
