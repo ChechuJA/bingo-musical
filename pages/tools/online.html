@@ -40,6 +40,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/sidebar-ads.css">
   <link rel="stylesheet" href="../../assets/css/online.css">
   <link rel="icon" type="image/svg+xml" href="../../assets/icons/icon.svg">
 
@@ -156,6 +157,25 @@
   </style>
 </head>
 <body>
+
+  <!-- 📢 SIDEBAR ADS - Anuncios laterales fijos -->
+  
+  <!-- Ad izquierdo (160x600 Skyscraper) -->
+  <div class="sidebar-ad-container sidebar-ad-left">
+    <div class="sidebar-ad-slot ad-format-skyscraper">
+      <span class="sidebar-ad-label">Publicidad</span>
+      <div id="sidebar-left-ad"></div>
+    </div>
+  </div>
+  
+  <!-- Ad derecho (160x600 Skyscraper) -->
+  <div class="sidebar-ad-container sidebar-ad-right">
+    <div class="sidebar-ad-slot ad-format-skyscraper">
+      <span class="sidebar-ad-label">Publicidad</span>
+      <div id="sidebar-right-ad"></div>
+    </div>
+  </div>
+  
   <div id="app" class="page">
     <header class="site-header">
       <div class="container header-inner">
@@ -1412,6 +1432,20 @@
        - Evento: copilot_message_sent
        - Evento: copilot_link_clicked
 -->
+
+
+<!-- 📢 SIDEBAR ADS SCRIPT -->
+<script src="/assets/js/sidebar-ads.js"></script>
+<script>
+  // Cargar ads de Monetag en los sidebars
+  if (document.getElementById('sidebar-left-ad')) {
+    SidebarAds.loadMonetagNative('sidebar-left-ad', '8655548');
+  }
+  
+  if (document.getElementById('sidebar-right-ad')) {
+    SidebarAds.loadMonetagNative('sidebar-right-ad', '8655550');
+  }
+</script>
 
 </body>
 </html>

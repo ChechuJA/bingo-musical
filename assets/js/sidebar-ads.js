@@ -1,0 +1,220 @@
+/**
+ * 🎯 SIDEBAR ADS - JavaScript para comportamiento sticky inteligente
+ * 
+ * Gestiona la posición de los anuncios laterales según el scroll,
+ * inicializa AdSense/Monetag y maneja el cierre de ads.
+ */
+
+(function() {
+  'use strict';
+  
+  // Configuración
+  const CONFIG = {
+    showAdsAfterScroll: 200, // Mostrar ads después de 200px de scroll
+    hideOnTopScroll: false, // Opcional: ocultar cuando vuelve arriba
+    enableCloseButton: false, // Permitir cerrar ads (no recomendado para monetización)
+    stickyOffset: 120, // Offset desde el top
+    animationDelay: 500 // Delay antes de mostrar (ms)
+  };
+  
+  // Estado
+  let lastScrollTop = 0;
+  let adsInitialized = false;
+  let leftAdClosed = false;
+  let rightAdClosed = false;
+  
+  // Elementos
+  let leftAd, rightAd, footer;
+  
+  /**
+   * Inicializar sidebar ads
+   */
+  function initSidebarAds() {
+    leftAd = document.querySelector('.sidebar-ad-left');
+    rightAd = document.querySelector('.sidebar-ad-right');
+    footer = document.querySelector('footer') || document.querySelector('.footer');
+    
+    if (!leftAd && !rightAd) {
+      console.log('ℹ️ No hay contenedores de sidebar ads en esta página');
+      return;
+    }
+    
+    // Añadir animación de entrada
+    setTimeout(() => {
+      if (leftAd) leftAd.classList.add('animated');
+      if (rightAd) rightAd.classList.add('animated');
+    }, CONFIG.animationDelay);
+    
+    // Configurar botones de cierre si están habilitados
+    if (CONFIG.enableCloseButton) {
+      setupCloseButtons();
+    }
+    
+    // Escuchar scroll para comportamiento sticky
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+    
+    // Ejecutar una vez al cargar
+    handleScroll();
+    
+    // Marcar como inicializado
+    adsInitialized = true;
+    console.log('✅ Sidebar ads inicializados');
+  }
+  
+  /**
+   * Manejar scroll para sticky behavior
+   */
+  function handleScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    
+    // Determinar si mostrar u ocultar ads según scroll
+    if (CONFIG.showAdsAfterScroll > 0) {
+      const shouldShow = scrollTop > CONFIG.showAdsAfterScroll;
+      
+      if (leftAd && !leftAdClosed) {
+        leftAd.style.opacity = shouldShow ? '1' : '0';
+      }
+      
+      if (rightAd && !rightAdClosed) {
+        rightAd.style.opacity = shouldShow ? '1' : '0';
+      }
+    }
+    
+    // Sticky behavior: detener ads al llegar al footer
+    if (footer) {
+      const footerTop = footer.offsetTop;
+      const adBottom = scrollTop + windowHeight - CONFIG.stickyOffset;
+      
+      if (adBottom > footerTop) {
+        // Detener ads cuando lleguen al footer
+        if (leftAd) leftAd.classList.add('bottom-reached');
+        if (rightAd) rightAd.classList.add('bottom-reached');
+      } else {
+        // Mantener sticky
+        if (leftAd) leftAd.classList.remove('bottom-reached');
+        if (rightAd) rightAd.classList.remove('bottom-reached');
+      }
+    }
+    
+    lastScrollTop = scrollTop;
+  }
+  
+  /**
+   * Configurar botones de cierre
+   */
+  function setupCloseButtons() {
+    const leftClose = leftAd?.querySelector('.sidebar-ad-close');
+    const rightClose = rightAd?.querySelector('.sidebar-ad-close');
+    
+    if (leftClose) {
+      leftClose.addEventListener('click', () => {
+        if (leftAd) {
+          leftAd.style.display = 'none';
+          leftAdClosed = true;
+          sessionStorage.setItem('sidebar_ad_left_closed', 'true');
+        }
+      });
+    }
+    
+    if (rightClose) {
+      rightClose.addEventListener('click', () => {
+        if (rightAd) {
+          rightAd.style.display = 'none';
+          rightAdClosed = true;
+          sessionStorage.setItem('sidebar_ad_right_closed', 'true');
+        }
+      });
+    }
+    
+    // Recordar estado de cierre
+    if (sessionStorage.getItem('sidebar_ad_left_closed') === 'true') {
+      if (leftAd) leftAd.style.display = 'none';
+      leftAdClosed = true;
+    }
+    
+    if (sessionStorage.getItem('sidebar_ad_right_closed') === 'true') {
+      if (rightAd) rightAd.style.display = 'none';
+      rightAdClosed = true;
+    }
+  }
+  
+  /**
+   * Cargar AdSense en slots específicos
+   * 
+   * @param {string} slotId - ID del elemento donde cargar el ad
+   * @param {string} adClient - Tu ad-client de AdSense (ca-pub-XXXXXXXXXXXXXXXX)
+   * @param {string} adSlot - Tu ad-slot ID
+   * @param {string} format - Formato del ad (auto, rectangle, vertical, horizontal)
+   */
+  function loadAdSense(slotId, adClient, adSlot, format = 'auto') {
+    const slot = document.getElementById(slotId);
+    if (!slot) return;
+    
+    const ins = document.createElement('ins');
+    ins.className = 'adsbygoogle';
+    ins.style.display = 'block';
+    ins.setAttribute('data-ad-client', adClient);
+    ins.setAttribute('data-ad-slot', adSlot);
+    ins.setAttribute('data-ad-format', format);
+    ins.setAttribute('data-full-width-responsive', 'true');
+    
+    slot.appendChild(ins);
+    
+    // Inicializar AdSense
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      console.error('Error cargando AdSense:', e);
+    }
+  }
+  
+  /**
+   * Cargar Monetag Native Banner
+   * 
+   * @param {string} slotId - ID del elemento donde cargar el ad
+   * @param {string} zoneId - Tu Zone ID de Monetag
+   */
+  function loadMonetagNative(slotId, zoneId) {
+    const slot = document.getElementById(slotId);
+    if (!slot) return;
+    
+    const script = document.createElement('script');
+    script.async = true;
+    script.setAttribute('data-cfasync', 'false');
+    script.src = `https://www.topcreativeformat.com/${zoneId}/invoke.js`;
+    
+    const container = document.createElement('div');
+    container.id = `container-${zoneId}`;
+    
+    slot.appendChild(container);
+    slot.appendChild(script);
+  }
+  
+  /**
+   * API pública para cargar ads desde HTML
+   */
+  window.SidebarAds = {
+    init: initSidebarAds,
+    loadAdSense: loadAdSense,
+    loadMonetagNative: loadMonetagNative,
+    show: function() {
+      if (leftAd) leftAd.style.display = 'block';
+      if (rightAd) rightAd.style.display = 'block';
+    },
+    hide: function() {
+      if (leftAd) leftAd.style.display = 'none';
+      if (rightAd) rightAd.style.display = 'none';
+    }
+  };
+  
+  // Auto-inicializar cuando el DOM esté listo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSidebarAds);
+  } else {
+    initSidebarAds();
+  }
+  
+})();

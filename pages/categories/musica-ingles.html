@@ -35,11 +35,31 @@
   
   <title>Bingo Musical en Inglés - 90 Cartones con Hits Internacionales | Gratis</title>
   <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/sidebar-ads.css">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="../../assets/icons/icon-192.png">
   <meta name="theme-color" content="#1e90ff">
 </head>
 <body>
+
+  <!-- 📢 SIDEBAR ADS - Anuncios laterales fijos -->
+  
+  <!-- Ad izquierdo (160x600 Skyscraper) -->
+  <div class="sidebar-ad-container sidebar-ad-left">
+    <div class="sidebar-ad-slot ad-format-skyscraper">
+      <span class="sidebar-ad-label">Publicidad</span>
+      <div id="sidebar-left-ad"></div>
+    </div>
+  </div>
+  
+  <!-- Ad derecho (160x600 Skyscraper) -->
+  <div class="sidebar-ad-container sidebar-ad-right">
+    <div class="sidebar-ad-slot ad-format-skyscraper">
+      <span class="sidebar-ad-label">Publicidad</span>
+      <div id="sidebar-right-ad"></div>
+    </div>
+  </div>
+  
   <div class="offline-banner" hidden id="offline-banner">📡 Modo offline – Algunas funciones limitadas</div>
 
   <header class="header">
@@ -1404,6 +1424,20 @@
        - Evento: copilot_message_sent
        - Evento: copilot_link_clicked
 -->
+
+
+<!-- 📢 SIDEBAR ADS SCRIPT -->
+<script src="/assets/js/sidebar-ads.js"></script>
+<script>
+  // Cargar ads de Monetag en los sidebars
+  if (document.getElementById('sidebar-left-ad')) {
+    SidebarAds.loadMonetagNative('sidebar-left-ad', '8655548');
+  }
+  
+  if (document.getElementById('sidebar-right-ad')) {
+    SidebarAds.loadMonetagNative('sidebar-right-ad', '8655550');
+  }
+</script>
 
 </body>
 </html>

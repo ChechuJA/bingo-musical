@@ -1,0 +1,274 @@
+/**
+ * 🎯 SIDEBAR ADS - Anuncios laterales fijos
+ * 
+ * Implementa anuncios laterales que permanecen visibles mientras el usuario navega.
+ * Compatible con AdSense, Monetag y otros formatos estándar (300x250, 160x600, 300x600).
+ */
+
+/* Contenedores laterales para ads */
+.sidebar-ad-container {
+  position: fixed;
+  top: 120px; /* Debajo del header */
+  width: 160px;
+  z-index: 998; /* Debajo del bot (9999) y modales */
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-ad-left {
+  left: 10px;
+}
+
+.sidebar-ad-right {
+  right: 10px;
+}
+
+/* Espacio para el ad */
+.sidebar-ad-slot {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Label "Publicidad" */
+.sidebar-ad-label {
+  font-size: 10px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Botón de cerrar opcional */
+.sidebar-ad-close {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 1;
+}
+
+.sidebar-ad-close:hover {
+  background: rgba(0, 0, 0, 0.2);
+  color: #333;
+}
+
+/* Ocultar cuando scrollea hacia arriba (opcional) */
+.sidebar-ad-container.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Sticky behavior - se mueve con el scroll pero respeta límites */
+.sidebar-ad-container.sticky {
+  position: fixed;
+}
+
+.sidebar-ad-container.bottom-reached {
+  position: absolute;
+  bottom: 20px;
+  top: auto;
+}
+
+/* Formatos de anuncio comunes */
+
+/* Skyscraper 160x600 (más común para sidebar) */
+.ad-format-skyscraper {
+  width: 160px;
+  height: 600px;
+}
+
+/* Wide Skyscraper 160x600 */
+.ad-format-wide-skyscraper {
+  width: 160px;
+  height: 600px;
+}
+
+/* Half Page 300x600 (pantallas grandes) */
+.ad-format-half-page {
+  width: 300px;
+  height: 600px;
+}
+
+/* Medium Rectangle 300x250 (formato versátil) */
+.ad-format-medium-rectangle {
+  width: 300px;
+  height: 250px;
+  margin-bottom: 20px;
+}
+
+/* Top Banner adicional (arriba del contenido principal) */
+.top-banner-container {
+  width: 100%;
+  max-width: 970px;
+  margin: 20px auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.top-banner-slot {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Leaderboard 728x90 */
+.ad-format-leaderboard {
+  width: 728px;
+  height: 90px;
+}
+
+/* Super Leaderboard 970x90 */
+.ad-format-super-leaderboard {
+  width: 970px;
+  height: 90px;
+}
+
+/* Responsive behavior */
+@media (max-width: 1400px) {
+  /* En pantallas medianas, usar formato más estrecho */
+  .sidebar-ad-container {
+    width: 160px;
+  }
+  
+  .ad-format-half-page {
+    width: 160px;
+  }
+}
+
+@media (max-width: 1200px) {
+  /* Ocultar sidebar izquierdo en pantallas < 1200px */
+  .sidebar-ad-left {
+    display: none;
+  }
+  
+  /* Mantener solo el derecho */
+  .sidebar-ad-right {
+    right: 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Ocultar ambos sidebars en tablets y móviles */
+  .sidebar-ad-container {
+    display: none;
+  }
+  
+  /* Mostrar banners horizontales en su lugar */
+  .top-banner-container {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Banner responsive en móvil */
+  .top-banner-slot {
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  .ad-format-leaderboard,
+  .ad-format-super-leaderboard {
+    width: 320px;
+    height: 100px;
+  }
+}
+
+/* Animación de entrada */
+@keyframes slideInFromSide {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.sidebar-ad-left.animated {
+  animation: slideInFromSide 0.6s ease-out;
+}
+
+.sidebar-ad-right.animated {
+  animation: slideInFromSide 0.6s ease-out;
+  transform: translateX(20px);
+}
+
+/* Estado de carga */
+.sidebar-ad-slot.loading::after {
+  content: 'Cargando anuncio...';
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+}
+
+/* Evitar que los ads interfieran con el contenido */
+.main-content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Ajustar contenido cuando hay sidebars visibles */
+@media (min-width: 1400px) {
+  .main-content-wrapper {
+    padding: 0 200px; /* Espacio para los sidebars */
+  }
+}
+
+@media (min-width: 1600px) {
+  .main-content-wrapper {
+    padding: 0 340px; /* Más espacio en pantallas grandes */
+  }
+  
+  .sidebar-ad-container {
+    width: 300px; /* Usar formato 300x600 en pantallas grandes */
+  }
+  
+  .sidebar-ad-left {
+    left: 20px;
+  }
+  
+  .sidebar-ad-right {
+    right: 20px;
+  }
+}
+
+/* Modo oscuro (opcional) */
+@media (prefers-color-scheme: dark) {
+  .sidebar-ad-slot,
+  .top-banner-slot {
+    background: #2a2a2a;
+    border-color: #444;
+  }
+  
+  .sidebar-ad-label {
+    color: #888;
+  }
+}

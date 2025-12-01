@@ -68,6 +68,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/sidebar-ads.css">
   <link rel="icon" type="image/svg+xml" href="assets/icons/icon.svg">
 
   <!-- i18n Support -->
@@ -110,6 +111,26 @@
   -->
 </head>
 <body>
+  <!-- 📢 SIDEBAR ADS - Anuncios laterales fijos -->
+  
+  <!-- Ad izquierdo (160x600 Skyscraper) -->
+  <div class="sidebar-ad-container sidebar-ad-left">
+    <div class="sidebar-ad-slot ad-format-skyscraper">
+      <span class="sidebar-ad-label">Publicidad</span>
+      <!-- Monetag Native Banner (Zona 8655548) -->
+      <div id="sidebar-left-ad"></div>
+    </div>
+  </div>
+  
+  <!-- Ad derecho (160x600 Skyscraper) -->
+  <div class="sidebar-ad-container sidebar-ad-right">
+    <div class="sidebar-ad-slot ad-format-skyscraper">
+      <span class="sidebar-ad-label">Publicidad</span>
+      <!-- Monetag Native Banner (Zona 8655550) -->
+      <div id="sidebar-right-ad"></div>
+    </div>
+  </div>
+  
   <div id="app" class="page">
     <header class="site-header">
       <div class="container header-inner">
@@ -1367,6 +1388,27 @@
   
   console.log('🎵 Bingo Bot cargado y listo');
 })();
+</script>
+
+<!-- 📢 SIDEBAR ADS SCRIPT -->
+<script src="/assets/js/sidebar-ads.js"></script>
+<script>
+  // Cargar ads de Monetag en los sidebars
+  // Reemplaza con tus Zone IDs reales de Monetag
+  
+  // Sidebar izquierdo - Native Banner
+  if (document.getElementById('sidebar-left-ad')) {
+    SidebarAds.loadMonetagNative('sidebar-left-ad', '8655548');
+  }
+  
+  // Sidebar derecho - Native Banner  
+  if (document.getElementById('sidebar-right-ad')) {
+    SidebarAds.loadMonetagNative('sidebar-right-ad', '8655550');
+  }
+  
+  // ALTERNATIVA: Si prefieres usar AdSense en lugar de Monetag:
+  // SidebarAds.loadAdSense('sidebar-left-ad', 'ca-pub-9476968656644151', 'TU_SLOT_ID', 'vertical');
+  // SidebarAds.loadAdSense('sidebar-right-ad', 'ca-pub-9476968656644151', 'TU_SLOT_ID', 'vertical');
 </script>
 
 </body>
