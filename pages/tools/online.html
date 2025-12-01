@@ -364,5 +364,434 @@
       }
     });
   </script>
+
+<!-- 
+  🎵 COPILOT STUDIO - BINGO BOT WIDGET
+  
+  Este código añade un agente conversacional flotante en la web.
+  El bot ayuda a los usuarios a encontrar cartones, resolver dudas y navegar el sitio.
+  
+  INSTRUCCIONES DE INSTALACIÓN:
+  1. Reemplaza TU_BOT_ID_AQUI con tu Bot ID de Copilot Studio
+  2. Reemplaza TU_TENANT_ID con tu Tenant ID
+  3. Copia este código antes de </body> en los HTML donde quieras el bot
+  
+  PÁGINAS RECOMENDADAS:
+  ✅ index.html (homepage)
+  ✅ pages/categories/*.html (todas las categorías)
+  ✅ pages/tools/*.html (generador, jugar, online)
+  ✅ blog.html y blog/*.html (artículos)
+  ❌ pages/legal/*.html (NO añadir en legales - molesta)
+-->
+
+<!-- Estilos del Widget -->
+<style>
+  #copilot-widget {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 380px;
+    height: 600px;
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 120px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    overflow: hidden;
+    z-index: 9998;
+    display: none;
+    background: white;
+    border: 1px solid rgba(155, 89, 182, 0.2);
+    transition: bottom 0.3s ease;
+  }
+  
+  #copilot-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(155, 89, 182, 0.5);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  #copilot-toggle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  #copilot-toggle.closed {
+    background: white;
+  }
+  
+  #copilot-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(155, 89, 182, 0.5);
+  }
+  
+  #copilot-toggle:active {
+    transform: scale(0.95);
+  }
+  
+  /* Badge de notificación (opcional) */
+  #copilot-badge {
+    position: fixed;
+    bottom: 75px;
+    right: 75px;
+    width: 18px;
+    height: 18px;
+    background: #e74c3c;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: none;
+    z-index: 10000;
+    transition: bottom 0.3s ease, right 0.3s ease;
+  }
+  
+  /* Animación de pulso para el botón */
+  @keyframes pulse {
+    0%, 100% {
+      box-shadow: 0 4px 16px rgba(155, 89, 182, 0.5);
+    }
+    50% {
+      box-shadow: 0 6px 24px rgba(155, 89, 182, 0.8);
+    }
+  }
+  
+  .copilot-pulse {
+    animation: pulse 2s infinite;
+  }
+  
+  /* Responsive - Mobile */
+  @media (max-width: 900px) {
+    #copilot-widget {
+      width: calc(100vw - 20px);
+      height: calc(100vh - 100px);
+      bottom: 80px;
+      right: 10px;
+      border-radius: 12px;
+    }
+    
+    #copilot-toggle {
+      width: 56px;
+      height: 56px;
+      bottom: 15px;
+      right: 15px;
+      box-shadow: 0 3px 12px rgba(155, 89, 182, 0.5);
+    }
+    
+    #copilot-badge {
+      bottom: 64px;
+      right: 64px;
+      width: 16px;
+      height: 16px;
+    }
+  }
+  
+  /* Extra small screens */
+  @media (max-width: 480px) {
+    #copilot-widget {
+      width: 100vw;
+      height: calc(100vh - 70px);
+      bottom: 70px;
+      right: 0;
+      left: 0;
+      border-radius: 0;
+      max-width: 100vw;
+    }
+    
+    #copilot-toggle {
+      width: 52px;
+      height: 52px;
+      bottom: 12px;
+      right: 12px;
+    }
+    
+    #copilot-badge {
+      bottom: 58px;
+      right: 58px;
+    }
+  }
+</style>
+
+<!-- Widget container -->
+<div id="copilot-widget"></div>
+<div id="copilot-badge"></div>
+<button id="copilot-toggle" class="closed" aria-label="Abrir asistente de ayuda">
+  <img src="/images/BingoBot.png" alt="Bingo Bot" />
+</button>
+
+<!-- Copilot Studio Integration Script -->
+<script>
+(function() {
+  // ⚙️ CONFIGURACIÓN - Reemplaza con tus datos de Copilot Studio
+  const COPILOT_CONFIG = {
+    botId: 'TU_BOT_ID_AQUI', // Reemplazar con tu Bot Framework Bot ID
+    directLineSecret: 'TU_DIRECTLINE_SECRET', // Reemplazar con tu Direct Line Secret
+    welcomeMessage: '¡Hola! 🎵 Soy Bingo Bot. ¿En qué puedo ayudarte? Pregúntame sobre cartones, cómo jugar, o recomendaciones.',
+    locale: 'es-ES',
+    primaryColor: '#9b59b6',
+    position: 'bottom-right'
+  };
+  
+  // Variables de estado
+  let isWidgetOpen = false;
+  let hasInteracted = false;
+  
+  // Elementos DOM
+  const widget = document.getElementById('copilot-widget');
+  const toggle = document.getElementById('copilot-toggle');
+  const badge = document.getElementById('copilot-badge');
+  
+  // 🔄 Toggle widget visibility
+  function toggleWidget() {
+    isWidgetOpen = !isWidgetOpen;
+    widget.style.display = isWidgetOpen ? 'block' : 'none';
+    
+    // Cambiar entre imagen del bot y X
+    if (isWidgetOpen) {
+      toggle.innerHTML = '✖️';
+      toggle.classList.remove('closed');
+      toggle.style.background = 'linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%)';
+      toggle.style.fontSize = '26px';
+    } else {
+      toggle.innerHTML = '<img src="/images/BingoBot.png" alt="Bingo Bot" />';
+      toggle.classList.add('closed');
+      toggle.style.background = 'white';
+      toggle.style.fontSize = '0';
+    }
+    
+    toggle.classList.remove('copilot-pulse');
+    
+    // Marcar como interactuado
+    if (!hasInteracted && isWidgetOpen) {
+      hasInteracted = true;
+      sessionStorage.setItem('copilot_interacted', 'true');
+      badge.style.display = 'none';
+    }
+    
+    // Inicializar bot solo cuando se abre por primera vez
+    if (isWidgetOpen && !window.copilotInitialized) {
+      initializeCopilot();
+    }
+  }
+  
+  // 🚀 Inicializar Copilot Studio Bot
+  function initializeCopilot() {
+    // Cargar Web Chat de Bot Framework
+    const script = document.createElement('script');
+    script.src = 'https://cdn.botframework.com/botframework-webchat/latest/webchat.js';
+    script.async = true;
+    
+    script.onload = function() {
+      try {
+        // Crear Direct Line connection
+        const directLine = window.WebChat.createDirectLine({
+          secret: COPILOT_CONFIG.directLineSecret
+        });
+        
+        // Generar user ID único
+        let userId = sessionStorage.getItem('copilot_userId');
+        if (!userId) {
+          userId = 'user-' + Math.random().toString(36).substring(7) + '-' + Date.now();
+          sessionStorage.setItem('copilot_userId', userId);
+        }
+        
+        // Renderizar Web Chat
+        window.WebChat.renderWebChat({
+          directLine: directLine,
+          userID: userId,
+          username: 'Visitante',
+          locale: COPILOT_CONFIG.locale,
+          styleOptions: {
+            // Colores del tema
+            accent: COPILOT_CONFIG.primaryColor,
+            backgroundColor: 'white',
+            cardEmphasisBackgroundColor: '#f5f5f5',
+            
+            // Avatar
+            botAvatarInitials: '🎵',
+            botAvatarBackgroundColor: COPILOT_CONFIG.primaryColor,
+            userAvatarInitials: '👤',
+            userAvatarBackgroundColor: '#95a5a6',
+            
+            // Fuentes
+            primaryFont: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+            
+            // Burbujas de chat
+            bubbleBackground: COPILOT_CONFIG.primaryColor,
+            bubbleTextColor: 'white',
+            bubbleBorderRadius: 12,
+            bubbleFromUserBackground: '#f0f0f0',
+            bubbleFromUserTextColor: '#333',
+            bubbleFromUserBorderRadius: 12,
+            
+            // Tamaños
+            bubbleMaxWidth: 480,
+            bubbleMinHeight: 40,
+            
+            // Otros
+            subtle: '#999',
+            sendBoxBackground: 'white',
+            sendBoxTextColor: '#333',
+            sendBoxBorderTop: '1px solid #e0e0e0',
+            sendBoxHeight: 50,
+            sendBoxButtonColor: COPILOT_CONFIG.primaryColor,
+            sendBoxButtonColorOnFocus: '#8e44ad',
+            sendBoxButtonColorOnHover: '#8e44ad'
+          }
+        }, widget);
+        
+        // Enviar mensaje de bienvenida automático
+        setTimeout(() => {
+          directLine.postActivity({
+            from: { id: 'system', name: 'System' },
+            type: 'message',
+            text: '/start' // Trigger para mensaje de bienvenida en Copilot Studio
+          }).subscribe();
+        }, 1000);
+        
+        window.copilotInitialized = true;
+        console.log('✅ Copilot Studio Bot inicializado');
+        
+      } catch (error) {
+        console.error('❌ Error inicializando Copilot Studio:', error);
+        widget.innerHTML = `
+          <div style="padding: 20px; text-align: center; color: #e74c3c;">
+            <p style="font-size: 18px; margin-bottom: 10px;">😞 Error al cargar el asistente</p>
+            <p style="font-size: 14px; color: #666;">Por favor, recarga la página o contacta con soporte.</p>
+            <a href="mailto:contacto@bingomusicalgratis.es" style="color: #9b59b6; text-decoration: none; font-weight: 600;">
+              📧 contacto@bingomusicalgratis.es
+            </a>
+          </div>
+        `;
+      }
+    };
+    
+    script.onerror = function() {
+      console.error('❌ Error cargando script de Bot Framework');
+      widget.innerHTML = `
+        <div style="padding: 20px; text-align: center; color: #e74c3c;">
+          <p style="font-size: 16px;">Error de conexión</p>
+          <p style="font-size: 14px; color: #666;">No se pudo cargar el chat.</p>
+        </div>
+      `;
+    };
+    
+    document.head.appendChild(script);
+  }
+  
+  // 🎯 Event listeners
+  toggle.addEventListener('click', toggleWidget);
+  
+  // Cerrar con tecla ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && isWidgetOpen) {
+      toggleWidget();
+    }
+  });
+  
+  // 🚀 Triggers proactivos (opcionales)
+  
+  // 1. Mostrar pulso si el usuario no ha interactuado
+  if (!sessionStorage.getItem('copilot_interacted')) {
+    setTimeout(() => {
+      toggle.classList.add('copilot-pulse');
+      badge.style.display = 'block';
+    }, 5000);
+  }
+  
+  // 2. Abrir automáticamente después de 30 segundos (solo primera visita)
+  if (!sessionStorage.getItem('copilot_auto_opened')) {
+    setTimeout(() => {
+      if (!hasInteracted && !isWidgetOpen) {
+        toggleWidget();
+        sessionStorage.setItem('copilot_auto_opened', 'true');
+      }
+    }, 30000);
+  }
+  
+  // 3. Exit intent - mostrar cuando el usuario va a salir
+  document.addEventListener('mouseout', function(e) {
+    if (
+      e.clientY < 10 && 
+      !isWidgetOpen && 
+      !sessionStorage.getItem('copilot_exit_intent')
+    ) {
+      toggle.classList.add('copilot-pulse');
+      badge.style.display = 'block';
+      sessionStorage.setItem('copilot_exit_intent', 'true');
+    }
+  });
+  
+  // 4. Scroll profundo - mostrar si el usuario hace scroll > 50%
+  window.addEventListener('scroll', function() {
+    const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    if (
+      scrollPercent > 50 && 
+      !hasInteracted && 
+      !sessionStorage.getItem('copilot_scroll_trigger')
+    ) {
+      toggle.classList.add('copilot-pulse');
+      sessionStorage.setItem('copilot_scroll_trigger', 'true');
+    }
+  });
+  
+  console.log('🎵 Bingo Bot widget cargado correctamente');
+})();
+</script>
+
+<!-- 
+  📝 NOTAS DE IMPLEMENTACIÓN:
+  
+  1. CONFIGURAR BOT:
+     - Ve a Copilot Studio (https://copilotstudio.microsoft.com/)
+     - Crea un nuevo agente con el nombre "Bingo Bot"
+     - Copia las instrucciones desde docs/COPILOT-AGENT-INSTRUCTIONS.md
+     - Obtén tu Bot ID y Direct Line Secret
+     - Reemplaza TU_BOT_ID_AQUI y TU_DIRECTLINE_SECRET arriba
+  
+  2. DESPLIEGUE:
+     - Copia este código antes de </body> en:
+       ✅ index.html
+       ✅ pages/categories/*.html (9 archivos)
+       ✅ pages/tools/*.html (3 archivos)
+       ✅ blog.html
+       ✅ blog/*.html (6 archivos)
+  
+  3. TRIGGERS PROACTIVOS (opcionales):
+     - Línea 150: Pulso después de 5 segundos
+     - Línea 156: Abrir automáticamente después de 30 segundos (solo primera vez)
+     - Línea 166: Exit intent cuando el cursor sale arriba
+     - Línea 179: Scroll profundo > 50%
+     
+     Puedes deshabilitar cualquiera comentando el código correspondiente.
+  
+  4. TESTING:
+     - Verifica que el botón flotante aparece en bottom-right
+     - Haz clic y comprueba que se abre el chat
+     - Envía un mensaje de prueba
+     - Verifica que responde según las instrucciones
+  
+  5. ANALYTICS (opcional):
+     - Integra con Google Analytics para trackear:
+       - Evento: copilot_opened
+       - Evento: copilot_message_sent
+       - Evento: copilot_link_clicked
+-->
+
 </body>
 </html>
