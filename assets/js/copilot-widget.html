@@ -167,17 +167,15 @@
   <img src="/images/BingoBot.png" alt="Bingo Bot" />
 </button>
 
-<!-- Copilot Studio Integration Script -->
+<!-- Bingo Bot - Chat Nativo Integrado -->
 <script>
 (function() {
-  // ⚙️ CONFIGURACIÓN - Reemplaza con tus datos de Copilot Studio
-  const COPILOT_CONFIG = {
-    botId: 'TU_BOT_ID_AQUI', // Reemplazar con tu Bot Framework Bot ID
-    directLineSecret: 'TU_DIRECTLINE_SECRET', // Reemplazar con tu Direct Line Secret
-    welcomeMessage: '¡Hola! 🎵 Soy Bingo Bot. ¿En qué puedo ayudarte? Pregúntame sobre cartones, cómo jugar, o recomendaciones.',
-    locale: 'es-ES',
+  // ⚙️ CONFIGURACIÓN DEL BOT NATIVO
+  const BINGO_BOT_CONFIG = {
+    botName: 'Bingo Bot',
+    welcomeMessage: '¡Hola! 🎵 Soy Bingo Bot. ¿En qué puedo ayudarte?\n\nPregúntame sobre:\n• Cartones para tu evento\n• Cómo jugar al bingo musical\n• Categorías disponibles\n• Problemas de descarga',
     primaryColor: '#9b59b6',
-    position: 'bottom-right'
+    autoGreet: true
   };
   
   // Variables de estado
