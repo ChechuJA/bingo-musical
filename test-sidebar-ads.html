@@ -69,13 +69,16 @@
     </div>
 
     <div class="test-section">
-      <h2>📋 Información de Debugging</h2>
+      <h2>📋 Información de Debugging - Vignette Banner</h2>
       <p>Abre la consola del navegador (F12) y busca:</p>
       <div class="code">
 ✅ Sidebar ads inicializados
-📢 Monetag zone 8655548 cargando en sidebar-left-ad
-📢 Monetag zone 8655550 cargando en sidebar-right-ad
+📢 Vignette Banner (sidebar-left) cargado - Zone: 10264374
+📢 Vignette Banner (sidebar-right) cargado - Zone: 10264374
       </div>
+      <p><strong>Zone ID de Vignette:</strong> 10264374</p>
+      <p><strong>Formato:</strong> 160x600 (Skyscraper) - Responsivo</p>
+      <p><strong>Ventajas:</strong> CPM 65% más alto, 100% visible, cumple Better Ads Standards</p>
     </div>
 
     <div class="test-section">
@@ -87,20 +90,20 @@ document.querySelector('.sidebar-ad-left')  // Debe existir
 document.getElementById('sidebar-left-ad')   // Debe existir
           </div>
         </li>
-        <li>Verifica que Monetag zones están correctas:
+        <li>Verifica que Vignette Zone ID es correcto:
           <ul>
-            <li>Zone 8655548 = Sidebar izquierdo</li>
-            <li>Zone 8655550 = Sidebar derecho</li>
+            <li>Zone ID: 10264374</li>
+            <li>Script: https://gizokraijaw.net/vignette.min.js</li>
           </ul>
         </li>
         <li>Verifica que sidebar-ads.js cargó correctamente:
           <div class="code">
-console.log(window.SidebarAds)  // Debe mostrar objeto con métodos
+console.log(window.SidebarAds)  // Debe mostrar objeto con método loadVignetteBanner
           </div>
         </li>
-        <li>Verifica que los scripts de Monetag se cargaron:
+        <li>Verifica que los scripts de Vignette se cargaron:
           <div class="code">
-// En Network tab, busca requests a www.topcreativeformat.com
+// En Network tab, busca requests a gizokraijaw.net/vignette.min.js
           </div>
         </li>
       </ol>
@@ -109,10 +112,11 @@ console.log(window.SidebarAds)  // Debe mostrar objeto con métodos
     <div class="test-section">
       <h2>💡 Posibles Soluciones</h2>
       <ul>
-        <li><strong>Zone IDs incorrectos:</strong> Verifica en tu panel de Monetag</li>
+        <li><strong>Zone ID incorrecto:</strong> Verifica que es 10264374 (exactamente)</li>
         <li><strong>Bloqueo de ads:</strong> Desactiva ad blockers en esta página</li>
-        <li><strong>Región no permitida:</strong> Monetag puede no servir en algunas regiones</li>
-        <li><strong>Cuenta Monetag no aprobada:</strong> Los ads solo aparecen con cuenta verificada</li>
+        <li><strong>Región no permitida:</strong> Vignette puede no servir en algunas regiones</li>
+        <li><strong>Cuenta Vignette no aprobada:</strong> Los ads solo aparecen con cuenta verificada</li>
+        <li><strong>Script no carga:</strong> Verifica que https://gizokraijaw.net/vignette.min.js sea accesible</li>
       </ul>
     </div>
 
@@ -132,16 +136,10 @@ console.log(window.SidebarAds)  // Debe mostrar objeto con métodos
   <!-- 📢 SIDEBAR ADS SCRIPT -->
   <script src="/assets/js/sidebar-ads.js"></script>
   <script>
-    // Cargar ads de Monetag
-    if (document.getElementById('sidebar-left-ad')) {
-      SidebarAds.loadMonetagNative('sidebar-left-ad', '8655548');
-      console.log('📢 Cargando Monetag left ad...');
-    }
-    
-    if (document.getElementById('sidebar-right-ad')) {
-      SidebarAds.loadMonetagNative('sidebar-right-ad', '8655550');
-      console.log('📢 Cargando Monetag right ad...');
-    }
+    // Cargar Vignette Banner en los sidebars
+    // Zone ID: 10264374
+    SidebarAds.loadVignetteBanner('sidebar-left', '10264374');
+    SidebarAds.loadVignetteBanner('sidebar-right', '10264374');
     
     // Logs de debugging
     console.log('DOM ready - Verificando elementos:');

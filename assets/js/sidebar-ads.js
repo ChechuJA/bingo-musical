@@ -172,6 +172,22 @@
   }
   
   /**
+   * Cargar Vignette Banner (Mejor CPM para sidebars)
+   * 
+   * @param {string} location - Ubicación ('top', 'sidebar', etc)
+   * @param {string} zoneId - Zone ID de Vignette
+   */
+  function loadVignetteBanner(location, zoneId) {
+    // Crear y ejecutar script de Vignette
+    const script = document.createElement('script');
+    script.innerHTML = `(function(s){s.dataset.zone='${zoneId}',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))`;
+    
+    document.body.appendChild(script);
+    
+    console.log(`📢 Vignette Banner (${location}) cargado - Zone: ${zoneId}`);
+  }
+  
+  /**
    * Cargar Monetag Native Banner (estructura corregida)
    * 
    * @param {string} slotId - ID del elemento donde cargar el ad
@@ -210,6 +226,7 @@
     init: initSidebarAds,
     loadAdSense: loadAdSense,
     loadMonetagNative: loadMonetagNative,
+    loadVignetteBanner: loadVignetteBanner,
     show: function() {
       if (leftAd) leftAd.style.display = 'block';
       if (rightAd) rightAd.style.display = 'block';
