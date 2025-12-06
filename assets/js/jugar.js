@@ -34,7 +34,7 @@ const categoryThemes = {
 // Load generated cards index
 async function loadGeneratedCardsIndex() {
   try {
-    const response = await fetch('/data/generated-cards-index.json');
+    const response = await fetch('../../data/generated-cards-index.json');
     const data = await response.json();
     return data;
   } catch (error) {
@@ -46,7 +46,7 @@ async function loadGeneratedCardsIndex() {
 // Load playlists data (for all songs list)
 async function loadPlaylists() {
   try {
-    const response = await fetch('/data/playlists.json');
+    const response = await fetch('../../data/playlists.json');
     const data = await response.json();
     return data;
   } catch (error) {
@@ -86,7 +86,7 @@ async function loadPreGeneratedCard(category, size) {
     }
     
     const cardPath = categoryData[size].cartones;
-    const response = await fetch('/' + cardPath);
+    const response = await fetch('../../' + cardPath);
     const markdownText = await response.text();
     
     const allCards = parseCardFile(markdownText);
@@ -284,6 +284,11 @@ function saveGameState() {
     localStorage.setItem('bingoGameState', JSON.stringify(state));
   } catch (e) {
     console.error('Error saving game state:', e);
+    // Show user-friendly message only on first failure
+    if (!window.bingoStorageWarningShown) {
+      window.bingoStorageWarningShown = true;
+      console.warn('No se pudo guardar el progreso. El juego funcionará pero no se guardará al recargar.');
+    }
   }
 }
 
