@@ -179,7 +179,7 @@
       margin: 1.5rem 0;
     }
     
-    .category-option {
+    .category-option, .size-option {
       padding: 1rem;
       background: white;
       border: 2px solid #ddd;
@@ -189,12 +189,12 @@
       transition: all 0.3s;
     }
     
-    .category-option:hover {
+    .category-option:hover, .size-option:hover {
       border-color: var(--primary);
       transform: translateY(-2px);
     }
     
-    .category-option.selected {
+    .category-option.selected, .size-option.selected {
       background: var(--primary);
       color: white;
       border-color: var(--primary);
@@ -204,6 +204,13 @@
       font-size: 2rem;
       display: block;
       margin-bottom: 0.5rem;
+    }
+    
+    .size-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+      margin: 1.5rem 0;
     }
     
     .victory-modal {
@@ -337,10 +344,19 @@
       
       <div style="margin:2rem 0;">
         <label style="display:block;font-weight:600;margin-bottom:1rem;text-align:center;">
-          Selecciona una Categoría Musical:
+          1️⃣ Selecciona una Categoría Musical:
         </label>
         <div class="category-selector" id="category-selector">
           <!-- Categories will be loaded by JS -->
+        </div>
+      </div>
+
+      <div id="size-selection-container" hidden style="margin:2rem 0;">
+        <label style="display:block;font-weight:600;margin-bottom:1rem;text-align:center;">
+          2️⃣ Selecciona el Tamaño del Cartón:
+        </label>
+        <div class="size-selector" id="size-selector">
+          <!-- Size options will be loaded by JS -->
         </div>
       </div>
 
@@ -353,12 +369,14 @@
       <div style="margin-top:2rem;padding:1.5rem;background:var(--glass);border-radius:12px;">
         <h3 style="font-size:1.1rem;margin:0 0 1rem;">📋 ¿Cómo se Juega?</h3>
         <ol style="margin:0;padding-left:1.5rem;">
-          <li>Elige una categoría musical</li>
+          <li>Elige una categoría musical y tamaño de cartón</li>
+          <li>El sistema cargará un cartón pre-generado aleatorio</li>
           <li>Pulsa "Sonar Canción" para revelar una canción aleatoria</li>
           <li>Si está en tu cartón, haz click en la casilla para marcarla</li>
           <li>Los comodines (⭐) se pueden marcar en cualquier momento</li>
-          <li>¡Completa 4 casillas en línea (horizontal, vertical o diagonal) para ganar LÍNEA!</li>
+          <li>¡Completa una línea (horizontal, vertical o diagonal) para ganar LÍNEA!</li>
           <li>¡Marca todas las casillas para conseguir BINGO! 🎉</li>
+          <li>Tu progreso se guarda automáticamente en el navegador</li>
         </ol>
       </div>
     </section>
@@ -393,9 +411,17 @@
         <button id="btn-next-song" class="btn primary" style="font-size:1.2rem;padding:1rem;background:#3498db;">
           🔊 Sonar Canción
         </button>
-        <button id="btn-new-game" class="btn ghost" style="font-size:1rem;">
-          🔄 Nueva Partida
-        </button>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+          <button id="btn-reset-game" class="btn ghost" style="font-size:1rem;flex:1;min-width:140px;">
+            🔄 Reiniciar Marcas
+          </button>
+          <button id="btn-fullscreen" class="btn ghost" style="font-size:1rem;flex:1;min-width:140px;">
+            ⛶ Pantalla Completa
+          </button>
+          <button id="btn-new-game" class="btn ghost" style="font-size:1rem;flex:1;min-width:140px;">
+            🎲 Nueva Partida
+          </button>
+        </div>
       </div>
 
       <!-- Bingo Grid -->
