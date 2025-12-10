@@ -14,6 +14,10 @@ from pathlib import Path
 def create_bingo_pptx(cards, categoria, theme_colors, output_file):
     """
     Crea presentación PowerPoint con cartones de bingo
+    Layout dinámico según número de canciones:
+    - 6-8 canciones: 3 cartones por slide
+    - 10-12 canciones: 2 cartones por slide
+    - 15-20 canciones: 1 cartón por slide
     
     Args:
         cards: Lista de cartones (cada cartón es lista de canciones)
@@ -27,11 +31,26 @@ def create_bingo_pptx(cards, categoria, theme_colors, output_file):
     prs.slide_width = Inches(10)  # 16:9 format
     prs.slide_height = Inches(7.5)
     
-    # Procesar cartones de 3 en 3
-    cartones_por_slide = 3
+    # Determinar layout según número de canciones
+    if not cards or len(cards) == 0:
+        print('⚠️ No hay cartones para procesar')
+        return None
+    
+    num_songs = len(cards[0])
+    
+    if num_songs <= 8:
+        cartones_por_slide = 3
+        layout_type = "horizontal_3"
+    elif num_songs <= 12:
+        cartones_por_slide = 2
+        layout_type = "horizontal_2"
+    else:
+        cartones_por_slide = 1
+        layout_type = "single"
+    
     total_slides = (len(cards) + cartones_por_slide - 1) // cartones_por_slide
     
-    print(f'📊 Creando {total_slides} diapositivas con {len(cards)} cartones...')
+    print(f'📊 Creando {total_slides} diapositivas con {len(cards)} cartones ({num_songs} canciones/cartón, {cartones_por_slide} cartones/slide)...')
     
     for slide_idx in range(total_slides):
         # Crear slide en blanco
@@ -63,12 +82,31 @@ def create_bingo_pptx(cards, categoria, theme_colors, output_file):
         end_idx = min(start_idx + cartones_por_slide, len(cards))
         cards_in_slide = cards[start_idx:end_idx]
         
-        # Posiciones para 3 cartones (horizontal)
-        card_width = 3.0
-        card_height = 5.5
-        spacing = 0.2
-        start_x = 0.5
-        start_y = 1.2
+        # Configurar dimensiones según layout
+        if layout_type == "horizontal_3":
+            card_width = 3.0
+            card_height = 5.5
+            spacing = 0.2
+            start_x = 0.5
+            start_y = 1.2
+            song_font_size = 11
+            song_height = 0.7
+        elif layout_type == "horizontal_2":
+            card_width = 4.0
+            card_height = 6.0
+            spacing = 0.5
+            start_x = 1.0
+            start_y = 1.0
+            song_font_size = 10
+            song_height = 0.48
+        else:  # single
+            card_width = 6.0
+            card_height = 6.5
+            spacing = 0
+            start_x = 2.0
+            start_y = 0.8
+            song_font_size = 9
+            song_height = 0.28
         
         for card_pos, card in enumerate(cards_in_slide):
             card_number = start_idx + card_pos + 1
@@ -102,24 +140,23 @@ def create_bingo_pptx(cards, categoria, theme_colors, output_file):
             
             # Lista de canciones
             songs_y = start_y + 0.7
-            song_height = 0.7
             
             for song_idx, song in enumerate(card):
                 # Checkbox
                 checkbox = slide.shapes.add_textbox(
                     Inches(x_pos + 0.15), Inches(songs_y + song_idx * song_height),
-                    Inches(0.3), Inches(0.6)
+                    Inches(0.3), Inches(song_height - 0.05)
                 )
                 cb_frame = checkbox.text_frame
                 cb_frame.text = "☐"
                 cb_p = cb_frame.paragraphs[0]
-                cb_p.font.size = Pt(20)
+                cb_p.font.size = Pt(18 if layout_type == "single" else 20)
                 cb_p.font.color.rgb = RGBColor(*theme_colors['checkbox'])
                 
                 # Número y canción
                 song_text = slide.shapes.add_textbox(
                     Inches(x_pos + 0.45), Inches(songs_y + song_idx * song_height),
-                    Inches(card_width - 0.6), Inches(0.6)
+                    Inches(card_width - 0.6), Inches(song_height - 0.05)
                 )
                 song_frame = song_text.text_frame
                 song_frame.word_wrap = True
@@ -128,13 +165,13 @@ def create_bingo_pptx(cards, categoria, theme_colors, output_file):
                 song_clean = song.replace(' - Villancicos', '').replace(' - Canciones Infantiles', '')
                 song_clean = song_clean.replace(' - Tradicional', '').replace(' - Pinkfong', '')
                 song_clean = song_clean.replace(' - Canciones de la Granja', '').replace(' - Timbiriche', '')
-                song_clean = song_clean.replace(' - Raphael', '')
+                song_clean = song_clean.replace(' - Raphael', '').replace(' - Cri-Cri', '')
                 
                 song_frame.text = f"{song_idx + 1}. {song_clean}"
                 song_p = song_frame.paragraphs[0]
-                song_p.font.size = Pt(11)
+                song_p.font.size = Pt(song_font_size)
                 song_p.font.color.rgb = RGBColor(40, 40, 40)
-                song_p.line_spacing = 1.0
+                song_p.line_spacing = 0.9
         
         # Pie de página con número de slide
         footer = slide.shapes.add_textbox(
@@ -159,7 +196,8 @@ def create_bingo_pptx(cards, categoria, theme_colors, output_file):
         'archivo': str(output_file),
         'slides': total_slides,
         'cartones': len(cards),
-        'cartones_por_slide': cartones_por_slide
+        'cartones_por_slide': cartones_por_slide,
+        'layout': layout_type
     }
 
 def load_cards_from_markdown(md_file):
@@ -387,10 +425,166 @@ def main():
             },
             'md_file': base_path / 'infantil' / 'cartones-infantil.md',
             'output': base_path / 'infantil' / 'cartones-infantil.pptx'
+        },
+        'rock-pequeños': {
+            'categoria': 'Rock - Pequeños (8 canciones)',
+            'icon': '🎸',
+            'colors': {
+                'background': (250, 245, 250),
+                'title': (138, 43, 226),
+                'subtitle': (148, 0, 211),
+                'border': (138, 43, 226),
+                'checkbox': (252, 211, 77)
+            },
+            'md_file': base_path / 'rock' / 'pequeños' / 'cartones-rock-pequeños.md',
+            'output': base_path / 'rock' / 'pequeños' / 'cartones-rock-pequeños.pptx'
+        },
+        'rock-medianos': {
+            'categoria': 'Rock - Medianos (12 canciones)',
+            'icon': '🎸',
+            'colors': {
+                'background': (250, 245, 250),
+                'title': (138, 43, 226),
+                'subtitle': (148, 0, 211),
+                'border': (138, 43, 226),
+                'checkbox': (252, 211, 77)
+            },
+            'md_file': base_path / 'rock' / 'medianos' / 'cartones-rock-medianos.md',
+            'output': base_path / 'rock' / 'medianos' / 'cartones-rock-medianos.pptx'
+        },
+        'rock-grandes': {
+            'categoria': 'Rock - Grandes (20 canciones)',
+            'icon': '🎸',
+            'colors': {
+                'background': (250, 245, 250),
+                'title': (138, 43, 226),
+                'subtitle': (148, 0, 211),
+                'border': (138, 43, 226),
+                'checkbox': (252, 211, 77)
+            },
+            'md_file': base_path / 'rock' / 'grandes' / 'cartones-rock-grandes.md',
+            'output': base_path / 'rock' / 'grandes' / 'cartones-rock-grandes.pptx'
+        },
+        'rock-clasico-pequeños': {
+            'categoria': 'Rock Clásico - Pequeños (8 canciones)',
+            'icon': '🎸',
+            'colors': {
+                'background': (250, 245, 250),
+                'title': (138, 43, 226),
+                'subtitle': (148, 0, 211),
+                'border': (138, 43, 226),
+                'checkbox': (252, 211, 77)
+            },
+            'md_file': base_path / 'rock-clasico' / 'pequeños' / 'cartones-rock-clasico-pequeños.md',
+            'output': base_path / 'rock-clasico' / 'pequeños' / 'cartones-rock-clasico-pequeños.pptx'
+        },
+        'rock-clasico-medianos': {
+            'categoria': 'Rock Clásico - Medianos (12 canciones)',
+            'icon': '🎸',
+            'colors': {
+                'background': (250, 245, 250),
+                'title': (138, 43, 226),
+                'subtitle': (148, 0, 211),
+                'border': (138, 43, 226),
+                'checkbox': (252, 211, 77)
+            },
+            'md_file': base_path / 'rock-clasico' / 'medianos' / 'cartones-rock-clasico-medianos.md',
+            'output': base_path / 'rock-clasico' / 'medianos' / 'cartones-rock-clasico-medianos.pptx'
+        },
+        'rock-clasico-grandes': {
+            'categoria': 'Rock Clásico - Grandes (20 canciones)',
+            'icon': '🎸',
+            'colors': {
+                'background': (250, 245, 250),
+                'title': (138, 43, 226),
+                'subtitle': (148, 0, 211),
+                'border': (138, 43, 226),
+                'checkbox': (252, 211, 77)
+            },
+            'md_file': base_path / 'rock-clasico' / 'grandes' / 'cartones-rock-clasico-grandes.md',
+            'output': base_path / 'rock-clasico' / 'grandes' / 'cartones-rock-clasico-grandes.pptx'
+        },
+        'espanol-pequeños': {
+            'categoria': 'Música en Español - Pequeños (8 canciones)',
+            'icon': '🇪🇸',
+            'colors': {
+                'background': (255, 250, 240),
+                'title': (220, 38, 38),
+                'subtitle': (239, 68, 68),
+                'border': (220, 38, 38),
+                'checkbox': (252, 211, 77)
+            },
+            'md_file': base_path / 'musica-en-espanol' / 'pequeños' / 'cartones-musica-en-espanol-pequeños.md',
+            'output': base_path / 'musica-en-espanol' / 'pequeños' / 'cartones-musica-en-espanol-pequeños.pptx'
+        },
+        'espanol-medianos': {
+            'categoria': 'Música en Español - Medianos (12 canciones)',
+            'icon': '🇪🇸',
+            'colors': {
+                'background': (255, 250, 240),
+                'title': (220, 38, 38),
+                'subtitle': (239, 68, 68),
+                'border': (220, 38, 38),
+                'checkbox': (252, 211, 77)
+            },
+            'md_file': base_path / 'musica-en-espanol' / 'medianos' / 'cartones-musica-en-espanol-medianos.md',
+            'output': base_path / 'musica-en-espanol' / 'medianos' / 'cartones-musica-en-espanol-medianos.pptx'
+        },
+        'espanol-grandes': {
+            'categoria': 'Música en Español - Grandes (20 canciones)',
+            'icon': '🇪🇸',
+            'colors': {
+                'background': (255, 250, 240),
+                'title': (220, 38, 38),
+                'subtitle': (239, 68, 68),
+                'border': (220, 38, 38),
+                'checkbox': (252, 211, 77)
+            },
+            'md_file': base_path / 'musica-en-espanol' / 'grandes' / 'cartones-musica-en-espanol-grandes.md',
+            'output': base_path / 'musica-en-espanol' / 'grandes' / 'cartones-musica-en-espanol-grandes.pptx'
+        },
+        'ingles-pequeños': {
+            'categoria': 'Música en Inglés - Pequeños (8 canciones)',
+            'icon': '🇬🇧',
+            'colors': {
+                'background': (240, 248, 255),
+                'title': (30, 64, 175),
+                'subtitle': (59, 130, 246),
+                'border': (30, 64, 175),
+                'checkbox': (252, 211, 77)
+            },
+            'md_file': base_path / 'musica-en-ingles' / 'pequeños' / 'cartones-musica-en-ingles-pequeños.md',
+            'output': base_path / 'musica-en-ingles' / 'pequeños' / 'cartones-musica-en-ingles-pequeños.pptx'
+        },
+        'ingles-medianos': {
+            'categoria': 'Música en Inglés - Medianos (12 canciones)',
+            'icon': '🇬🇧',
+            'colors': {
+                'background': (240, 248, 255),
+                'title': (30, 64, 175),
+                'subtitle': (59, 130, 246),
+                'border': (30, 64, 175),
+                'checkbox': (252, 211, 77)
+            },
+            'md_file': base_path / 'musica-en-ingles' / 'medianos' / 'cartones-musica-en-ingles-medianos.md',
+            'output': base_path / 'musica-en-ingles' / 'medianos' / 'cartones-musica-en-ingles-medianos.pptx'
+        },
+        'ingles-grandes': {
+            'categoria': 'Música en Inglés - Grandes (20 canciones)',
+            'icon': '🇬🇧',
+            'colors': {
+                'background': (240, 248, 255),
+                'title': (30, 64, 175),
+                'subtitle': (59, 130, 246),
+                'border': (30, 64, 175),
+                'checkbox': (252, 211, 77)
+            },
+            'md_file': base_path / 'musica-en-ingles' / 'grandes' / 'cartones-musica-en-ingles-grandes.md',
+            'output': base_path / 'musica-en-ingles' / 'grandes' / 'cartones-musica-en-ingles-grandes.pptx'
         }
     }
     
-    # Generar ambas presentaciones
+    # Generar todas las presentaciones
     results = []
     
     for theme_key, theme_config in themes.items():
