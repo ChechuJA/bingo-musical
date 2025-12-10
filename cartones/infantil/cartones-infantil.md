@@ -1,0 +1,669 @@
+# Cartones de Bingo Musical - Infantil
+
+**Configuración:**
+- 🎵 6 canciones por cartón
+- 🎴 60 cartones únicos
+- 🎈 12 canciones en total
+
+---
+
+## Cartón 1
+
+1. La vaca Lola - Canciones de la Granja
+2. Cinco lobitos - Canciones Infantiles
+3. Los pollitos dicen - Canciones Infantiles
+4. Chocolate - Timbiriche
+5. Pin Pon es un muñeco - Canciones Infantiles
+6. El sapo no se lava el pie - Canciones Infantiles
+
+---
+
+## Cartón 2
+
+1. Los pollitos dicen - Canciones Infantiles
+2. Pin Pon es un muñeco - Canciones Infantiles
+3. Estrellita dónde estás - Canciones Infantiles
+4. Cinco lobitos - Canciones Infantiles
+5. La vaca Lola - Canciones de la Granja
+6. El Barquito Chiquitito - Canciones Infantiles
+
+---
+
+## Cartón 3
+
+1. El sapo no se lava el pie - Canciones Infantiles
+2. Pin Pon es un muñeco - Canciones Infantiles
+3. Cu cú cantaba la rana - Canciones Infantiles
+4. Un elefante se balanceaba - Canciones Infantiles
+5. Cumpleaños feliz - Tradicional
+6. Chocolate - Timbiriche
+
+---
+
+## Cartón 4
+
+1. Baby Shark - Pinkfong
+2. Un elefante se balanceaba - Canciones Infantiles
+3. Chocolate - Timbiriche
+4. Los pollitos dicen - Canciones Infantiles
+5. El Barquito Chiquitito - Canciones Infantiles
+6. Estrellita dónde estás - Canciones Infantiles
+
+---
+
+## Cartón 5
+
+1. La vaca Lola - Canciones de la Granja
+2. Baby Shark - Pinkfong
+3. Pin Pon es un muñeco - Canciones Infantiles
+4. Cu cú cantaba la rana - Canciones Infantiles
+5. Cumpleaños feliz - Tradicional
+6. Estrellita dónde estás - Canciones Infantiles
+
+---
+
+## Cartón 6
+
+1. Estrellita dónde estás - Canciones Infantiles
+2. Los pollitos dicen - Canciones Infantiles
+3. Cinco lobitos - Canciones Infantiles
+4. El Barquito Chiquitito - Canciones Infantiles
+5. Pin Pon es un muñeco - Canciones Infantiles
+6. El sapo no se lava el pie - Canciones Infantiles
+
+---
+
+## Cartón 7
+
+1. Cumpleaños feliz - Tradicional
+2. Cinco lobitos - Canciones Infantiles
+3. Estrellita dónde estás - Canciones Infantiles
+4. Baby Shark - Pinkfong
+5. Pin Pon es un muñeco - Canciones Infantiles
+6. Un elefante se balanceaba - Canciones Infantiles
+
+---
+
+## Cartón 8
+
+1. Pin Pon es un muñeco - Canciones Infantiles
+2. Un elefante se balanceaba - Canciones Infantiles
+3. Chocolate - Timbiriche
+4. Estrellita dónde estás - Canciones Infantiles
+5. Baby Shark - Pinkfong
+6. Cumpleaños feliz - Tradicional
+
+---
+
+## Cartón 9
+
+1. Baby Shark - Pinkfong
+2. Estrellita dónde estás - Canciones Infantiles
+3. El Barquito Chiquitito - Canciones Infantiles
+4. Un elefante se balanceaba - Canciones Infantiles
+5. Los pollitos dicen - Canciones Infantiles
+6. Cumpleaños feliz - Tradicional
+
+---
+
+## Cartón 10
+
+1. Cumpleaños feliz - Tradicional
+2. Chocolate - Timbiriche
+3. El Barquito Chiquitito - Canciones Infantiles
+4. Pin Pon es un muñeco - Canciones Infantiles
+5. Un elefante se balanceaba - Canciones Infantiles
+6. Estrellita dónde estás - Canciones Infantiles
+
+---
+
+## Cartón 11
+
+1. Los pollitos dicen - Canciones Infantiles
+2. Chocolate - Timbiriche
+3. La vaca Lola - Canciones de la Granja
+4. Baby Shark - Pinkfong
+5. El sapo no se lava el pie - Canciones Infantiles
+6. Cinco lobitos - Canciones Infantiles
+
+---
+
+## Cartón 12
+
+1. Un elefante se balanceaba - Canciones Infantiles
+2. El sapo no se lava el pie - Canciones Infantiles
+3. Baby Shark - Pinkfong
+4. Cinco lobitos - Canciones Infantiles
+5. El Barquito Chiquitito - Canciones Infantiles
+6. Estrellita dónde estás - Canciones Infantiles
+
+---
+
+## Cartón 13
+
+1. Estrellita dónde estás - Canciones Infantiles
+2. El sapo no se lava el pie - Canciones Infantiles
+3. La vaca Lola - Canciones de la Granja
+4. Un elefante se balanceaba - Canciones Infantiles
+5. El Barquito Chiquitito - Canciones Infantiles
+6. Los pollitos dicen - Canciones Infantiles
+
+---
+
+## Cartón 14
+
+1. El sapo no se lava el pie - Canciones Infantiles
+2. Cinco lobitos - Canciones Infantiles
+3. Cumpleaños feliz - Tradicional
+4. Un elefante se balanceaba - Canciones Infantiles
+5. Estrellita dónde estás - Canciones Infantiles
+6. Baby Shark - Pinkfong
+
+---
+
+## Cartón 15
+
+1. La vaca Lola - Canciones de la Granja
+2. El sapo no se lava el pie - Canciones Infantiles
+3. Baby Shark - Pinkfong
+4. El Barquito Chiquitito - Canciones Infantiles
+5. Los pollitos dicen - Canciones Infantiles
+6. Cumpleaños feliz - Tradicional
+
+---
+
+## Cartón 16
+
+1. Un elefante se balanceaba - Canciones Infantiles
+2. Estrellita dónde estás - Canciones Infantiles
+3. El Barquito Chiquitito - Canciones Infantiles
+4. La vaca Lola - Canciones de la Granja
+5. Cu cú cantaba la rana - Canciones Infantiles
+6. Chocolate - Timbiriche
+
+---
+
+## Cartón 17
+
+1. Chocolate - Timbiriche
+2. Estrellita dónde estás - Canciones Infantiles
+3. Cinco lobitos - Canciones Infantiles
+4. Cumpleaños feliz - Tradicional
+5. La vaca Lola - Canciones de la Granja
+6. Los pollitos dicen - Canciones Infantiles
+
+---
+
+## Cartón 18
+
+1. Chocolate - Timbiriche
+2. Baby Shark - Pinkfong
+3. El sapo no se lava el pie - Canciones Infantiles
+4. Cinco lobitos - Canciones Infantiles
+5. Un elefante se balanceaba - Canciones Infantiles
+6. El Barquito Chiquitito - Canciones Infantiles
+
+---
+
+## Cartón 19
+
+1. Los pollitos dicen - Canciones Infantiles
+2. Cinco lobitos - Canciones Infantiles
+3. El sapo no se lava el pie - Canciones Infantiles
+4. La vaca Lola - Canciones de la Granja
+5. Estrellita dónde estás - Canciones Infantiles
+6. Chocolate - Timbiriche
+
+---
+
+## Cartón 20
+
+1. Los pollitos dicen - Canciones Infantiles
+2. Chocolate - Timbiriche
+3. Cumpleaños feliz - Tradicional
+4. Pin Pon es un muñeco - Canciones Infantiles
+5. Cu cú cantaba la rana - Canciones Infantiles
+6. Un elefante se balanceaba - Canciones Infantiles
+
+---
+
+## Cartón 21
+
+1. Cu cú cantaba la rana - Canciones Infantiles
+2. El sapo no se lava el pie - Canciones Infantiles
+3. Un elefante se balanceaba - Canciones Infantiles
+4. Estrellita dónde estás - Canciones Infantiles
+5. La vaca Lola - Canciones de la Granja
+6. Baby Shark - Pinkfong
+
+---
+
+## Cartón 22
+
+1. Chocolate - Timbiriche
+2. Cinco lobitos - Canciones Infantiles
+3. La vaca Lola - Canciones de la Granja
+4. Pin Pon es un muñeco - Canciones Infantiles
+5. Estrellita dónde estás - Canciones Infantiles
+6. Baby Shark - Pinkfong
+
+---
+
+## Cartón 23
+
+1. Pin Pon es un muñeco - Canciones Infantiles
+2. Cumpleaños feliz - Tradicional
+3. Los pollitos dicen - Canciones Infantiles
+4. Cinco lobitos - Canciones Infantiles
+5. Baby Shark - Pinkfong
+6. Chocolate - Timbiriche
+
+---
+
+## Cartón 24
+
+1. Un elefante se balanceaba - Canciones Infantiles
+2. El Barquito Chiquitito - Canciones Infantiles
+3. Los pollitos dicen - Canciones Infantiles
+4. La vaca Lola - Canciones de la Granja
+5. Chocolate - Timbiriche
+6. Pin Pon es un muñeco - Canciones Infantiles
+
+---
+
+## Cartón 25
+
+1. Cumpleaños feliz - Tradicional
+2. Un elefante se balanceaba - Canciones Infantiles
+3. Pin Pon es un muñeco - Canciones Infantiles
+4. Cu cú cantaba la rana - Canciones Infantiles
+5. Chocolate - Timbiriche
+6. La vaca Lola - Canciones de la Granja
+
+---
+
+## Cartón 26
+
+1. Chocolate - Timbiriche
+2. Baby Shark - Pinkfong
+3. El sapo no se lava el pie - Canciones Infantiles
+4. El Barquito Chiquitito - Canciones Infantiles
+5. Cu cú cantaba la rana - Canciones Infantiles
+6. Estrellita dónde estás - Canciones Infantiles
+
+---
+
+## Cartón 27
+
+1. El Barquito Chiquitito - Canciones Infantiles
+2. Cu cú cantaba la rana - Canciones Infantiles
+3. El sapo no se lava el pie - Canciones Infantiles
+4. Chocolate - Timbiriche
+5. Baby Shark - Pinkfong
+6. Los pollitos dicen - Canciones Infantiles
+
+---
+
+## Cartón 28
+
+1. Cinco lobitos - Canciones Infantiles
+2. Baby Shark - Pinkfong
+3. El Barquito Chiquitito - Canciones Infantiles
+4. Un elefante se balanceaba - Canciones Infantiles
+5. Estrellita dónde estás - Canciones Infantiles
+6. Cu cú cantaba la rana - Canciones Infantiles
+
+---
+
+## Cartón 29
+
+1. Chocolate - Timbiriche
+2. Los pollitos dicen - Canciones Infantiles
+3. La vaca Lola - Canciones de la Granja
+4. El Barquito Chiquitito - Canciones Infantiles
+5. Estrellita dónde estás - Canciones Infantiles
+6. Baby Shark - Pinkfong
+
+---
+
+## Cartón 30
+
+1. La vaca Lola - Canciones de la Granja
+2. Estrellita dónde estás - Canciones Infantiles
+3. Cu cú cantaba la rana - Canciones Infantiles
+4. Baby Shark - Pinkfong
+5. Chocolate - Timbiriche
+6. Los pollitos dicen - Canciones Infantiles
+
+---
+
+## Cartón 31
+
+1. Chocolate - Timbiriche
+2. Pin Pon es un muñeco - Canciones Infantiles
+3. Cumpleaños feliz - Tradicional
+4. Cu cú cantaba la rana - Canciones Infantiles
+5. Estrellita dónde estás - Canciones Infantiles
+6. El Barquito Chiquitito - Canciones Infantiles
+
+---
+
+## Cartón 32
+
+1. Chocolate - Timbiriche
+2. El Barquito Chiquitito - Canciones Infantiles
+3. El sapo no se lava el pie - Canciones Infantiles
+4. Baby Shark - Pinkfong
+5. Pin Pon es un muñeco - Canciones Infantiles
+6. Cinco lobitos - Canciones Infantiles
+
+---
+
+## Cartón 33
+
+1. El sapo no se lava el pie - Canciones Infantiles
+2. Los pollitos dicen - Canciones Infantiles
+3. Pin Pon es un muñeco - Canciones Infantiles
+4. Un elefante se balanceaba - Canciones Infantiles
+5. Cinco lobitos - Canciones Infantiles
+6. Estrellita dónde estás - Canciones Infantiles
+
+---
+
+## Cartón 34
+
+1. Cu cú cantaba la rana - Canciones Infantiles
+2. Un elefante se balanceaba - Canciones Infantiles
+3. Chocolate - Timbiriche
+4. Cinco lobitos - Canciones Infantiles
+5. Pin Pon es un muñeco - Canciones Infantiles
+6. Los pollitos dicen - Canciones Infantiles
+
+---
+
+## Cartón 35
+
+1. Estrellita dónde estás - Canciones Infantiles
+2. Los pollitos dicen - Canciones Infantiles
+3. Chocolate - Timbiriche
+4. El sapo no se lava el pie - Canciones Infantiles
+5. Cumpleaños feliz - Tradicional
+6. Pin Pon es un muñeco - Canciones Infantiles
+
+---
+
+## Cartón 36
+
+1. Cumpleaños feliz - Tradicional
+2. El sapo no se lava el pie - Canciones Infantiles
+3. El Barquito Chiquitito - Canciones Infantiles
+4. Estrellita dónde estás - Canciones Infantiles
+5. Cu cú cantaba la rana - Canciones Infantiles
+6. Pin Pon es un muñeco - Canciones Infantiles
+
+---
+
+## Cartón 37
+
+1. El Barquito Chiquitito - Canciones Infantiles
+2. Cumpleaños feliz - Tradicional
+3. Baby Shark - Pinkfong
+4. Estrellita dónde estás - Canciones Infantiles
+5. Los pollitos dicen - Canciones Infantiles
+6. La vaca Lola - Canciones de la Granja
+
+---
+
+## Cartón 38
+
+1. El sapo no se lava el pie - Canciones Infantiles
+2. Chocolate - Timbiriche
+3. El Barquito Chiquitito - Canciones Infantiles
+4. Los pollitos dicen - Canciones Infantiles
+5. Un elefante se balanceaba - Canciones Infantiles
+6. Cu cú cantaba la rana - Canciones Infantiles
+
+---
+
+## Cartón 39
+
+1. Chocolate - Timbiriche
+2. Un elefante se balanceaba - Canciones Infantiles
+3. Los pollitos dicen - Canciones Infantiles
+4. Estrellita dónde estás - Canciones Infantiles
+5. La vaca Lola - Canciones de la Granja
+6. Cu cú cantaba la rana - Canciones Infantiles
+
+---
+
+## Cartón 40
+
+1. Pin Pon es un muñeco - Canciones Infantiles
+2. Chocolate - Timbiriche
+3. El Barquito Chiquitito - Canciones Infantiles
+4. Cumpleaños feliz - Tradicional
+5. Los pollitos dicen - Canciones Infantiles
+6. Un elefante se balanceaba - Canciones Infantiles
+
+---
+
+## Cartón 41
+
+1. Los pollitos dicen - Canciones Infantiles
+2. Cumpleaños feliz - Tradicional
+3. Un elefante se balanceaba - Canciones Infantiles
+4. El sapo no se lava el pie - Canciones Infantiles
+5. El Barquito Chiquitito - Canciones Infantiles
+6. La vaca Lola - Canciones de la Granja
+
+---
+
+## Cartón 42
+
+1. Baby Shark - Pinkfong
+2. Cumpleaños feliz - Tradicional
+3. Cu cú cantaba la rana - Canciones Infantiles
+4. El Barquito Chiquitito - Canciones Infantiles
+5. Los pollitos dicen - Canciones Infantiles
+6. Un elefante se balanceaba - Canciones Infantiles
+
+---
+
+## Cartón 43
+
+1. Cumpleaños feliz - Tradicional
+2. Los pollitos dicen - Canciones Infantiles
+3. Estrellita dónde estás - Canciones Infantiles
+4. El Barquito Chiquitito - Canciones Infantiles
+5. Baby Shark - Pinkfong
+6. El sapo no se lava el pie - Canciones Infantiles
+
+---
+
+## Cartón 44
+
+1. La vaca Lola - Canciones de la Granja
+2. Pin Pon es un muñeco - Canciones Infantiles
+3. Cinco lobitos - Canciones Infantiles
+4. El Barquito Chiquitito - Canciones Infantiles
+5. Los pollitos dicen - Canciones Infantiles
+6. Chocolate - Timbiriche
+
+---
+
+## Cartón 45
+
+1. Los pollitos dicen - Canciones Infantiles
+2. Cumpleaños feliz - Tradicional
+3. Pin Pon es un muñeco - Canciones Infantiles
+4. La vaca Lola - Canciones de la Granja
+5. Chocolate - Timbiriche
+6. Un elefante se balanceaba - Canciones Infantiles
+
+---
+
+## Cartón 46
+
+1. Cinco lobitos - Canciones Infantiles
+2. El sapo no se lava el pie - Canciones Infantiles
+3. Un elefante se balanceaba - Canciones Infantiles
+4. Los pollitos dicen - Canciones Infantiles
+5. Baby Shark - Pinkfong
+6. Cu cú cantaba la rana - Canciones Infantiles
+
+---
+
+## Cartón 47
+
+1. Un elefante se balanceaba - Canciones Infantiles
+2. Los pollitos dicen - Canciones Infantiles
+3. El Barquito Chiquitito - Canciones Infantiles
+4. Chocolate - Timbiriche
+5. La vaca Lola - Canciones de la Granja
+6. Estrellita dónde estás - Canciones Infantiles
+
+---
+
+## Cartón 48
+
+1. El sapo no se lava el pie - Canciones Infantiles
+2. Estrellita dónde estás - Canciones Infantiles
+3. Baby Shark - Pinkfong
+4. Pin Pon es un muñeco - Canciones Infantiles
+5. Cu cú cantaba la rana - Canciones Infantiles
+6. Un elefante se balanceaba - Canciones Infantiles
+
+---
+
+## Cartón 49
+
+1. El sapo no se lava el pie - Canciones Infantiles
+2. Estrellita dónde estás - Canciones Infantiles
+3. El Barquito Chiquitito - Canciones Infantiles
+4. Cinco lobitos - Canciones Infantiles
+5. Un elefante se balanceaba - Canciones Infantiles
+6. La vaca Lola - Canciones de la Granja
+
+---
+
+## Cartón 50
+
+1. Cu cú cantaba la rana - Canciones Infantiles
+2. Pin Pon es un muñeco - Canciones Infantiles
+3. Los pollitos dicen - Canciones Infantiles
+4. Cumpleaños feliz - Tradicional
+5. El sapo no se lava el pie - Canciones Infantiles
+6. Cinco lobitos - Canciones Infantiles
+
+---
+
+## Cartón 51
+
+1. Los pollitos dicen - Canciones Infantiles
+2. Cu cú cantaba la rana - Canciones Infantiles
+3. Pin Pon es un muñeco - Canciones Infantiles
+4. Cinco lobitos - Canciones Infantiles
+5. El sapo no se lava el pie - Canciones Infantiles
+6. Chocolate - Timbiriche
+
+---
+
+## Cartón 52
+
+1. Cinco lobitos - Canciones Infantiles
+2. Cumpleaños feliz - Tradicional
+3. Cu cú cantaba la rana - Canciones Infantiles
+4. Pin Pon es un muñeco - Canciones Infantiles
+5. Un elefante se balanceaba - Canciones Infantiles
+6. El sapo no se lava el pie - Canciones Infantiles
+
+---
+
+## Cartón 53
+
+1. Pin Pon es un muñeco - Canciones Infantiles
+2. Cumpleaños feliz - Tradicional
+3. Estrellita dónde estás - Canciones Infantiles
+4. Los pollitos dicen - Canciones Infantiles
+5. Baby Shark - Pinkfong
+6. Chocolate - Timbiriche
+
+---
+
+## Cartón 54
+
+1. Cumpleaños feliz - Tradicional
+2. Pin Pon es un muñeco - Canciones Infantiles
+3. Chocolate - Timbiriche
+4. Los pollitos dicen - Canciones Infantiles
+5. El Barquito Chiquitito - Canciones Infantiles
+6. Baby Shark - Pinkfong
+
+---
+
+## Cartón 55
+
+1. Cinco lobitos - Canciones Infantiles
+2. Cumpleaños feliz - Tradicional
+3. Un elefante se balanceaba - Canciones Infantiles
+4. Pin Pon es un muñeco - Canciones Infantiles
+5. El Barquito Chiquitito - Canciones Infantiles
+6. La vaca Lola - Canciones de la Granja
+
+---
+
+## Cartón 56
+
+1. La vaca Lola - Canciones de la Granja
+2. Baby Shark - Pinkfong
+3. Estrellita dónde estás - Canciones Infantiles
+4. Pin Pon es un muñeco - Canciones Infantiles
+5. El sapo no se lava el pie - Canciones Infantiles
+6. Un elefante se balanceaba - Canciones Infantiles
+
+---
+
+## Cartón 57
+
+1. La vaca Lola - Canciones de la Granja
+2. Los pollitos dicen - Canciones Infantiles
+3. Chocolate - Timbiriche
+4. Pin Pon es un muñeco - Canciones Infantiles
+5. Estrellita dónde estás - Canciones Infantiles
+6. Un elefante se balanceaba - Canciones Infantiles
+
+---
+
+## Cartón 58
+
+1. El sapo no se lava el pie - Canciones Infantiles
+2. La vaca Lola - Canciones de la Granja
+3. Cu cú cantaba la rana - Canciones Infantiles
+4. Cinco lobitos - Canciones Infantiles
+5. Chocolate - Timbiriche
+6. El Barquito Chiquitito - Canciones Infantiles
+
+---
+
+## Cartón 59
+
+1. La vaca Lola - Canciones de la Granja
+2. Cumpleaños feliz - Tradicional
+3. Cu cú cantaba la rana - Canciones Infantiles
+4. El Barquito Chiquitito - Canciones Infantiles
+5. Cinco lobitos - Canciones Infantiles
+6. Baby Shark - Pinkfong
+
+---
+
+## Cartón 60
+
+1. Chocolate - Timbiriche
+2. El sapo no se lava el pie - Canciones Infantiles
+3. Baby Shark - Pinkfong
+4. Cu cú cantaba la rana - Canciones Infantiles
+5. Los pollitos dicen - Canciones Infantiles
+6. Cinco lobitos - Canciones Infantiles
+
+---
+
