@@ -31,6 +31,15 @@ Progressive Web App (PWA) for generating musical bingo cards with themed playlis
 - **`manifest.json`**: PWA configuration for standalone app experience
 - **`scripts/generate-cards.py`**: Python script to auto-generate random bingo cards from playlists.json
 
+### Automation scripts (cards + PPTX)
+- **`scripts/generate-from-list.py`**: Generador genérico (recomendado) para crear cartones únicos desde un listado `.md` y (opcional) sacar `.pptx`.
+- **`scripts/generate-pptx.py`**: Genera `.pptx` a partir de cartones `.md` predefinidos por tema (incluye `--only` para generar solo una clave).
+- **`scripts/pptx_utils.py`**: Librería compartida (helpers) para generación PPTX (usada por `generate-pptx.py` y `generate-from-list.py`).
+- **`scripts/generate-disney.py`**: Script específico (legacy) para Disney pequeños; preferir `generate-from-list.py` para nuevos listados.
+
+**Runbook recomendado** (checklist + comandos para repetir dentro de meses):
+- `docs/GENERADOR-CARTONES-RUNBOOK.md`
+
 ### Data Flow
 
 #### Homepage (index.html)

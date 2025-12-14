@@ -231,7 +231,23 @@
       "Películas": {
         "nombre": "Películas Disney y Animadas",
         "descripcion": "Canciones de películas infantiles favoritas.",
-        "archivos": []
+        "archivos": [
+          {
+            "nombre": "Listado Completo Disney (20 canciones)",
+            "ruta": "cartones/disney/pequeños/listado-canciones-disney-pequeños.md",
+            "canciones": 20
+          },
+          {
+            "nombre": "Cartones Disney Pequeños (8 canciones × 50 cartones)",
+            "ruta": "cartones/disney/pequeños/cartones-disney-pequeños.md",
+            "canciones": 8
+          },
+          {
+            "nombre": "Cartones Disney PowerPoint (Editable)",
+            "ruta": "cartones/disney/pequeños/cartones-disney-pequeños.pptx",
+            "canciones": 8
+          }
+        ]
       },
       "Villancicos": {
         "nombre": "Villancicos Infantiles",

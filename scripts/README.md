@@ -2,6 +2,12 @@
 
 Este directorio contiene scripts para generar cartones de bingo musical en diferentes formatos.
 
+## ✅ Runbook (recomendado)
+
+Para ejecutar esto dentro de meses sin fallos (con checklist de preguntas + comandos):
+
+- `docs/GENERADOR-CARTONES-RUNBOOK.md`
+
 ## 📄 Scripts Disponibles
 
 ### 1. `generate-cards.py` - Generador de Cartones Markdown
@@ -13,7 +19,38 @@ Script de Python para generar automáticamente cartones de bingo en formato Mark
 python scripts/generate-cards.py
 ```
 
-### 2. `generate-visual-cards.py` - Generador de Imágenes Visuales
+### 2. `generate-from-list.py` - Generador genérico desde listado
+
+Script de Python para generar cartones **únicos** a partir de un listado en Markdown (lista numerada). Puede generar también PPTX.
+
+Si lo vas a volver a ejecutar en el futuro, sigue el runbook:
+- `docs/GENERADOR-CARTONES-RUNBOOK.md`
+
+**Uso (ejemplo Disney pequeños + PPTX):**
+```bash
+python scripts/generate-from-list.py \
+  --songs-md cartones/disney/pequeños/listado-canciones-disney-pequeños.md \
+  --out-md cartones/disney/pequeños/cartones-disney-pequeños.md \
+  --category "Disney" --size "Pequeños" \
+  --songs-per-card 8 --num-cards 50 \
+  --pptx-out cartones/disney/pequeños/cartones-disney-pequeños.pptx \
+  --theme infantil
+```
+
+### 3. `generate-pptx.py` - Generador PPTX por temas
+
+Genera PPTX desde cartones `.md` predefinidos por tema. Incluye `--only` para generar solo una clave.
+
+**Uso:**
+```bash
+python scripts/generate-pptx.py --only disney-pequeños
+```
+
+### 4. `pptx_utils.py` - Librería compartida PPTX
+
+Helpers reutilizables para crear PPTX (usada por `generate-pptx.py` y `generate-from-list.py`).
+
+### 5. `generate-visual-cards.py` - Generador de Imágenes Visuales
 
 Script de Python que convierte los cartones .md en imágenes PNG con diseño de cuadrícula tipo bingo real.
 
