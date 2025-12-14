@@ -13,6 +13,7 @@ let spotifyData = {};
   setupMenu();
   setupOfflineBanner();
   setupSpotifyModal();
+  setupDisneyPopup();
   setupChristmasPopup();
 
   let playlists = {};
@@ -350,10 +351,14 @@ function setupChristmasPopup(){
   const lastShown = localStorage.getItem('christmas_popup_last_shown');
   const today = new Date().toDateString();
   
-  // Show popup once per day
+  // Show popup once per day (but skip if Disney popup is being shown today)
   if (lastShown !== today) {
     // Delay popup appearance for better UX (2 seconds after page load)
     setTimeout(() => {
+      const disneyShown = localStorage.getItem('disney_popup_last_shown');
+      const disneyPopup = document.getElementById('disney-popup');
+      if (disneyShown === today || (disneyPopup && !disneyPopup.hidden)) return;
+
       popup.hidden = false;
       localStorage.setItem('christmas_popup_last_shown', today);
     }, 2000);
@@ -381,6 +386,49 @@ function setupChristmasPopup(){
   });
   
   // Close on Esc key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !popup.hidden) {
+      popup.hidden = true;
+    }
+  });
+}
+
+function setupDisneyPopup(){
+  const popup = document.getElementById('disney-popup');
+  if (!popup) return;
+
+  const closeBtn = popup.querySelector('.christmas-popup-close');
+  const dismissBtn = document.getElementById('disney-popup-dismiss');
+
+  const lastShown = localStorage.getItem('disney_popup_last_shown');
+  const today = new Date().toDateString();
+
+  // Show popup once per day
+  if (lastShown !== today) {
+    setTimeout(() => {
+      popup.hidden = false;
+      localStorage.setItem('disney_popup_last_shown', today);
+    }, 2000);
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      popup.hidden = true;
+    });
+  }
+
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', () => {
+      popup.hidden = true;
+    });
+  }
+
+  popup.addEventListener('click', (e) => {
+    if (e.target === popup) {
+      popup.hidden = true;
+    }
+  });
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !popup.hidden) {
       popup.hidden = true;
