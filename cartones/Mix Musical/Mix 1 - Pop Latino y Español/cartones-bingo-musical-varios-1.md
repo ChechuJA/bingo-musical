@@ -2508,7 +2508,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 3 - 32 Melendi - Caminando por la vida
 4 - 19 Myke Towers - Esa Falda
 5 - 15 Pereza - Princesa
-6 - 45 King Africa - Bomba
+6 - 7 Raphael - Mi gran noche
 7 - 5 Isabel Aaiun - El himno de mi peña
 8 - 42 Bab Bunny - Yo perreo sola
 9 - 38 David Civera - Que la detengan

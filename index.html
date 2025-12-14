@@ -111,26 +111,7 @@
   -->
 </head>
 <body>
-  <!-- 📢 SIDEBAR ADS - Anuncios laterales fijos -->
-  
-  <!-- Ad izquierdo (160x600 Skyscraper) -->
-  <div class="sidebar-ad-container sidebar-ad-left">
-    <div class="sidebar-ad-slot ad-format-skyscraper">
-      <span class="sidebar-ad-label">Publicidad</span>
-      <!-- Monetag Native Banner (Zona 8655548) -->
-      <div id="sidebar-left-ad"></div>
-    </div>
-  </div>
-  
-  <!-- Ad derecho (160x600 Skyscraper) -->
-  <div class="sidebar-ad-container sidebar-ad-right">
-    <div class="sidebar-ad-slot ad-format-skyscraper">
-      <span class="sidebar-ad-label">Publicidad</span>
-      <!-- Monetag Native Banner (Zona 8655550) -->
-      <div id="sidebar-right-ad"></div>
-    </div>
-  </div>
-  
+
   <div id="app" class="page">
     <header class="site-header">
       <div class="container header-inner">
@@ -522,16 +503,7 @@
       </div>
     </div>
 
-    <!-- Legacy cookie consent (deprecated) -->
-    <div id="cookie-consent" class="cookie-consent" role="dialog" aria-live="polite" aria-label="Consentimiento de cookies" style="display:none;">
-      <div class="cookie-text">
-        Esta web usa cookies para mejorar la experiencia y para anuncios (placeholder). Acepta si estás de acuerdo.
-      </div>
-      <div class="cookie-actions">
-        <button id="accept-cookies" class="btn primary small">Aceptar</button>
-        <button id="decline-cookies" class="btn ghost small">Rechazar</button>
-      </div>
-    </div>
+
 
     <!-- Offline fallback -->
     <div id="offline-banner" class="offline-banner" hidden>
@@ -1395,14 +1367,7 @@
 })();
 </script>
 
-<!-- 📢 SIDEBAR ADS SCRIPT -->
-<script src="/assets/js/sidebar-ads.js"></script>
-<script>
-  // Cargar Vignette Banner en los sidebars
-  // Zone ID: 10264374
-  SidebarAds.loadVignetteBanner('sidebar-left', '10264374');
-  SidebarAds.loadVignetteBanner('sidebar-right', '10264374');
-</script>
+
 
 </body>
 </html>

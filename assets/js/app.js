@@ -1,6 +1,6 @@
 
 /* app.js - Bingo Musical (Cartoon style) */
-/* Basic client logic: load playlists, render UI, generate bingo cards, cookie consent, offline banner, downloadable cards, Spotify integration */
+/* Basic client logic: load playlists, render UI, generate bingo cards, offline banner, downloadable cards, Spotify integration */
 const sanitize = s => (typeof s === 'string') ? s.replaceAll('<','&lt;').replaceAll('>','&gt;') : '';
 
 let spotifyData = {};
@@ -11,7 +11,6 @@ let spotifyData = {};
     yearElement.textContent = new Date().getFullYear();
   }
   setupMenu();
-  setupCookie();
   setupOfflineBanner();
   setupSpotifyModal();
   setupChristmasPopup();
@@ -52,18 +51,6 @@ function setupMenu(){
     const expanded = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', String(!expanded));
     menu.classList.toggle('show');
-  });
-}
-
-function setupCookie(){
-  const consent = localStorage.getItem('cookie_consent');
-  const bar = document.getElementById('cookie-consent');
-  if(consent === 'accepted') { bar.style.display='none'; return; }
-  document.getElementById('accept-cookies').addEventListener('click', () => {
-    localStorage.setItem('cookie_consent','accepted'); bar.style.display='none';
-  });
-  document.getElementById('decline-cookies').addEventListener('click', () => {
-    localStorage.setItem('cookie_consent','declined'); bar.style.display='none';
   });
 }
 
