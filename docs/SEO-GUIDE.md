@@ -52,7 +52,7 @@ Sección añadida en `index.html` con:
 ### 2. **Añadir Propiedad**
 - Click en "Añadir propiedad"
 - Selecciona "Prefijo de URL"
-- Introduce: `https://bingomusical.com` (o tu dominio real)
+- Introduce: `https://bingomusicalgratis.es` (o tu dominio real)
 
 ### 3. **Verificar Propiedad**
 Elige uno de estos métodos:

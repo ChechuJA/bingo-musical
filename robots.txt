@@ -48,5 +48,4 @@ Disallow: /*?next=*
 Crawl-delay: 1
 
 # Sitemap
-Sitemap: https://bingomusical.com/sitemap.xml
 Sitemap: https://bingomusicalgratis.es/sitemap.xml

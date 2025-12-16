@@ -2,29 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Página principal -->
   <url>
-    <loc>https://bingomusical.com/</loc>
+    <loc>https://bingomusicalgratis.es/</loc>
     <lastmod>2025-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Descargas principales -->
+  <url>
+    <loc>https://bingomusicalgratis.es/pages/cartones-listos.html</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
   
   <!-- Generador personalizado -->
   <url>
-    <loc>https://bingomusical.com/pages/tools/generador.html</loc>
+    <loc>https://bingomusicalgratis.es/pages/tools/generador.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://bingomusical.com/pages/tools/jugar.html</loc>
+    <loc>https://bingomusicalgratis.es/pages/tools/jugar.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://bingomusical.com/pages/tools/online.html</loc>
+    <loc>https://bingomusicalgratis.es/pages/tools/online.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -32,63 +40,63 @@
   
   <!-- Categorías principales -->
   <url>
-    <loc>https://bingomusical.com/pages/categories/navidad.html</loc>
+    <loc>https://bingomusicalgratis.es/pages/categories/navidad.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://bingomusical.com/pages/categories/clasicos-pop.html</loc>
+    <loc>https://bingomusicalgratis.es/pages/categories/clasicos-pop.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://bingomusical.com/pages/categories/pop-latino.html</loc>
+    <loc>https://bingomusicalgratis.es/pages/categories/pop-latino.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://bingomusical.com/pages/categories/rock.html</loc>
+    <loc>https://bingomusicalgratis.es/pages/categories/rock.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://bingomusical.com/pages/categories/musica-ingles.html</loc>
+    <loc>https://bingomusicalgratis.es/pages/categories/musica-ingles.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://bingomusical.com/pages/categories/musica-espanol.html</loc>
+    <loc>https://bingomusicalgratis.es/pages/categories/musica-espanol.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://bingomusical.com/pages/categories/otono.html</loc>
+    <loc>https://bingomusicalgratis.es/pages/categories/otono.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://bingomusical.com/pages/categories/cumpleanos.html</loc>
+    <loc>https://bingomusicalgratis.es/pages/categories/cumpleanos.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://bingomusical.com/pages/categories/mix.html</loc>
+    <loc>https://bingomusicalgratis.es/pages/categories/mix.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -96,42 +104,42 @@
   
   <!-- Páginas legales -->
   <url>
-    <loc>https://bingomusical.com/pages/legal/faq.html</loc>
+    <loc>https://bingomusicalgratis.es/pages/legal/faq.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bingomusical.com/pages/legal/about.html</loc>
+    <loc>https://bingomusicalgratis.es/pages/legal/about.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   
   <url>
-    <loc>https://bingomusical.com/pages/legal/contacto.html</loc>
+    <loc>https://bingomusicalgratis.es/pages/legal/contacto.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   
   <url>
-    <loc>https://bingomusical.com/pages/legal/legal.html</loc>
+    <loc>https://bingomusicalgratis.es/pages/legal/legal.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
   <url>
-    <loc>https://bingomusical.com/pages/legal/privacy.html</loc>
+    <loc>https://bingomusicalgratis.es/pages/legal/privacy.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
   <url>
-    <loc>https://bingomusical.com/pages/legal/cookies.html</loc>
+    <loc>https://bingomusicalgratis.es/pages/legal/cookies.html</loc>
     <lastmod>2025-11-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -139,29 +147,57 @@
   
   <!-- Blog Section -->
   <url>
-    <loc>https://bingomusical.com/blog.html</loc>
+    <loc>https://bingomusicalgratis.es/blog.html</loc>
     <lastmod>2025-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://bingomusical.com/blog/como-organizar-bingo-musical.html</loc>
+    <loc>https://bingomusicalgratis.es/blog/como-organizar-bingo-musical.html</loc>
     <lastmod>2025-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://bingomusical.com/blog/ideas-creativas-bingo-musical.html</loc>
+    <loc>https://bingomusicalgratis.es/blog/ideas-creativas-bingo-musical.html</loc>
     <lastmod>2025-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://bingomusical.com/blog/historia-bingo-musical.html</loc>
+    <loc>https://bingomusicalgratis.es/blog/historia-bingo-musical.html</loc>
     <lastmod>2025-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://bingomusicalgratis.es/blog/guia-categorias-bingo-musical.html</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://bingomusicalgratis.es/blog/playlist-navidad-villancicos.html</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+
+  <url>
+    <loc>https://bingomusicalgratis.es/blog/proximamente-novedades-bingo-musical.html</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://bingomusicalgratis.es/blog/como-usar-cartones-bingo-musical.html</loc>
+    <lastmod>2025-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -39,23 +39,79 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Bingo Musical Gratis",
-    "url": "https://bingomusicalgratis.es",
-    "description": "Generador de cartones de bingo musical para imprimir gratis. 9 categorías temáticas con playlists de Spotify.",
-    "applicationCategory": "GameApplication",
-    "operatingSystem": "Any",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "EUR"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "127"
-    },
-    "keywords": "bingo musical, bingo de canciones, juego musical, cartones imprimir, generador bingo"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://bingomusicalgratis.es/#website",
+        "url": "https://bingomusicalgratis.es/",
+        "name": "Bingo Musical Gratis",
+        "inLanguage": "es-ES"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://bingomusicalgratis.es/#webpage",
+        "url": "https://bingomusicalgratis.es/",
+        "name": "Bingo Musical Gratis - Cartones para Imprimir",
+        "description": "Descarga cartones de bingo musical para imprimir gratis. 9 categorías temáticas, generador personalizado y playlists recomendadas.",
+        "isPartOf": { "@id": "https://bingomusicalgratis.es/#website" },
+        "inLanguage": "es-ES"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://bingomusicalgratis.es/#faq",
+        "isPartOf": { "@id": "https://bingomusicalgratis.es/#website" },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué es el bingo musical?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El bingo musical es un juego similar al bingo tradicional, pero en lugar de números se usan títulos de canciones. Vas marcando en tu cartón las canciones que suenan hasta completar una línea o el cartón."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo se juega al bingo musical?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Reparte cartones, reproduce canciones (por ejemplo con una playlist) y cada jugador marca las canciones que le aparecen. Gana quien complete primero una línea o un patrón acordado."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Dónde puedo descargar cartones de bingo musical para imprimir?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Puedes descargar cartones listos para imprimir en nuestras categorías y en la sección de Cartones Listos, con distintas temáticas y tamaños."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuántas canciones tiene un cartón?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Depende del tamaño: pequeños (8), medianos (12) y grandes (20). En el generador personalizado puedes elegir entre 3 y 50 canciones por cartón."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Necesito Spotify para jugar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Puedes jugar con cualquier reproductor de música. Spotify es solo una opción cómoda para usar playlists ya preparadas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Puedo crear un bingo musical personalizado?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí. Usa el generador para pegar tu lista de canciones y generar cartones únicos listos para imprimir y jugar."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
   
@@ -74,35 +130,7 @@
   <!-- i18n Support -->
   <script src="assets/js/i18n.js"></script>
 
-  <!-- Schema.org Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Bingo Musical",
-    "description": "Aplicación web para generar cartones de bingo musical gratis. Incluye 9 categorías temáticas y generador personalizado.",
-    "url": "https://bingomusicalgratis.es",
-    "applicationCategory": "EntertainmentApplication",
-    "operatingSystem": "Any",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "EUR"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "127"
-    },
-    "featureList": [
-      "9 categorías musicales temáticas",
-      "Generador personalizado de cartones",
-      "Integración con Spotify",
-      "Descarga gratuita en múltiples formatos",
-      "Compatible con dispositivos móviles"
-    ]
-  }
-  </script>
+  <!-- Nota: JSON-LD unificado arriba (WebSite/WebPage/FAQPage) -->
 
   <!-- Placeholder AdSense (comentado) -->
   <!--
@@ -400,6 +428,39 @@
           para que puedas empezar a jugar inmediatamente. Las playlists están optimizadas con las canciones 
           más populares de cada género, garantizando que todos los participantes conozcan la mayoría de los temas.
         </p>
+
+        <h3 id="faq">❓ Preguntas frecuentes sobre Bingo Musical</h3>
+        <div style="line-height: 1.8;">
+          <h4 style="margin-bottom: 0.25rem;">¿Qué es el bingo musical?</h4>
+          <p style="margin-top: 0;">
+            Es un juego como el bingo tradicional, pero con <strong>canciones</strong> en lugar de números: vas marcando en tu cartón las canciones que suenan hasta completar una línea o el cartón.
+          </p>
+
+          <h4 style="margin-bottom: 0.25rem;">¿Cómo se juega al bingo musical?</h4>
+          <p style="margin-top: 0;">
+            Reparte cartones, reproduce canciones (con una playlist) y cada jugador marca las canciones que le aparecen. Gana quien complete primero una línea o el patrón acordado.
+          </p>
+
+          <h4 style="margin-bottom: 0.25rem;">¿Dónde puedo descargar cartones de bingo musical para imprimir?</h4>
+          <p style="margin-top: 0;">
+            En nuestras categorías y en <a href="pages/cartones-listos.html" style="color: var(--primary); font-weight: 600;">Cartones Listos</a> tienes cartones ya preparados en distintos tamaños y temáticas.
+          </p>
+
+          <h4 style="margin-bottom: 0.25rem;">¿Cuántas canciones tiene un cartón?</h4>
+          <p style="margin-top: 0;">
+            Depende del tamaño: pequeños (8), medianos (12) y grandes (20). En el <a href="pages/tools/generador.html" style="color: var(--primary); font-weight: 600;">generador</a> puedes elegir entre 3 y 50 canciones por cartón.
+          </p>
+
+          <h4 style="margin-bottom: 0.25rem;">¿Necesito Spotify para jugar?</h4>
+          <p style="margin-top: 0;">
+            No. Puedes jugar con cualquier reproductor de música. Spotify es solo una opción cómoda para usar playlists.
+          </p>
+
+          <h4 style="margin-bottom: 0.25rem;">¿Puedo crear un bingo musical personalizado?</h4>
+          <p style="margin-top: 0;">
+            Sí. Pega tu lista de canciones en el generador y descarga cartones únicos listos para imprimir.
+          </p>
+        </div>
 
         <div style="background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(168,85,247,0.1)); padding: 1.5rem; border-radius: 12px; margin-top: 2rem; border-left: 4px solid var(--primary);">
           <p style="margin: 0; font-size: 1.1rem;">
