@@ -80,6 +80,14 @@
 
 /* Ocultar completamente si no hay fill */
 .sidebar-ad-container.is-empty {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+/* No mostrar el bloque/label "Publicidad" mientras esté vacío */
+.sidebar-ad-container.is-empty .sidebar-ad-slot,
+.sidebar-ad-container.is-empty .sidebar-ad-label,
+.sidebar-ad-container.is-empty .sidebar-ad-close {
   display: none !important;
 }
 

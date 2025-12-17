@@ -56,27 +56,33 @@
     return hasVisible;
   }
 
-  function hideContainerIfEmpty(containerEl, slotEl) {
-    if (!containerEl) return false;
+  function setEmptyState(containerEl, slotEl) {
+    if (!containerEl) return true;
     const hasContent = slotHasAdContent(slotEl);
-    if (!hasContent) {
-      containerEl.classList.add('is-empty');
-      containerEl.style.display = 'none';
-      return true;
+    if (hasContent) {
+      containerEl.classList.remove('is-empty');
+      return false;
     }
-    return false;
+    containerEl.classList.add('is-empty');
+    return true;
   }
 
-  function autoHideEmptySidebars() {
+  function refreshSidebarVisibility() {
     const leftSlot = document.getElementById('sidebar-left-ad');
     const rightSlot = document.getElementById('sidebar-right-ad');
 
-    const leftHidden = hideContainerIfEmpty(leftAd, leftSlot);
-    const rightHidden = hideContainerIfEmpty(rightAd, rightSlot);
+    const leftEmpty = setEmptyState(leftAd, leftSlot);
+    const rightEmpty = setEmptyState(rightAd, rightSlot);
 
-    if (leftHidden && rightHidden) {
+    // If both are empty, remove reserved padding (CSS uses this class).
+    if (leftEmpty && rightEmpty) {
       document.body.classList.add('no-sidebar-ads');
+    } else {
+      document.body.classList.remove('no-sidebar-ads');
     }
+
+    // Re-run scroll opacity rules with the new empty state.
+    handleScroll();
   }
   
   /**
@@ -110,9 +116,17 @@
     // Ejecutar una vez al cargar
     handleScroll();
 
-    // Si no hay fill (adblock / sin inventario), oculta los laterales tras un breve delay.
-    setTimeout(autoHideEmptySidebars, 3500);
-    setTimeout(autoHideEmptySidebars, 9000);
+    // Hide empty placeholders, but allow late-fill (AdSense/Monetag can inject after a delay).
+    refreshSidebarVisibility();
+    setTimeout(refreshSidebarVisibility, 1500);
+    setTimeout(refreshSidebarVisibility, 4500);
+    setTimeout(refreshSidebarVisibility, 12000);
+
+    const leftSlot = document.getElementById('sidebar-left-ad');
+    const rightSlot = document.getElementById('sidebar-right-ad');
+    const observer = new MutationObserver(() => refreshSidebarVisibility());
+    if (leftSlot) observer.observe(leftSlot, { childList: true, subtree: true, attributes: true });
+    if (rightSlot) observer.observe(rightSlot, { childList: true, subtree: true, attributes: true });
     
     // Marcar como inicializado
     adsInitialized = true;
@@ -132,11 +146,11 @@
       const shouldShow = scrollTop > CONFIG.showAdsAfterScroll;
       
       if (leftAd && !leftAdClosed) {
-        leftAd.style.opacity = shouldShow ? '1' : '0';
+        leftAd.style.opacity = (shouldShow && !leftAd.classList.contains('is-empty')) ? '1' : '0';
       }
       
       if (rightAd && !rightAdClosed) {
-        rightAd.style.opacity = shouldShow ? '1' : '0';
+        rightAd.style.opacity = (shouldShow && !rightAd.classList.contains('is-empty')) ? '1' : '0';
       }
     }
     
