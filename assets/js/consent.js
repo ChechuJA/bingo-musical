@@ -23,8 +23,7 @@ gtag('consent', 'default', {
 // Detect if user is in EEA/UK/CH (required regions)
 function isEEAUser() {
   // This is a simplified check. In production, use geolocation API or server-side detection
-  // For now, show to everyone to be safe
-  return true;
+  return false;
 }
 
 // Check if user has already consented
@@ -104,6 +103,17 @@ function showManageOptions() {
   }
 }
 
+// Site preference: never show CMP UI.
+function disableCmpUiEverywhere() {
+  hideConsentBanner();
+  hideManageOptions();
+
+  const settingsLink = document.getElementById('consent-settings-link');
+  if (settingsLink) {
+    settingsLink.style.display = 'none';
+  }
+}
+
 // Hide manage options modal
 function hideManageOptions() {
   const modal = document.getElementById('consent-modal');
@@ -140,6 +150,8 @@ function initGoogleCMP() {
 
 // Event handlers
 document.addEventListener('DOMContentLoaded', () => {
+  disableCmpUiEverywhere();
+
   // Initialize CMP
   initGoogleCMP();
 

@@ -25,6 +25,59 @@
   
   // Elementos
   let leftAd, rightAd, footer;
+
+  function slotHasAdContent(slotEl) {
+    if (!slotEl) return false;
+
+    // Any iframe usually means a filled ad.
+    if (slotEl.querySelector('iframe')) return true;
+
+    // AdSense marks unfilled ads with data-ad-status="unfilled".
+    const adsbygoogle = slotEl.querySelector('ins.adsbygoogle');
+    if (adsbygoogle) {
+      const status = (adsbygoogle.getAttribute('data-ad-status') || '').toLowerCase();
+      if (status === 'unfilled') return false;
+      return true;
+    }
+
+    // Monetag native may inject DOM nodes (not always if blocked).
+    const elementChildren = Array.from(slotEl.children).filter(el => el.tagName !== 'SCRIPT');
+    if (elementChildren.length === 0) return false;
+
+    // If all children are empty containers without iframe/text, treat as empty.
+    const hasVisible = elementChildren.some(el => {
+      if (el.querySelector && el.querySelector('iframe')) return true;
+      const text = (el.textContent || '').trim();
+      if (text.length > 0) return true;
+      const rect = el.getBoundingClientRect ? el.getBoundingClientRect() : { width: 0, height: 0 };
+      return (rect.width > 10 && rect.height > 10);
+    });
+
+    return hasVisible;
+  }
+
+  function hideContainerIfEmpty(containerEl, slotEl) {
+    if (!containerEl) return false;
+    const hasContent = slotHasAdContent(slotEl);
+    if (!hasContent) {
+      containerEl.classList.add('is-empty');
+      containerEl.style.display = 'none';
+      return true;
+    }
+    return false;
+  }
+
+  function autoHideEmptySidebars() {
+    const leftSlot = document.getElementById('sidebar-left-ad');
+    const rightSlot = document.getElementById('sidebar-right-ad');
+
+    const leftHidden = hideContainerIfEmpty(leftAd, leftSlot);
+    const rightHidden = hideContainerIfEmpty(rightAd, rightSlot);
+
+    if (leftHidden && rightHidden) {
+      document.body.classList.add('no-sidebar-ads');
+    }
+  }
   
   /**
    * Inicializar sidebar ads
@@ -56,6 +109,10 @@
     
     // Ejecutar una vez al cargar
     handleScroll();
+
+    // Si no hay fill (adblock / sin inventario), oculta los laterales tras un breve delay.
+    setTimeout(autoHideEmptySidebars, 3500);
+    setTimeout(autoHideEmptySidebars, 9000);
     
     // Marcar como inicializado
     adsInitialized = true;

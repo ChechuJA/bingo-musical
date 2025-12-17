@@ -1,5 +1,5 @@
 
-const CACHE_NAME = 'bingo-musical-v8'; // Updated for folder reorganization
+const CACHE_NAME = 'bingo-musical-v9'; // Disable CMP UI + sidebar bars
 const OFFLINE_URL = '/offline.html';
 const ASSETS = [
   '/',
@@ -28,12 +28,14 @@ const ASSETS = [
   '/pages/legal/about.html',
   // Assets
   '/assets/css/styles.css',
+  '/assets/css/sidebar-ads.css',
   '/assets/css/online.css',
   '/assets/js/app.js',
   '/assets/js/app-category.js',
   '/assets/js/i18n.js',
   '/assets/js/online.js',
   '/assets/js/consent.js',
+  '/assets/js/sidebar-ads.js',
   '/manifest.json',
   '/offline.html',
   // Data

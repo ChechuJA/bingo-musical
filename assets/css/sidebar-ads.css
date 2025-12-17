@@ -78,6 +78,11 @@
   pointer-events: none;
 }
 
+/* Ocultar completamente si no hay fill */
+.sidebar-ad-container.is-empty {
+  display: none !important;
+}
+
 /* Sticky behavior - se mueve con el scroll pero respeta límites */
 .sidebar-ad-container.sticky {
   position: fixed;
@@ -239,6 +244,12 @@
 @media (min-width: 1400px) {
   .main-content-wrapper {
     padding: 0 200px; /* Espacio para los sidebars */
+  }
+}
+
+@media (min-width: 1400px) {
+  body.no-sidebar-ads .main-content-wrapper {
+    padding: 0 20px;
   }
 }
 
