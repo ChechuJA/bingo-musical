@@ -107,15 +107,48 @@ const BingoBotKnowledge = {
       perfect: 'eventos grandes, variedad de gustos musicales',
       url: '/pages/categories/mix.html',
       keywords: ['mix', 'mezcla', 'variado', 'todos', 'grande']
+    },
+    {
+      name: 'Disney',
+      emoji: '🏰',
+      songs: 20,
+      cards: 50,
+      sizes: 'pequeños',
+      description: 'canciones de películas Disney',
+      perfect: 'fiestas infantiles, cumpleaños, fans de Disney',
+      url: '/pages/cartones-listos.html#disney',
+      keywords: ['disney', 'mickey', 'princesas', 'pixar', 'niños', 'películas', 'animación']
+    },
+    {
+      name: 'Infantil',
+      emoji: '🎈',
+      songs: 12,
+      cards: 60,
+      sizes: 'especial',
+      description: 'canciones populares infantiles',
+      perfect: 'guarderías, cumpleaños de peques, fiestas infantiles',
+      url: '/pages/cartones-listos.html#infantil',
+      keywords: ['infantil', 'niños', 'peques', 'vaca lola', 'baby shark', 'bartolito', 'guarderia']
+    },
+    {
+      name: 'Villancicos Infantil',
+      emoji: '🎅',
+      songs: 15,
+      cards: 40,
+      sizes: 'especial',
+      description: 'villancicos para niños',
+      perfect: 'navidad con niños, colegios, fiestas infantiles navideñas',
+      url: '/pages/cartones-listos.html#villancicos-infantil',
+      keywords: ['villancicos niños', 'navidad infantil', 'reyes magos', 'papa noel niños', 'navidad cole']
     }
   ],
   
   // Respuestas rápidas comunes
   quickResponses: {
     greeting: [
-      '¡Hola! 🎵 ¿Qué tipo de evento estás organizando?',
-      '¡Bienvenido! 🎶 ¿En qué puedo ayudarte hoy?',
-      '¡Hola! 🎵 Cuéntame sobre tu fiesta y te recomiendo los mejores cartones.'
+      '¡Hola! 🎵 ¿Qué tipo de evento estás organizando?\n\n*Prueba: "Disney", "Cumpleaños infantil" o "Música rock"*',
+      '¡Bienvenido! 🎶 ¿En qué puedo ayudarte hoy?\n\n*Prueba: "Cartones de Navidad", "Rock para adultos" o "Generador"*',
+      '¡Hola! 🎵 Cuéntame sobre tu fiesta y te recomiendo los mejores cartones.\n\n*Ejemplo: "Quiero música para niños" o "Fiesta de los 80"*'
     ],
     
     gratis: [
@@ -210,7 +243,18 @@ Dime con otras palabras.`,
 Email: contacto@bingomusicalgratis.es
 [📱 Formulario](/pages/legal/contacto.html)
 
-Respuesta en 24-48h.`
+Respuesta en 24-48h.`,
+
+    juegos: `🎮 **Juegos Musicales Online**
+
+¡Diversión extra para los peques! (y no tan peques)
+Tenemos una sección de juegos interactivos:
+
+• 🎵 Adivina la canción
+• 🎹 Trivial musical
+• 🎼 Memory musical
+
+[🎮 Jugar Ahora](https://juegos.bingomusicalgratis.es)`
   }
 };
 
@@ -288,6 +332,12 @@ class BingoBotEngine {
     if (/(imprimir|impresion|print|papel)/.test(msg)) {
       return 'printing';
     }
+
+    // Juegos Online
+    if (/(juego|jugar|online|divertido|entretenimiento|minijuego|adivina|trivial)/.test(msg) &&
+        /(online|linea|web|niños|peques|gratis)/.test(msg)) {
+      return 'games';
+    }
     
     // Buscar categoría por evento
     if (/(evento|fiesta|celebracion|party|reunion)/.test(msg) ||
@@ -338,9 +388,14 @@ class BingoBotEngine {
     else if (/(familia|familiar|casa|reunion)/.test(msg)) entities.eventType = 'familiar';
     
     // Detectar edad
-    if (/(niño|niños|infantil|kid|pequeño)/.test(msg)) entities.age = 'niños';
+    if (/(niño|niños|infantil|kid|pequeño|disney|pixar)/.test(msg)) entities.age = 'niños';
     else if (/(adolescente|teen|joven)/.test(msg)) entities.age = 'adolescentes';
     else if (/(adulto|mayor|grande)/.test(msg)) entities.age = 'adultos';
+    
+    // Inferencia: Si se menciona una categoría infantil, asumir edad niños
+    if (entities.categories.some(c => ['Disney', 'Infantil', 'Villancicos Infantil'].includes(c.name))) {
+      entities.age = 'niños';
+    }
     
     return entities;
   }
@@ -375,13 +430,16 @@ class BingoBotEngine {
         return this.knowledge.quickResponses.tamaños;
       
       case 'kids':
-        return this.knowledge.quickResponses.ninos;
+        return this.recommendCategory({ age: 'niños' });
       
       case 'printing':
         return this.knowledge.quickResponses.formatos;
       
       case 'contact':
         return this.knowledge.quickResponses.contacto;
+
+      case 'games':
+        return this.knowledge.quickResponses.juegos;
       
       case 'findCategory':
         return this.recommendCategory(entities);
@@ -402,11 +460,22 @@ class BingoBotEngine {
     // Por tipo de evento
     if (entities.eventType === 'cumpleaños') {
       recommendations = entities.age === 'niños' 
-        ? [this.knowledge.categories.find(c => c.name === 'Cumpleaños')]
+        ? [
+            this.knowledge.categories.find(c => c.name === 'Cumpleaños'),
+            this.knowledge.categories.find(c => c.name === 'Disney'),
+            this.knowledge.categories.find(c => c.name === 'Infantil')
+          ]
         : [this.knowledge.categories.find(c => c.name === 'Cumpleaños'),
            this.knowledge.categories.find(c => c.name === 'Pop Latino')];
     } else if (entities.eventType === 'navidad') {
-      recommendations = [this.knowledge.categories.find(c => c.name === 'Navidad')];
+      if (entities.age === 'niños') {
+        recommendations = [
+            this.knowledge.categories.find(c => c.name === 'Navidad'),
+            this.knowledge.categories.find(c => c.name === 'Villancicos Infantil')
+        ];
+      } else {
+        recommendations = [this.knowledge.categories.find(c => c.name === 'Navidad')];
+      }
     } else if (entities.eventType === 'boda') {
       recommendations = [
         this.knowledge.categories.find(c => c.name === 'Pop Latino'),
@@ -421,8 +490,10 @@ class BingoBotEngine {
       // Por edad
       if (entities.age === 'niños') {
         recommendations = [
+          this.knowledge.categories.find(c => c.name === 'Infantil'),
+          this.knowledge.categories.find(c => c.name === 'Disney'),
           this.knowledge.categories.find(c => c.name === 'Cumpleaños'),
-          this.knowledge.categories.find(c => c.name === 'Navidad')
+          this.knowledge.categories.find(c => c.name === 'Villancicos Infantil')
         ];
       } else if (entities.age === 'adolescentes') {
         recommendations = [
@@ -461,11 +532,13 @@ class BingoBotEngine {
     }
     
     const cat = categories[0];
+    const sizesText = isNaN(cat.sizes) ? cat.sizes : `${cat.sizes} tamaños`;
+    
     return `${cat.emoji} **${cat.name}**
 
 📦 **Incluye**:
-• ${cat.songs} ${cat.description}
-• ${cat.cards} cartones (${cat.sizes} tamaños)
+• ${cat.songs} canciones (${cat.description})
+• ${cat.cards} cartones (${sizesText})
 • Playlists de Spotify curadas
 
 ✨ **Perfecto para**: ${cat.perfect}
