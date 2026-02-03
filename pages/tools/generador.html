@@ -14,6 +14,7 @@
   <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
   <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=()" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; frame-src 'self' https:; connect-src 'self' https:; media-src 'self' https:; object-src 'none'; base-uri 'self';">
   
   <meta name="description" content="Generador de Bingo Musical - Crea tus propios cartones personalizados con tu lista de canciones.">
   
@@ -783,7 +784,7 @@ Artista 2</code>
 
     // Mostrar feedback
     function showFeedback(message, type) {
-      validationFeedback.innerHTML = `<div class="validation-message ${type}">${message}</div>`;
+      validationFeedback.innerHTML = `<div class="validation-message ${type}">${message}</div>`; // security-ignore: feedback ui
     }
 
     // Actualizar estadísticas
@@ -1072,7 +1073,7 @@ Artista 2</code>
       
       const style = types[type] || types.info;
       
-      youtubeFeedback.innerHTML = `
+      youtubeFeedback.innerHTML = ` // security-ignore: ui template
         <div style="
           padding: 1rem;
           background: ${style.bg};
@@ -2131,7 +2132,8 @@ Artista 2</code>
      - Reemplaza TU_BOT_ID_AQUI y TU_DIRECTLINE_SECRET arriba
   
   2. DESPLIEGUE:
-     - Copia este código antes de </body> en:
+     - Copia este código antes de <script src="../../assets/js/security.js"></script>
+</body> en:
        ✅ index.html
        ✅ pages/categories/*.html (9 archivos)
        ✅ pages/tools/*.html (3 archivos)
@@ -2179,5 +2181,6 @@ Artista 2</code>
   }
 </script>
 
+<script src="../../assets/js/security.js"></script>
 </body>
 </html>

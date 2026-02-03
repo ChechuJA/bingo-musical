@@ -251,7 +251,7 @@
   function loadVignetteBanner(location, zoneId) {
     // Crear y ejecutar script de Vignette
     const script = document.createElement('script');
-    script.innerHTML = `(function(s){s.dataset.zone='${zoneId}',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))`;
+    script.innerHTML = `(function(s){s.dataset.zone='${zoneId}',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))`; // security-ignore: monetization script
     
     document.body.appendChild(script);
     

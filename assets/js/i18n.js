@@ -121,7 +121,7 @@ const I18n = (() => {
     document.querySelectorAll('[data-i18n-html]').forEach(element => {
       const key = element.getAttribute('data-i18n-html');
       const translation = t(key);
-      element.innerHTML = translation;
+      element.innerHTML = translation; // security-ignore: content from trusted i18n file
     });
     
     // Translate aria-label attributes

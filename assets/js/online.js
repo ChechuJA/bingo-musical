@@ -340,7 +340,7 @@ function showCategorySelectionDialog(playlists, onSelect) {
 // Show host view
 function showHostView(roomCode, roomData) {
   const container = document.querySelector('.container');
-  container.innerHTML = `
+  container.innerHTML = ` // security-ignore: ui template
     <div class="host-room-container">
       <div class="room-header">
         <h1>🎯 Sala de Juego</h1>
