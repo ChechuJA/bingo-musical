@@ -47,7 +47,7 @@ Este documento contiene todas las canciones utilizadas en el Bingo Musical vario
 41 Camela - Cuando zarpa el amor
 42 Bad Bunny - Yo perreo sola
 43 El simbolo - Levantando las manos
-44 David Bisbal - Si Tu la Quieres
+44 David Bisbal - Buleria
 45 King Africa - Bomba
 46 Katy Perry - Roar
 47 Sebastian Yatra - Tacones rojos

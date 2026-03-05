@@ -35,7 +35,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 9 - 45 King Africa - Bomba
 10 - 28 Shakira - Pa Tipos Como Tú
 11 - 17 Zapato veloz - Tractor amarillo
-12 - 42 Bab Bunny - Yo perreo sola
+12 - 42 Bad Bunny - Yo perreo sola
 
 ---
 
@@ -49,7 +49,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 6 - 24 El Canto del Loco - Zapatillas
 7 - 12 Joaquín Sabina - Y nos dieron las 10
 8 - 15 Pereza - Princesa
-9 - 42 Bab Bunny - Yo perreo sola
+9 - 42 Bad Bunny - Yo perreo sola
 10 - 33 Proyecto Uno - El Tiburón
 11 - 4 Coyote Dax - No Rompas Más
 12 - 38 David Civera - Que la detengan
@@ -62,7 +62,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 1 - 48 Juan Magan - Ayer la vi
 2 - 21 Gente de zona - La Gozadera
 3 - 8 Alaska - A quien le importa
-4 - 44 David Bisbal - Si tu quieres
+4 - 44 David Bisbal - Buleria
 5 - 15 Pereza - Princesa
 6 - 45 King Africa - Bomba
 7 - 26 Aitana - Las Babys
@@ -371,7 +371,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 
 ## Cartón 22
 
-1 - 42 Bab Bunny - Yo perreo sola
+1 - 42 Bad Bunny - Yo perreo sola
 2 - 48 Juan Magan - Ayer la vi
 3 - 37 La fiesta - Quiero montarme en tu velero
 4 - 11 Baby Lores - La mujer del pelotero
@@ -445,7 +445,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 3 - 14 Don Omar - Danza Kuduro
 4 - 39 Paulina Rubio - Y yo sigo aquí
 5 - 6 Georgie Dann - La Barbacoa
-6 - 42 Bab Bunny - Yo perreo sola
+6 - 42 Bad Bunny - Yo perreo sola
 7 - 5 Isabel Aaiun - El himno de mi peña
 8 - 47 Sebastian Yatra - Tacones rojos
 9 - 48 Juan Magan - Ayer la vi
@@ -475,7 +475,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 
 ## Cartón 28
 
-1 - 42 Bab Bunny - Yo perreo sola
+1 - 42 Bad Bunny - Yo perreo sola
 2 - 48 Juan Magan - Ayer la vi
 3 - 1 Los Del Rio - La Macarena
 4 - 14 Don Omar - Danza Kuduro
@@ -532,7 +532,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 3 - 1 Los Del Rio - La Macarena
 4 - 11 Baby Lores - La mujer del pelotero
 5 - 39 Paulina Rubio - Y yo sigo aquí
-6 - 42 Bab Bunny - Yo perreo sola
+6 - 42 Bad Bunny - Yo perreo sola
 7 - 47 Sebastian Yatra - Tacones rojos
 8 - 6 Georgie Dann - La Barbacoa
 9 - 23 King Africa - Paquito el Chocolatero
@@ -545,7 +545,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 ## Cartón 32
 
 1 - 41 Camela - Cuando zarpa el amor
-2 - 42 Bab Bunny - Yo perreo sola
+2 - 42 Bad Bunny - Yo perreo sola
 3 - 23 King Africa - Paquito el Chocolatero
 4 - 7 Raphael - Mi gran noche
 5 - 31 Lola Indigo - La reina
@@ -659,14 +659,14 @@ Este documento contiene el listado completo de las canciones de todos los carton
 9 - 21 Gente de zona - La Gozadera
 10 - 23 King Africa - Paquito el Chocolatero
 11 - 17 Zapato veloz - Tractor amarillo
-12 - 42 Bab Bunny - Yo perreo sola
+12 - 42 Bad Bunny - Yo perreo sola
 
 ---
 
 ## Cartón 39
 
 1 - 6 Georgie Dann - La Barbacoa
-2 - 42 Bab Bunny - Yo perreo sola
+2 - 42 Bad Bunny - Yo perreo sola
 3 - 45 King Africa - Bomba
 4 - 38 David Civera - Que la detengan
 5 - 37 La fiesta - Quiero montarme en tu velero
@@ -754,7 +754,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 
 1 - 3 El Consorcio - El Chacacha del Tren
 2 - 12 Joaquín Sabina - Y nos dieron las 10
-3 - 42 Bab Bunny - Yo perreo sola
+3 - 42 Bad Bunny - Yo perreo sola
 4 - 6 Georgie Dann - La Barbacoa
 5 - 31 Lola Indigo - La reina
 6 - 47 Sebastian Yatra - Tacones rojos
@@ -771,7 +771,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 
 1 - 8 Alaska - A quien le importa
 2 - 37 La fiesta - Quiero montarme en tu velero
-3 - 42 Bab Bunny - Yo perreo sola
+3 - 42 Bad Bunny - Yo perreo sola
 4 - 6 Georgie Dann - La Barbacoa
 5 - 48 Juan Magan - Ayer la vi
 6 - 43 El simbolo - Levantando las manos
@@ -795,7 +795,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 6 - 29 Luck Ra - La morocha
 7 - 9 Radio Futura - Escuela de Calor
 8 - 40 Vicco - Nochentera
-9 - 42 Bab Bunny - Yo perreo sola
+9 - 42 Bad Bunny - Yo perreo sola
 10 - 27 Chocolate Latino - Mayonesa
 11 - 36 Karol G - Si antes te hubiera conocido
 12 - 10 CNCO - Reguetón Lento
@@ -808,7 +808,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 2 - 15 Pereza - Princesa
 3 - 18 Amaral - Mis amigos
 4 - 4 Coyote Dax - No Rompas Más
-5 - 42 Bab Bunny - Yo perreo sola
+5 - 42 Bad Bunny - Yo perreo sola
 6 - 37 La fiesta - Quiero montarme en tu velero
 7 - 25 Los refrescos - Aquí no hay playa
 8 - 10 CNCO - Reguetón Lento
@@ -839,7 +839,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 
 ## Cartón 49
 
-1 - 42 Bab Bunny - Yo perreo sola
+1 - 42 Bad Bunny - Yo perreo sola
 2 - 48 Juan Magan - Ayer la vi
 3 - 18 Amaral - Mis amigos
 4 - 14 Don Omar - Danza Kuduro
@@ -892,7 +892,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 ## Cartón 52
 
 1 - 17 Zapato veloz - Tractor amarillo
-2 - 42 Bab Bunny - Yo perreo sola
+2 - 42 Bad Bunny - Yo perreo sola
 3 - 49 ROSÉ & Bruno Mars - APT
 4 - 18 Amaral - Mis amigos
 5 - 12 Joaquín Sabina - Y nos dieron las 10
@@ -919,7 +919,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 9 - 23 King Africa - Paquito el Chocolatero
 10 - 3 El Consorcio - El Chacacha del Tren
 11 - 21 Gente de zona - La Gozadera
-12 - 42 Bab Bunny - Yo perreo sola
+12 - 42 Bad Bunny - Yo perreo sola
 
 ---
 
@@ -977,7 +977,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 
 ## Cartón 57
 
-1 - 42 Bab Bunny - Yo perreo sola
+1 - 42 Bad Bunny - Yo perreo sola
 2 - 3 El Consorcio - El Chacacha del Tren
 3 - 18 Amaral - Mis amigos
 4 - 21 Gente de zona - La Gozadera
@@ -1047,7 +1047,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 
 ## Cartón 61
 
-1 - 42 Bab Bunny - Yo perreo sola
+1 - 42 Bad Bunny - Yo perreo sola
 2 - 1 Los Del Rio - La Macarena
 3 - 18 Amaral - Mis amigos
 4 - 11 Baby Lores - La mujer del pelotero
@@ -1082,7 +1082,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 ## Cartón 63
 
 1 - 40 Vicco - Nochentera
-2 - 42 Bab Bunny - Yo perreo sola
+2 - 42 Bad Bunny - Yo perreo sola
 3 - 5 Isabel Aaiun - El himno de mi peña
 4 - 6 Georgie Dann - La Barbacoa
 5 - 41 Camela - Cuando zarpa el amor
@@ -1170,7 +1170,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 
 1 - 35 Las ketchup - Asereje
 2 - 48 Juan Magan - Ayer la vi
-3 - 42 Bab Bunny - Yo perreo sola
+3 - 42 Bad Bunny - Yo perreo sola
 4 - 14 Don Omar - Danza Kuduro
 5 - 28 Shakira - Pa Tipos Como Tú
 6 - 18 Amaral - Mis amigos
@@ -1231,7 +1231,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 9 - 35 Las ketchup - Asereje
 10 - 40 Vicco - Nochentera
 11 - 20 La pegatina - Mari Carmen
-12 - 42 Bab Bunny - Yo perreo sola
+12 - 42 Bad Bunny - Yo perreo sola
 
 ---
 
@@ -1241,7 +1241,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 2 - 44 David Bisbal - Buleria
 3 - 33 Proyecto Uno - El Tiburón
 4 - 6 Georgie Dann - La Barbacoa
-5 - 42 Bab Bunny - Yo perreo sola
+5 - 42 Bad Bunny - Yo perreo sola
 6 - 28 Shakira - Pa Tipos Como Tú
 7 - 40 Vicco - Nochentera
 8 - 7 Raphael - Mi gran noche
@@ -1436,7 +1436,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 6 - 7 Raphael - Mi gran noche
 7 - 5 Isabel Aaiun - El himno de mi peña
 8 - 33 Proyecto Uno - El Tiburón
-9 - 42 Bab Bunny - Yo perreo sola
+9 - 42 Bad Bunny - Yo perreo sola
 10 - 4 Coyote Dax - No Rompas Más
 11 - 17 Zapato veloz - Tractor amarillo
 12 - 28 Shakira - Pa Tipos Como Tú
@@ -1626,7 +1626,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 5 - 5 Isabel Aaiun - El himno de mi peña
 6 - 47 Sebastian Yatra - Tacones rojos
 7 - 35 Las ketchup - Asereje
-8 - 42 Bab Bunny - Yo perreo sola
+8 - 42 Bad Bunny - Yo perreo sola
 9 - 36 Karol G - Si antes te hubiera conocido
 10 - 4 Coyote Dax - No Rompas Más
 11 - 25 Los refrescos - Aquí no hay playa
@@ -1653,7 +1653,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 
 ## Cartón 96
 
-1 - 42 Bab Bunny - Yo perreo sola
+1 - 42 Bad Bunny - Yo perreo sola
 2 - 43 El simbolo - Levantando las manos
 3 - 21 Gente de zona - La Gozadera
 4 - 6 Georgie Dann - La Barbacoa
@@ -1674,7 +1674,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 1 - 38 David Civera - Que la detengan
 2 - 43 El simbolo - Levantando las manos
 3 - 18 Amaral - Mis amigos
-4 - 42 Bab Bunny - Yo perreo sola
+4 - 42 Bad Bunny - Yo perreo sola
 5 - 17 Zapato veloz - Tractor amarillo
 6 - 45 King Africa - Bomba
 7 - 12 Joaquín Sabina - Y nos dieron las 10
@@ -1699,7 +1699,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 9 - 17 Zapato veloz - Tractor amarillo
 10 - 38 David Civera - Que la detengan
 11 - 33 Proyecto Uno - El Tiburón
-12 - 42 Bab Bunny - Yo perreo sola
+12 - 42 Bad Bunny - Yo perreo sola
 
 ---
 
@@ -1820,7 +1820,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 9 - 14 Don Omar - Danza Kuduro
 10 - 35 Las ketchup - Asereje
 11 - 2 La Oreja de Van Gogh - Rosas
-12 - 42 Bab Bunny - Yo perreo sola
+12 - 42 Bad Bunny - Yo perreo sola
 
 ---
 # Diapositiva 36
@@ -1865,7 +1865,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 2 - 47 Sebastian Yatra - Tacones rojos
 3 - 21 Gente de zona - La Gozadera
 4 - 27 Chocolate Latino - Mayonesa
-5 - 42 Bab Bunny - Yo perreo sola
+5 - 42 Bad Bunny - Yo perreo sola
 6 - 43 El simbolo - Levantando las manos
 7 - 1 Los Del Rio - La Macarena
 8 - 40 Vicco - Nochentera
@@ -1951,7 +1951,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 1 - 38 David Civera - Que la detengan
 2 - 21 Gente de zona - La Gozadera
 3 - 45 King Africa - Bomba
-4 - 42 Bab Bunny - Yo perreo sola
+4 - 42 Bad Bunny - Yo perreo sola
 5 - 31 Lola Indigo - La reina
 6 - 7 Raphael - Mi gran noche
 7 - 13 Nino Bravo - Libre
@@ -1966,7 +1966,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 ## Cartón 114
 
 1 - 13 Nino Bravo - Libre
-2 - 42 Bab Bunny - Yo perreo sola
+2 - 42 Bad Bunny - Yo perreo sola
 3 - 3 El Consorcio - El Chacacha del Tren
 4 - 26 Aitana - Las Babys
 5 - 18 Amaral - Mis amigos
@@ -2011,7 +2011,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 9 - 21 Gente de zona - La Gozadera
 10 - 38 David Civera - Que la detengan
 11 - 8 Alaska - A quien le importa
-12 - 42 Bab Bunny - Yo perreo sola
+12 - 42 Bad Bunny - Yo perreo sola
 
 ---
 
@@ -2024,7 +2024,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 5 - 21 Gente de zona - La Gozadera
 6 - 3 El Consorcio - El Chacacha del Tren
 7 - 26 Aitana - Las Babys
-8 - 42 Bab Bunny - Yo perreo sola
+8 - 42 Bad Bunny - Yo perreo sola
 9 - 44 David Bisbal - Buleria
 10 - 33 Proyecto Uno - El Tiburón
 11 - 2 La Oreja de Van Gogh - Rosas
@@ -2043,7 +2043,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 6 - 32 Melendi - Caminando por la vida
 7 - 5 Isabel Aaiun - El himno de mi peña
 8 - 35 Las ketchup - Asereje
-9 - 42 Bab Bunny - Yo perreo sola
+9 - 42 Bad Bunny - Yo perreo sola
 10 - 25 Los refrescos - Aquí no hay playa
 11 - 28 Shakira - Pa Tipos Como Tú
 12 - 16 Izal - La Mujer de Verde
@@ -2058,7 +2058,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 43 El simbolo - Levantando las manos
 5 - 31 Lola Indigo - La reina
 6 - 32 Melendi - Caminando por la vida
-7 - 42 Bab Bunny - Yo perreo sola
+7 - 42 Bad Bunny - Yo perreo sola
 8 - 7 Raphael - Mi gran noche
 9 - 44 David Bisbal - Buleria
 10 - 4 Coyote Dax - No Rompas Más
@@ -2070,7 +2070,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 ## Cartón 120
 
 1 - 35 Las ketchup - Asereje
-2 - 42 Bab Bunny - Yo perreo sola
+2 - 42 Bad Bunny - Yo perreo sola
 3 - 1 Los Del Rio - La Macarena
 4 - 6 Georgie Dann - La Barbacoa
 5 - 19 Myke Towers - Esa Falda
@@ -2184,7 +2184,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 9 - 14 Don Omar - Danza Kuduro
 10 - 27 Chocolate Latino - Mayonesa
 11 - 2 La Oreja de Van Gogh - Rosas
-12 - 42 Bab Bunny - Yo perreo sola
+12 - 42 Bad Bunny - Yo perreo sola
 
 ---
 # Diapositiva 43
@@ -2244,7 +2244,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 ## Cartón 130
 
 1 - 29 Luck Ra - La morocha
-2 - 42 Bab Bunny - Yo perreo sola
+2 - 42 Bad Bunny - Yo perreo sola
 3 - 1 Los Del Rio - La Macarena
 4 - 14 Don Omar - Danza Kuduro
 5 - 33 Proyecto Uno - El Tiburón
@@ -2271,14 +2271,14 @@ Este documento contiene el listado completo de las canciones de todos los carton
 9 - 12 Joaquín Sabina - Y nos dieron las 10
 10 - 23 King Africa - Paquito el Chocolatero
 11 - 17 Zapato veloz - Tractor amarillo
-12 - 42 Bab Bunny - Yo perreo sola
+12 - 42 Bad Bunny - Yo perreo sola
 
 ---
 
 ## Cartón 132
 
 1 - 26 Aitana - Las Babys
-2 - 42 Bab Bunny - Yo perreo sola
+2 - 42 Bad Bunny - Yo perreo sola
 3 - 8 Alaska - A quien le importa
 4 - 5 Isabel Aaiun - El himno de mi peña
 5 - 27 Chocolate Latino - Mayonesa
@@ -2299,7 +2299,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 2 - 35 Las ketchup - Asereje
 3 - 18 Amaral - Mis amigos
 4 - 28 Shakira - Pa Tipos Como Tú
-5 - 42 Bab Bunny - Yo perreo sola
+5 - 42 Bad Bunny - Yo perreo sola
 6 - 43 El simbolo - Levantando las manos
 7 - 5 Isabel Aaiun - El himno de mi peña
 8 - 23 King Africa - Paquito el Chocolatero
@@ -2375,7 +2375,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 9 - 34 Estopa - Por la Raja de tu Falda
 10 - 23 King Africa - Paquito el Chocolatero
 11 - 21 Gente de zona - La Gozadera
-12 - 42 Bab Bunny - Yo perreo sola
+12 - 42 Bad Bunny - Yo perreo sola
 
 ---
 
@@ -2384,7 +2384,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 1 - 38 David Civera - Que la detengan
 2 - 12 Joaquín Sabina - Y nos dieron las 10
 3 - 3 El Consorcio - El Chacacha del Tren
-4 - 42 Bab Bunny - Yo perreo sola
+4 - 42 Bad Bunny - Yo perreo sola
 5 - 18 Amaral - Mis amigos
 6 - 21 Gente de zona - La Gozadera
 7 - 10 CNCO - Reguetón Lento
@@ -2399,7 +2399,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 
 ## Cartón 139
 
-1 - 42 Bab Bunny - Yo perreo sola
+1 - 42 Bad Bunny - Yo perreo sola
 2 - 33 Proyecto Uno - El Tiburón
 3 - 10 CNCO - Reguetón Lento
 4 - 21 Gente de zona - La Gozadera
@@ -2418,7 +2418,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 
 1 - 1 Los Del Rio - La Macarena
 2 - 15 Pereza - Princesa
-3 - 42 Bab Bunny - Yo perreo sola
+3 - 42 Bad Bunny - Yo perreo sola
 4 - 8 Alaska - A quien le importa
 5 - 31 Lola Indigo - La reina
 6 - 10 CNCO - Reguetón Lento
@@ -2434,7 +2434,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 ## Cartón 141
 
 1 - 38 David Civera - Que la detengan
-2 - 42 Bab Bunny - Yo perreo sola
+2 - 42 Bad Bunny - Yo perreo sola
 3 - 3 El Consorcio - El Chacacha del Tren
 4 - 27 Chocolate Latino - Mayonesa
 5 - 9 Radio Futura - Escuela de Calor
@@ -2469,7 +2469,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 ## Cartón 143
 
 1 - 13 Nino Bravo - Libre
-2 - 42 Bab Bunny - Yo perreo sola
+2 - 42 Bad Bunny - Yo perreo sola
 3 - 32 Melendi - Caminando por la vida
 4 - 28 Shakira - Pa Tipos Como Tú
 5 - 31 Lola Indigo - La reina
@@ -2510,7 +2510,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 5 - 15 Pereza - Princesa
 6 - 7 Raphael - Mi gran noche
 7 - 5 Isabel Aaiun - El himno de mi peña
-8 - 42 Bab Bunny - Yo perreo sola
+8 - 42 Bad Bunny - Yo perreo sola
 9 - 38 David Civera - Que la detengan
 10 - 25 Los refrescos - Aquí no hay playa
 11 - 36 Karol G - Si antes te hubiera conocido
@@ -2537,7 +2537,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 
 ## Cartón 147
 
-1 - 42 Bab Bunny - Yo perreo sola
+1 - 42 Bad Bunny - Yo perreo sola
 2 - 28 Shakira - Pa Tipos Como Tú
 3 - 3 El Consorcio - El Chacacha del Tren
 4 - 1 Los Del Rio - La Macarena
@@ -2581,7 +2581,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 7 - 3 El Consorcio - El Chacacha del Tren
 8 - 28 Shakira - Pa Tipos Como Tú
 9 - 26 Aitana - Las Babys
-10 - 42 Bab Bunny - Yo perreo sola
+10 - 42 Bad Bunny - Yo perreo sola
 11 - 17 Zapato veloz - Tractor amarillo
 12 - 19 Myke Towers - Esa Falda
 
