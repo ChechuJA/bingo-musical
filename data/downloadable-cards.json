@@ -260,6 +260,27 @@
     "nombre": "Mix Musical",
     "descripcion": "Colecciones variadas con mezclas de diferentes géneros y épocas. 150 cartones únicos por colección.",
     "subcategorias": {
+      "Mix 2026": {
+        "nombre": "Mix 2026 - Top 50 Global",
+        "descripcion": "50 canciones más sonadas del mundo en 2026 · 150 cartones únicos · 12 canciones por cartón · Formato Markdown y PowerPoint.",
+        "archivos": [
+          {
+            "nombre": "Listado Completo (50 canciones)",
+            "ruta": "cartones/mix-2026/listado-canciones-mix-2026.md",
+            "canciones": 50
+          },
+          {
+            "nombre": "Todos los Cartones Markdown (150 cartones)",
+            "ruta": "cartones/mix-2026/cartones-mix-2026-medianos-150.md",
+            "canciones": 12
+          },
+          {
+            "nombre": "Cartones PowerPoint (38 slides × 4 cartones)",
+            "ruta": "cartones/mix-2026/cartones-mix-2026-medianos-150.pptx",
+            "canciones": 12
+          }
+        ]
+      },
       "Mix 1": {
         "nombre": "Mix 1 - Pop Latino y Español",
         "descripcion": "49 canciones · 150 cartones únicos · 12 canciones por cartón · 3 cartones por hoja · Formato PDF y PowerPoint.",
