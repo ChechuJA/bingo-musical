@@ -173,6 +173,15 @@ Después de generar nuevos recursos para la web, el agente debe comprobar:
 - `data/spotify-playlists.json` si se añade soporte Spotify
 - páginas de categoría si cambia el inventario visible
 
+### Flujo oficial de limpieza/publicación (aprendido)
+Cuando se decide publicar solo variantes oficiales personalizadas:
+1. Generar `*-oficial.md`, `*-oficial.pptx` y `*-oficial.pdf` para todas las carpetas públicas aplicando el estándar visual vigente (actualmente estilo Corrala y 4 cartones/slide cuando sea viable).
+2. Para casos legacy que no encajan con el parser estándar o con la unicidad (por ejemplo algunos `grandes` y colecciones Mix antiguas), renderizar desde markdown existente de cartones (`render-from-cards-md.py`) para no perder inventario.
+3. Actualizar todas las rutas públicas (`pages/cartones-listos.html` y `data/downloadable-cards.json`) para apuntar a ficheros `-oficial` existentes.
+4. Solo después de validar rutas, borrar artefactos no oficiales (`cartones-*.md/.pptx/.pdf` sin sufijo `-oficial`) en carpetas públicas.
+5. Borrar todos los `.zip` de `cartones-descargables/` y regenerarlos con `scripts/create-downloadable-zips.py`.
+6. Verificar que no quedan enlaces `.pptx` rotos y que no quedan `NO_OFICIALES` en carpetas públicas.
+
 ## Data Quality Rules
 
 ### `data/downloadable-cards.json`

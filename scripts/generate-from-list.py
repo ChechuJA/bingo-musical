@@ -25,6 +25,8 @@ from __future__ import annotations
 import argparse
 import random
 import re
+import shutil
+import subprocess
 import sys
 from math import comb
 from pathlib import Path
@@ -50,6 +52,86 @@ THEMES: dict[str, dict] = {
         "checkbox": (120, 120, 120),
     },
 }
+
+
+def _convert_pptx_to_pdf_with_soffice(pptx_path: Path, pdf_out: Path) -> bool:
+    soffice = shutil.which("soffice") or shutil.which("libreoffice")
+    if not soffice:
+        return False
+
+    pdf_out.parent.mkdir(parents=True, exist_ok=True)
+    cmd = [
+        soffice,
+        "--headless",
+        "--convert-to",
+        "pdf",
+        "--outdir",
+        str(pdf_out.parent),
+        str(pptx_path),
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        return False
+
+    generated = pdf_out.parent / f"{pptx_path.stem}.pdf"
+    if generated.exists() and generated != pdf_out:
+        if pdf_out.exists():
+            pdf_out.unlink()
+        generated.replace(pdf_out)
+
+    return pdf_out.exists()
+
+
+def _convert_pptx_to_pdf_with_powerpoint(pptx_path: Path, pdf_out: Path) -> bool:
+    if sys.platform != "win32":
+        return False
+
+    safe_pptx = str(pptx_path.resolve()).replace("'", "''")
+    safe_pdf = str(pdf_out.resolve()).replace("'", "''")
+
+    script = f"""
+$ErrorActionPreference = 'Stop'
+$pptxPath = '{safe_pptx}'
+$pdfPath = '{safe_pdf}'
+$ppt = $null
+$presentation = $null
+try {{
+  $ppt = New-Object -ComObject PowerPoint.Application
+  $presentation = $ppt.Presentations.Open($pptxPath, $true, $true, $false)
+  $presentation.SaveAs($pdfPath, 32)
+}}
+finally {{
+  if ($presentation -ne $null) {{ $presentation.Close() }}
+  if ($ppt -ne $null) {{ $ppt.Quit() }}
+}}
+"""
+
+    result = subprocess.run(
+        ["powershell", "-NoProfile", "-NonInteractive", "-Command", script],
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        return False
+
+    return pdf_out.exists()
+
+
+def export_pptx_to_pdf(pptx_path: Path, pdf_out: Path) -> Path:
+    if not pptx_path.exists():
+        raise RuntimeError(f"No existe PPTX para exportar a PDF: {pptx_path}")
+
+    ok = _convert_pptx_to_pdf_with_soffice(pptx_path, pdf_out)
+    if not ok:
+        ok = _convert_pptx_to_pdf_with_powerpoint(pptx_path, pdf_out)
+
+    if not ok:
+        raise RuntimeError(
+            "No se pudo convertir PPTX a PDF automáticamente. "
+            "Instala LibreOffice (soffice) o Microsoft PowerPoint para habilitar la exportación."
+        )
+
+    return pdf_out
 
 
 def parse_song_list(md_path: Path) -> list[str]:
@@ -337,10 +419,11 @@ def run_wizard() -> argparse.Namespace:
     print(f"\n  Salida automatica en: {out_folder}")
     print(f"  MD  -> {out_md.name}")
 
-    # PASO 4 - PPTX
-    print("\n[PASO 4] PowerPoint (PPTX)")
+    # PASO 4 - PPTX/PDF
+    print("\n[PASO 4] PowerPoint (PPTX) y PDF")
     gen_pptx = _ask_bool("  Generar PPTX?", True)
     pptx_out = logo = None
+    pdf_out = None
     official_logo = None
     logo_width = 0.55
     official_logo_scale = 0.8
@@ -357,7 +440,12 @@ def run_wizard() -> argparse.Namespace:
 
     if gen_pptx:
         pptx_out = pptx_auto
+        pdf_auto = str(Path(pptx_out).with_suffix(".pdf"))
         print(f"  PPTX -> {Path(pptx_out).name}")
+        gen_pdf = _ask_bool("  Generar PDF imprimible desde el PPTX?", True)
+        if gen_pdf:
+            pdf_out = pdf_auto
+            print(f"  PDF  -> {Path(pdf_out).name}")
 
         official_logo_default = Path("images/logooficial.png")
         if official_logo_default.exists():
@@ -429,6 +517,7 @@ def run_wizard() -> argparse.Namespace:
         max_overlap_ratio=0.6,
         candidate_attempts=400,
         pptx_out=pptx_out,
+        pdf_out=pdf_out,
         theme=theme,
         logo=logo,
         official_logo=official_logo,
@@ -464,6 +553,8 @@ def main() -> None:
         parser.add_argument("--max-overlap-ratio", type=float, default=0.6)
         parser.add_argument("--candidate-attempts", type=int, default=400)
         parser.add_argument("--pptx-out", default=None)
+        parser.add_argument("--pdf-out", default=None, help="Ruta del PDF de salida (requiere --pptx-out)")
+        parser.add_argument("--pdf", action="store_true", help="Genera PDF junto al PPTX (mismo nombre)")
         parser.add_argument("--theme", default="default", choices=sorted(THEMES.keys()))
         parser.add_argument("--logo", default=None)
         parser.add_argument("--official-logo", default="images/logooficial.png", help="Ruta al logo oficial (izquierda en cada cartón)")
@@ -481,6 +572,15 @@ def main() -> None:
         parser.add_argument("--font-title", default=None, help="Fuente para el titulo de cada cancion (ej: 'Scriptina Pro Light')")
         parser.add_argument("--font-artist", default=None, help="Fuente para el artista de cada cancion")
         args = parser.parse_args()
+
+    if getattr(args, "pdf", False):
+        if not args.pptx_out:
+            raise SystemExit("❌ --pdf requiere --pptx-out")
+        if not getattr(args, "pdf_out", None):
+            args.pdf_out = str(Path(args.pptx_out).with_suffix(".pdf"))
+
+    if getattr(args, "pdf_out", None) and not args.pptx_out:
+        raise SystemExit("❌ --pdf-out requiere --pptx-out")
 
     songs_md = Path(args.songs_md)
     out_md = Path(args.out_md)
@@ -575,6 +675,10 @@ def main() -> None:
             font_title=getattr(args, 'font_title', None),
             font_artist=getattr(args, 'font_artist', None),
         )
+
+        if getattr(args, "pdf_out", None):
+            pdf_file = export_pptx_to_pdf(Path(args.pptx_out), Path(args.pdf_out))
+            print(f"✅ PDF guardado: {pdf_file}")
 
 
 if __name__ == "__main__":

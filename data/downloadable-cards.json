@@ -244,7 +244,7 @@
           },
           {
             "nombre": "Cartones Disney PowerPoint (Editable)",
-            "ruta": "cartones/disney/pequeños/cartones-disney-pequeños.pptx",
+            "ruta": "cartones/disney/pequeños/cartones-disney-pequeños-oficial.pptx",
             "canciones": 8
           }
         ]
@@ -271,12 +271,12 @@
           },
           {
             "nombre": "Todos los Cartones Markdown (150 cartones)",
-            "ruta": "cartones/mix-2026/cartones-mix-2026-medianos-150.md",
+            "ruta": "cartones/mix-2026/cartones-mix-2026-oficial.md",
             "canciones": 12
           },
           {
             "nombre": "Cartones PowerPoint (38 slides × 4 cartones)",
-            "ruta": "cartones/mix-2026/cartones-mix-2026-medianos-150.pptx",
+            "ruta": "cartones/mix-2026/cartones-mix-2026-oficial.pptx",
             "canciones": 12
           }
         ]
@@ -287,25 +287,25 @@
         "archivos": [
           {
             "nombre": "Listado Completo (49 canciones)",
-            "ruta": "cartones/varios/1/listado-canciones-varios-1.md",
+            "ruta": "cartones/Mix Musical/Mix 1 - Pop Latino y Español/listado-canciones-varios-1.md",
             "canciones": 49,
             "spotify": true
           },
           {
             "nombre": "Todos los Cartones Markdown (150 cartones)",
-            "ruta": "cartones/varios/1/cartones-bingo-musical-varios-1.md",
+            "ruta": "cartones/Mix Musical/Mix 1 - Pop Latino y Español/cartones-bingo-musical-varios-1.md",
             "canciones": 12,
             "spotify": true
           },
           {
             "nombre": "Cartones PDF (50 hojas × 3 cartones)",
-            "ruta": "cartones/varios/1/Cartones-Corregidos-varios-1.pdf",
+            "ruta": "cartones/Mix Musical/Mix 1 - Pop Latino y Español/Cartones-Corregidos-varios-1-oficial.pdf",
             "canciones": 12,
             "spotify": true
           },
           {
             "nombre": "Cartones PowerPoint (Editable)",
-            "ruta": "cartones/varios/1/Cartones-Corregidos-varios-1.pptx",
+            "ruta": "cartones/Mix Musical/Mix 1 - Pop Latino y Español/Cartones-Corregidos-varios-1-oficial.pptx",
             "canciones": 12,
             "spotify": true
           }

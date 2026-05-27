@@ -5,8 +5,8 @@ Lee data/playlists.json y genera cartones en formato Markdown
 """
 
 import json
-import os
 import random
+from math import comb
 from pathlib import Path
 
 # Configuración
@@ -16,18 +16,101 @@ CONFIG = {
     'grandes': {'canciones': 20, 'cartones': 40}
 }
 
+GENERATION_CONFIG = {
+    'max_overlap_ratio': 0.6,
+    'candidate_attempts': 400,
+}
+
 def load_playlists():
     """Carga el archivo playlists.json"""
     playlists_path = Path(__file__).parent.parent / 'data' / 'playlists.json'
     with open(playlists_path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
-def generate_cards(songs, num_songs, num_cards):
-    """Genera cartones únicos con canciones aleatorias"""
+def _distribution_score(counts, candidate_set, songs, generated_cards, songs_per_card):
+    mean_after = ((generated_cards + 1) * songs_per_card) / len(songs)
+    score = 0.0
+    for song in songs:
+        projected = counts[song] + (1 if song in candidate_set else 0)
+        diff = projected - mean_after
+        score += diff * diff
+    return score
+
+
+def get_song_usage(cards):
+    usage = {}
+    for card in cards:
+        for song in card:
+            usage[song] = usage.get(song, 0) + 1
+    return usage
+
+
+def generate_cards(songs, num_songs, num_cards, max_overlap_ratio=0.6, candidate_attempts=400):
+    """Genera cartones únicos, variados y balanceados"""
+    total = comb(len(songs), num_songs)
+    if total < num_cards:
+        raise RuntimeError(
+            f'No hay combinaciones suficientes para {num_cards} cartones únicos: C({len(songs)},{num_songs})={total}'
+        )
+
+    max_overlap_allowed = min(num_songs - 1, max(0, int(num_songs * max_overlap_ratio)))
+
+    counts = {song: 0 for song in songs}
+    seen = set()
+    card_sets = []
     cards = []
-    for _ in range(num_cards):
-        shuffled = random.sample(songs, num_songs)
-        cards.append(shuffled)
+
+    for generated in range(num_cards):
+        chosen_candidate = None
+        overlap_limit = max_overlap_allowed
+
+        while chosen_candidate is None and overlap_limit < num_songs:
+            best_candidate = None
+            best_score = float('inf')
+
+            for _ in range(candidate_attempts):
+                candidate = random.sample(songs, num_songs)
+                key = tuple(sorted(candidate))
+                if key in seen:
+                    continue
+
+                candidate_set = set(candidate)
+                max_overlap_found = 0
+                total_overlap = 0
+                for previous in card_sets:
+                    overlap = len(candidate_set & previous)
+                    max_overlap_found = max(max_overlap_found, overlap)
+                    total_overlap += overlap
+
+                if max_overlap_found > overlap_limit:
+                    continue
+
+                score = _distribution_score(counts, candidate_set, songs, generated, num_songs)
+                score += total_overlap * 0.15
+
+                if score < best_score:
+                    best_score = score
+                    best_candidate = candidate
+
+            if best_candidate is not None:
+                chosen_candidate = best_candidate
+            else:
+                overlap_limit += 1
+
+        if chosen_candidate is None:
+            raise RuntimeError(
+                f'No se pudo construir el cartón {generated + 1} con las restricciones actuales.'
+            )
+
+        candidate_set = set(chosen_candidate)
+        seen.add(tuple(sorted(chosen_candidate)))
+        card_sets.append(candidate_set)
+        for song in candidate_set:
+            counts[song] += 1
+
+        random.shuffle(chosen_candidate)
+        cards.append(chosen_candidate)
+
     return cards
 
 def normalize_folder_name(name):
@@ -95,9 +178,20 @@ def main():
         for size, config in CONFIG.items():
             if len(songs) >= config['canciones']:
                 print(f'  Generando cartones {size}...')
-                cards = generate_cards(songs, config['canciones'], config['cartones'])
+                cards = generate_cards(
+                    songs,
+                    config['canciones'],
+                    config['cartones'],
+                    max_overlap_ratio=GENERATION_CONFIG['max_overlap_ratio'],
+                    candidate_attempts=GENERATION_CONFIG['candidate_attempts'],
+                )
                 files = save_cards_to_markdown(category, size, cards, songs)
                 generated_files[category][size] = files
+
+                usage = get_song_usage(cards)
+                print(
+                    f"    · Balance de uso (min/max): {min(usage.values())}/{max(usage.values())}"
+                )
             else:
                 print(f'  ⚠️  No hay suficientes canciones para {size} (necesita {config["canciones"]}, tiene {len(songs)})')
     
