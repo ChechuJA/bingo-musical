@@ -48,9 +48,9 @@ def create_bingo_pptx(
     - card_style="list": lista vertical con checkboxes (estilo actual)
     - card_style="grid3x3": cuadrícula 3x3 (pensado para 8 canciones + 1 comodín)
 
-    Logo:
-    - official_logo_path: logo oficial (izquierda)
-    - logo_path: logo personalizado (derecha)
+    Logo (compatibilidad histórica):
+    - logo_path: logo principal (izquierda cuando hay doble logo)
+    - official_logo_path: logo secundario/oficial (derecha cuando hay doble logo)
     - logo_width: ancho/alto base para logos en pulgadas (default 0.8)
     - custom_logo_scale: multiplicador del logo personalizado (default 1.5)
     - official_logo_scale: multiplicador del logo oficial (default 0.8)
@@ -107,14 +107,14 @@ def create_bingo_pptx(
             custom_logo_height = logo_width * custom_logo_scale
             official_logo_height = logo_width * official_logo_scale
             if _official_logo and _official_logo.exists() and _custom_logo and _custom_logo.exists():
-                # Izquierda: logo personalizado (cliente)
+                # Izquierda: logo principal
                 slide.shapes.add_picture(
                     str(_custom_logo),
                     Inches(0.2),
                     Inches(0.1),
                     height=Inches(custom_logo_height),
                 )
-                # Derecha: logo oficial
+                # Derecha: logo secundario/oficial
                 pic_official = slide.shapes.add_picture(
                     str(_official_logo),
                     Inches(0),
@@ -231,11 +231,11 @@ def create_bingo_pptx(
                     left_x = x_pos + 0.12
                     right_anchor = Inches(x_pos + card_width - 0.12)
                     logo_y = y_pos + 0.08
-                    # Izquierda: logo personalizado (cliente)
+                    # Izquierda: logo principal
                     slide.shapes.add_picture(
                         str(_custom_logo), Inches(left_x), Inches(logo_y), height=Inches(custom_logo_height)
                     )
-                    # Derecha: logo oficial
+                    # Derecha: logo secundario/oficial
                     pic_official = slide.shapes.add_picture(
                         str(_official_logo), Inches(0), Inches(logo_y), height=Inches(official_logo_height)
                     )
