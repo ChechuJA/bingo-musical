@@ -120,9 +120,12 @@ def main() -> None:
     parser.add_argument("--pptx-out", required=True)
     parser.add_argument("--pdf", action="store_true")
     parser.add_argument("--pdf-out", default=None)
+    parser.add_argument("--logo", default=None, help="Ruta al logo principal/personalizado")
     parser.add_argument("--official-logo", default="images/logooficial.png")
     parser.add_argument("--logo-width", type=float, default=0.55)
+    parser.add_argument("--custom-logo-scale", type=float, default=1.5)
     parser.add_argument("--official-logo-scale", type=float, default=0.8)
+    parser.add_argument("--logo-position", default="top-left", choices=["top-left", "top-right", "top-center"])
     parser.add_argument("--force-cards-per-slide", type=int, default=4, choices=[1, 2, 3, 4])
     args = parser.parse_args()
 
@@ -146,11 +149,12 @@ def main() -> None:
         args.category,
         theme_colors,
         pptx_out,
-        logo_path=None,
+        logo_path=args.logo,
         official_logo_path=args.official_logo,
         logo_width=args.logo_width,
         official_logo_scale=args.official_logo_scale,
-        custom_logo_scale=1.0,
+        custom_logo_scale=args.custom_logo_scale,
+        logo_position=args.logo_position,
         card_style="grid",
         show_slide_title=False,
         show_card_number=False,

@@ -280,6 +280,46 @@ Antes de cerrar una tarea de BingoLoco, comprobar:
 - [ ] catálogo/página visible actualizado si aplica
 - [ ] inconsistencias detectadas comunicadas al usuario
 
+## ⚠️ TAREAS PENDIENTES (sesión 2026-05-27)
+
+### BUG CRÍTICO: Logos no se renderizan en los cartones generados por script
+
+**Síntoma:** Los PPTX generados por `generar-bingo-pena.py` y `generate-from-list.py`
+no muestran los logos aunque el fichero pesa ~1.58 MB (igual que el v5 que sí funciona).
+El usuario confirmó que visualmente los logos no aparecen en los cartones.
+
+**Lo que SÍ funciona:** `cartones-matagatos-doble-logo-v5.pptx` (1.59 MB) tiene logos visibles.
+
+**Comando que generó el v5 (referencia):**
+Buscar en historial git el commit que creó `cartones-matagatos-doble-logo-v5.pptx`
+y comparar los parámetros exactos con los actuales.
+
+**Investigar:**
+1. Abrir `cartones-matagatos-doble-logo-v5.pptx` y el nuevo `cartones-matagatos-80-90-2000.pptx`
+   en PowerPoint y comparar visualmente diapositiva 1.
+2. Revisar `scripts/pptx_utils.py` función `create_bingo_pptx()`:
+   - Confirmar qué parámetro es izquierda y cuál derecha (`official_logo_path` vs `logo_path`)
+   - Verificar que el bloque `if _official_logo and _official_logo.exists() and _custom_logo` en línea ~109
+     no está fallando silenciosamente por rutas
+3. Comparar tamaño real de imágenes embebidas con `python-pptx`:
+   ```python
+   from pptx import Presentation
+   prs = Presentation("cartones/matagatos/cartones-matagatos-80-90-2000.pptx")
+   slide = prs.slides[0]
+   for shape in slide.shapes:
+       print(shape.shape_type, shape.name)
+   ```
+4. Confirmar si el problema es que `--logo-position top-left` afecta al layout de logos.
+5. Revisar si hay diferencia en cómo se llamó el generador para el v5 (¿usó `generate-pptx.py` en vez de `generate-from-list.py`?).
+
+**Archivos clave:**
+- `scripts/pptx_utils.py` - lógica de inserción de logos
+- `scripts/generar-bingo-pena.py` - wrapper para peñas
+- `cartones/matagatos/cartones-matagatos-doble-logo-v5.pptx` - referencia que SÍ funciona
+- `cartones/matagatos/cartones-matagatos-80-90-2000.pptx` - el que falla
+
+---
+
 ## Escalation Rule
 Si detectas contradicciones entre datos, scripts y páginas públicas:
 1. detén la automatización destructiva

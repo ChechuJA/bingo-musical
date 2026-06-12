@@ -49,3 +49,6 @@ out/
 # Testing
 coverage/
 .nyc_output/
+
+# Hidden local-only prototypes (never commit)
+.private/
