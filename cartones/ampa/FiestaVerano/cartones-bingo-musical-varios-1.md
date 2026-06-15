@@ -82,7 +82,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 39 Paulina Rubio - Y yo sigo aquí
 5 - 31 Lola Indigo - La reina
 6 - 47 Sebastian Yatra - Tacones rojos
-7 - 5 Daddy Yankee - Gasolina
+7 - 5 Luis Fonsi - Despacito
 8 - 48 Juan Magan - Ayer la vi
 9 - 14 Don Omar - Danza Kuduro
 10 - 23 King Africa - Paquito el Chocolatero
@@ -134,7 +134,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 34 Estopa - Por la Raja de tu Falda
 5 - 19 Myke Towers - Esa Falda
 6 - 33 Proyecto Uno - El Tiburón
-7 - 5 Daddy Yankee - Gasolina
+7 - 5 Luis Fonsi - Despacito
 8 - 29 Luck Ra - La morocha
 9 - 48 Juan Magan - Ayer la vi
 10 - 23 King Africa - Paquito el Chocolatero
@@ -201,7 +201,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 2 - 45 King Africa - Bomba
 3 - 29 Luck Ra - La morocha
 4 - 34 Estopa - Por la Raja de tu Falda
-5 - 5 Daddy Yankee - Gasolina
+5 - 5 Luis Fonsi - Despacito
 6 - 24 El Canto del Loco - Zapatillas
 7 - 13 Nino Bravo - Libre
 8 - 33 Proyecto Uno - El Tiburón
@@ -215,7 +215,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 
 ## Cartón 13
 
-1 - 5 Daddy Yankee - Gasolina
+1 - 5 Luis Fonsi - Despacito
 2 - 48 Juan Magan - Ayer la vi
 3 - 8 Alaska - A quien le importa
 4 - 19 Myke Towers - Esa Falda
@@ -239,7 +239,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 5 - 26 Aitana - Las Babys
 6 - 37 La fiesta - Quiero montarme en tu velero
 7 - 45 King Africa - Bomba
-8 - 5 Daddy Yankee - Gasolina
+8 - 5 Luis Fonsi - Despacito
 9 - 48 Juan Magan - Ayer la vi
 10 - 4 Aitana - Superestrella
 11 - 39 Paulina Rubio - Y yo sigo aquí
@@ -268,7 +268,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 ## Cartón 16
 
 1 - 25 Los refrescos - Aquí no hay playa
-2 - 5 Daddy Yankee - Gasolina
+2 - 5 Luis Fonsi - Despacito
 3 - 26 Aitana - Las Babys
 4 - 20 La pegatina - Mari Carmen
 5 - 39 Paulina Rubio - Y yo sigo aquí
@@ -356,7 +356,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 1 - 26 Aitana - Las Babys
 2 - 11 Baby Lores - La mujer del pelotero
 3 - 37 La fiesta - Quiero montarme en tu velero
-4 - 5 Daddy Yankee - Gasolina
+4 - 5 Luis Fonsi - Despacito
 5 - 43 El simbolo - Levantando las manos
 6 - 24 El Canto del Loco - Zapatillas
 7 - 34 Estopa - Por la Raja de tu Falda
@@ -378,7 +378,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 5 - 17 Zapato veloz - Tractor amarillo
 6 - 32 Melendi - Caminando por la vida
 7 - 4 Aitana - Superestrella
-8 - 5 Daddy Yankee - Gasolina
+8 - 5 Luis Fonsi - Despacito
 9 - 13 Nino Bravo - Libre
 10 - 31 Lola Indigo - La reina
 11 - 28 Shakira - Pa Tipos Como Tú
@@ -446,7 +446,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 39 Paulina Rubio - Y yo sigo aquí
 5 - 6 Alejandro Sanz - Corazón Partío
 6 - 42 Isabel Aaiún - Potra Salvaje
-7 - 5 Daddy Yankee - Gasolina
+7 - 5 Luis Fonsi - Despacito
 8 - 47 Sebastian Yatra - Tacones rojos
 9 - 48 Juan Magan - Ayer la vi
 10 - 23 King Africa - Paquito el Chocolatero
@@ -550,7 +550,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 7 Raphael - Mi gran noche
 5 - 31 Lola Indigo - La reina
 6 - 48 Juan Magan - Ayer la vi
-7 - 5 Daddy Yankee - Gasolina
+7 - 5 Luis Fonsi - Despacito
 8 - 32 Melendi - Caminando por la vida
 9 - 37 La fiesta - Quiero montarme en tu velero
 10 - 6 Alejandro Sanz - Corazón Partío
@@ -602,7 +602,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 11 Baby Lores - La mujer del pelotero
 5 - 31 Lola Indigo - La reina
 6 - 48 Juan Magan - Ayer la vi
-7 - 5 Daddy Yankee - Gasolina
+7 - 5 Luis Fonsi - Despacito
 8 - 3 El Consorcio - El Chacacha del Tren
 9 - 37 La fiesta - Quiero montarme en tu velero
 10 - 41 Camela - Cuando zarpa el amor
@@ -914,7 +914,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 18 Amaral - Mis amigos
 5 - 24 El Canto del Loco - Zapatillas
 6 - 7 Raphael - Mi gran noche
-7 - 5 Daddy Yankee - Gasolina
+7 - 5 Luis Fonsi - Despacito
 8 - 8 Alaska - A quien le importa
 9 - 23 King Africa - Paquito el Chocolatero
 10 - 3 El Consorcio - El Chacacha del Tren
@@ -1083,7 +1083,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 
 1 - 40 Vicco - Nochentera
 2 - 42 Isabel Aaiún - Potra Salvaje
-3 - 5 Daddy Yankee - Gasolina
+3 - 5 Luis Fonsi - Despacito
 4 - 6 Alejandro Sanz - Corazón Partío
 5 - 41 Camela - Cuando zarpa el amor
 6 - 47 Sebastian Yatra - Tacones rojos
@@ -1261,7 +1261,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 36 Karol G - Si antes te hubiera conocido
 5 - 9 Radio Futura - Escuela de Calor
 6 - 43 El simbolo - Levantando las manos
-7 - 5 Daddy Yankee - Gasolina
+7 - 5 Luis Fonsi - Despacito
 8 - 16 Lolita - Sarandonga
 9 - 33 Proyecto Uno - El Tiburón
 10 - 20 La pegatina - Mari Carmen
@@ -1280,7 +1280,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 6 - 33 Proyecto Uno - El Tiburón
 7 - 19 Myke Towers - Esa Falda
 8 - 47 Sebastian Yatra - Tacones rojos
-9 - 5 Daddy Yankee - Gasolina
+9 - 5 Luis Fonsi - Despacito
 10 - 25 Los refrescos - Aquí no hay playa
 11 - 16 Lolita - Sarandonga
 12 - 30 Carlos Vives & Shakira - La Bicicleta
@@ -1307,7 +1307,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 
 ## Cartón 76
 
-1 - 5 Daddy Yankee - Gasolina
+1 - 5 Luis Fonsi - Despacito
 2 - 27 Chocolate Latino - Mayonesa
 3 - 8 Alaska - A quien le importa
 4 - 11 Baby Lores - La mujer del pelotero
@@ -1330,7 +1330,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 32 Melendi - Caminando por la vida
 5 - 31 Lola Indigo - La reina
 6 - 48 Juan Magan - Ayer la vi
-7 - 5 Daddy Yankee - Gasolina
+7 - 5 Luis Fonsi - Despacito
 8 - 14 Don Omar - Danza Kuduro
 9 - 47 Sebastian Yatra - Tacones rojos
 10 - 6 Alejandro Sanz - Corazón Partío
@@ -1364,7 +1364,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 3 - 1 Los Del Rio - La Macarena
 4 - 11 Baby Lores - La mujer del pelotero
 5 - 39 Paulina Rubio - Y yo sigo aquí
-6 - 5 Daddy Yankee - Gasolina
+6 - 5 Luis Fonsi - Despacito
 7 - 40 Vicco - Nochentera
 8 - 10 CNCO - Reguetón Lento
 9 - 13 Nino Bravo - Libre
@@ -1434,7 +1434,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 23 King Africa - Paquito el Chocolatero
 5 - 31 Lola Indigo - La reina
 6 - 7 Raphael - Mi gran noche
-7 - 5 Daddy Yankee - Gasolina
+7 - 5 Luis Fonsi - Despacito
 8 - 33 Proyecto Uno - El Tiburón
 9 - 42 Isabel Aaiún - Potra Salvaje
 10 - 4 Aitana - Superestrella
@@ -1471,7 +1471,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 6 - 14 Don Omar - Danza Kuduro
 7 - 3 El Consorcio - El Chacacha del Tren
 8 - 27 Chocolate Latino - Mayonesa
-9 - 5 Daddy Yankee - Gasolina
+9 - 5 Luis Fonsi - Despacito
 10 - 36 Karol G - Si antes te hubiera conocido
 11 - 32 Melendi - Caminando por la vida
 12 - 30 Carlos Vives & Shakira - La Bicicleta
@@ -1501,7 +1501,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 2 - 16 Lolita - Sarandonga
 3 - 25 Los refrescos - Aquí no hay playa
 4 - 36 Karol G - Si antes te hubiera conocido
-5 - 5 Daddy Yankee - Gasolina
+5 - 5 Luis Fonsi - Despacito
 6 - 23 King Africa - Paquito el Chocolatero
 7 - 40 Vicco - Nochentera
 8 - 19 Myke Towers - Esa Falda
@@ -1551,7 +1551,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 
 1 - 17 Zapato veloz - Tractor amarillo
 2 - 30 Carlos Vives & Shakira - La Bicicleta
-3 - 5 Daddy Yankee - Gasolina
+3 - 5 Luis Fonsi - Despacito
 4 - 39 Paulina Rubio - Y yo sigo aquí
 5 - 23 King Africa - Paquito el Chocolatero
 6 - 11 Baby Lores - La mujer del pelotero
@@ -1573,7 +1573,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 27 Chocolate Latino - Mayonesa
 5 - 6 Alejandro Sanz - Corazón Partío
 6 - 9 Radio Futura - Escuela de Calor
-7 - 5 Daddy Yankee - Gasolina
+7 - 5 Luis Fonsi - Despacito
 8 - 47 Sebastian Yatra - Tacones rojos
 9 - 1 Los Del Rio - La Macarena
 10 - 16 Lolita - Sarandonga
@@ -1623,7 +1623,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 2 - 22 Daddy Yankee - Gasolina
 3 - 18 Amaral - Mis amigos
 4 - 28 Shakira - Pa Tipos Como Tú
-5 - 5 Daddy Yankee - Gasolina
+5 - 5 Luis Fonsi - Despacito
 6 - 47 Sebastian Yatra - Tacones rojos
 7 - 35 Las ketchup - Asereje
 8 - 42 Isabel Aaiún - Potra Salvaje
@@ -1729,7 +1729,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 14 Don Omar - Danza Kuduro
 5 - 36 Karol G - Si antes te hubiera conocido
 6 - 34 Estopa - Por la Raja de tu Falda
-7 - 5 Daddy Yankee - Gasolina
+7 - 5 Luis Fonsi - Despacito
 8 - 12 Joaquín Sabina - Y nos dieron las 10
 9 - 23 King Africa - Paquito el Chocolatero
 10 - 25 Los refrescos - Aquí no hay playa
@@ -1890,7 +1890,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 9 - 21 Gente de zona - La Gozadera
 10 - 12 Joaquín Sabina - Y nos dieron las 10
 11 - 27 Chocolate Latino - Mayonesa
-12 - 5 Daddy Yankee - Gasolina
+12 - 5 Luis Fonsi - Despacito
 
 ---
 
@@ -1899,7 +1899,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 1 - 41 Camela - Cuando zarpa el amor
 2 - 36 Karol G - Si antes te hubiera conocido
 3 - 24 El Canto del Loco - Zapatillas
-4 - 5 Daddy Yankee - Gasolina
+4 - 5 Luis Fonsi - Despacito
 5 - 31 Lola Indigo - La reina
 6 - 18 Amaral - Mis amigos
 7 - 25 Los refrescos - Aquí no hay playa
@@ -1913,7 +1913,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 
 ## Cartón 111
 
-1 - 5 Daddy Yankee - Gasolina
+1 - 5 Luis Fonsi - Despacito
 2 - 19 Myke Towers - Esa Falda
 3 - 31 Lola Indigo - La reina
 4 - 6 Alejandro Sanz - Corazón Partío
@@ -2041,7 +2041,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 7 Raphael - Mi gran noche
 5 - 24 El Canto del Loco - Zapatillas
 6 - 32 Melendi - Caminando por la vida
-7 - 5 Daddy Yankee - Gasolina
+7 - 5 Luis Fonsi - Despacito
 8 - 35 Las ketchup - Asereje
 9 - 42 Isabel Aaiún - Potra Salvaje
 10 - 25 Los refrescos - Aquí no hay playa
@@ -2127,7 +2127,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 11 Baby Lores - La mujer del pelotero
 5 - 9 Radio Futura - Escuela de Calor
 6 - 24 El Canto del Loco - Zapatillas
-7 - 5 Daddy Yankee - Gasolina
+7 - 5 Luis Fonsi - Despacito
 8 - 43 El simbolo - Levantando las manos
 9 - 44 David Bisbal - Buleria
 10 - 20 La pegatina - Mari Carmen
@@ -2145,7 +2145,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 44 David Bisbal - Buleria
 5 - 27 Chocolate Latino - Mayonesa
 6 - 24 El Canto del Loco - Zapatillas
-7 - 5 Daddy Yankee - Gasolina
+7 - 5 Luis Fonsi - Despacito
 8 - 7 Raphael - Mi gran noche
 9 - 29 Luck Ra - La morocha
 10 - 25 Los refrescos - Aquí no hay playa
@@ -2280,7 +2280,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 1 - 26 Aitana - Las Babys
 2 - 42 Isabel Aaiún - Potra Salvaje
 3 - 8 Alaska - A quien le importa
-4 - 5 Daddy Yankee - Gasolina
+4 - 5 Luis Fonsi - Despacito
 5 - 27 Chocolate Latino - Mayonesa
 6 - 24 El Canto del Loco - Zapatillas
 7 - 10 CNCO - Reguetón Lento
@@ -2301,7 +2301,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 28 Shakira - Pa Tipos Como Tú
 5 - 42 Isabel Aaiún - Potra Salvaje
 6 - 43 El simbolo - Levantando las manos
-7 - 5 Daddy Yankee - Gasolina
+7 - 5 Luis Fonsi - Despacito
 8 - 23 King Africa - Paquito el Chocolatero
 9 - 25 Los refrescos - Aquí no hay playa
 10 - 19 Myke Towers - Esa Falda
@@ -2370,7 +2370,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 33 Proyecto Uno - El Tiburón
 5 - 12 Joaquín Sabina - Y nos dieron las 10
 6 - 7 Raphael - Mi gran noche
-7 - 5 Daddy Yankee - Gasolina
+7 - 5 Luis Fonsi - Despacito
 8 - 43 El simbolo - Levantando las manos
 9 - 34 Estopa - Por la Raja de tu Falda
 10 - 23 King Africa - Paquito el Chocolatero
@@ -2405,7 +2405,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 21 Gente de zona - La Gozadera
 5 - 15 Pereza - Princesa
 6 - 45 King Africa - Bomba
-7 - 5 Daddy Yankee - Gasolina
+7 - 5 Luis Fonsi - Despacito
 8 - 36 Karol G - Si antes te hubiera conocido
 9 - 38 David Civera - Que la detengan
 10 - 17 Zapato veloz - Tractor amarillo
@@ -2477,7 +2477,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 7 - 16 Lolita - Sarandonga
 8 - 38 David Civera - Que la detengan
 9 - 25 Los refrescos - Aquí no hay playa
-10 - 5 Daddy Yankee - Gasolina
+10 - 5 Luis Fonsi - Despacito
 11 - 36 Karol G - Si antes te hubiera conocido
 12 - 26 Aitana - Las Babys
 
@@ -2509,7 +2509,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 4 - 19 Myke Towers - Esa Falda
 5 - 15 Pereza - Princesa
 6 - 7 Raphael - Mi gran noche
-7 - 5 Daddy Yankee - Gasolina
+7 - 5 Luis Fonsi - Despacito
 8 - 42 Isabel Aaiún - Potra Salvaje
 9 - 38 David Civera - Que la detengan
 10 - 25 Los refrescos - Aquí no hay playa
@@ -2523,7 +2523,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 1 - 45 King Africa - Bomba
 2 - 15 Pereza - Princesa
 3 - 30 Carlos Vives & Shakira - La Bicicleta
-4 - 5 Daddy Yankee - Gasolina
+4 - 5 Luis Fonsi - Despacito
 5 - 31 Lola Indigo - La reina
 6 - 7 Raphael - Mi gran noche
 7 - 29 Luck Ra - La morocha
@@ -2574,7 +2574,7 @@ Este documento contiene el listado completo de las canciones de todos los carton
 
 1 - 41 Camela - Cuando zarpa el amor
 2 - 1 Los Del Rio - La Macarena
-3 - 5 Daddy Yankee - Gasolina
+3 - 5 Luis Fonsi - Despacito
 4 - 18 Amaral - Mis amigos
 5 - 31 Lola Indigo - La reina
 6 - 7 Raphael - Mi gran noche
