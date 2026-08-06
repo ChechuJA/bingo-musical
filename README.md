@@ -52,6 +52,9 @@
 
 ## 🚀 Quick Start
 
+### Descargas
+- **Descargas:** [La Corrala Escondida](https://github.com/ChechuJA/bingo-musical/tree/main/cartones/La%20Corrala%20Escondida/Descargas)
+
 ### Development
 No build process required! Just open `index.html` in a browser or use a simple HTTP server:
 
