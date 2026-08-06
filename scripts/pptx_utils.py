@@ -36,6 +36,12 @@ def create_bingo_pptx(
     footer_text: str = "bingomusicalgratis.es",
     font_title: str | None = None,
     font_artist: str | None = None,
+    source_song_numbers: dict[str, int] | None = None,
+    grid_columns: int = 3,
+    two_cards_layout: str = "side-by-side",
+    grid_title_font_max: int = 10,
+    grid_title_font_min: int = 7,
+    grid_font_scale: float = 9.0,
 ):
     """Crea presentación PowerPoint con cartones de bingo.
 
@@ -175,11 +181,18 @@ def create_bingo_pptx(
             song_font_size = 10
             song_height = 0.62
         elif layout_type == "horizontal_2":
-            card_width = 4.7
-            card_height = 7.2
-            spacing = 0.25
-            start_x = 0.15
-            start_y = 0.15 if not show_slide_title else 1.0
+            if two_cards_layout == "stacked":
+                card_width = 9.7
+                card_height = 3.45
+                spacing = 0.25
+                start_x = 0.15
+                start_y = 0.15 if not show_slide_title else 1.0
+            else:
+                card_width = 4.7
+                card_height = 7.2
+                spacing = 0.25
+                start_x = 0.15
+                start_y = 0.15 if not show_slide_title else 1.0
             song_font_size = 10
             song_height = 0.48
         else:
@@ -200,8 +213,12 @@ def create_bingo_pptx(
                 x_pos = start_x + col * (card_width + spacing_x)
                 y_pos = start_y + row * (card_height + spacing_y)
             else:
-                x_pos = start_x + (card_width + spacing) * card_pos
-                y_pos = start_y
+                if layout_type == "horizontal_2" and two_cards_layout == "stacked":
+                    x_pos = start_x
+                    y_pos = start_y + (card_height + spacing) * card_pos
+                else:
+                    x_pos = start_x + (card_width + spacing) * card_pos
+                    y_pos = start_y
 
             card_shape = slide.shapes.add_shape(
                 1,  # Rectangle
@@ -245,9 +262,16 @@ def create_bingo_pptx(
                     _lh = custom_logo_height
                     _lx = x_pos + (card_width - _lh) / 2
                     _ly = y_pos + 0.1
-                    slide.shapes.add_picture(
+                    pic_custom = slide.shapes.add_picture(
                         str(_custom_logo), Inches(_lx), Inches(_ly), height=Inches(_lh)
                     )
+                    # If the header image is very wide, keep it inside the card bounds.
+                    max_logo_w = int(Inches(card_width - 0.24))
+                    if pic_custom.width > max_logo_w:
+                        pic_custom.width = max_logo_w
+                    card_left = int(Inches(x_pos))
+                    card_width_emu = int(Inches(card_width))
+                    pic_custom.left = int(card_left + (card_width_emu - pic_custom.width) / 2)
                 elif has_official:
                     logo_area_h = official_logo_height + 0.1
                     _lh = official_logo_height
@@ -288,9 +312,9 @@ def create_bingo_pptx(
                 )
 
             if card_style == "grid" and card_style != "grid3x3":
-                # Cuadrícula genérica: 3 columnas, filas calculadas automáticamente
+                # Cuadrícula genérica: columnas configurables, filas calculadas automáticamente
                 n_songs = len(card)
-                cols = 3
+                cols = max(1, int(grid_columns))
                 rows = (n_songs + cols - 1) // cols
 
                 footer_h = 0.20
@@ -304,7 +328,10 @@ def create_bingo_pptx(
                 cell_h = grid_h / rows
 
                 # Fuente adaptativa al tamaño de celda
-                cell_font_title = min(10, max(7, int(cell_h * 9)))
+                cell_font_title = min(
+                    grid_title_font_max,
+                    max(grid_title_font_min, int(cell_h * grid_font_scale)),
+                )
                 cell_font_artist = max(6, cell_font_title - 2)
 
                 def _split_song(s: str) -> tuple[str, str]:
@@ -334,6 +361,21 @@ def create_bingo_pptx(
                     cell_shape.line.width = Pt(1.0)
 
                     title_str, artist_str = _split_song(song)
+                    song_number = source_song_numbers.get(song) if source_song_numbers else None
+                    if song_number is None:
+                        song_number = idx + 1
+                    numbered_title = f"{song_number}. {title_str}"
+
+                    # Auto-shrink: reducir fuente si el título es largo
+                    title_len = len(numbered_title)
+                    if title_len <= 18:
+                        actual_font_title = cell_font_title
+                    elif title_len <= 28:
+                        actual_font_title = max(grid_title_font_min, cell_font_title - 2)
+                    elif title_len <= 38:
+                        actual_font_title = max(grid_title_font_min, cell_font_title - 4)
+                    else:
+                        actual_font_title = max(grid_title_font_min, cell_font_title - 6)
 
                     tb = slide.shapes.add_textbox(
                         Inches(cx + 0.03),
@@ -348,9 +390,9 @@ def create_bingo_pptx(
                     p1 = tf.paragraphs[0]
                     p1.alignment = PP_ALIGN.CENTER
                     run1 = p1.add_run()
-                    run1.text = title_str
+                    run1.text = numbered_title
                     run1.font.bold = True
-                    run1.font.size = Pt(cell_font_title)
+                    run1.font.size = Pt(actual_font_title)
                     run1.font.color.rgb = RGBColor(20, 20, 20)
                     if font_title:
                         run1.font.name = font_title
@@ -500,7 +542,10 @@ def create_bingo_pptx(
                     song_frame = song_text.text_frame
                     song_frame.word_wrap = True
 
-                    song_frame.text = f"{song_idx + 1}. {_clean_song(song)}"
+                    song_number = source_song_numbers.get(song) if source_song_numbers else None
+                    if song_number is None:
+                        song_number = song_idx + 1
+                    song_frame.text = f"{song_number}. {_clean_song(song)}"
                     song_p = song_frame.paragraphs[0]
                     song_p.font.size = Pt(song_font_size)
                     song_p.font.color.rgb = RGBColor(40, 40, 40)

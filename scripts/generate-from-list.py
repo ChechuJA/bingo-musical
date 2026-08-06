@@ -152,6 +152,23 @@ def parse_song_list(md_path: Path) -> list[str]:
     return songs
 
 
+def parse_song_numbers(md_path: Path) -> dict[str, int]:
+    """Devuelve un mapa {cancion: numero_original} desde el listado maestro."""
+    line_re = re.compile(r"^\s*(\d+)\.\s+(.*)\s*$")
+    song_numbers: dict[str, int] = {}
+
+    for raw in md_path.read_text(encoding="utf-8").splitlines():
+        m = line_re.match(raw)
+        if not m:
+            continue
+        num = int(m.group(1))
+        song = m.group(2).strip()
+        if song:
+            song_numbers[song] = num
+
+    return song_numbers
+
+
 def _distribution_score(
     counts: dict[str, int],
     candidate: set[str],
@@ -293,7 +310,13 @@ def generate_unique_cards(
     return cards
 
 
-def write_cards_markdown(output_path: Path, category: str, size: str, cards: list[list[str]]) -> None:
+def write_cards_markdown(
+    output_path: Path,
+    category: str,
+    size: str,
+    cards: list[list[str]],
+    source_song_numbers: dict[str, int] | None = None,
+) -> None:
     parts: list[str] = []
     parts.append(f"# Cartones de Bingo Musical - {category} ({size})")
     parts.append("")
@@ -306,7 +329,10 @@ def write_cards_markdown(output_path: Path, category: str, size: str, cards: lis
         parts.append(f"## Cartón {idx}")
         parts.append("")
         for song_idx, song in enumerate(card, 1):
-            parts.append(f"{song_idx}. {song}")
+            track_num = source_song_numbers.get(song) if source_song_numbers else None
+            if track_num is None:
+                track_num = song_idx
+            parts.append(f"{track_num}. {song}")
         parts.append("")
         parts.append("---")
         parts.append("")
@@ -391,6 +417,7 @@ def run_wizard() -> argparse.Namespace:
         sys.exit(1)
 
     songs = parse_song_list(songs_md)
+    source_song_numbers = parse_song_numbers(songs_md)
     print(f"  OK - {len(songs)} canciones cargadas.")
 
     out_folder = songs_md.parent
@@ -589,6 +616,7 @@ def main() -> None:
         random.seed(args.seed)
 
     songs = parse_song_list(songs_md)
+    source_song_numbers = parse_song_numbers(songs_md)
 
     if not (0 <= args.max_overlap_ratio <= 1):
         raise SystemExit("❌ --max-overlap-ratio debe estar entre 0 y 1")
@@ -609,7 +637,13 @@ def main() -> None:
     )
 
     # Flujo obligatorio: primero guardar Markdown para revisión humana
-    write_cards_markdown(out_md, args.category, args.size, cards)
+    write_cards_markdown(
+        out_md,
+        args.category,
+        args.size,
+        cards,
+        source_song_numbers=source_song_numbers,
+    )
 
     # Validación sobre el archivo real generado, no sobre memoria
     cards_from_md = load_cards_from_markdown(out_md)
@@ -674,6 +708,7 @@ def main() -> None:
             force_cards_per_slide=args.force_cards_per_slide,
             font_title=getattr(args, 'font_title', None),
             font_artist=getattr(args, 'font_artist', None),
+            source_song_numbers=source_song_numbers,
         )
 
         if getattr(args, "pdf_out", None):

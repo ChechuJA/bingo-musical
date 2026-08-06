@@ -1,0 +1,21 @@
+C:\Users\administrador.OLIMPO\AppData\Local\Temporary Projects\BingoMusical\bin\Debug\BingoMusical.exe
+C:\Users\administrador.OLIMPO\AppData\Local\Temporary Projects\BingoMusical\bin\Debug\BingoMusical.pdb
+C:\Users\administrador.OLIMPO\AppData\Local\Temporary Projects\BingoMusical\bin\Debug\BingoMusical.xml
+C:\Users\administrador.OLIMPO\AppData\Local\Temporary Projects\BingoMusical\obj\x86\Debug\BingoMusical.Form1.resources
+C:\Users\administrador.OLIMPO\AppData\Local\Temporary Projects\BingoMusical\obj\x86\Debug\BingoMusical.Resources.resources
+C:\Users\administrador.OLIMPO\AppData\Local\Temporary Projects\BingoMusical\obj\x86\Debug\BingoMusical.vbproj.GenerateResource.Cache
+C:\Users\administrador.OLIMPO\AppData\Local\Temporary Projects\BingoMusical\obj\x86\Debug\BingoMusical.exe
+C:\Users\administrador.OLIMPO\AppData\Local\Temporary Projects\BingoMusical\obj\x86\Debug\BingoMusical.xml
+C:\Users\administrador.OLIMPO\AppData\Local\Temporary Projects\BingoMusical\obj\x86\Debug\BingoMusical.pdb
+C:\Users\administrador.OLIMPO\Documents\Visual Studio 2010\Projects\BingoMusical\BingoMusical\obj\x86\Debug\BingoMusical.exe
+C:\Users\administrador.OLIMPO\Documents\Visual Studio 2010\Projects\BingoMusical\BingoMusical\obj\x86\Debug\BingoMusical.xml
+C:\Users\administrador.OLIMPO\Documents\Visual Studio 2010\Projects\BingoMusical\BingoMusical\obj\x86\Debug\BingoMusical.pdb
+C:\Users\administrador.OLIMPO\Documents\Visual Studio 2010\Projects\BingoMusical\BingoMusical\bin\Debug\BingoMusical.exe
+C:\Users\administrador.OLIMPO\Documents\Visual Studio 2010\Projects\BingoMusical\BingoMusical\bin\Debug\BingoMusical.pdb
+C:\Users\administrador.OLIMPO\Documents\Visual Studio 2010\Projects\BingoMusical\BingoMusical\bin\Debug\BingoMusical.xml
+C:\Users\administrador.OLIMPO\Documents\Visual Studio 2010\Projects\BingoMusical\BingoMusical\obj\x86\Debug\BingoMusical.Form1.resources
+C:\Users\administrador.OLIMPO\Documents\Visual Studio 2010\Projects\BingoMusical\BingoMusical\obj\x86\Debug\BingoMusical.Resources.resources
+C:\Users\administrador.OLIMPO\Documents\Visual Studio 2010\Projects\BingoMusical\BingoMusical\obj\x86\Debug\BingoMusical.vbproj.GenerateResource.Cache
+C:\Users\administrador.OLIMPO\Documents\Visual Studio 2010\Projects\BingoMusical\BingoMusical\bin\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\administrador.OLIMPO\Documents\Visual Studio 2010\Projects\BingoMusical\BingoMusical\obj\x86\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\administrador.OLIMPO\Documents\Visual Studio 2010\Projects\BingoMusical\BingoMusical\obj\x86\Debug\BingoMusical.vbproj.ResolveComReference.cache
