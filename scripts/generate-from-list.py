@@ -135,7 +135,7 @@ def export_pptx_to_pdf(pptx_path: Path, pdf_out: Path) -> Path:
 
 
 def parse_song_list(md_path: Path) -> list[str]:
-    line_re = re.compile(r"^\s*(\d+)\.\s+(.*)\s*$")
+    line_re = re.compile(r"^\s*(\d+)(?:\.\s*|\s+)(.*)\s*$")
     songs: list[str] = []
 
     for raw in md_path.read_text(encoding="utf-8").splitlines():
@@ -154,7 +154,7 @@ def parse_song_list(md_path: Path) -> list[str]:
 
 def parse_song_numbers(md_path: Path) -> dict[str, int]:
     """Devuelve un mapa {cancion: numero_original} desde el listado maestro."""
-    line_re = re.compile(r"^\s*(\d+)\.\s+(.*)\s*$")
+    line_re = re.compile(r"^\s*(\d+)(?:\.\s*|\s+)(.*)\s*$")
     song_numbers: dict[str, int] = {}
 
     for raw in md_path.read_text(encoding="utf-8").splitlines():
